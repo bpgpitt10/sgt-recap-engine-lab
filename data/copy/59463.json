@@ -1,72 +1,72 @@
 {
-  "thirtySeconds": "KeithK75 won the net race at Shinnecock by eight shots, posting +1 while HamSammich settled for +9 and MashedBROtato trailed at +15. The challengers were not exactly threatening the clubhouse furniture: Dan94 and DREADFUL both finished +27, with IUDoc92 at +32 and Leroy4522 at +28. Keith also took gross at -3, backed by a ridiculous 17.79 total strokes gained, including 8.05 on approach and 6.68 around the greens. Dan was the raw runner-up at +19, but the rest of the field turned Shinnecock into a long-form argument against ball-striking.",
-  "latestTournamentTeaser": "KeithK75 ran away with the net title at Shinnecock Hills, winning by eight shots at +1 and taking gross too at -3. Behind him, Dan94’s +19 gross was the only remotely tidy raw round in a field that otherwise treated fairways and greens like optional side quests.",
+  "thirtySeconds": "KeithK75 won the net race at Shinnecock Hills by eight shots, posting +1 while HamSammich finished second at +9. MashedBROtato was third at +15, with Dan94 and DREADFUL both at +27. The raw-golf scoreboard backed up the result: Keith also won gross at -3, gaining 17.79 strokes overall, including 8.05 on approach and 6.68 around the green. Dan94 was the gross runner-up at +19, while the rest of the field wandered deep into the numbers.",
+  "latestTournamentTeaser": "KeithK75 ran away with the net title at Shinnecock Hills, winning by eight and taking gross honors at -3. Behind him, Dan94's +19 gross was solid enough for second, while HamSammich somehow turned +37 gross into the net runner-up spot.",
   "carnage": [
     {
       "name": "Dan94",
-      "commentary": "This started with a 229-yard drive into deep rough, then became a nine-shot hostage situation. Dan needed five more swings just to find the fairway, stalled at zero yards to the hole, finally reached the green from 27 yards, and two putts plus a gimmie later had converted a par five into a four-over crime scene."
+      "commentary": "A 229-yard opener into deep rough started the mess, and the recovery tour got worse from there: 127 yards to fairway, 170 more to fairway, then repeated attempts to escape from seven yards out. After finally reaching the green from 27 yards, he left a 19-footer one foot short and tapped in for a nine. That is not a hole; that is a small infrastructure project."
     },
     {
       "name": "IUDoc92",
-      "commentary": "A 163-yard tee ball into deep rough was merely the opening act. From there came sand, repeated fairway misses, a 30-yard pitch to 26 feet, and a 25-foot putt left one foot short. Eight shots: the hole never got better, it just eventually ran out of places to go."
+      "commentary": "The first shot found deep rough, the second found sand, and then the next three somehow kept finding fairway from 42, 42, and 41 yards out. A 30-yard pitch finally reached the green, followed by a 25-footer left one foot short. Eight strokes later, the ball was legally in the hole and everyone could go home."
     },
     {
       "name": "DREADFUL",
-      "commentary": "The first ball found deep rough from 119 yards, and the recovery plan immediately dissolved. Four swings later the ball was still wandering between fairway and deep rough, followed by a 19-yard pitch and an 11-footer that finished one foot away. Seven on a par three, with the tap-in doing all the administrative work."
+      "commentary": "A 119-yard shot into deep rough on a par three was only the opening act. The next four shots bounced between fairway, deep rough, and green-side territory before a 12-footer was left one foot short. Seven strokes for a par three, with four separate attempts just to become vaguely golf-adjacent."
     },
     {
       "name": "Leroy4522",
-      "commentary": "A 213-yard miss into deep rough turned into a 12-yard approach and then a putting marathon: 41 feet, 20 feet, 14 feet, and finally a three-footer. Eight shots total, seven net, and enough lag putting to make the hole feel like a hostage negotiation."
+      "commentary": "The drive went 213 yards into deep rough, then the approach wandered to fairway and another fairway before a 12-yard pitch left 32 feet. Three putts later, including a 41-footer and a 20-footer, the ball finally reached tap-in range. Eight strokes, seven of them apparently committed to making the green feel unwelcome."
     },
     {
       "name": "HamSammich",
-      "commentary": "Ham’s 144-yard tee shot went deep rough, and every attempted escape found more deep rough until shot four finally reached the fairway. From eight yards out he still needed a six-yard pitch and a six-footer before the gimmie arrived. Seven gross, six net—somehow the handicap department found a coupon in the wreckage."
+      "commentary": "The opening three shots went deep rough, deep rough, deep rough, shrinking the hole from 234 yards to 46 without ever locating a useful surface. Two more recovery shots reached eight yards, then a six-yard chip got to six feet. The tap-in seven was technically a finish, but the route there looked like a search party."
     },
     {
       "name": "KeithK75",
-      "commentary": "Even the champ had one ugly patch: fairway, green, then deep rough on the third swing, with the shot sequence skipping from three to five because the data skips shot four. He eventually reached the green from 23 yards and made the 11-footer for a seven, which is what dominance looks like when it briefly trips over its own shoelaces."
+      "commentary": "The drive found fairway and the next shot reached the green, so naturally the third went 165 yards into deep rough. The shot log then jumps from three to five, with the next recorded effort still 158 yards from deep rough, before a 23-yard pitch and an 11-footer cleaned up the seven. Even the winner had one hole where the simulator tried to file a missing-person report."
     },
     {
       "name": "MashedBROtato",
-      "commentary": "A 130-yard tee ball into rough was followed by a 38-yard detour to the fairway and a 21-yard pitch to 19 feet. The 17-footer finished two feet short, leaving a tap-in for five. Two over on a par three: not catastrophic by this field’s standards, but still a full tour of the neighborhood."
+      "commentary": "A 130-yard shot found rough, the next went 38 yards to fairway, and a third finally reached the green from 21 yards. From there came a 17-footer left two feet short and the mandatory tap-in. Five on a par three is not catastrophic by this field's standards, but it was still a full-length scenic route."
     }
   ],
   "players": [
     {
       "name": "KeithK75",
-      "tagline": "Approach play so sharp it needed a warning label",
-      "body": "KeithK75 won both competitions, taking net at +1 and gross at -3, with an eight-shot net cushion over HamSammich. The numbers were brutal: 17.79 total strokes gained, led by 8.05 on approach and 6.68 in the short game, plus 2.44 putting. He hit 10 greens, made four birdies, avoided every bogey and double bogey, and needed only 24 putts with no three-putts. His worst hole was still a seven after a deep-rough detour, a skipped shot entry between three and five, and a made 11-footer. Across seven prior starts, Keith already owned a 1.57 average gross finish, four gross wins, and 12.4 average total SG; this round confirms that the raw-golf machine is not making much noise because it is too busy winning."
+      "tagline": "Approach shots so good they made the fairway optional",
+      "body": "KeithK75 took both competitions at Shinnecock Hills, winning net at +1 and gross at -3. The eight-shot net gap over HamSammich was backed by the best raw performance in the field: 17.79 total strokes gained, with 15.35 tee to green, 8.05 on approach, and 6.68 in the short game. He hit 10 greens, made four birdies, avoided every bogey, and needed only 24 putts. The ugly spot was the seven, where a fairway start turned into deep rough, a 19-yard recovery, and an 11-foot make after the shot log skips from three to five. Even that looked like a speed bump. With seven prior starts, four gross wins and two net wins, this was another strong confirmation that Keith's raw golf is the class of the group."
     },
     {
       "name": "HamSammich",
-      "tagline": "The longest drive was not the longest part of the hole",
-      "body": "HamSammich grabbed second in net at +9, but the raw card was +37, third gross, and the gap between those numbers tells the story. He gained 2.37 putting and 0.66 off the tee, but lost 2.06 on approach and 1.58 tee to green, while hitting only four greens. Seven bogeys and four doubles left plenty of damage for the handicap math to clean up. The worst hole featured a deep-rough festival from the tee through shot three before he finally reached the fairway, then needed a six-yard pitch and a six-footer for a net six. His five-start history is built on strong net finishes but negative SG overall at -2.19 per appearance, so this was another net result carried by survival rather than clean ball-striking."
+      "tagline": "A long hitter conducting a four-round search for a green",
+      "body": "HamSammich finished second in net at +9 despite a +37 gross card, eight shots behind Keith and 18 clear of MashedBROtato. The scoreboard owes plenty to the net result, because the raw golf was barely positive at 0.79 strokes gained: 0.66 off the tee and 2.37 putting, dragged down by -2.06 approach and -1.58 tee to green. Four greens in regulation, seven bogeys, four doubles, and 29 putts tell the story. His worst hole was a seven after three straight deep-rough visits, followed by two more recovery shots before a six-yard pitch. Still, the net runner-up finish fits a five-start profile that has produced plenty of net contention despite -2.19 average total SG and no wins."
     },
     {
       "name": "MashedBROtato",
-      "tagline": "Thirty-five miles per hour of drive and three fairways of accuracy",
-      "body": "MashedBROtato finished third net at +15 and fourth gross at +39, gaining 4.79 strokes total with a useful 3.07 on approach and 4.77 tee to green. The problem was the scorecard: only three fairways and six greens, followed by eight bogeys and two doubles. He did find three birdies, including a 25-footer on a net eagle at the notable 12th, but the broader round was too leaky to hold together. The worst hole was a five on a par three after rough, fairway, a 21-yard pitch, and a 17-footer that stopped two feet short. His seven-start profile is volatile, with a slightly negative average total SG of -0.06 despite one net and one gross win; this was a better ball-striking day than the score suggests, just not a clean one."
+      "tagline": "Bombs it 305 and then asks the short game to explain itself",
+      "body": "MashedBROtato took third in net at +15 and fourth gross at +39, with a respectable 4.79 total strokes gained that could not survive eight bogeys and two doubles. The raw strengths were approach at 3.07 and tee to green at 4.77, helped by a 317-yard longest drive, but only three fairways and six greens made the course a recurring recovery exercise. The putting number was essentially neutral at 0.02, and the five on the par three came through rough, fairway, green, and a two-foot miss before the tap-in. He did flash better golf with three birdies, including a 25-foot make and a net two, but seven prior starts show a volatile profile: one net win, one gross win, and average SG almost exactly neutral at -0.06."
     },
     {
       "name": "Dan94",
-      "tagline": "A fairway-finding machine with one deeply cursed par five",
-      "body": "Dan94 was the raw runner-up at +19 and finished fourth net at +27, a sharp reminder that net is the league scoreboard. He gained 6.79 total strokes, with 3.63 on approach and 5.71 tee to green, hit eight fairways, and had zero doubles or three-putts. But eight bogeys erased the tidy parts, and the par five disaster was spectacular: a 229-yard drive into deep rough, five more swings before reaching the green area, then a 19-footer and gimmie for nine. His seven-start history remains much kinder to his gross golf—1.71 average gross finish and 11.97 average total SG—than to his net results, with no net wins. This round fit that profile exactly: quality raw work, expensive mistakes, and no net trophy."
+      "tagline": "The fairways were fine; the scorecard was not",
+      "body": "Dan94 was fourth in net at +27 but second in gross at +19, the clearest example of the net and gross boards telling different stories. His 6.79 total strokes gained was second-best among the challengers, powered by 3.63 approach, 1.47 short game, and 5.71 tee to green. He hit eight fairways and seven greens, but eight bogeys erased the cleaner ball-striking. The nine came after a 229-yard drive into deep rough, three more awkward recovery shots, and a 27-yard pitch before a 19-footer was left one foot short. Across seven prior starts, Dan94 owns two gross wins and a strong 11.97 average total SG, so the raw result was no fluke; the net number just refused to cooperate."
     },
     {
       "name": "DREADFUL",
-      "tagline": "The ball-striking filed a restraining order against the hole",
-      "body": "DREADFUL finished +27 net and +75 gross, with a total SG of -12.21 that was negative everywhere: -6.09 off the tee, -1.34 approach, -0.44 short game, and -4.34 putting. Three greens, 35 putts, three three-putts, four bogeys, and eight doubles made the scorecard look like it had been assembled during a power outage. The worst hole was a seven on a par three after the tee shot found deep rough, the next escape found fairway, the next stayed short, and shot four went back to deep rough before a 12-footer and tap-in. His seven prior starts already showed -6.33 average total SG, 5.71 greens per round, and 4.14 doubles per appearance; Shinnecock did not challenge that profile so much as underline it in permanent marker."
+      "tagline": "The name got a full statistical audit",
+      "body": "DREADFUL finished fifth in net at +27 and sixth gross at +75 after losing 12.21 strokes overall. The damage was everywhere: -6.09 off the tee, -1.34 approach, -0.44 short game, and -4.34 putting, with only three greens, 35 putts, three three-putts, four bogeys, and eight doubles. The seven began with a 119-yard shot into deep rough and continued through four more scrambling attempts before a 12-footer was left one foot short. That hole was a neat summary of the day, but the broader result also matches a seven-start profile averaging -6.33 total SG, 5.71 greens, and 4.14 doubles per appearance. There were a couple of net birdie moments, but not enough to stop the wheels coming off."
     },
     {
       "name": "IUDoc92",
-      "tagline": "One holed-out highlight surrounded by a lot of rough draft",
-      "body": "IUDoc92 finished sixth net at +32 and fifth gross at +72, losing 10.21 total strokes. The tee-to-green number was -7.84, short game -3.90, putting -2.36, and only two greens were hit. The scorecard did contain a genuine bright spot: a hole-out from 18 yards for a net eagle, plus a made nine-footer elsewhere. Unfortunately, the worst hole went the other direction, with deep rough off the tee, sand, repeated fairway misses, and a 30-yard pitch before an eight-foot-something finish from 26 feet. His seven-start history shows a strong net average finish of 5.43 but -9.32 total SG per appearance, so the net-friendly result remains possible while the underlying golf keeps demanding emergency repairs."
+      "tagline": "One holed-out eagle-shaped miracle against a lot of rough",
+      "body": "IUDoc92 finished sixth in net at +32 and fifth gross at +72, gaining -10.21 strokes overall. The breakdown was rough: -3.49 tee, -0.45 approach, -3.90 short game, and -2.36 putting, with just two greens in regulation and 34 putts. The worst hole required eight shots after the opening ball found deep rough, the next found sand, and three more attempts failed to produce a clean route before a 30-yard pitch. There was one undeniable highlight: an 18-yard hole-out for a net three, plus a made nine-footer elsewhere. But seven prior starts have produced -9.32 average total SG, 4.29 greens, and 3.57 doubles per appearance, so the flashes remain buried under too much damage."
     },
     {
       "name": "Leroy4522",
-      "tagline": "The greens were visible, technically",
-      "body": "Leroy4522 finished seventh in both net and gross, at +28 and +55, while losing 11.21 total strokes. He hit one green, lost 3.55 off the tee, 2.04 on approach, 4.05 around the green, and another 1.56 with the putter. The one-green performance came with 36 putts and four three-putts, although the 107 feet of putts made shows he at least got plenty of reps. His worst hole required deep rough, fairway, more fairway, rough, and then three putts from 32 feet for an eight. Seven prior starts point to a familiar problem: -5.74 average total SG and -4.36 on approach, with a 6.86 average net finish. Shinnecock was not a break from the pattern; it was the pattern wearing a louder shirt."
+      "tagline": "The putting stats are doing all the heavy lifting",
+      "body": "Leroy4522 finished seventh in both net and gross, at +28 and +55 respectively, losing 11.21 strokes overall. Only one green in regulation set the tone, while -3.55 off the tee, -2.04 approach, and -4.05 short game left the putting to mop up a nine-foot average proximity number and 36 total putts. The eight came after a deep-rough drive, two fairway detours, a 32-foot leave, and three straight putts from 41, 20, and 14 feet. He did post a net three and a level four on the back side, but seven prior starts show the same broad struggle: -5.74 average total SG, -4.36 approach, and an average net finish of 6.86. The occasional rescue is real; the sustained escape route is not."
     }
   ],
-  "stateOfLeague": "KeithK75’s two-competition sweep strengthens an already clear profile: seven prior starts, four gross wins, two net wins, and now another dominant raw performance at 17.79 total SG. Dan94 remains the strongest gross challenger on the evidence, but HamSammich’s net runner-up finish shows how far the net race can separate from raw scoring; the leaderboard is not simply ranking the prettiest golf."
+  "stateOfLeague": "KeithK75 did more than win the net title: he also owned the gross board and posted the field's best raw performance by a mile. The event strengthens his seven-start profile as the league's most reliable all-around ball-striker, while Dan94's second-place gross finish and HamSammich's net runner-up spot underline the league's central tension: solid raw golf and useful net golf are not always the same thing."
 }
