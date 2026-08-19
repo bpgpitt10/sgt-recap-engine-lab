@@ -53,12 +53,12 @@ def parse_scorecard(html: str | None) -> dict:
         if not hole_row or not par_row:
             continue
 
-        labels = [text(cell) for cell in hole_row.find_all("td")][1:]
-        pars = [as_int(text(cell)) for cell in par_row.find_all("td")][1:]
+        labels = [text(cell) for cell in hole_row.find_all("td", recursive=False)][1:]
+        pars = [as_int(text(cell)) for cell in par_row.find_all("td", recursive=False)][1:]
         gross_values = None
         net_values = None
         for row in score_rows:
-            cells = row.find_all("td")
+            cells = row.find_all("td", recursive=False)
             if not cells:
                 continue
             label = (text(cells[0]) or "").upper()
