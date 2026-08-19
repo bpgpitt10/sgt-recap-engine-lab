@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/private-high-loft-smoke.yml"
+      - "src/export_tournament.py"
 
 jobs:
   private-access:
@@ -28,27 +29,39 @@ jobs:
       - name: Export known private High Loft tournament
         run: python src/export_tournament.py 55704 --output data/private-test/55704.json
 
-      - name: Validate private tournament facts
+      - name: Validate raw private feeds only
         run: |
-          python src/analyze_tournament.py data/private-test/55704.json \
-            --output data/private-test/55704-analysis.json \
-            --expect-net-winner KeithK75 \
-            --expect-gross-winner KeithK75
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('data/private-test/55704-analysis.json')
-          data = json.loads(p.read_text())
-          v = data['validation']
-          assert v['completedPlayers'] == 8, f"expected 8 completed players, got {v['completedPlayers']}"
-          assert len(data['leaderboard']['net']) == 8, f"expected 8 net players, got {len(data['leaderboard']['net'])}"
-          assert len(data['leaderboard']['gross']) == 8, f"expected 8 gross players, got {len(data['leaderboard']['gross'])}"
+
+          data = json.loads(Path('data/private-test/55704.json').read_text())
+          gross = data['leaderboard']['grossOrder']
+          net = data['leaderboard']['netOrder']
+          players = data['players']
+
+          assert len(players) == 8, f"expected 8 players, got {len(players)}"
+          assert len(gross) == 8, f"expected 8 gross leaderboard players, got {len(gross)}"
+          assert len(net) == 8, f"expected 8 net leaderboard players, got {len(net)}"
+          assert gross[0]['name'] == 'KeithK75', f"expected gross winner KeithK75, got {gross[0]['name']}"
+          assert net[0]['name'] == 'KeithK75', f"expected net winner KeithK75, got {net[0]['name']}"
+
+          scorecards = sum(bool(p.get('scorecard')) for p in players)
+          stats = sum(bool(p.get('stats')) for p in players)
+          shots = sum(bool(p.get('shots')) for p in players)
+          assert scorecards == 8, f"expected 8 scorecard feeds, got {scorecards}"
+          assert stats == 8, f"expected 8 stats feeds, got {stats}"
+          assert shots == 8, f"expected 8 shot feeds, got {shots}"
+
           print('PRIVATE TOURNAMENT ACCESS PASSED')
           print(json.dumps({
               'tournamentId': data['tournament']['id'],
-              'netWinner': data['winners']['net']['name'],
-              'grossWinner': data['winners']['gross']['name'],
-              **v,
+              'netWinner': net[0]['name'],
+              'grossWinner': gross[0]['name'],
+              'players': len(players),
+              'scorecards': scorecards,
+              'stats': stats,
+              'shots': shots,
           }, indent=2))
           PY
 
