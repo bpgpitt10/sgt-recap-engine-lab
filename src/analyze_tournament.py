@@ -9,6 +9,8 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# SGT scorecard markup can contain malformed row nesting; parse only direct row cells.
+
 
 def text(node) -> str | None:
     if not node:
