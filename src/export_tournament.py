@@ -20,7 +20,7 @@ def build_opener() -> urllib.request.OpenerDirector:
     jar = CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
     opener.addheaders = [
-        ("User-Agent", "Mozilla/5.0 (compatible; SGTRecapEngineLab/0.3)"),
+        ("User-Agent", "Mozilla/5.0 (compatible; SGTRecapEngineLab/0.4)"),
         ("Accept-Language", "en-US,en;q=0.9"),
     ]
     return opener
@@ -57,22 +57,24 @@ def clean_text(node) -> str | None:
 
 
 def nearest_player_name(tag) -> str | None:
+    row = tag.find_parent("tr")
+    if row:
+        profile = row.find("a", href=re.compile(r"^/profile/"))
+        if profile:
+            return clean_text(profile)
     direct = clean_text(tag)
     if direct and not direct.isdigit() and len(direct) <= 80:
         return direct
-
-    parent = tag.find_parent("tr")
-    if parent is None:
-        parent = tag.find_parent(class_=re.compile(r"player|leader|row", re.I))
+    parent = tag.find_parent(class_=re.compile(r"player|leader|row", re.I))
     if parent:
         profile = parent.find("a", href=re.compile(r"^/profile/"))
         if profile:
             return clean_text(profile)
-
     return None
 
 
 def discover_players_from_leaderboard(html: str, tournament_id: int) -> list[dict]:
+    """Return players in the exact order SGT renders the leaderboard."""
     soup = BeautifulSoup(html, "html.parser")
     players: dict[int, dict] = {}
     scorecard_pattern = re.compile(rf"/scorecard/{tournament_id}/(\d+)")
@@ -87,6 +89,7 @@ def discover_players_from_leaderboard(html: str, tournament_id: int) -> list[dic
         if not players[player_id].get("name") and name:
             players[player_id]["name"] = name
 
+    # Keep these fallbacks for layout changes, but anchors above preserve official order.
     id_attributes = ("data-player-id", "data-playerid", "data-pid", "data-user-id", "data-userid")
     for tag in soup.find_all(True):
         for attr in id_attributes:
@@ -99,8 +102,6 @@ def discover_players_from_leaderboard(html: str, tournament_id: int) -> list[dic
             if not players[player_id].get("name") and name:
                 players[player_id]["name"] = name
 
-    # Fallback: IDs may appear in non-anchor markup. This still lets the run tell us
-    # whether the numeric routing pattern exists, even if a name needs a later parser tweak.
     for match in scorecard_pattern.finditer(html):
         player_id = int(match.group(1))
         players.setdefault(player_id, {"id": player_id, "name": None})
@@ -108,14 +109,14 @@ def discover_players_from_leaderboard(html: str, tournament_id: int) -> list[dic
     return list(players.values())
 
 
-def diagnostic_links(html: str) -> list[dict]:
-    soup = BeautifulSoup(html, "html.parser")
-    out = []
-    for link in soup.find_all("a", href=True):
-        href = link.get("href", "")
-        if "score" in href.lower() or "profile" in href.lower() or "player" in href.lower():
-            out.append({"href": href, "text": clean_text(link)})
-    return out[:250]
+def merge_orders(gross_order: list[dict], net_order: list[dict]) -> list[dict]:
+    merged: dict[int, dict] = {}
+    for item in gross_order + net_order:
+        player_id = item["id"]
+        merged.setdefault(player_id, {"id": player_id, "name": item.get("name")})
+        if not merged[player_id].get("name") and item.get("name"):
+            merged[player_id]["name"] = item["name"]
+    return list(merged.values())
 
 
 def export_tournament(tournament_id: int) -> dict:
@@ -128,34 +129,19 @@ def export_tournament(tournament_id: int) -> dict:
 
     gross_html = fetch_text(opener, f"/sgt-api/leaderboard/{tournament_id}", tournament_url)
     net_html = fetch_text(opener, f"/sgt-api/leaderboard/{tournament_id}/net", tournament_url)
-
-    players = discover_players_from_leaderboard(gross_html, tournament_id)
+    gross_order = discover_players_from_leaderboard(gross_html, tournament_id)
+    net_order = discover_players_from_leaderboard(net_html, tournament_id)
+    players = merge_orders(gross_order, net_order)
     if not players:
-        players = discover_players_from_leaderboard(net_html, tournament_id)
+        raise RuntimeError("Could not discover any player IDs from either leaderboard")
 
-    if not players:
-        debug_dir = ROOT / "data" / "debug" / str(tournament_id)
-        debug_dir.mkdir(parents=True, exist_ok=True)
-        (debug_dir / "gross-leaderboard.html").write_text(gross_html, encoding="utf-8")
-        (debug_dir / "net-leaderboard.html").write_text(net_html, encoding="utf-8")
-        (debug_dir / "leaderboard-links.json").write_text(
-            json.dumps({"gross": diagnostic_links(gross_html), "net": diagnostic_links(net_html)}, indent=2) + "\n",
-            encoding="utf-8",
-        )
-        raise RuntimeError(
-            "Could not discover player IDs from leaderboard markup. "
-            f"Diagnostics written to {debug_dir.relative_to(ROOT)}"
-        )
-
-    print(f"Discovered {len(players)} player IDs from leaderboard")
-
+    print(f"Discovered {len(players)} unique players | gross order={len(gross_order)} | net order={len(net_order)}")
     exported_players = []
     for index, player in enumerate(players, start=1):
         player_id = player["id"]
         print(f"Player {index}/{len(players)}: {player.get('name') or 'unknown'} ({player_id})")
         referer = f"{BASE_URL}/scorecard/{tournament_id}/{player_id}"
         item = {"id": player_id, "name": player.get("name"), "scorecard": None, "stats": None, "shots": None, "errors": {}}
-
         targets = {
             "scorecard": f"/sgt-api/scorecard/{tournament_id}/{player_id}/indv",
             "stats": f"/sgt-api/scorecard/{tournament_id}/{player_id}/indv/stats",
@@ -164,24 +150,22 @@ def export_tournament(tournament_id: int) -> dict:
         for key, path in targets.items():
             try:
                 item[key] = fetch_text(opener, path, referer)
-            except Exception as exc:  # preserve the rest of the tournament if one optional feed is missing
+            except Exception as exc:
                 item["errors"][key] = f"{type(exc).__name__}: {exc}"
                 print(f"  {key} failed: {exc}", file=sys.stderr)
-
         exported_players.append(item)
 
     return {
-        "schemaVersion": 1,
-        "tournament": {
-            "id": tournament_id,
-            "url": tournament_url,
-        },
+        "schemaVersion": 2,
+        "tournament": {"id": tournament_id, "url": tournament_url, "pageHtml": tournament_page},
         "export": {
             "fetchedAt": datetime.now(timezone.utc).isoformat(),
             "source": "Simulator Golf Tour",
-            "exporterVersion": "lab-0.3",
+            "exporterVersion": "lab-0.4",
         },
         "leaderboard": {
+            "grossOrder": gross_order,
+            "netOrder": net_order,
             "grossHtml": gross_html,
             "netHtml": net_html,
         },
@@ -204,11 +188,7 @@ def main() -> None:
     with_scorecards = sum(1 for player in data["players"] if player.get("scorecard"))
     with_stats = sum(1 for player in data["players"] if player.get("stats"))
     with_shots = sum(1 for player in data["players"] if player.get("shots"))
-    print(
-        f"Wrote {output.relative_to(ROOT)} | players={len(data['players'])} "
-        f"scorecards={with_scorecards} stats={with_stats} shots={with_shots}"
-    )
-
+    print(f"Wrote {output.relative_to(ROOT)} | players={len(data['players'])} scorecards={with_scorecards} stats={with_stats} shots={with_shots}")
     if not data["players"] or with_scorecards == 0:
         raise RuntimeError("Exporter did not retrieve any usable player scorecards")
 
