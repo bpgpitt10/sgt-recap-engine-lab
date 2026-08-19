@@ -1,0 +1,61 @@
+name: Private High Loft access test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/private-high-loft-smoke.yml"
+
+jobs:
+  private-access:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Export known private High Loft tournament
+        run: python src/export_tournament.py 55704 --output data/private-test/55704.json
+
+      - name: Validate private tournament facts
+        run: |
+          python src/analyze_tournament.py data/private-test/55704.json \
+            --output data/private-test/55704-analysis.json \
+            --expect-net-winner KeithK75 \
+            --expect-gross-winner KeithK75
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('data/private-test/55704-analysis.json')
+          data = json.loads(p.read_text())
+          v = data['validation']
+          assert v['completedPlayers'] == 8, f"expected 8 completed players, got {v['completedPlayers']}"
+          assert len(data['leaderboard']['net']) == 8, f"expected 8 net players, got {len(data['leaderboard']['net'])}"
+          assert len(data['leaderboard']['gross']) == 8, f"expected 8 gross players, got {len(data['leaderboard']['gross'])}"
+          print('PRIVATE TOURNAMENT ACCESS PASSED')
+          print(json.dumps({
+              'tournamentId': data['tournament']['id'],
+              'netWinner': data['winners']['net']['name'],
+              'grossWinner': data['winners']['gross']['name'],
+              **v,
+          }, indent=2))
+          PY
+
+      - name: Upload private access test package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: high-loft-private-55704
+          path: data/private-test/
+          if-no-files-found: warn
