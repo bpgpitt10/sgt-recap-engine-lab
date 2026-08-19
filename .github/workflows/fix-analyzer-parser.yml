@@ -1,0 +1,43 @@
+name: Fix analyzer scorecard parser
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fix-analyzer-parser.yml"
+
+jobs:
+  fix-parser:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Patch direct scorecard cells
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/analyze_tournament.py')
+          s = p.read_text()
+          replacements = {
+              'hole_row.find_all("td")': 'hole_row.find_all("td", recursive=False)',
+              'par_row.find_all("td")': 'par_row.find_all("td", recursive=False)',
+              'cells = row.find_all("td")': 'cells = row.find_all("td", recursive=False)',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'missing expected parser text: {old}')
+              s = s.replace(old, new)
+          p.write_text(s)
+          PY
+
+      - name: Commit parser fix
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/analyze_tournament.py
+          git commit -m "Fix scorecard row parsing"
+          git push
