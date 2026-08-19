@@ -1,0 +1,2455 @@
+{
+  "league": {
+    "name": "High Loft / Low Standards",
+    "tourId": 1825,
+    "season": "Season 1",
+    "primaryCompetition": "net"
+  },
+  "tournament": {
+    "id": 55704,
+    "name": "Week 6 Copperhead PLAYOFF"
+  },
+  "winners": {
+    "net": {
+      "position": 1,
+      "id": 41801,
+      "name": "KeithK75",
+      "total": "+1",
+      "netAdjustment": 0
+    },
+    "gross": {
+      "position": 1,
+      "id": 41801,
+      "name": "KeithK75",
+      "total": "+1",
+      "netAdjustment": null
+    }
+  },
+  "leaderboard": {
+    "gross": [
+      {
+        "position": 1,
+        "id": 41801,
+        "name": "KeithK75",
+        "total": "+1",
+        "netAdjustment": null
+      },
+      {
+        "position": 2,
+        "id": 40344,
+        "name": "Dan94",
+        "total": "+11",
+        "netAdjustment": null
+      },
+      {
+        "position": 3,
+        "id": 41641,
+        "name": "HamSammich",
+        "total": "+17",
+        "netAdjustment": null
+      },
+      {
+        "position": 4,
+        "id": 40552,
+        "name": "CRANK",
+        "total": "+22",
+        "netAdjustment": null
+      },
+      {
+        "position": 5,
+        "id": 40422,
+        "name": "IUDoc92",
+        "total": "+24",
+        "netAdjustment": null
+      },
+      {
+        "position": 6,
+        "id": 15857,
+        "name": "MashedBROtato",
+        "total": "+25",
+        "netAdjustment": null
+      },
+      {
+        "position": 7,
+        "id": 41637,
+        "name": "DREADFUL",
+        "total": "+27",
+        "netAdjustment": null
+      },
+      {
+        "position": 8,
+        "id": 41006,
+        "name": "Leroy4522",
+        "total": "+29",
+        "netAdjustment": null
+      }
+    ],
+    "net": [
+      {
+        "position": 1,
+        "id": 41801,
+        "name": "KeithK75",
+        "total": "+1",
+        "netAdjustment": 0
+      },
+      {
+        "position": 2,
+        "id": 41641,
+        "name": "HamSammich",
+        "total": "+2",
+        "netAdjustment": 15
+      },
+      {
+        "position": 3,
+        "id": 40422,
+        "name": "IUDoc92",
+        "total": "+7",
+        "netAdjustment": 17
+      },
+      {
+        "position": 4,
+        "id": 41637,
+        "name": "DREADFUL",
+        "total": "+9",
+        "netAdjustment": 18
+      },
+      {
+        "position": 5,
+        "id": 40552,
+        "name": "CRANK",
+        "total": "+10",
+        "netAdjustment": 12
+      },
+      {
+        "position": 6,
+        "id": 40344,
+        "name": "Dan94",
+        "total": "+11",
+        "netAdjustment": 0
+      },
+      {
+        "position": 7,
+        "id": 15857,
+        "name": "MashedBROtato",
+        "total": "+13",
+        "netAdjustment": 12
+      },
+      {
+        "position": 8,
+        "id": 41006,
+        "name": "Leroy4522",
+        "total": "+17",
+        "netAdjustment": 12
+      }
+    ]
+  },
+  "carnageOrder": [
+    {
+      "name": "Leroy4522",
+      "hole": {
+        "round": 1,
+        "hole": 12,
+        "par": 4,
+        "gross": 9,
+        "net": 8,
+        "grossToPar": 5,
+        "netToPar": 4,
+        "shots": [
+          {
+            "number": 1,
+            "description": "175 yds to pinestraw, 168 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "74 yds to rough, 120 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "21 yds to rough, 118 yds to hole"
+          },
+          {
+            "number": 6,
+            "description": "102 yds to sand, 21 yds to hole"
+          },
+          {
+            "number": 7,
+            "description": "24 yds to green, 9 ft to hole"
+          },
+          {
+            "number": 8,
+            "description": "Putted 14 ft, 4 ft left to the hole"
+          },
+          {
+            "number": 9,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MashedBROtato",
+      "hole": {
+        "round": 1,
+        "hole": 8,
+        "par": 3,
+        "gross": 8,
+        "net": 8,
+        "grossToPar": 5,
+        "netToPar": 5,
+        "shots": [
+          {
+            "number": 1,
+            "description": "167 yds to sand, 19 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "2 yds to sand, 18 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "0 yds to sand, 17 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "2 yds to rough, 16 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "19 yds to green, 10 ft to hole"
+          },
+          {
+            "number": 6,
+            "description": "Putted 23 ft, 13 ft left to the hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 13 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CRANK",
+      "hole": {
+        "round": 1,
+        "hole": 12,
+        "par": 4,
+        "gross": 8,
+        "net": 7,
+        "grossToPar": 4,
+        "netToPar": 3,
+        "shots": [
+          {
+            "number": 1,
+            "description": "160 yds to rough, 179 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "170 yds to pinestraw, 179 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "150 yds to fairway, 36 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "21 yds to semirough, 15 yds to hole"
+          },
+          {
+            "number": 6,
+            "description": "9 yds to green, 17 ft to hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 15 ft, 3 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DREADFUL",
+      "hole": {
+        "round": 1,
+        "hole": 11,
+        "par": 5,
+        "gross": 9,
+        "net": 8,
+        "grossToPar": 4,
+        "netToPar": 3,
+        "shots": [
+          {
+            "number": 1,
+            "description": "216 yds to rough, 308 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "232 yds to pinestraw, 86 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "19 yds to rough, 70 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "78 yds to rough, 8 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "16 yds to green, 24 ft to hole"
+          },
+          {
+            "number": 6,
+            "description": "Putted 32 ft, 8 ft left to the hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 15 ft, 7 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Putted 6 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 9,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HamSammich",
+      "hole": {
+        "round": 1,
+        "hole": 5,
+        "par": 5,
+        "gross": 8,
+        "net": 7,
+        "grossToPar": 3,
+        "netToPar": 2,
+        "shots": [
+          {
+            "number": 1,
+            "description": "271 yds to fairway, 260 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "179 yds to rough, 109 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "142 yds to rough, 61 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "83 yds to rough, 22 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "27 yds to rough, 6 yds to hole"
+          },
+          {
+            "number": 6,
+            "description": "12 yds to green, 19 ft to hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 19 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IUDoc92",
+      "hole": {
+        "round": 1,
+        "hole": 8,
+        "par": 3,
+        "gross": 6,
+        "net": 5,
+        "grossToPar": 3,
+        "netToPar": 2,
+        "shots": [
+          {
+            "number": 1,
+            "description": "127 yds to rough, 57 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "40 yds to rough, 27 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "32 yds to rough, 7 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "13 yds to green, 17 ft to hole"
+          },
+          {
+            "number": 5,
+            "description": "Putted 16 ft, 3 ft left to the hole"
+          },
+          {
+            "number": 6,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Dan94",
+      "hole": {
+        "round": 1,
+        "hole": 7,
+        "par": 4,
+        "gross": 6,
+        "net": 6,
+        "grossToPar": 2,
+        "netToPar": 2,
+        "shots": [
+          {
+            "number": 1,
+            "description": "287 yds to sand, 53 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "41 yds to sand, 12 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "1 yds to sand, 11 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "19 yds to green, 25 ft to hole"
+          },
+          {
+            "number": 5,
+            "description": "Putted 25 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 6,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    },
+    {
+      "name": "KeithK75",
+      "hole": {
+        "round": 1,
+        "hole": 16,
+        "par": 4,
+        "gross": 5,
+        "net": 5,
+        "grossToPar": 1,
+        "netToPar": 1,
+        "shots": [
+          {
+            "number": 1,
+            "description": "226 yds to rough, 172 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "0 yds to rough, 172 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "179 yds to semirough, 8 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "8 yds to green, 1 ft to hole"
+          },
+          {
+            "number": 5,
+            "description": "Tap in gimmie"
+          }
+        ]
+      }
+    }
+  ],
+  "playersNetOrder": [
+    {
+      "name": "KeithK75",
+      "leaderboard": {
+        "grossPosition": 1,
+        "netPosition": 1,
+        "grossTotal": "+1",
+        "netTotal": "+1",
+        "netAdjustment": 0
+      },
+      "sg": {
+        "tee": 4.96,
+        "approach": 6.28,
+        "shortGame": 4.49,
+        "putting": 2.91,
+        "teeToGreen": 15.72,
+        "total": 18.63
+      },
+      "stats": {
+        "LONGEST DRIVE": "297",
+        "AVG DRIVE DISTANCE (FIR)": "256",
+        "FAIRWAYS HIT": "6",
+        "GREENS IN REGULATION": "9",
+        "GIR PROXIMITY": "26.1",
+        "SAND SAVES": "0",
+        "SAND SAVES ATTEMPTS": "1",
+        "TOTAL PUTTS": "27",
+        "TOTAL 3-PUTTS": "0",
+        "EAGLES": "0",
+        "BIRDIES": "2",
+        "BOGEYS": "3",
+        "DBL BOGEYS": "0",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "55",
+        "TEE STROKES GAINED": "4.96",
+        "APPROACH STROKES GAINED": "6.28",
+        "SHORT GAME STROKES GAINED": "4.49",
+        "PUTTING STROKES GAINED": "2.91",
+        "TEE TO GREEN STROKES GAINED": "15.72",
+        "TOTAL STROKES GAINED": "18.63"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 16,
+        "par": 4,
+        "gross": 5,
+        "net": 5,
+        "grossToPar": 1,
+        "netToPar": 1,
+        "shots": [
+          {
+            "number": 1,
+            "description": "226 yds to rough, 172 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "0 yds to rough, 172 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "179 yds to semirough, 8 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "8 yds to green, 1 ft to hole"
+          },
+          {
+            "number": 5,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 16,
+          "par": 4,
+          "gross": 5,
+          "net": 5,
+          "grossToPar": 1,
+          "netToPar": 1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "226 yds to rough, 172 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "0 yds to rough, 172 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "179 yds to semirough, 8 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "8 yds to green, 1 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 18,
+          "par": 4,
+          "gross": 5,
+          "net": 5,
+          "grossToPar": 1,
+          "netToPar": 1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "275 yds to pinestraw, 118 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "94 yds to rough, 25 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "17 yds to green, 27 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Putted 29 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 17,
+          "par": 3,
+          "gross": 4,
+          "net": 4,
+          "grossToPar": 1,
+          "netToPar": 1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "152 yds to sand, 20 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "28 yds to green, 24 ft to hole"
+            },
+            {
+              "number": 3,
+              "description": "Putted 26 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 4,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 5,
+          "par": 5,
+          "gross": 4,
+          "net": 4,
+          "grossToPar": -1,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "275 yds to fairway, 257 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "175 yds to fairway, 92 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "89 yds to green, 12 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Made putt from 12 ft"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 8,
+          "par": 3,
+          "gross": 2,
+          "net": 2,
+          "grossToPar": -1,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "186 yds to green, 11 ft to hole"
+            },
+            {
+              "number": 2,
+              "description": "Made putt from 11 ft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HamSammich",
+      "leaderboard": {
+        "grossPosition": 3,
+        "netPosition": 2,
+        "grossTotal": "+17",
+        "netTotal": "+2",
+        "netAdjustment": 15
+      },
+      "sg": {
+        "tee": 1.76,
+        "approach": -1.24,
+        "shortGame": 0.35,
+        "putting": 2.77,
+        "teeToGreen": 0.86,
+        "total": 3.63
+      },
+      "stats": {
+        "LONGEST DRIVE": "275",
+        "AVG DRIVE DISTANCE (FIR)": "263",
+        "FAIRWAYS HIT": "4",
+        "GREENS IN REGULATION": "4",
+        "GIR PROXIMITY": "45.6",
+        "SAND SAVES": "0",
+        "SAND SAVES ATTEMPTS": "1",
+        "TOTAL PUTTS": "28",
+        "TOTAL 3-PUTTS": "0",
+        "EAGLES": "0",
+        "BIRDIES": "0",
+        "BOGEYS": "5",
+        "DBL BOGEYS": "3",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "75",
+        "TEE STROKES GAINED": "1.76",
+        "APPROACH STROKES GAINED": "-1.24",
+        "SHORT GAME STROKES GAINED": "0.35",
+        "PUTTING STROKES GAINED": "2.77",
+        "TEE TO GREEN STROKES GAINED": "0.86",
+        "TOTAL STROKES GAINED": "3.63"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 5,
+        "par": 5,
+        "gross": 8,
+        "net": 7,
+        "grossToPar": 3,
+        "netToPar": 2,
+        "shots": [
+          {
+            "number": 1,
+            "description": "271 yds to fairway, 260 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "179 yds to rough, 109 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "142 yds to rough, 61 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "83 yds to rough, 22 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "27 yds to rough, 6 yds to hole"
+          },
+          {
+            "number": 6,
+            "description": "12 yds to green, 19 ft to hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 19 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 5,
+          "par": 5,
+          "gross": 8,
+          "net": 7,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "271 yds to fairway, 260 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "179 yds to rough, 109 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "142 yds to rough, 61 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "83 yds to rough, 22 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "27 yds to rough, 6 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "12 yds to green, 19 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 19 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 18,
+          "par": 4,
+          "gross": 7,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "247 yds to fairway, 135 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "113 yds to rough, 38 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "45 yds to rough, 8 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "2 yds to rough, 7 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "21 yds to green, 42 ft to hole"
+            },
+            {
+              "number": 6,
+              "description": "Putted 34 ft, 8 ft left to the hole"
+            },
+            {
+              "number": 7,
+              "description": "Made putt from 8 ft"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 4,
+          "par": 3,
+          "gross": 5,
+          "net": 5,
+          "grossToPar": 2,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "110 yds to rough, 33 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "45 yds to semirough, 13 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "16 yds to green, 10 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Putted 10 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 1,
+          "par": 5,
+          "gross": 5,
+          "net": 4,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "275 yds to fairway, 239 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "136 yds to fairway, 110 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "110 yds to fairway, 9 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "8 yds to green, 4 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 11,
+          "par": 5,
+          "gross": 5,
+          "net": 4,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "274 yds to pinestraw, 261 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "45 yds to rough, 222 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "209 yds to rough, 21 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "22 yds to green, 5 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUDoc92",
+      "leaderboard": {
+        "grossPosition": 5,
+        "netPosition": 3,
+        "grossTotal": "+24",
+        "netTotal": "+7",
+        "netAdjustment": 17
+      },
+      "sg": {
+        "tee": -0.84,
+        "approach": 2.1,
+        "shortGame": -4.76,
+        "putting": -0.87,
+        "teeToGreen": -3.5,
+        "total": -4.37
+      },
+      "stats": {
+        "LONGEST DRIVE": "239",
+        "AVG DRIVE DISTANCE (FIR)": "219",
+        "FAIRWAYS HIT": "5",
+        "GREENS IN REGULATION": "3",
+        "GIR PROXIMITY": "38.8",
+        "SAND SAVES": "0",
+        "SAND SAVES ATTEMPTS": "5",
+        "TOTAL PUTTS": "32",
+        "TOTAL 3-PUTTS": "2",
+        "EAGLES": "0",
+        "BIRDIES": "0",
+        "BOGEYS": "9",
+        "DBL BOGEYS": "3",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "61",
+        "TEE STROKES GAINED": "-0.84",
+        "APPROACH STROKES GAINED": "2.1",
+        "SHORT GAME STROKES GAINED": "-4.76",
+        "PUTTING STROKES GAINED": "-0.87",
+        "TEE TO GREEN STROKES GAINED": "-3.5",
+        "TOTAL STROKES GAINED": "-4.37"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 8,
+        "par": 3,
+        "gross": 6,
+        "net": 5,
+        "grossToPar": 3,
+        "netToPar": 2,
+        "shots": [
+          {
+            "number": 1,
+            "description": "127 yds to rough, 57 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "40 yds to rough, 27 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "32 yds to rough, 7 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "13 yds to green, 17 ft to hole"
+          },
+          {
+            "number": 5,
+            "description": "Putted 16 ft, 3 ft left to the hole"
+          },
+          {
+            "number": 6,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 2,
+          "par": 4,
+          "gross": 7,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "204 yds to rough, 134 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "92 yds to rough, 42 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "65 yds to rough, 23 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "42 yds to fairway, 19 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "16 yds to green, 10 ft to hole"
+            },
+            {
+              "number": 6,
+              "description": "Putted 9 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 7,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 3,
+          "par": 4,
+          "gross": 7,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "212 yds to fairway, 158 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "51 yds to rough, 104 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "84 yds to fairway, 21 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "12 yds to fairway, 8 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "8 yds to green, 1 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 8,
+          "par": 3,
+          "gross": 6,
+          "net": 5,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "127 yds to rough, 57 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "40 yds to rough, 27 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "32 yds to rough, 7 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "13 yds to green, 17 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Putted 16 ft, 3 ft left to the hole"
+            },
+            {
+              "number": 6,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 6,
+          "par": 4,
+          "gross": 4,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "223 yds to fairway, 193 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "189 yds to green, 15 ft to hole"
+            },
+            {
+              "number": 3,
+              "description": "Putted 13 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 4,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 10,
+          "par": 4,
+          "gross": 4,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "228 yds to rough, 140 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "101 yds to fairway, 41 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "44 yds to green, 14 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Made putt from 14 ft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DREADFUL",
+      "leaderboard": {
+        "grossPosition": 7,
+        "netPosition": 4,
+        "grossTotal": "+27",
+        "netTotal": "+9",
+        "netAdjustment": 18
+      },
+      "sg": {
+        "tee": -2.66,
+        "approach": -2.06,
+        "shortGame": -0.16,
+        "putting": -2.49,
+        "teeToGreen": -4.88,
+        "total": -7.37
+      },
+      "stats": {
+        "LONGEST DRIVE": "259",
+        "AVG DRIVE DISTANCE (FIR)": "222",
+        "FAIRWAYS HIT": "2",
+        "GREENS IN REGULATION": "3",
+        "GIR PROXIMITY": "28.6",
+        "SAND SAVES": "1",
+        "SAND SAVES ATTEMPTS": "4",
+        "TOTAL PUTTS": "35",
+        "TOTAL 3-PUTTS": "4",
+        "EAGLES": "0",
+        "BIRDIES": "1",
+        "BOGEYS": "3",
+        "DBL BOGEYS": "3",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "141",
+        "TEE STROKES GAINED": "-2.66",
+        "APPROACH STROKES GAINED": "-2.06",
+        "SHORT GAME STROKES GAINED": "-0.16",
+        "PUTTING STROKES GAINED": "-2.49",
+        "TEE TO GREEN STROKES GAINED": "-4.88",
+        "TOTAL STROKES GAINED": "-7.37"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 11,
+        "par": 5,
+        "gross": 9,
+        "net": 8,
+        "grossToPar": 4,
+        "netToPar": 3,
+        "shots": [
+          {
+            "number": 1,
+            "description": "216 yds to rough, 308 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "232 yds to pinestraw, 86 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "19 yds to rough, 70 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "78 yds to rough, 8 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "16 yds to green, 24 ft to hole"
+          },
+          {
+            "number": 6,
+            "description": "Putted 32 ft, 8 ft left to the hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 15 ft, 7 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Putted 6 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 9,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 11,
+          "par": 5,
+          "gross": 9,
+          "net": 8,
+          "grossToPar": 4,
+          "netToPar": 3,
+          "shots": [
+            {
+              "number": 1,
+              "description": "216 yds to rough, 308 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "232 yds to pinestraw, 86 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "19 yds to rough, 70 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "78 yds to rough, 8 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "16 yds to green, 24 ft to hole"
+            },
+            {
+              "number": 6,
+              "description": "Putted 32 ft, 8 ft left to the hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 15 ft, 7 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Putted 6 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 9,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 5,
+          "par": 5,
+          "gross": 8,
+          "net": 7,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "252 yds to rough, 282 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "266 yds to rough, 81 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "48 yds to rough, 34 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "43 yds to rough, 22 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "26 yds to green, 13 ft to hole"
+            },
+            {
+              "number": 6,
+              "description": "Putted 22 ft, 8 ft left to the hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 6 ft, 3 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 2,
+          "par": 4,
+          "gross": 7,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "256 yds to pinestraw, 84 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "97 yds to rough, 22 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "38 yds to sand, 16 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "21 yds to green, 14 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "11 yds to fairway, 7 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "6 yds to green, 2 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 15,
+          "par": 3,
+          "gross": 2,
+          "net": 1,
+          "grossToPar": -1,
+          "netToPar": -2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "178 yds to green, 44 ft to hole"
+            },
+            {
+              "number": 2,
+              "description": "Made putt from 44 ft"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 7,
+          "par": 4,
+          "gross": 4,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "254 yds to rough, 86 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "106 yds to semirough, 27 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "22 yds to green, 17 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Made putt from 17 ft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CRANK",
+      "leaderboard": {
+        "grossPosition": 4,
+        "netPosition": 5,
+        "grossTotal": "+22",
+        "netTotal": "+10",
+        "netAdjustment": 12
+      },
+      "sg": {
+        "tee": -0.55,
+        "approach": -3.85,
+        "shortGame": 3.28,
+        "putting": -1.25,
+        "teeToGreen": -1.12,
+        "total": -2.37
+      },
+      "stats": {
+        "LONGEST DRIVE": "217",
+        "AVG DRIVE DISTANCE (FIR)": "190",
+        "FAIRWAYS HIT": "7",
+        "GREENS IN REGULATION": "1",
+        "GIR PROXIMITY": "33.2",
+        "SAND SAVES": "0",
+        "SAND SAVES ATTEMPTS": "4",
+        "TOTAL PUTTS": "30",
+        "TOTAL 3-PUTTS": "1",
+        "EAGLES": "0",
+        "BIRDIES": "1",
+        "BOGEYS": "10",
+        "DBL BOGEYS": "3",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "59",
+        "TEE STROKES GAINED": "-0.55",
+        "APPROACH STROKES GAINED": "-3.85",
+        "SHORT GAME STROKES GAINED": "3.28",
+        "PUTTING STROKES GAINED": "-1.25",
+        "TEE TO GREEN STROKES GAINED": "-1.12",
+        "TOTAL STROKES GAINED": "-2.37"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 12,
+        "par": 4,
+        "gross": 8,
+        "net": 7,
+        "grossToPar": 4,
+        "netToPar": 3,
+        "shots": [
+          {
+            "number": 1,
+            "description": "160 yds to rough, 179 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "170 yds to pinestraw, 179 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "150 yds to fairway, 36 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "21 yds to semirough, 15 yds to hole"
+          },
+          {
+            "number": 6,
+            "description": "9 yds to green, 17 ft to hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 15 ft, 3 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 12,
+          "par": 4,
+          "gross": 8,
+          "net": 7,
+          "grossToPar": 4,
+          "netToPar": 3,
+          "shots": [
+            {
+              "number": 1,
+              "description": "160 yds to rough, 179 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "170 yds to pinestraw, 179 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "150 yds to fairway, 36 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "21 yds to semirough, 15 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "9 yds to green, 17 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 15 ft, 3 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 1,
+          "par": 5,
+          "gross": 8,
+          "net": 7,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "207 yds to semirough, 319 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "117 yds to sand, 202 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "112 yds to rough, 94 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "42 yds to rough, 62 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "59 yds to green, 11 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 16 ft, 5 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 2,
+          "par": 4,
+          "gross": 6,
+          "net": 5,
+          "grossToPar": 2,
+          "netToPar": 1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "172 yds to rough, 168 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "136 yds to rough, 32 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "37 yds to green, 15 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Putted 25 ft, 11 ft left to the hole"
+            },
+            {
+              "number": 5,
+              "description": "Putted 9 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 6,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 11,
+          "par": 5,
+          "gross": 4,
+          "net": 3,
+          "grossToPar": -1,
+          "netToPar": -2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "186 yds to fairway, 336 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "227 yds to fairway, 109 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "112 yds to semirough, 5 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "Holed out from 5 yds"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 15,
+          "par": 3,
+          "gross": 3,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": 0,
+          "shots": [
+            {
+              "number": 1,
+              "description": "162 yds to rough, 25 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "24 yds to green, 3 ft to hole"
+            },
+            {
+              "number": 3,
+              "description": "Tap in gimmie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dan94",
+      "leaderboard": {
+        "grossPosition": 2,
+        "netPosition": 6,
+        "grossTotal": "+11",
+        "netTotal": "+11",
+        "netAdjustment": 0
+      },
+      "sg": {
+        "tee": 6.43,
+        "approach": -2.12,
+        "shortGame": 3.1,
+        "putting": 1.22,
+        "teeToGreen": 7.41,
+        "total": 8.63
+      },
+      "stats": {
+        "LONGEST DRIVE": "296",
+        "AVG DRIVE DISTANCE (FIR)": "275",
+        "FAIRWAYS HIT": "4",
+        "GREENS IN REGULATION": "3",
+        "GIR PROXIMITY": "19.2",
+        "SAND SAVES": "2",
+        "SAND SAVES ATTEMPTS": "9",
+        "TOTAL PUTTS": "27",
+        "TOTAL 3-PUTTS": "0",
+        "EAGLES": "0",
+        "BIRDIES": "1",
+        "BOGEYS": "8",
+        "DBL BOGEYS": "2",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "45",
+        "TEE STROKES GAINED": "6.43",
+        "APPROACH STROKES GAINED": "-2.12",
+        "SHORT GAME STROKES GAINED": "3.1",
+        "PUTTING STROKES GAINED": "1.22",
+        "TEE TO GREEN STROKES GAINED": "7.41",
+        "TOTAL STROKES GAINED": "8.63"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 7,
+        "par": 4,
+        "gross": 6,
+        "net": 6,
+        "grossToPar": 2,
+        "netToPar": 2,
+        "shots": [
+          {
+            "number": 1,
+            "description": "287 yds to sand, 53 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "41 yds to sand, 12 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "1 yds to sand, 11 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "19 yds to green, 25 ft to hole"
+          },
+          {
+            "number": 5,
+            "description": "Putted 25 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 6,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 6,
+          "par": 4,
+          "gross": 6,
+          "net": 6,
+          "grossToPar": 2,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "253 yds to pinestraw, 173 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "77 yds to rough, 119 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "93 yds to fairway, 29 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "21 yds to green, 27 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Putted 25 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 6,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 7,
+          "par": 4,
+          "gross": 6,
+          "net": 6,
+          "grossToPar": 2,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "287 yds to sand, 53 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "41 yds to sand, 12 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "1 yds to sand, 11 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "19 yds to green, 25 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Putted 25 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 6,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 11,
+          "par": 5,
+          "gross": 6,
+          "net": 6,
+          "grossToPar": 1,
+          "netToPar": 1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "312 yds to pinestraw, 218 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "58 yds to fairway, 173 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "151 yds to sand, 22 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "26 yds to green, 11 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Putted 12 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 6,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 1,
+          "par": 5,
+          "gross": 4,
+          "net": 4,
+          "grossToPar": -1,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "292 yds to rough, 242 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "220 yds to sand, 39 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "41 yds to green, 8 ft to hole"
+            },
+            {
+              "number": 4,
+              "description": "Made putt from 8 ft"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 5,
+          "par": 5,
+          "gross": 5,
+          "net": 5,
+          "grossToPar": 0,
+          "netToPar": 0,
+          "shots": [
+            {
+              "number": 1,
+              "description": "296 yds to fairway, 235 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "213 yds to fairway, 26 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "32 yds to semirough, 6 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "6 yds to green, 2 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MashedBROtato",
+      "leaderboard": {
+        "grossPosition": 6,
+        "netPosition": 7,
+        "grossTotal": "+25",
+        "netTotal": "+13",
+        "netAdjustment": 12
+      },
+      "sg": {
+        "tee": 1.81,
+        "approach": 0.9,
+        "shortGame": -6.0,
+        "putting": -2.08,
+        "teeToGreen": -3.29,
+        "total": -5.37
+      },
+      "stats": {
+        "LONGEST DRIVE": null,
+        "AVG DRIVE DISTANCE (FIR)": null,
+        "FAIRWAYS HIT": "0",
+        "GREENS IN REGULATION": "4",
+        "GIR PROXIMITY": "35.1",
+        "SAND SAVES": "0",
+        "SAND SAVES ATTEMPTS": "5",
+        "TOTAL PUTTS": "34",
+        "TOTAL 3-PUTTS": "2",
+        "EAGLES": "0",
+        "BIRDIES": "0",
+        "BOGEYS": "6",
+        "DBL BOGEYS": "4",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "55",
+        "TEE STROKES GAINED": "1.81",
+        "APPROACH STROKES GAINED": "0.9",
+        "SHORT GAME STROKES GAINED": "-6",
+        "PUTTING STROKES GAINED": "-2.08",
+        "TEE TO GREEN STROKES GAINED": "-3.29",
+        "TOTAL STROKES GAINED": "-5.37"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 8,
+        "par": 3,
+        "gross": 8,
+        "net": 8,
+        "grossToPar": 5,
+        "netToPar": 5,
+        "shots": [
+          {
+            "number": 1,
+            "description": "167 yds to sand, 19 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "2 yds to sand, 18 yds to hole"
+          },
+          {
+            "number": 3,
+            "description": "0 yds to sand, 17 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "2 yds to rough, 16 yds to hole"
+          },
+          {
+            "number": 5,
+            "description": "19 yds to green, 10 ft to hole"
+          },
+          {
+            "number": 6,
+            "description": "Putted 23 ft, 13 ft left to the hole"
+          },
+          {
+            "number": 7,
+            "description": "Putted 13 ft, 1 ft left to the hole"
+          },
+          {
+            "number": 8,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 8,
+          "par": 3,
+          "gross": 8,
+          "net": 8,
+          "grossToPar": 5,
+          "netToPar": 5,
+          "shots": [
+            {
+              "number": 1,
+              "description": "167 yds to sand, 19 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "2 yds to sand, 18 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "0 yds to sand, 17 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "2 yds to rough, 16 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "19 yds to green, 10 ft to hole"
+            },
+            {
+              "number": 6,
+              "description": "Putted 23 ft, 13 ft left to the hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 13 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 16,
+          "par": 4,
+          "gross": 7,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "259 yds to rough, 148 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "147 yds to sand, 13 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "3 yds to sand, 10 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "20 yds to rough, 10 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "16 yds to semirough, 6 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "8 yds to green, 6 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Made putt from 6 ft"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 13,
+          "par": 3,
+          "gross": 6,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 3,
+          "shots": [
+            {
+              "number": 1,
+              "description": "167 yds to rough, 99 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "93 yds to rough, 8 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "11 yds to green, 10 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Putted 11 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 6,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 14,
+          "par": 5,
+          "gross": 5,
+          "net": 4,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "215 yds to semirough, 293 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "161 yds to rough, 132 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "129 yds to fairway, 10 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "9 yds to green, 5 ft to hole"
+            },
+            {
+              "number": 5,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 2,
+          "par": 4,
+          "gross": 4,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "273 yds to pinestraw, 72 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "82 yds to green, 33 ft to hole"
+            },
+            {
+              "number": 3,
+              "description": "Putted 39 ft, 6 ft left to the hole"
+            },
+            {
+              "number": 4,
+              "description": "Made putt from 6 ft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Leroy4522",
+      "leaderboard": {
+        "grossPosition": 8,
+        "netPosition": 8,
+        "grossTotal": "+29",
+        "netTotal": "+17",
+        "netAdjustment": 12
+      },
+      "sg": {
+        "tee": -3.73,
+        "approach": -3.13,
+        "shortGame": -0.86,
+        "putting": -1.65,
+        "teeToGreen": -7.72,
+        "total": -9.37
+      },
+      "stats": {
+        "LONGEST DRIVE": "229",
+        "AVG DRIVE DISTANCE (FIR)": "217",
+        "FAIRWAYS HIT": "2",
+        "GREENS IN REGULATION": "2",
+        "GIR PROXIMITY": "10.9",
+        "SAND SAVES": "1",
+        "SAND SAVES ATTEMPTS": "6",
+        "TOTAL PUTTS": "32",
+        "TOTAL 3-PUTTS": "2",
+        "EAGLES": "0",
+        "BIRDIES": "0",
+        "BOGEYS": "4",
+        "DBL BOGEYS": "4",
+        "ACES": "0",
+        "TOTAL FEET OF PUTTS MADE": "58",
+        "TEE STROKES GAINED": "-3.73",
+        "APPROACH STROKES GAINED": "-3.13",
+        "SHORT GAME STROKES GAINED": "-0.86",
+        "PUTTING STROKES GAINED": "-1.65",
+        "TEE TO GREEN STROKES GAINED": "-7.72",
+        "TOTAL STROKES GAINED": "-9.37"
+      },
+      "worstHole": {
+        "round": 1,
+        "hole": 12,
+        "par": 4,
+        "gross": 9,
+        "net": 8,
+        "grossToPar": 5,
+        "netToPar": 4,
+        "shots": [
+          {
+            "number": 1,
+            "description": "175 yds to pinestraw, 168 yds to hole"
+          },
+          {
+            "number": 2,
+            "description": "74 yds to rough, 120 yds to hole"
+          },
+          {
+            "number": 4,
+            "description": "21 yds to rough, 118 yds to hole"
+          },
+          {
+            "number": 6,
+            "description": "102 yds to sand, 21 yds to hole"
+          },
+          {
+            "number": 7,
+            "description": "24 yds to green, 9 ft to hole"
+          },
+          {
+            "number": 8,
+            "description": "Putted 14 ft, 4 ft left to the hole"
+          },
+          {
+            "number": 9,
+            "description": "Tap in gimmie"
+          }
+        ]
+      },
+      "notableHoles": [
+        {
+          "round": 1,
+          "hole": 12,
+          "par": 4,
+          "gross": 9,
+          "net": 8,
+          "grossToPar": 5,
+          "netToPar": 4,
+          "shots": [
+            {
+              "number": 1,
+              "description": "175 yds to pinestraw, 168 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "74 yds to rough, 120 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "21 yds to rough, 118 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "102 yds to sand, 21 yds to hole"
+            },
+            {
+              "number": 7,
+              "description": "24 yds to green, 9 ft to hole"
+            },
+            {
+              "number": 8,
+              "description": "Putted 14 ft, 4 ft left to the hole"
+            },
+            {
+              "number": 9,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 6,
+          "par": 4,
+          "gross": 7,
+          "net": 6,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "192 yds to pinestraw, 212 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "19 yds to rough, 203 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "186 yds to rough, 40 yds to hole"
+            },
+            {
+              "number": 4,
+              "description": "42 yds to rough, 22 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "28 yds to fairway, 6 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "5 yds to green, 1 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 14,
+          "par": 5,
+          "gross": 8,
+          "net": 7,
+          "grossToPar": 3,
+          "netToPar": 2,
+          "shots": [
+            {
+              "number": 1,
+              "description": "173 yds to rough, 329 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "123 yds to rough, 209 yds to hole"
+            },
+            {
+              "number": 3,
+              "description": "141 yds to rough, 92 yds to hole"
+            },
+            {
+              "number": 5,
+              "description": "65 yds to rough, 31 yds to hole"
+            },
+            {
+              "number": 6,
+              "description": "26 yds to green, 19 ft to hole"
+            },
+            {
+              "number": 7,
+              "description": "Putted 17 ft, 2 ft left to the hole"
+            },
+            {
+              "number": 8,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 2,
+          "par": 4,
+          "gross": 4,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": -1,
+          "shots": [
+            {
+              "number": 1,
+              "description": "205 yds to fairway, 138 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "140 yds to green, 8 ft to hole"
+            },
+            {
+              "number": 3,
+              "description": "Putted 8 ft, 1 ft left to the hole"
+            },
+            {
+              "number": 4,
+              "description": "Tap in gimmie"
+            }
+          ]
+        },
+        {
+          "round": 1,
+          "hole": 4,
+          "par": 3,
+          "gross": 3,
+          "net": 3,
+          "grossToPar": 0,
+          "netToPar": 0,
+          "shots": [
+            {
+              "number": 1,
+              "description": "109 yds to sand, 25 yds to hole"
+            },
+            {
+              "number": 2,
+              "description": "25 yds to green, 3 ft to hole"
+            },
+            {
+              "number": 3,
+              "description": "Tap in gimmie"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "historicalContext": null
+}
