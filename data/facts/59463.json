@@ -17,118 +17,102 @@
       "position": 1,
       "id": 41801,
       "name": "KeithK75",
-      "total": "+1",
-      "netAdjustment": -4
+      "scoreToPar": "+1"
     },
     "gross": {
       "position": 1,
       "id": 41801,
       "name": "KeithK75",
-      "total": "-3",
-      "netAdjustment": null
+      "scoreToPar": "-3"
     }
   },
   "leaderboard": {
-    "gross": [
-      {
-        "position": 1,
-        "id": 41801,
-        "name": "KeithK75",
-        "total": "-3",
-        "netAdjustment": null
-      },
-      {
-        "position": 2,
-        "id": 40344,
-        "name": "Dan94",
-        "total": "+19",
-        "netAdjustment": null
-      },
-      {
-        "position": 3,
-        "id": 41641,
-        "name": "HamSammich",
-        "total": "+37",
-        "netAdjustment": null
-      },
-      {
-        "position": 4,
-        "id": 15857,
-        "name": "MashedBROtato",
-        "total": "+39",
-        "netAdjustment": null
-      },
-      {
-        "position": 5,
-        "id": 40422,
-        "name": "IUDoc92",
-        "total": "+72",
-        "netAdjustment": null
-      },
-      {
-        "position": 6,
-        "id": 41637,
-        "name": "DREADFUL",
-        "total": "+75",
-        "netAdjustment": null
-      },
-      {
-        "position": 7,
-        "id": 41006,
-        "name": "Leroy4522",
-        "total": "+55",
-        "netAdjustment": null
-      }
-    ],
     "net": [
       {
         "position": 1,
         "id": 41801,
         "name": "KeithK75",
-        "total": "+1",
-        "netAdjustment": -4
+        "scoreToPar": "+1"
       },
       {
         "position": 2,
         "id": 41641,
         "name": "HamSammich",
-        "total": "+9",
-        "netAdjustment": 28
+        "scoreToPar": "+9"
       },
       {
         "position": 3,
         "id": 15857,
         "name": "MashedBROtato",
-        "total": "+15",
-        "netAdjustment": 24
+        "scoreToPar": "+15"
       },
       {
         "position": 4,
         "id": 40344,
         "name": "Dan94",
-        "total": "+27",
-        "netAdjustment": -8
+        "scoreToPar": "+27"
       },
       {
         "position": 5,
         "id": 41637,
         "name": "DREADFUL",
-        "total": "+27",
-        "netAdjustment": 48
+        "scoreToPar": "+27"
       },
       {
         "position": 6,
         "id": 40422,
         "name": "IUDoc92",
-        "total": "+32",
-        "netAdjustment": 40
+        "scoreToPar": "+32"
       },
       {
         "position": 7,
         "id": 41006,
         "name": "Leroy4522",
-        "total": "+28",
-        "netAdjustment": 27
+        "scoreToPar": "+28"
+      }
+    ],
+    "gross": [
+      {
+        "position": 1,
+        "id": 41801,
+        "name": "KeithK75",
+        "scoreToPar": "-3"
+      },
+      {
+        "position": 2,
+        "id": 40344,
+        "name": "Dan94",
+        "scoreToPar": "+19"
+      },
+      {
+        "position": 3,
+        "id": 41641,
+        "name": "HamSammich",
+        "scoreToPar": "+37"
+      },
+      {
+        "position": 4,
+        "id": 15857,
+        "name": "MashedBROtato",
+        "scoreToPar": "+39"
+      },
+      {
+        "position": 5,
+        "id": 40422,
+        "name": "IUDoc92",
+        "scoreToPar": "+72"
+      },
+      {
+        "position": 6,
+        "id": 41637,
+        "name": "DREADFUL",
+        "scoreToPar": "+75"
+      },
+      {
+        "position": 7,
+        "id": 41006,
+        "name": "Leroy4522",
+        "scoreToPar": "+55"
       }
     ]
   },
@@ -436,11 +420,10 @@
     {
       "name": "KeithK75",
       "leaderboard": {
-        "grossPosition": 1,
-        "netPosition": 1,
-        "grossTotal": "-3",
-        "netTotal": "+1",
-        "netAdjustment": -4
+        "netFinish": 1,
+        "grossFinish": 1,
+        "netScoreToPar": "+1",
+        "grossScoreToPar": "-3"
       },
       "sg": {
         "tee": 0.62,
@@ -668,11 +651,11 @@
       "priorHistory": {
         "starts": 7,
         "evidenceLevel": "strong_trend",
-        "avgNet": 3.86,
-        "avgGross": 1.57,
+        "avgNetFinish": 3.86,
+        "avgGrossFinish": 1.57,
         "netWins": 2,
         "grossWins": 4,
-        "sg": {
+        "sgPerAppearance": {
           "tee": 3.17,
           "approach": 5.64,
           "shortGame": 1.65,
@@ -680,7 +663,7 @@
           "teeToGreen": 10.46,
           "total": 12.4
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 288.57,
           "AVG DRIVE DISTANCE (FIR)": 256.86,
           "FAIRWAYS HIT": 5.57,
@@ -703,11 +686,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 7,
-            "grossPosition": 2,
-            "netTotal": "+3",
-            "grossTotal": "+3",
-            "netAdjustment": 0,
+            "netFinish": 7,
+            "grossFinish": 2,
+            "netScoreToPar": "+3",
+            "grossScoreToPar": "+3",
             "sg": {
               "tee": 2.92,
               "approach": 2.71,
@@ -739,11 +721,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 1,
-            "grossPosition": 1,
-            "netTotal": "+1",
-            "grossTotal": "+1",
-            "netAdjustment": 0,
+            "netFinish": 1,
+            "grossFinish": 1,
+            "netScoreToPar": "+1",
+            "grossScoreToPar": "+1",
             "sg": {
               "tee": 4.96,
               "approach": 6.28,
@@ -775,11 +756,10 @@
             "name": "Week 5 Caledonia",
             "date": "2026-04-22",
             "course": "Caledonia Golf and Fish Club",
-            "netPosition": 2,
-            "grossPosition": 1,
-            "netTotal": "-2",
-            "grossTotal": "-2",
-            "netAdjustment": 0,
+            "netFinish": 2,
+            "grossFinish": 1,
+            "netScoreToPar": "-2",
+            "grossScoreToPar": "-2",
             "sg": {
               "tee": 5.1,
               "approach": 6.17,
@@ -811,11 +791,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 6,
-            "grossPosition": 3,
-            "netTotal": "+12",
-            "grossTotal": "+12",
-            "netAdjustment": 0,
+            "netFinish": 6,
+            "grossFinish": 3,
+            "netScoreToPar": "+12",
+            "grossScoreToPar": "+12",
             "sg": {
               "tee": 1.59,
               "approach": 5.31,
@@ -847,11 +826,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 6,
-            "grossPosition": 2,
-            "netTotal": "+6",
-            "grossTotal": "+6",
-            "netAdjustment": 0,
+            "netFinish": 6,
+            "grossFinish": 2,
+            "netScoreToPar": "+6",
+            "grossScoreToPar": "+6",
             "sg": {
               "tee": 0.58,
               "approach": 5.22,
@@ -884,11 +862,10 @@
     {
       "name": "HamSammich",
       "leaderboard": {
-        "grossPosition": 3,
-        "netPosition": 2,
-        "grossTotal": "+37",
-        "netTotal": "+9",
-        "netAdjustment": 28
+        "netFinish": 2,
+        "grossFinish": 3,
+        "netScoreToPar": "+9",
+        "grossScoreToPar": "+37"
       },
       "sg": {
         "tee": 0.66,
@@ -1128,11 +1105,11 @@
       "priorHistory": {
         "starts": 5,
         "evidenceLevel": "strong_trend",
-        "avgNet": 4.6,
-        "avgGross": 5.6,
+        "avgNetFinish": 4.6,
+        "avgGrossFinish": 5.6,
         "netWins": 0,
         "grossWins": 0,
-        "sg": {
+        "sgPerAppearance": {
           "tee": -0.6,
           "approach": -0.41,
           "shortGame": -1.92,
@@ -1140,7 +1117,7 @@
           "teeToGreen": -2.93,
           "total": -2.19
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 296.6,
           "AVG DRIVE DISTANCE (FIR)": 269.0,
           "FAIRWAYS HIT": 3.4,
@@ -1163,11 +1140,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 3,
-            "grossPosition": 5,
-            "netTotal": "-2",
-            "grossTotal": "+13",
-            "netAdjustment": 15,
+            "netFinish": 3,
+            "grossFinish": 5,
+            "netScoreToPar": "-2",
+            "grossScoreToPar": "+13",
             "sg": {
               "tee": -1.63,
               "approach": -0.52,
@@ -1199,11 +1175,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 2,
-            "grossPosition": 3,
-            "netTotal": "+2",
-            "grossTotal": "+17",
-            "netAdjustment": 15,
+            "netFinish": 2,
+            "grossFinish": 3,
+            "netScoreToPar": "+2",
+            "grossScoreToPar": "+17",
             "sg": {
               "tee": 1.76,
               "approach": -1.24,
@@ -1235,11 +1210,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 7,
-            "grossPosition": 7,
-            "netTotal": "+15",
-            "grossTotal": "+30",
-            "netAdjustment": 15,
+            "netFinish": 7,
+            "grossFinish": 7,
+            "netScoreToPar": "+15",
+            "grossScoreToPar": "+30",
             "sg": {
               "tee": -5.43,
               "approach": -0.88,
@@ -1271,11 +1245,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 2,
-            "grossPosition": 5,
-            "netTotal": "-5",
-            "grossTotal": "+12",
-            "netAdjustment": 17,
+            "netFinish": 2,
+            "grossFinish": 5,
+            "netScoreToPar": "-5",
+            "grossScoreToPar": "+12",
             "sg": {
               "tee": 3.52,
               "approach": -2.08,
@@ -1307,11 +1280,10 @@
             "name": "Week 1 Bay Hill",
             "date": "2026-03-20",
             "course": "Bay Hill",
-            "netPosition": 9,
-            "grossPosition": 8,
-            "netTotal": "+1",
-            "grossTotal": "+13",
-            "netAdjustment": 12,
+            "netFinish": 9,
+            "grossFinish": 8,
+            "netScoreToPar": "+1",
+            "grossScoreToPar": "+13",
             "sg": {
               "tee": -1.24,
               "approach": 2.65,
@@ -1344,11 +1316,10 @@
     {
       "name": "MashedBROtato",
       "leaderboard": {
-        "grossPosition": 4,
-        "netPosition": 3,
-        "grossTotal": "+39",
-        "netTotal": "+15",
-        "netAdjustment": 24
+        "netFinish": 3,
+        "grossFinish": 4,
+        "netScoreToPar": "+15",
+        "grossScoreToPar": "+39"
       },
       "sg": {
         "tee": 0.78,
@@ -1572,11 +1543,11 @@
       "priorHistory": {
         "starts": 7,
         "evidenceLevel": "strong_trend",
-        "avgNet": 5.14,
-        "avgGross": 4.43,
+        "avgNetFinish": 5.14,
+        "avgGrossFinish": 4.43,
         "netWins": 1,
         "grossWins": 1,
-        "sg": {
+        "sgPerAppearance": {
           "tee": 1.01,
           "approach": -0.66,
           "shortGame": -1.1,
@@ -1584,7 +1555,7 @@
           "teeToGreen": -0.75,
           "total": -0.06
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 275.2,
           "AVG DRIVE DISTANCE (FIR)": 248.8,
           "FAIRWAYS HIT": 2.86,
@@ -1607,11 +1578,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 2,
-            "grossPosition": 3,
-            "netTotal": "-2",
-            "grossTotal": "+10",
-            "netAdjustment": 12,
+            "netFinish": 2,
+            "grossFinish": 3,
+            "netScoreToPar": "-2",
+            "grossScoreToPar": "+10",
             "sg": {
               "tee": -0.16,
               "approach": 1.21,
@@ -1643,11 +1613,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 7,
-            "grossPosition": 6,
-            "netTotal": "+13",
-            "grossTotal": "+25",
-            "netAdjustment": 12,
+            "netFinish": 7,
+            "grossFinish": 6,
+            "netScoreToPar": "+13",
+            "grossScoreToPar": "+25",
             "sg": {
               "tee": 1.81,
               "approach": 0.9,
@@ -1679,11 +1648,10 @@
             "name": "Week 5 Caledonia",
             "date": "2026-04-22",
             "course": "Caledonia Golf and Fish Club",
-            "netPosition": 7,
-            "grossPosition": 7,
-            "netTotal": "+14",
-            "grossTotal": "+24",
-            "netAdjustment": 10,
+            "netFinish": 7,
+            "grossFinish": 7,
+            "netScoreToPar": "+14",
+            "grossScoreToPar": "+24",
             "sg": {
               "tee": -0.42,
               "approach": -9.66,
@@ -1715,11 +1683,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 1,
-            "grossPosition": 1,
-            "netTotal": "-4",
-            "grossTotal": "+6",
-            "netAdjustment": 10,
+            "netFinish": 1,
+            "grossFinish": 1,
+            "netScoreToPar": "-4",
+            "grossScoreToPar": "+6",
             "sg": {
               "tee": 2.13,
               "approach": 6.14,
@@ -1751,11 +1718,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 7,
-            "grossPosition": 6,
-            "netTotal": "+7",
-            "grossTotal": "+16",
-            "netAdjustment": 9,
+            "netFinish": 7,
+            "grossFinish": 6,
+            "netScoreToPar": "+7",
+            "grossScoreToPar": "+16",
             "sg": {
               "tee": 2.79,
               "approach": -4.18,
@@ -1788,11 +1754,10 @@
     {
       "name": "Dan94",
       "leaderboard": {
-        "grossPosition": 2,
-        "netPosition": 4,
-        "grossTotal": "+19",
-        "netTotal": "+27",
-        "netAdjustment": -8
+        "netFinish": 4,
+        "grossFinish": 2,
+        "netScoreToPar": "+27",
+        "grossScoreToPar": "+19"
       },
       "sg": {
         "tee": 0.61,
@@ -2044,11 +2009,11 @@
       "priorHistory": {
         "starts": 7,
         "evidenceLevel": "strong_trend",
-        "avgNet": 4.29,
-        "avgGross": 1.71,
+        "avgNetFinish": 4.29,
+        "avgGrossFinish": 1.71,
         "netWins": 0,
         "grossWins": 2,
-        "sg": {
+        "sgPerAppearance": {
           "tee": 5.77,
           "approach": 2.61,
           "shortGame": 3.04,
@@ -2056,7 +2021,7 @@
           "teeToGreen": 11.43,
           "total": 11.97
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 312.29,
           "AVG DRIVE DISTANCE (FIR)": 280.57,
           "FAIRWAYS HIT": 6.0,
@@ -2079,11 +2044,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 4,
-            "grossPosition": 1,
-            "netTotal": "-2",
-            "grossTotal": "-2",
-            "netAdjustment": 0,
+            "netFinish": 4,
+            "grossFinish": 1,
+            "netScoreToPar": "-2",
+            "grossScoreToPar": "-2",
             "sg": {
               "tee": 5.97,
               "approach": 3.94,
@@ -2115,11 +2079,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 6,
-            "grossPosition": 2,
-            "netTotal": "+11",
-            "grossTotal": "+11",
-            "netAdjustment": 0,
+            "netFinish": 6,
+            "grossFinish": 2,
+            "netScoreToPar": "+11",
+            "grossScoreToPar": "+11",
             "sg": {
               "tee": 6.43,
               "approach": -2.12,
@@ -2151,11 +2114,10 @@
             "name": "Week 5 Caledonia",
             "date": "2026-04-22",
             "course": "Caledonia Golf and Fish Club",
-            "netPosition": 4,
-            "grossPosition": 2,
-            "netTotal": "+2",
-            "grossTotal": "+2",
-            "netAdjustment": 0,
+            "netFinish": 4,
+            "grossFinish": 2,
+            "netScoreToPar": "+2",
+            "grossScoreToPar": "+2",
             "sg": {
               "tee": 6.08,
               "approach": 0.7,
@@ -2187,11 +2149,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 4,
-            "grossPosition": 2,
-            "netTotal": "+8",
-            "grossTotal": "+8",
-            "netAdjustment": 0,
+            "netFinish": 4,
+            "grossFinish": 2,
+            "netScoreToPar": "+8",
+            "grossScoreToPar": "+8",
             "sg": {
               "tee": 5.27,
               "approach": 5.97,
@@ -2223,11 +2184,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 4,
-            "grossPosition": 1,
-            "netTotal": "-3",
-            "grossTotal": "-3",
-            "netAdjustment": 0,
+            "netFinish": 4,
+            "grossFinish": 1,
+            "netScoreToPar": "-3",
+            "grossScoreToPar": "-3",
             "sg": {
               "tee": 7.91,
               "approach": 0.22,
@@ -2260,11 +2220,10 @@
     {
       "name": "DREADFUL",
       "leaderboard": {
-        "grossPosition": 6,
-        "netPosition": 5,
-        "grossTotal": "+75",
-        "netTotal": "+27",
-        "netAdjustment": 48
+        "netFinish": 5,
+        "grossFinish": 6,
+        "netScoreToPar": "+27",
+        "grossScoreToPar": "+75"
       },
       "sg": {
         "tee": -6.09,
@@ -2520,11 +2479,11 @@
       "priorHistory": {
         "starts": 7,
         "evidenceLevel": "strong_trend",
-        "avgNet": 4.71,
-        "avgGross": 6.71,
+        "avgNetFinish": 4.71,
+        "avgGrossFinish": 6.71,
         "netWins": 0,
         "grossWins": 0,
-        "sg": {
+        "sgPerAppearance": {
           "tee": -0.9,
           "approach": -1.24,
           "shortGame": -2.14,
@@ -2532,7 +2491,7 @@
           "teeToGreen": -4.28,
           "total": -6.33
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 281.57,
           "AVG DRIVE DISTANCE (FIR)": 256.86,
           "FAIRWAYS HIT": 4.57,
@@ -2555,11 +2514,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 5,
-            "grossPosition": 8,
-            "netTotal": "E",
-            "grossTotal": "+18",
-            "netAdjustment": 18,
+            "netFinish": 5,
+            "grossFinish": 8,
+            "netScoreToPar": "E",
+            "grossScoreToPar": "+18",
             "sg": {
               "tee": -1.61,
               "approach": -0.84,
@@ -2591,11 +2549,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 4,
-            "grossPosition": 7,
-            "netTotal": "+9",
-            "grossTotal": "+27",
-            "netAdjustment": 18,
+            "netFinish": 4,
+            "grossFinish": 7,
+            "netScoreToPar": "+9",
+            "grossScoreToPar": "+27",
             "sg": {
               "tee": -2.66,
               "approach": -2.06,
@@ -2627,11 +2584,10 @@
             "name": "Week 5 Caledonia",
             "date": "2026-04-22",
             "course": "Caledonia Golf and Fish Club",
-            "netPosition": 5,
-            "grossPosition": 5,
-            "netTotal": "+4",
-            "grossTotal": "+22",
-            "netAdjustment": 18,
+            "netFinish": 5,
+            "grossFinish": 5,
+            "netScoreToPar": "+4",
+            "grossScoreToPar": "+22",
             "sg": {
               "tee": -0.57,
               "approach": -2.44,
@@ -2663,11 +2619,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 3,
-            "grossPosition": 5,
-            "netTotal": "+4",
-            "grossTotal": "+22",
-            "netAdjustment": 18,
+            "netFinish": 3,
+            "grossFinish": 5,
+            "netScoreToPar": "+4",
+            "grossScoreToPar": "+22",
             "sg": {
               "tee": 2.28,
               "approach": 4.33,
@@ -2699,11 +2654,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 5,
-            "grossPosition": 8,
-            "netTotal": "+1",
-            "grossTotal": "+20",
-            "netAdjustment": 19,
+            "netFinish": 5,
+            "grossFinish": 8,
+            "netScoreToPar": "+1",
+            "grossScoreToPar": "+20",
             "sg": {
               "tee": -0.9,
               "approach": -2.89,
@@ -2736,11 +2690,10 @@
     {
       "name": "IUDoc92",
       "leaderboard": {
-        "grossPosition": 5,
-        "netPosition": 6,
-        "grossTotal": "+72",
-        "netTotal": "+32",
-        "netAdjustment": 40
+        "netFinish": 6,
+        "grossFinish": 5,
+        "netScoreToPar": "+32",
+        "grossScoreToPar": "+72"
       },
       "sg": {
         "tee": -3.49,
@@ -2984,11 +2937,11 @@
       "priorHistory": {
         "starts": 7,
         "evidenceLevel": "strong_trend",
-        "avgNet": 5.43,
-        "avgGross": 7.0,
+        "avgNetFinish": 5.43,
+        "avgGrossFinish": 7.0,
         "netWins": 1,
         "grossWins": 0,
-        "sg": {
+        "sgPerAppearance": {
           "tee": -2.59,
           "approach": -2.33,
           "shortGame": -2.58,
@@ -2996,7 +2949,7 @@
           "teeToGreen": -7.51,
           "total": -9.32
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 239.86,
           "AVG DRIVE DISTANCE (FIR)": 211.86,
           "FAIRWAYS HIT": 6.57,
@@ -3019,11 +2972,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 1,
-            "grossPosition": 4,
-            "netTotal": "-7",
-            "grossTotal": "+10",
-            "netAdjustment": 17,
+            "netFinish": 1,
+            "grossFinish": 4,
+            "netScoreToPar": "-7",
+            "grossScoreToPar": "+10",
             "sg": {
               "tee": -2.73,
               "approach": 2.35,
@@ -3055,11 +3007,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 3,
-            "grossPosition": 5,
-            "netTotal": "+7",
-            "grossTotal": "+24",
-            "netAdjustment": 17,
+            "netFinish": 3,
+            "grossFinish": 5,
+            "netScoreToPar": "+7",
+            "grossScoreToPar": "+24",
             "sg": {
               "tee": -0.84,
               "approach": 2.1,
@@ -3091,11 +3042,10 @@
             "name": "Week 5 Caledonia",
             "date": "2026-04-22",
             "course": "Caledonia Golf and Fish Club",
-            "netPosition": 3,
-            "grossPosition": 4,
-            "netTotal": "E",
-            "grossTotal": "+19",
-            "netAdjustment": 19,
+            "netFinish": 3,
+            "grossFinish": 4,
+            "netScoreToPar": "E",
+            "grossScoreToPar": "+19",
             "sg": {
               "tee": -3.46,
               "approach": -0.45,
@@ -3127,11 +3077,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 8,
-            "grossPosition": 8,
-            "netTotal": "+20",
-            "grossTotal": "+39",
-            "netAdjustment": 19,
+            "netFinish": 8,
+            "grossFinish": 8,
+            "netScoreToPar": "+20",
+            "grossScoreToPar": "+39",
             "sg": {
               "tee": -2.87,
               "approach": -12.89,
@@ -3163,11 +3112,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 8,
-            "grossPosition": 9,
-            "netTotal": "+12",
-            "grossTotal": "+30",
-            "netAdjustment": 18,
+            "netFinish": 8,
+            "grossFinish": 9,
+            "netScoreToPar": "+12",
+            "grossScoreToPar": "+30",
             "sg": {
               "tee": -6.55,
               "approach": -0.29,
@@ -3200,11 +3148,10 @@
     {
       "name": "Leroy4522",
       "leaderboard": {
-        "grossPosition": 7,
-        "netPosition": 7,
-        "grossTotal": "+55",
-        "netTotal": "+28",
-        "netAdjustment": 27
+        "netFinish": 7,
+        "grossFinish": 7,
+        "netScoreToPar": "+28",
+        "grossScoreToPar": "+55"
       },
       "sg": {
         "tee": -3.55,
@@ -3480,11 +3427,11 @@
       "priorHistory": {
         "starts": 7,
         "evidenceLevel": "strong_trend",
-        "avgNet": 6.86,
-        "avgGross": 6.43,
+        "avgNetFinish": 6.86,
+        "avgGrossFinish": 6.43,
         "netWins": 0,
         "grossWins": 0,
-        "sg": {
+        "sgPerAppearance": {
           "tee": -1.15,
           "approach": -4.36,
           "shortGame": -0.09,
@@ -3492,7 +3439,7 @@
           "teeToGreen": -5.61,
           "total": -5.74
         },
-        "stats": {
+        "statsPerAppearance": {
           "LONGEST DRIVE": 260.14,
           "AVG DRIVE DISTANCE (FIR)": 231.57,
           "FAIRWAYS HIT": 5.0,
@@ -3515,11 +3462,10 @@
             "name": "Sage Valley Championship",
             "date": "2026-05-24",
             "course": "Sage Valley Golf Club",
-            "netPosition": 8,
-            "grossPosition": 7,
-            "netTotal": "+5",
-            "grossTotal": "+17",
-            "netAdjustment": 12,
+            "netFinish": 8,
+            "grossFinish": 7,
+            "netScoreToPar": "+5",
+            "grossScoreToPar": "+17",
             "sg": {
               "tee": -2.58,
               "approach": -4.03,
@@ -3551,11 +3497,10 @@
             "name": "Week 6 Copperhead PLAYOFF",
             "date": "2026-05-06",
             "course": "Copperhead CC",
-            "netPosition": 8,
-            "grossPosition": 8,
-            "netTotal": "+17",
-            "grossTotal": "+29",
-            "netAdjustment": 12,
+            "netFinish": 8,
+            "grossFinish": 8,
+            "netScoreToPar": "+17",
+            "grossScoreToPar": "+29",
             "sg": {
               "tee": -3.73,
               "approach": -3.13,
@@ -3587,11 +3532,10 @@
             "name": "Week 5 Caledonia",
             "date": "2026-04-22",
             "course": "Caledonia Golf and Fish Club",
-            "netPosition": 6,
-            "grossPosition": 6,
-            "netTotal": "+10",
-            "grossTotal": "+22",
-            "netAdjustment": 12,
+            "netFinish": 6,
+            "grossFinish": 6,
+            "netScoreToPar": "+10",
+            "grossScoreToPar": "+22",
             "sg": {
               "tee": -1.65,
               "approach": -6.58,
@@ -3623,11 +3567,10 @@
             "name": "Week 4 Tobacco Road Major",
             "date": "2026-04-11",
             "course": "ForeBatten Charity Event",
-            "netPosition": 5,
-            "grossPosition": 6,
-            "netTotal": "+12",
-            "grossTotal": "+24",
-            "netAdjustment": 12,
+            "netFinish": 5,
+            "grossFinish": 6,
+            "netScoreToPar": "+12",
+            "grossScoreToPar": "+24",
             "sg": {
               "tee": 2.0,
               "approach": -3.09,
@@ -3659,11 +3602,10 @@
             "name": "Week 3 Alpine Valley",
             "date": "2026-04-01",
             "course": "Swiss Alpine Valley",
-            "netPosition": 3,
-            "grossPosition": 3,
-            "netTotal": "-3",
-            "grossTotal": "+11",
-            "netAdjustment": 14,
+            "netFinish": 3,
+            "grossFinish": 3,
+            "netScoreToPar": "-3",
+            "grossScoreToPar": "+11",
             "sg": {
               "tee": 4.63,
               "approach": -6.32,
@@ -3695,7 +3637,7 @@
     }
   ],
   "historicalContext": {
-    "definition": "Only profile-eligible completed events confidently before this tournament are included. Future events and same-day ambiguous events are excluded.",
+    "definition": "Only profile-eligible completed events confidently before this tournament are included. avgNetFinish and avgGrossFinish are average finishing positions, never scores. SG/stat averages are per appearance. Derived net adjustments are intentionally omitted. Future events and same-day ambiguous events are excluded.",
     "priorEligibleEventIds": [
       50704,
       51974,
