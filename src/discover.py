@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import http.cookiejar
 import json
 import re
+import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,19 +22,78 @@ def load_config() -> dict:
         return json.load(fh)
 
 
+def browser_headers(tour_id: int, *, ajax: bool = False) -> dict[str, str]:
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/149.0.0.0 Safari/537.36"
+        ),
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": f"{BASE_URL}/tour/{tour_id}",
+    }
+    if ajax:
+        headers.update(
+            {
+                "Accept": "text/html, */*; q=0.01",
+                "X-Requested-With": "XMLHttpRequest",
+            }
+        )
+    else:
+        headers["Accept"] = (
+            "text/html,application/xhtml+xml,application/xml;q=0.9,"
+            "image/avif,image/webp,*/*;q=0.8"
+        )
+    return headers
+
+
+def response_preview(body: bytes, limit: int = 1200) -> str:
+    return body[:limit].decode("utf-8", errors="replace").replace("\n", " ")
+
+
+def open_with_diagnostics(opener, request: urllib.request.Request, label: str) -> bytes:
+    print(f"REQUEST {label}: {request.full_url}")
+    try:
+        with opener.open(request, timeout=30) as response:
+            body = response.read()
+            print(
+                f"RESPONSE {label}: HTTP {response.status} | "
+                f"content-type={response.headers.get('Content-Type')} | bytes={len(body)}"
+            )
+            return body
+    except urllib.error.HTTPError as exc:
+        body = exc.read()
+        print(f"ERROR {label}: HTTP {exc.code} {exc.reason}", file=sys.stderr)
+        print(f"ERROR content-type: {exc.headers.get('Content-Type')}", file=sys.stderr)
+        print(f"ERROR server: {exc.headers.get('Server')}", file=sys.stderr)
+        print(f"ERROR response preview: {response_preview(body)}", file=sys.stderr)
+        raise
+    except urllib.error.URLError as exc:
+        print(f"ERROR {label}: URL error: {exc.reason}", file=sys.stderr)
+        raise
+
+
 def fetch_events_html(tour_id: int) -> str:
-    url = f"{BASE_URL}/sgt-api/tour/{tour_id}/events"
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 (compatible; SGTRecapEngineLab/0.1)",
-            "Accept": "text/html, */*; q=0.01",
-            "Referer": f"{BASE_URL}/tour/{tour_id}",
-            "X-Requested-With": "XMLHttpRequest",
-        },
+    cookie_jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookie_jar))
+
+    # First establish the same public page context a browser would have before
+    # requesting the dynamically loaded events fragment.
+    tour_request = urllib.request.Request(
+        f"{BASE_URL}/tour/{tour_id}",
+        headers=browser_headers(tour_id),
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return response.read().decode("utf-8", errors="replace")
+    open_with_diagnostics(opener, tour_request, "tour-page")
+    print(f"COOKIES after tour page: {len(cookie_jar)}")
+
+    cache_buster = int(time.time() * 1000)
+    events_url = f"{BASE_URL}/sgt-api/tour/{tour_id}/events?_={cache_buster}"
+    events_request = urllib.request.Request(
+        events_url,
+        headers=browser_headers(tour_id, ajax=True),
+    )
+    body = open_with_diagnostics(opener, events_request, "events")
+    return body.decode("utf-8", errors="replace")
 
 
 def text(node) -> str | None:
@@ -123,7 +186,10 @@ def parse_events(html: str, tour_id: int, configured_name: str | None) -> dict:
                 result[output_key].append(event)
 
     if not result["active"] and not result["completed"]:
-        raise RuntimeError("SGT response parsed successfully as HTML, but no ACTIVE or PAST event cards were found.")
+        print("PARSE ERROR response preview:", html[:1600].replace("\n", " "), file=sys.stderr)
+        raise RuntimeError(
+            "SGT response was fetched, but no ACTIVE or PAST event cards were found."
+        )
 
     return result
 
@@ -137,6 +203,7 @@ def main() -> None:
     tour_id = int(config["tourId"])
     tour_name = config.get("tourName")
 
+    print(f"Starting read-only SGT discovery for Tour {tour_id}")
     html = fetch_events_html(tour_id)
     discovered = parse_events(html, tour_id, tour_name)
 
