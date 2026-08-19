@@ -1,0 +1,33 @@
+name: Export SGT tournament smoke test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/export_smoke.py"
+      - ".github/workflows/export-smoke.yml"
+
+jobs:
+  export-smoke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch tournament 67350 raw data
+        run: python src/export_smoke.py
+
+      - name: Upload raw tournament artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tournament-67350-raw
+          path: data/raw/67350/
