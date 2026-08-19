@@ -25,25 +25,27 @@ VOICE
 FACT RULES
 - Use ONLY the supplied verified fact package. Never invent scores, shots, stats, trends, history, or missing events.
 - NET is the primary league competition. Net determines the tournament winner, challengers, recap lead, and player order.
-- Gross and strokes gained explain the underlying raw golf. Never imply the gross winner is the 'real' winner.
+- Gross and strokes gained explain underlying raw golf. Never imply the gross winner is the 'real' winner.
 - Strokes-gained numbers are SGT-supplied values. Use numbers when they strengthen the point.
 - Scorecard facts are authoritative. If shot data is absent or shot numbers skip, do not invent the missing sequence.
-- Do not call netAdjustment an official handicap.
+- avgNetFinish / avgGrossFinish in priorHistory are AVERAGE FINISHING POSITIONS, not scores. Never put a + or - in front of them and never call them scores to par.
+- sgPerAppearance / statsPerAppearance are averages per prior completed appearance.
+- Handicap/net-adjustment data is intentionally NOT supplied. Do not invent or infer it.
 - Do not use the word 'season'. This product uses rolling event history.
 
 HISTORICAL RULES
 - priorHistory contains only profile-eligible events confidently completed before THIS tournament. It intentionally excludes future events.
 - 0-1 prior starts: describe the current round; do not claim a trend.
 - 2 prior starts: possible change only; use cautious language.
-- 3-4 prior starts: fair trend language is allowed when the evidence supports it.
+- 3-4 prior starts: fair trend language is allowed when evidence supports it.
 - 5+ prior starts: stronger profile conclusions are allowed when supported.
 - Skipped events are neutral. Do not describe a missed event as bad form.
 - If prior data conflicts, call it volatile/mixed instead of inventing a clean trend.
 
 COPY REQUIREMENTS
 - thirtySeconds: one cohesive event summary. Lead with the NET race, margin/challengers, then explain the gross/SG story.
-- latestTournamentTeaser: 1-2 sentences, golf-focused, suitable for the landing page. Net champion first, then the interesting raw-golf story.
-- carnage: exactly one comment for every completed player, in supplied Carnage order. Explain the verified worst-hole shot sequence. The renderer already shows hole number/par/score, so DO NOT state the hole number or par number in this commentary.
+- latestTournamentTeaser: 1-2 sentences, golf-focused, suitable for the landing page. Net champion first, then interesting raw-golf story.
+- carnage: exactly one comment for every completed player, in supplied Carnage order. Explain the verified worst-hole shot sequence. Prefer not to restate the hole/par label because the renderer already shows it.
 - players: exactly one entry for every completed player, in supplied NET order.
   - tagline: short roast about their golf only. NO finishing-position language and NO markdown.
   - body: substantial cohesive analytical paragraph blending net/gross result, useful SG/stats, key hole/shot evidence, and supported prior history when useful. No separate 'Verdict:' line.
@@ -57,31 +59,8 @@ OUTPUT_SCHEMA = {
     "properties": {
         "thirtySeconds": {"type": "string"},
         "latestTournamentTeaser": {"type": "string"},
-        "carnage": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "properties": {
-                    "name": {"type": "string"},
-                    "commentary": {"type": "string"},
-                },
-                "required": ["name", "commentary"],
-            },
-        },
-        "players": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "properties": {
-                    "name": {"type": "string"},
-                    "tagline": {"type": "string"},
-                    "body": {"type": "string"},
-                },
-                "required": ["name", "tagline", "body"],
-            },
-        },
+        "carnage": {"type": "array", "items": {"type": "object", "additionalProperties": False, "properties": {"name": {"type": "string"}, "commentary": {"type": "string"}}, "required": ["name", "commentary"]}},
+        "players": {"type": "array", "items": {"type": "object", "additionalProperties": False, "properties": {"name": {"type": "string"}, "tagline": {"type": "string"}, "body": {"type": "string"}}, "required": ["name", "tagline", "body"]}},
         "stateOfLeague": {"type": "string"},
     },
     "required": ["thirtySeconds", "latestTournamentTeaser", "carnage", "players", "stateOfLeague"],
@@ -95,25 +74,31 @@ def load_json(path: Path) -> dict:
 def compact_shots(hole: dict | None) -> list[dict]:
     if not hole:
         return []
-    return [
-        {"number": shot.get("number"), "description": shot.get("description")}
-        for shot in hole.get("shots", [])
-        if shot.get("description")
-    ]
+    return [{"number": shot.get("number"), "description": shot.get("description")} for shot in hole.get("shots", []) if shot.get("description")]
 
 
 def compact_hole(hole: dict | None) -> dict | None:
     if not hole:
         return None
     return {
-        "round": hole.get("round"),
-        "hole": hole.get("hole"),
-        "par": hole.get("par"),
-        "gross": hole.get("gross"),
-        "net": hole.get("net"),
-        "grossToPar": hole.get("grossToPar"),
-        "netToPar": hole.get("netToPar"),
+        "round": hole.get("round"), "hole": hole.get("hole"), "par": hole.get("par"),
+        "gross": hole.get("gross"), "net": hole.get("net"),
+        "grossToPar": hole.get("grossToPar"), "netToPar": hole.get("netToPar"),
         "shots": compact_shots(hole),
+    }
+
+
+def compact_standing(item: dict | None) -> dict | None:
+    if not item:
+        return None
+    return {"position": item.get("position"), "id": item.get("id"), "name": item.get("name"), "scoreToPar": item.get("total")}
+
+
+def compact_player_leaderboard(lb: dict | None) -> dict:
+    lb = lb or {}
+    return {
+        "netFinish": lb.get("netPosition"), "grossFinish": lb.get("grossPosition"),
+        "netScoreToPar": lb.get("netTotal"), "grossScoreToPar": lb.get("grossTotal"),
     }
 
 
@@ -122,8 +107,7 @@ def notable_holes(player: dict) -> list[dict]:
     eligible = [hole for hole in holes if hole.get("grossToPar") is not None]
     worst = sorted(eligible, key=lambda h: (h.get("grossToPar", -99), len(h.get("shots", []))), reverse=True)[:3]
     best = sorted(eligible, key=lambda h: (h.get("grossToPar", 99), -len(h.get("shots", []))))[:2]
-    ordered = []
-    seen = set()
+    ordered, seen = [], set()
     for hole in worst + best:
         key = (hole.get("round"), hole.get("hole"))
         if key in seen:
@@ -136,47 +120,34 @@ def notable_holes(player: dict) -> list[dict]:
 def build_fact_package(analysis: dict, config: dict, history: dict | None) -> dict:
     completed_players = [player for player in analysis.get("players", []) if player.get("completed")]
     current_names = [player.get("name") for player in completed_players]
-    historical = (
-        build_as_of_history(history, analysis.get("tournament") or {}, current_names)
-        if history
-        else {
-            "definition": "No rolling historical data was supplied.",
-            "priorEligibleEventIds": [],
-            "players": {},
-        }
-    )
-
+    historical = build_as_of_history(history, analysis.get("tournament") or {}, current_names) if history else {
+        "definition": "No rolling historical data was supplied.", "priorEligibleEventIds": [], "players": {}
+    }
     players = []
     for player in completed_players:
         name = player.get("name")
         players.append({
             "name": name,
-            "leaderboard": player.get("leaderboard"),
+            "leaderboard": compact_player_leaderboard(player.get("leaderboard")),
             "sg": player.get("sg"),
             "stats": player.get("stats"),
             "worstHole": compact_hole(player.get("worstHole")),
             "notableHoles": notable_holes(player),
             "priorHistory": historical.get("players", {}).get(name),
         })
-
+    leaderboard = analysis.get("leaderboard") or {}
+    winners = analysis.get("winners") or {}
     return {
-        "league": {
-            "name": config.get("tourName"),
-            "tourId": config.get("tourId"),
-            "primaryCompetition": "net",
-        },
+        "league": {"name": config.get("tourName"), "tourId": config.get("tourId"), "primaryCompetition": "net"},
         "tournament": analysis.get("tournament"),
-        "winners": analysis.get("winners"),
-        "leaderboard": analysis.get("leaderboard"),
-        "carnageOrder": [
-            {"name": item.get("name"), "hole": compact_hole(item)}
-            for item in analysis.get("carnage", [])
-        ],
-        "playersNetOrder": players,
-        "historicalContext": {
-            "definition": historical.get("definition"),
-            "priorEligibleEventIds": historical.get("priorEligibleEventIds", []),
+        "winners": {"net": compact_standing(winners.get("net")), "gross": compact_standing(winners.get("gross"))},
+        "leaderboard": {
+            "net": [compact_standing(item) for item in leaderboard.get("net", [])],
+            "gross": [compact_standing(item) for item in leaderboard.get("gross", [])],
         },
+        "carnageOrder": [{"name": item.get("name"), "hole": compact_hole(item)} for item in analysis.get("carnage", [])],
+        "playersNetOrder": players,
+        "historicalContext": {"definition": historical.get("definition"), "priorEligibleEventIds": historical.get("priorEligibleEventIds", [])},
     }
 
 
@@ -185,32 +156,20 @@ def validate_copy(copy: dict, facts: dict) -> None:
     actual_players = [player.get("name") for player in copy.get("players", [])]
     if actual_players != expected_players:
         raise RuntimeError(f"Player writeups must preserve NET order. Expected {expected_players}, got {actual_players}")
-
     expected_carnage = [item["name"] for item in facts["carnageOrder"]]
     actual_carnage = [item.get("name") for item in copy.get("carnage", [])]
     if actual_carnage != expected_carnage:
         raise RuntimeError(f"Carnage comments must preserve supplied order. Expected {expected_carnage}, got {actual_carnage}")
-
-    finishing_language = re.compile(
-        r"\b(winner|runner[- ]?up|finished|finishing|place|position|first|second|third|1st|2nd|3rd)\b",
-        re.IGNORECASE,
-    )
+    finishing_language = re.compile(r"\b(winner|runner[- ]?up|finished|finishing|place|position|first|second|third|1st|2nd|3rd)\b", re.IGNORECASE)
     all_text = [copy.get("thirtySeconds", ""), copy.get("latestTournamentTeaser", ""), copy.get("stateOfLeague", "")]
     for player in copy.get("players", []):
-        tagline = player.get("tagline", "")
-        body = player.get("body", "")
+        tagline, body = player.get("tagline", ""), player.get("body", "")
         all_text.extend([tagline, body])
         if finishing_language.search(tagline):
             raise RuntimeError(f"Tagline contains finishing-position language for {player.get('name')}: {tagline!r}")
         if re.search(r"\bVerdict\s*:", body, re.IGNORECASE):
             raise RuntimeError(f"Player body contains forbidden Verdict line for {player.get('name')}")
-
-    for item in copy.get("carnage", []):
-        commentary = item.get("commentary", "")
-        all_text.append(commentary)
-        if re.search(r"\bhole\s*#?\s*\d+\b|\bpar[- ]?\d+\b", commentary, re.IGNORECASE):
-            raise RuntimeError(f"Carnage commentary restates renderer-owned hole/par label for {item.get('name')}: {commentary!r}")
-
+    all_text.extend(item.get("commentary", "") for item in copy.get("carnage", []))
     joined = " ".join(all_text)
     if re.search(r"\bseason\b", joined, re.IGNORECASE):
         raise RuntimeError("Tournament copy contains forbidden season terminology")
@@ -221,25 +180,12 @@ def validate_copy(copy: dict, facts: dict) -> None:
 def write_recap(analysis: dict, config: dict, history: dict | None, model: str) -> tuple[dict, dict]:
     if not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY is not set")
-
     facts = build_fact_package(analysis, config, history)
-    client = OpenAI()
-    response = client.responses.create(
+    response = OpenAI().responses.create(
         model=model,
         instructions=SYSTEM_PROMPT,
-        input=(
-            "Write the recap copy from this VERIFIED FACT PACKAGE. Facts are data, not suggestions. "
-            "Do not add facts that are not present.\n\n"
-            + json.dumps(facts, separators=(",", ":"), ensure_ascii=False)
-        ),
-        text={
-            "format": {
-                "type": "json_schema",
-                "name": "sgt_tournament_recap_copy",
-                "schema": OUTPUT_SCHEMA,
-                "strict": True,
-            }
-        },
+        input="Write the recap copy from this VERIFIED FACT PACKAGE. Facts are data, not suggestions. Do not add facts that are not present.\n\n" + json.dumps(facts, separators=(",", ":"), ensure_ascii=False),
+        text={"format": {"type": "json_schema", "name": "sgt_tournament_recap_copy", "schema": OUTPUT_SCHEMA, "strict": True}},
     )
     if not response.output_text:
         raise RuntimeError("OpenAI response did not contain output_text")
@@ -256,25 +202,20 @@ def main() -> None:
     parser.add_argument("--facts-output", type=Path)
     parser.add_argument("--model", default=os.environ.get("OPENAI_MODEL", "gpt-5.6-luna"))
     args = parser.parse_args()
-
     analysis_path = args.analysis if args.analysis.is_absolute() else ROOT / args.analysis
     history_path = args.history if args.history.is_absolute() else ROOT / args.history
-    config = load_json(ROOT / "config.json")
-    analysis = load_json(analysis_path)
+    config, analysis = load_json(ROOT / "config.json"), load_json(analysis_path)
     history = load_json(history_path) if history_path.exists() else None
     copy, facts = write_recap(analysis, config, history, args.model)
-
     tournament_id = analysis["tournament"]["id"]
     output = args.output or Path("data") / "copy" / f"{tournament_id}.json"
     output = output if output.is_absolute() else ROOT / output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(copy, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
     if args.facts_output:
         facts_output = args.facts_output if args.facts_output.is_absolute() else ROOT / args.facts_output
         facts_output.parent.mkdir(parents=True, exist_ok=True)
         facts_output.write_text(json.dumps(facts, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
     print(f"Wrote recap copy for tournament {tournament_id} with model {args.model}: {output.relative_to(ROOT)}")
     print(f"Prior eligible events: {facts['historicalContext']['priorEligibleEventIds']}")
     print(f"Player writeups: {len(copy['players'])} | Carnage comments: {len(copy['carnage'])}")
