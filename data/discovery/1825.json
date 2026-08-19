@@ -1,0 +1,106 @@
+{
+  "tourId": 1825,
+  "tourName": "High Loft / Low Standards",
+  "fetchedAt": "2026-08-19T20:06:50.015639+00:00",
+  "active": [
+    {
+      "id": 66943,
+      "status": "active",
+      "tourName": "Par 3 Canyon Run Scratch Tournament",
+      "course": "Canyon Run - Par 3",
+      "date": "2026-08-20",
+      "displayDate": "Aug 20, 2026",
+      "url": "https://simulatorgolftour.com/tournament/66943"
+    }
+  ],
+  "completed": [
+    {
+      "id": 59463,
+      "status": "completed",
+      "tourName": "4 MAN BEST BALL TOURNAMENT",
+      "course": "Shinnecock Hills Golf Club",
+      "date": "2026-07-22",
+      "displayDate": "Jul 22, 2026",
+      "url": "https://simulatorgolftour.com/tournament/59463",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 56937,
+      "status": "completed",
+      "tourName": "Sage Valley Championship",
+      "course": "Sage Valley Golf Club",
+      "date": "2026-05-24",
+      "displayDate": "May 24, 2026",
+      "url": "https://simulatorgolftour.com/tournament/56937",
+      "grossWinner": "Dan94",
+      "netWinner": "IUDoc92"
+    },
+    {
+      "id": 55704,
+      "status": "completed",
+      "tourName": "Week 6 Copperhead PLAYOFF",
+      "course": "Copperhead CC",
+      "date": "2026-05-06",
+      "displayDate": "May 6, 2026",
+      "url": "https://simulatorgolftour.com/tournament/55704",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 54741,
+      "status": "completed",
+      "tourName": "Week 5 Caledonia",
+      "course": "Caledonia Golf and Fish Club",
+      "date": "2026-04-22",
+      "displayDate": "Apr 22, 2026",
+      "url": "https://simulatorgolftour.com/tournament/54741",
+      "grossWinner": "KeithK75",
+      "netWinner": "CRANK"
+    },
+    {
+      "id": 53622,
+      "status": "completed",
+      "tourName": "Week 4 Tobacco Road Major",
+      "course": "ForeBatten Charity Event",
+      "date": "2026-04-11",
+      "displayDate": "Apr 11, 2026",
+      "url": "https://simulatorgolftour.com/tournament/53622",
+      "grossWinner": "MashedBROtato",
+      "netWinner": "MashedBROtato"
+    },
+    {
+      "id": 51974,
+      "status": "completed",
+      "tourName": "Week 2 TPC Sawgrass",
+      "course": "DPC Sodgrass",
+      "date": "2026-04-01",
+      "displayDate": "Apr 1, 2026",
+      "url": "https://simulatorgolftour.com/tournament/51974",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 52877,
+      "status": "completed",
+      "tourName": "Week 3 Alpine Valley",
+      "course": "Swiss Alpine Valley",
+      "date": "2026-04-01",
+      "displayDate": "Apr 1, 2026",
+      "url": "https://simulatorgolftour.com/tournament/52877",
+      "grossWinner": "Dan94",
+      "netWinner": "CRANK"
+    },
+    {
+      "id": 50704,
+      "status": "completed",
+      "tourName": "Week 1 Bay Hill",
+      "course": "Bay Hill",
+      "date": "2026-03-20",
+      "displayDate": "Mar 20, 2026",
+      "url": "https://simulatorgolftour.com/tournament/50704",
+      "grossWinner": "KeithK75",
+      "netWinner": "CRANK"
+    }
+  ]
+}

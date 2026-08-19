@@ -1,0 +1,4974 @@
+{
+  "schemaVersion": 1,
+  "tour": {
+    "id": 1825,
+    "name": "High Loft / Low Standards"
+  },
+  "scopeDefinition": "Rolling windows are based on the league's most recent completed tournaments, not each player's most recent starts.",
+  "defaultScope": "10",
+  "availableScopes": [
+    "all",
+    "5",
+    "10",
+    "20"
+  ],
+  "completedEvents": [
+    {
+      "id": 59463,
+      "status": "completed",
+      "tourName": "4 MAN BEST BALL TOURNAMENT",
+      "course": "Shinnecock Hills Golf Club",
+      "date": "2026-07-22",
+      "displayDate": "Jul 22, 2026",
+      "url": "https://simulatorgolftour.com/tournament/59463",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 56937,
+      "status": "completed",
+      "tourName": "Sage Valley Championship",
+      "course": "Sage Valley Golf Club",
+      "date": "2026-05-24",
+      "displayDate": "May 24, 2026",
+      "url": "https://simulatorgolftour.com/tournament/56937",
+      "grossWinner": "Dan94",
+      "netWinner": "IUDoc92"
+    },
+    {
+      "id": 55704,
+      "status": "completed",
+      "tourName": "Week 6 Copperhead PLAYOFF",
+      "course": "Copperhead CC",
+      "date": "2026-05-06",
+      "displayDate": "May 6, 2026",
+      "url": "https://simulatorgolftour.com/tournament/55704",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 54741,
+      "status": "completed",
+      "tourName": "Week 5 Caledonia",
+      "course": "Caledonia Golf and Fish Club",
+      "date": "2026-04-22",
+      "displayDate": "Apr 22, 2026",
+      "url": "https://simulatorgolftour.com/tournament/54741",
+      "grossWinner": "KeithK75",
+      "netWinner": "CRANK"
+    },
+    {
+      "id": 53622,
+      "status": "completed",
+      "tourName": "Week 4 Tobacco Road Major",
+      "course": "ForeBatten Charity Event",
+      "date": "2026-04-11",
+      "displayDate": "Apr 11, 2026",
+      "url": "https://simulatorgolftour.com/tournament/53622",
+      "grossWinner": "MashedBROtato",
+      "netWinner": "MashedBROtato"
+    },
+    {
+      "id": 52877,
+      "status": "completed",
+      "tourName": "Week 3 Alpine Valley",
+      "course": "Swiss Alpine Valley",
+      "date": "2026-04-01",
+      "displayDate": "Apr 1, 2026",
+      "url": "https://simulatorgolftour.com/tournament/52877",
+      "grossWinner": "Dan94",
+      "netWinner": "CRANK"
+    },
+    {
+      "id": 51974,
+      "status": "completed",
+      "tourName": "Week 2 TPC Sawgrass",
+      "course": "DPC Sodgrass",
+      "date": "2026-04-01",
+      "displayDate": "Apr 1, 2026",
+      "url": "https://simulatorgolftour.com/tournament/51974",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 50704,
+      "status": "completed",
+      "tourName": "Week 1 Bay Hill",
+      "course": "Bay Hill",
+      "date": "2026-03-20",
+      "displayDate": "Mar 20, 2026",
+      "url": "https://simulatorgolftour.com/tournament/50704",
+      "grossWinner": "KeithK75",
+      "netWinner": "CRANK"
+    }
+  ],
+  "analyzedEventIds": [
+    50704,
+    51974,
+    52877,
+    53622,
+    54741,
+    55704,
+    56937,
+    59463
+  ],
+  "missingAnalysisEventIds": [],
+  "scopes": {
+    "all": {
+      "eventCount": 8,
+      "eventIds": [
+        59463,
+        56937,
+        55704,
+        54741,
+        53622,
+        52877,
+        51974,
+        50704
+      ],
+      "players": [
+        {
+          "id": 40552,
+          "name": "CRANK",
+          "starts": 7,
+          "avgNet": 2.71,
+          "avgGross": 5.0,
+          "netWins": 3,
+          "grossWins": 0,
+          "sg": {
+            "tee": -3.56,
+            "approach": -0.27,
+            "shortGame": 2.66,
+            "putting": 0.85,
+            "teeToGreen": -1.17,
+            "total": -0.32
+          },
+          "events": [
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -5.24,
+                "approach": 2.56,
+                "shortGame": 0.29,
+                "putting": -0.96,
+                "teeToGreen": -2.39,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.55,
+                "approach": -3.85,
+                "shortGame": 3.28,
+                "putting": -1.25,
+                "teeToGreen": -1.12,
+                "total": -2.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 1,
+              "grossPosition": 3,
+              "netTotal": "-4",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -2.28,
+                "approach": 1.74,
+                "shortGame": 2.81,
+                "putting": -0.25,
+                "teeToGreen": 2.28,
+                "total": 2.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "+1",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": -0.97,
+                "approach": -4.56,
+                "shortGame": 6.99,
+                "putting": 2.29,
+                "teeToGreen": 1.46,
+                "total": 3.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -5.1,
+                "approach": 3.76,
+                "shortGame": 1.26,
+                "putting": 4.23,
+                "teeToGreen": -0.07,
+                "total": 4.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 3,
+              "grossPosition": 8,
+              "netTotal": "+2",
+              "grossTotal": "+23",
+              "sg": {
+                "tee": -8.11,
+                "approach": -0.16,
+                "shortGame": 1.32,
+                "putting": -0.91,
+                "teeToGreen": -6.96,
+                "total": -7.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 1,
+              "grossPosition": 6,
+              "netTotal": "-7",
+              "grossTotal": "+5",
+              "sg": {
+                "tee": -2.66,
+                "approach": -1.38,
+                "shortGame": 2.68,
+                "putting": 2.83,
+                "teeToGreen": -1.37,
+                "total": 1.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41801,
+          "name": "KeithK75",
+          "starts": 8,
+          "avgNet": 3.5,
+          "avgGross": 1.5,
+          "netWins": 3,
+          "grossWins": 5,
+          "sg": {
+            "tee": 2.85,
+            "approach": 5.94,
+            "shortGame": 2.28,
+            "putting": 2.0,
+            "teeToGreen": 11.07,
+            "total": 13.07
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 0.62,
+                "approach": 8.05,
+                "shortGame": 6.68,
+                "putting": 2.44,
+                "teeToGreen": 15.35,
+                "total": 17.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 7,
+              "grossPosition": 2,
+              "netTotal": "+3",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 2.92,
+                "approach": 2.71,
+                "shortGame": -0.37,
+                "putting": 1.38,
+                "teeToGreen": 5.27,
+                "total": 6.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 4.96,
+                "approach": 6.28,
+                "shortGame": 4.49,
+                "putting": 2.91,
+                "teeToGreen": 15.72,
+                "total": 18.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 2,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.1,
+                "approach": 6.17,
+                "shortGame": 1.7,
+                "putting": 2.05,
+                "teeToGreen": 12.97,
+                "total": 15.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 6,
+              "grossPosition": 3,
+              "netTotal": "+12",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 1.59,
+                "approach": 5.31,
+                "shortGame": 1.09,
+                "putting": -0.23,
+                "teeToGreen": 7.99,
+                "total": 7.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+6",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 0.58,
+                "approach": 5.22,
+                "shortGame": -0.27,
+                "putting": 3.62,
+                "teeToGreen": 5.54,
+                "total": 9.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-3",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 4.84,
+                "approach": 9.01,
+                "shortGame": 2.68,
+                "putting": 1.6,
+                "teeToGreen": 16.53,
+                "total": 18.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-5",
+              "grossTotal": "-5",
+              "sg": {
+                "tee": 2.21,
+                "approach": 4.76,
+                "shortGame": 2.23,
+                "putting": 2.26,
+                "teeToGreen": 9.2,
+                "total": 11.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41641,
+          "name": "HamSammich",
+          "starts": 6,
+          "avgNet": 4.17,
+          "avgGross": 5.17,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -0.39,
+            "approach": -0.69,
+            "shortGame": -1.63,
+            "putting": 1.01,
+            "teeToGreen": -2.71,
+            "total": -1.7
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+9",
+              "grossTotal": "+37",
+              "sg": {
+                "tee": 0.66,
+                "approach": -2.06,
+                "shortGame": -0.18,
+                "putting": 2.37,
+                "teeToGreen": -1.58,
+                "total": 0.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "-2",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.63,
+                "approach": -0.52,
+                "shortGame": 1.06,
+                "putting": -2.27,
+                "teeToGreen": -1.08,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+2",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": 1.76,
+                "approach": -1.24,
+                "shortGame": 0.35,
+                "putting": 2.77,
+                "teeToGreen": 0.86,
+                "total": 3.63
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+15",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -5.43,
+                "approach": -0.88,
+                "shortGame": -5.78,
+                "putting": 1.84,
+                "teeToGreen": -12.09,
+                "total": -10.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 2,
+              "grossPosition": 5,
+              "netTotal": "-5",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 3.52,
+                "approach": -2.08,
+                "shortGame": -0.41,
+                "putting": 2.12,
+                "teeToGreen": 1.03,
+                "total": 3.15
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 9,
+              "grossPosition": 8,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.24,
+                "approach": 2.65,
+                "shortGame": -4.8,
+                "putting": -0.77,
+                "teeToGreen": -3.38,
+                "total": -4.15
+              }
+            }
+          ]
+        },
+        {
+          "id": 40344,
+          "name": "Dan94",
+          "starts": 8,
+          "avgNet": 4.25,
+          "avgGross": 1.75,
+          "netWins": 0,
+          "grossWins": 2,
+          "sg": {
+            "tee": 5.13,
+            "approach": 2.74,
+            "shortGame": 2.85,
+            "putting": 0.61,
+            "teeToGreen": 10.71,
+            "total": 11.32
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+27",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": 0.61,
+                "approach": 3.63,
+                "shortGame": 1.47,
+                "putting": 1.09,
+                "teeToGreen": 5.71,
+                "total": 6.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.97,
+                "approach": 3.94,
+                "shortGame": -0.26,
+                "putting": 1.99,
+                "teeToGreen": 9.65,
+                "total": 11.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+11",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 6.43,
+                "approach": -2.12,
+                "shortGame": 3.1,
+                "putting": 1.22,
+                "teeToGreen": 7.41,
+                "total": 8.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+2",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 6.08,
+                "approach": 0.7,
+                "shortGame": 3.65,
+                "putting": 0.6,
+                "teeToGreen": 10.43,
+                "total": 11.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+8",
+              "grossTotal": "+8",
+              "sg": {
+                "tee": 5.27,
+                "approach": 5.97,
+                "shortGame": 1.19,
+                "putting": -0.68,
+                "teeToGreen": 12.43,
+                "total": 11.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-3",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 7.91,
+                "approach": 0.22,
+                "shortGame": 7.86,
+                "putting": 2.16,
+                "teeToGreen": 15.99,
+                "total": 18.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 2,
+              "grossPosition": 2,
+              "netTotal": "+1",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 3.87,
+                "approach": 4.23,
+                "shortGame": 3.94,
+                "putting": 1.1,
+                "teeToGreen": 12.04,
+                "total": 13.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "-3",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 4.88,
+                "approach": 5.32,
+                "shortGame": 1.83,
+                "putting": -2.57,
+                "teeToGreen": 12.03,
+                "total": 9.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41637,
+          "name": "DREADFUL",
+          "starts": 8,
+          "avgNet": 4.75,
+          "avgGross": 6.62,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.55,
+            "approach": -1.25,
+            "shortGame": -1.93,
+            "putting": -2.34,
+            "teeToGreen": -4.73,
+            "total": -7.07
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+27",
+              "grossTotal": "+75",
+              "sg": {
+                "tee": -6.09,
+                "approach": -1.34,
+                "shortGame": -0.44,
+                "putting": -4.34,
+                "teeToGreen": -7.87,
+                "total": -12.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.61,
+                "approach": -0.84,
+                "shortGame": -6.02,
+                "putting": -0.0,
+                "teeToGreen": -8.48,
+                "total": -8.48
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 4,
+              "grossPosition": 7,
+              "netTotal": "+9",
+              "grossTotal": "+27",
+              "sg": {
+                "tee": -2.66,
+                "approach": -2.06,
+                "shortGame": -0.16,
+                "putting": -2.49,
+                "teeToGreen": -4.88,
+                "total": -7.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 5,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.57,
+                "approach": -2.44,
+                "shortGame": -1.79,
+                "putting": -4.18,
+                "teeToGreen": -4.79,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": 2.28,
+                "approach": 4.33,
+                "shortGame": -6.01,
+                "putting": -2.85,
+                "teeToGreen": 0.6,
+                "total": -2.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "+1",
+              "grossTotal": "+20",
+              "sg": {
+                "tee": -0.9,
+                "approach": -2.89,
+                "shortGame": -1.48,
+                "putting": 0.43,
+                "teeToGreen": -5.28,
+                "total": -4.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 6,
+              "grossPosition": 7,
+              "netTotal": "+6",
+              "grossTotal": "+23",
+              "sg": {
+                "tee": -1.65,
+                "approach": -1.1,
+                "shortGame": -1.11,
+                "putting": -4.01,
+                "teeToGreen": -3.86,
+                "total": -7.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 5,
+              "grossPosition": 7,
+              "netTotal": "-4",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.18,
+                "approach": -3.68,
+                "shortGame": 1.59,
+                "putting": -1.27,
+                "teeToGreen": -3.27,
+                "total": -4.54
+              }
+            }
+          ]
+        },
+        {
+          "id": 15857,
+          "name": "MashedBROtato",
+          "starts": 8,
+          "avgNet": 4.88,
+          "avgGross": 4.38,
+          "netWins": 1,
+          "grossWins": 1,
+          "sg": {
+            "tee": 0.98,
+            "approach": -0.2,
+            "shortGame": -0.84,
+            "putting": 0.61,
+            "teeToGreen": -0.06,
+            "total": 0.54
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "+15",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": 0.78,
+                "approach": 3.07,
+                "shortGame": 0.92,
+                "putting": 0.02,
+                "teeToGreen": 4.77,
+                "total": 4.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "-2",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -0.16,
+                "approach": 1.21,
+                "shortGame": -0.69,
+                "putting": 0.29,
+                "teeToGreen": 0.36,
+                "total": 0.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+13",
+              "grossTotal": "+25",
+              "sg": {
+                "tee": 1.81,
+                "approach": 0.9,
+                "shortGame": -6.0,
+                "putting": -2.08,
+                "teeToGreen": -3.29,
+                "total": -5.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+14",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.42,
+                "approach": -9.66,
+                "shortGame": -2.35,
+                "putting": 2.46,
+                "teeToGreen": -12.43,
+                "total": -9.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-4",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 2.13,
+                "approach": 6.14,
+                "shortGame": 2.55,
+                "putting": 2.93,
+                "teeToGreen": 10.82,
+                "total": 13.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+7",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": 2.79,
+                "approach": -4.18,
+                "shortGame": 0.9,
+                "putting": -0.36,
+                "teeToGreen": -0.49,
+                "total": -0.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 9,
+              "grossPosition": 5,
+              "netTotal": "+12",
+              "grossTotal": "+21",
+              "sg": {
+                "tee": -1.38,
+                "approach": -1.5,
+                "shortGame": -3.77,
+                "putting": 0.78,
+                "teeToGreen": -6.65,
+                "total": -5.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 3,
+              "grossPosition": 3,
+              "netTotal": "-7",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 2.3,
+                "approach": 2.45,
+                "shortGame": 1.68,
+                "putting": 0.81,
+                "teeToGreen": 6.43,
+                "total": 7.24
+              }
+            }
+          ]
+        },
+        {
+          "id": 40422,
+          "name": "IUDoc92",
+          "starts": 8,
+          "avgNet": 5.5,
+          "avgGross": 6.75,
+          "netWins": 1,
+          "grossWins": 0,
+          "sg": {
+            "tee": -2.7,
+            "approach": -2.1,
+            "shortGame": -2.75,
+            "putting": -1.88,
+            "teeToGreen": -7.55,
+            "total": -9.43
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 6,
+              "grossPosition": 5,
+              "netTotal": "+32",
+              "grossTotal": "+72",
+              "sg": {
+                "tee": -3.49,
+                "approach": -0.45,
+                "shortGame": -3.9,
+                "putting": -2.36,
+                "teeToGreen": -7.84,
+                "total": -10.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -2.73,
+                "approach": 2.35,
+                "shortGame": -0.99,
+                "putting": 1.01,
+                "teeToGreen": -1.37,
+                "total": -0.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+7",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.84,
+                "approach": 2.1,
+                "shortGame": -4.76,
+                "putting": -0.87,
+                "teeToGreen": -3.5,
+                "total": -4.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "E",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -3.46,
+                "approach": -0.45,
+                "shortGame": -1.98,
+                "putting": -0.08,
+                "teeToGreen": -5.9,
+                "total": -5.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+20",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": -2.87,
+                "approach": -12.89,
+                "shortGame": -1.78,
+                "putting": -1.71,
+                "teeToGreen": -17.54,
+                "total": -19.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 8,
+              "grossPosition": 9,
+              "netTotal": "+12",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -6.55,
+                "approach": -0.29,
+                "shortGame": -0.07,
+                "putting": -7.94,
+                "teeToGreen": -6.91,
+                "total": -14.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 7,
+              "grossPosition": 9,
+              "netTotal": "+6",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.12,
+                "approach": -2.73,
+                "shortGame": -5.55,
+                "putting": -0.46,
+                "teeToGreen": -8.4,
+                "total": -8.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 8,
+              "grossPosition": 10,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.56,
+                "approach": -4.43,
+                "shortGame": -2.93,
+                "putting": -2.62,
+                "teeToGreen": -8.92,
+                "total": -11.54
+              }
+            }
+          ]
+        },
+        {
+          "id": 40582,
+          "name": "TEV_11",
+          "starts": 3,
+          "avgNet": 5.67,
+          "avgGross": 6.0,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": 0.05,
+            "approach": -5.15,
+            "shortGame": 0.63,
+            "putting": -0.62,
+            "teeToGreen": -4.46,
+            "total": -5.09
+          },
+          "events": [
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 10,
+              "grossPosition": 10,
+              "netTotal": "+24",
+              "grossTotal": "+35",
+              "sg": {
+                "tee": -5.84,
+                "approach": -16.59,
+                "shortGame": 3.53,
+                "putting": -0.94,
+                "teeToGreen": -18.91,
+                "total": -19.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+4",
+              "grossTotal": "+14",
+              "sg": {
+                "tee": 2.16,
+                "approach": 2.39,
+                "shortGame": -2.39,
+                "putting": -1.03,
+                "teeToGreen": 2.17,
+                "total": 1.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 3.83,
+                "approach": -1.24,
+                "shortGame": 0.76,
+                "putting": 0.11,
+                "teeToGreen": 3.35,
+                "total": 3.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41797,
+          "name": "graycrum",
+          "starts": 3,
+          "avgNet": 6.67,
+          "avgGross": 5.0,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": 0.53,
+            "approach": -1.75,
+            "shortGame": 2.41,
+            "putting": 0.4,
+            "teeToGreen": 1.19,
+            "total": 1.58
+          },
+          "events": [
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 9,
+              "grossPosition": 7,
+              "netTotal": "+12",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -2.15,
+                "approach": -4.46,
+                "shortGame": 3.59,
+                "putting": -0.82,
+                "teeToGreen": -3.02,
+                "total": -3.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 4,
+              "grossPosition": 3,
+              "netTotal": "+3",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": 2.46,
+                "approach": 0.11,
+                "shortGame": 2.61,
+                "putting": -0.05,
+                "teeToGreen": 5.19,
+                "total": 5.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 7,
+              "grossPosition": 5,
+              "netTotal": "-3",
+              "grossTotal": "+4",
+              "sg": {
+                "tee": 1.28,
+                "approach": -0.9,
+                "shortGame": 1.02,
+                "putting": 2.06,
+                "teeToGreen": 1.4,
+                "total": 3.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41006,
+          "name": "Leroy4522",
+          "starts": 8,
+          "avgNet": 6.88,
+          "avgGross": 6.5,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.45,
+            "approach": -4.07,
+            "shortGame": -0.59,
+            "putting": -0.32,
+            "teeToGreen": -6.11,
+            "total": -6.43
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+28",
+              "grossTotal": "+55",
+              "sg": {
+                "tee": -3.55,
+                "approach": -2.04,
+                "shortGame": -4.05,
+                "putting": -1.56,
+                "teeToGreen": -9.64,
+                "total": -11.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 8,
+              "grossPosition": 7,
+              "netTotal": "+5",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": -2.58,
+                "approach": -4.03,
+                "shortGame": -0.74,
+                "putting": -0.01,
+                "teeToGreen": -7.35,
+                "total": -7.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+17",
+              "grossTotal": "+29",
+              "sg": {
+                "tee": -3.73,
+                "approach": -3.13,
+                "shortGame": -0.86,
+                "putting": -1.65,
+                "teeToGreen": -7.72,
+                "total": -9.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -1.65,
+                "approach": -6.58,
+                "shortGame": -0.78,
+                "putting": 0.03,
+                "teeToGreen": -9.01,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+12",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": 2.0,
+                "approach": -3.09,
+                "shortGame": 0.58,
+                "putting": -3.74,
+                "teeToGreen": -0.51,
+                "total": -4.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 3,
+              "grossPosition": 3,
+              "netTotal": "-3",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 4.63,
+                "approach": -6.32,
+                "shortGame": 0.83,
+                "putting": 5.01,
+                "teeToGreen": -0.86,
+                "total": 4.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 8,
+              "grossPosition": 6,
+              "netTotal": "+9",
+              "grossTotal": "+21",
+              "sg": {
+                "tee": -4.4,
+                "approach": -2.7,
+                "shortGame": -0.46,
+                "putting": 1.69,
+                "teeToGreen": -7.56,
+                "total": -5.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 10,
+              "grossPosition": 9,
+              "netTotal": "+3",
+              "grossTotal": "+15",
+              "sg": {
+                "tee": -2.34,
+                "approach": -4.68,
+                "shortGame": 0.77,
+                "putting": -2.29,
+                "teeToGreen": -6.25,
+                "total": -8.54
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "5": {
+      "eventCount": 5,
+      "eventIds": [
+        59463,
+        56937,
+        55704,
+        54741,
+        53622
+      ],
+      "players": [
+        {
+          "id": 41801,
+          "name": "KeithK75",
+          "starts": 5,
+          "avgNet": 3.4,
+          "avgGross": 1.6,
+          "netWins": 2,
+          "grossWins": 3,
+          "sg": {
+            "tee": 3.04,
+            "approach": 5.7,
+            "shortGame": 2.72,
+            "putting": 1.71,
+            "teeToGreen": 11.46,
+            "total": 13.17
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 0.62,
+                "approach": 8.05,
+                "shortGame": 6.68,
+                "putting": 2.44,
+                "teeToGreen": 15.35,
+                "total": 17.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 7,
+              "grossPosition": 2,
+              "netTotal": "+3",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 2.92,
+                "approach": 2.71,
+                "shortGame": -0.37,
+                "putting": 1.38,
+                "teeToGreen": 5.27,
+                "total": 6.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 4.96,
+                "approach": 6.28,
+                "shortGame": 4.49,
+                "putting": 2.91,
+                "teeToGreen": 15.72,
+                "total": 18.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 2,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.1,
+                "approach": 6.17,
+                "shortGame": 1.7,
+                "putting": 2.05,
+                "teeToGreen": 12.97,
+                "total": 15.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 6,
+              "grossPosition": 3,
+              "netTotal": "+12",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 1.59,
+                "approach": 5.31,
+                "shortGame": 1.09,
+                "putting": -0.23,
+                "teeToGreen": 7.99,
+                "total": 7.75
+              }
+            }
+          ]
+        },
+        {
+          "id": 40552,
+          "name": "CRANK",
+          "starts": 4,
+          "avgNet": 3.5,
+          "avgGross": 4.25,
+          "netWins": 1,
+          "grossWins": 0,
+          "sg": {
+            "tee": -2.26,
+            "approach": -1.03,
+            "shortGame": 3.34,
+            "putting": -0.04,
+            "teeToGreen": 0.06,
+            "total": 0.01
+          },
+          "events": [
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -5.24,
+                "approach": 2.56,
+                "shortGame": 0.29,
+                "putting": -0.96,
+                "teeToGreen": -2.39,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.55,
+                "approach": -3.85,
+                "shortGame": 3.28,
+                "putting": -1.25,
+                "teeToGreen": -1.12,
+                "total": -2.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 1,
+              "grossPosition": 3,
+              "netTotal": "-4",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -2.28,
+                "approach": 1.74,
+                "shortGame": 2.81,
+                "putting": -0.25,
+                "teeToGreen": 2.28,
+                "total": 2.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "+1",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": -0.97,
+                "approach": -4.56,
+                "shortGame": 6.99,
+                "putting": 2.29,
+                "teeToGreen": 1.46,
+                "total": 3.75
+              }
+            }
+          ]
+        },
+        {
+          "id": 41641,
+          "name": "HamSammich",
+          "starts": 4,
+          "avgNet": 3.5,
+          "avgGross": 4.5,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.16,
+            "approach": -1.18,
+            "shortGame": -1.14,
+            "putting": 1.18,
+            "teeToGreen": -3.47,
+            "total": -2.29
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+9",
+              "grossTotal": "+37",
+              "sg": {
+                "tee": 0.66,
+                "approach": -2.06,
+                "shortGame": -0.18,
+                "putting": 2.37,
+                "teeToGreen": -1.58,
+                "total": 0.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "-2",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.63,
+                "approach": -0.52,
+                "shortGame": 1.06,
+                "putting": -2.27,
+                "teeToGreen": -1.08,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+2",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": 1.76,
+                "approach": -1.24,
+                "shortGame": 0.35,
+                "putting": 2.77,
+                "teeToGreen": 0.86,
+                "total": 3.63
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+15",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -5.43,
+                "approach": -0.88,
+                "shortGame": -5.78,
+                "putting": 1.84,
+                "teeToGreen": -12.09,
+                "total": -10.25
+              }
+            }
+          ]
+        },
+        {
+          "id": 15857,
+          "name": "MashedBROtato",
+          "starts": 5,
+          "avgNet": 4.0,
+          "avgGross": 4.2,
+          "netWins": 1,
+          "grossWins": 1,
+          "sg": {
+            "tee": 0.83,
+            "approach": 0.33,
+            "shortGame": -1.11,
+            "putting": 0.72,
+            "teeToGreen": 0.05,
+            "total": 0.77
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "+15",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": 0.78,
+                "approach": 3.07,
+                "shortGame": 0.92,
+                "putting": 0.02,
+                "teeToGreen": 4.77,
+                "total": 4.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "-2",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -0.16,
+                "approach": 1.21,
+                "shortGame": -0.69,
+                "putting": 0.29,
+                "teeToGreen": 0.36,
+                "total": 0.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+13",
+              "grossTotal": "+25",
+              "sg": {
+                "tee": 1.81,
+                "approach": 0.9,
+                "shortGame": -6.0,
+                "putting": -2.08,
+                "teeToGreen": -3.29,
+                "total": -5.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+14",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.42,
+                "approach": -9.66,
+                "shortGame": -2.35,
+                "putting": 2.46,
+                "teeToGreen": -12.43,
+                "total": -9.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-4",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 2.13,
+                "approach": 6.14,
+                "shortGame": 2.55,
+                "putting": 2.93,
+                "teeToGreen": 10.82,
+                "total": 13.75
+              }
+            }
+          ]
+        },
+        {
+          "id": 40422,
+          "name": "IUDoc92",
+          "starts": 5,
+          "avgNet": 4.2,
+          "avgGross": 5.2,
+          "netWins": 1,
+          "grossWins": 0,
+          "sg": {
+            "tee": -2.68,
+            "approach": -1.87,
+            "shortGame": -2.68,
+            "putting": -0.8,
+            "teeToGreen": -7.23,
+            "total": -8.03
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 6,
+              "grossPosition": 5,
+              "netTotal": "+32",
+              "grossTotal": "+72",
+              "sg": {
+                "tee": -3.49,
+                "approach": -0.45,
+                "shortGame": -3.9,
+                "putting": -2.36,
+                "teeToGreen": -7.84,
+                "total": -10.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -2.73,
+                "approach": 2.35,
+                "shortGame": -0.99,
+                "putting": 1.01,
+                "teeToGreen": -1.37,
+                "total": -0.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+7",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.84,
+                "approach": 2.1,
+                "shortGame": -4.76,
+                "putting": -0.87,
+                "teeToGreen": -3.5,
+                "total": -4.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "E",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -3.46,
+                "approach": -0.45,
+                "shortGame": -1.98,
+                "putting": -0.08,
+                "teeToGreen": -5.9,
+                "total": -5.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+20",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": -2.87,
+                "approach": -12.89,
+                "shortGame": -1.78,
+                "putting": -1.71,
+                "teeToGreen": -17.54,
+                "total": -19.25
+              }
+            }
+          ]
+        },
+        {
+          "id": 41637,
+          "name": "DREADFUL",
+          "starts": 5,
+          "avgNet": 4.4,
+          "avgGross": 6.2,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.73,
+            "approach": -0.47,
+            "shortGame": -2.88,
+            "putting": -2.77,
+            "teeToGreen": -5.08,
+            "total": -7.86
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+27",
+              "grossTotal": "+75",
+              "sg": {
+                "tee": -6.09,
+                "approach": -1.34,
+                "shortGame": -0.44,
+                "putting": -4.34,
+                "teeToGreen": -7.87,
+                "total": -12.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.61,
+                "approach": -0.84,
+                "shortGame": -6.02,
+                "putting": -0.0,
+                "teeToGreen": -8.48,
+                "total": -8.48
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 4,
+              "grossPosition": 7,
+              "netTotal": "+9",
+              "grossTotal": "+27",
+              "sg": {
+                "tee": -2.66,
+                "approach": -2.06,
+                "shortGame": -0.16,
+                "putting": -2.49,
+                "teeToGreen": -4.88,
+                "total": -7.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 5,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.57,
+                "approach": -2.44,
+                "shortGame": -1.79,
+                "putting": -4.18,
+                "teeToGreen": -4.79,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": 2.28,
+                "approach": 4.33,
+                "shortGame": -6.01,
+                "putting": -2.85,
+                "teeToGreen": 0.6,
+                "total": -2.25
+              }
+            }
+          ]
+        },
+        {
+          "id": 40344,
+          "name": "Dan94",
+          "starts": 5,
+          "avgNet": 4.4,
+          "avgGross": 1.8,
+          "netWins": 0,
+          "grossWins": 1,
+          "sg": {
+            "tee": 4.87,
+            "approach": 2.42,
+            "shortGame": 1.83,
+            "putting": 0.84,
+            "teeToGreen": 9.13,
+            "total": 9.97
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+27",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": 0.61,
+                "approach": 3.63,
+                "shortGame": 1.47,
+                "putting": 1.09,
+                "teeToGreen": 5.71,
+                "total": 6.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.97,
+                "approach": 3.94,
+                "shortGame": -0.26,
+                "putting": 1.99,
+                "teeToGreen": 9.65,
+                "total": 11.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+11",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 6.43,
+                "approach": -2.12,
+                "shortGame": 3.1,
+                "putting": 1.22,
+                "teeToGreen": 7.41,
+                "total": 8.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+2",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 6.08,
+                "approach": 0.7,
+                "shortGame": 3.65,
+                "putting": 0.6,
+                "teeToGreen": 10.43,
+                "total": 11.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+8",
+              "grossTotal": "+8",
+              "sg": {
+                "tee": 5.27,
+                "approach": 5.97,
+                "shortGame": 1.19,
+                "putting": -0.68,
+                "teeToGreen": 12.43,
+                "total": 11.75
+              }
+            }
+          ]
+        },
+        {
+          "id": 41006,
+          "name": "Leroy4522",
+          "starts": 5,
+          "avgNet": 6.8,
+          "avgGross": 6.8,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.9,
+            "approach": -3.77,
+            "shortGame": -1.17,
+            "putting": -1.39,
+            "teeToGreen": -6.85,
+            "total": -8.23
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+28",
+              "grossTotal": "+55",
+              "sg": {
+                "tee": -3.55,
+                "approach": -2.04,
+                "shortGame": -4.05,
+                "putting": -1.56,
+                "teeToGreen": -9.64,
+                "total": -11.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 8,
+              "grossPosition": 7,
+              "netTotal": "+5",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": -2.58,
+                "approach": -4.03,
+                "shortGame": -0.74,
+                "putting": -0.01,
+                "teeToGreen": -7.35,
+                "total": -7.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+17",
+              "grossTotal": "+29",
+              "sg": {
+                "tee": -3.73,
+                "approach": -3.13,
+                "shortGame": -0.86,
+                "putting": -1.65,
+                "teeToGreen": -7.72,
+                "total": -9.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -1.65,
+                "approach": -6.58,
+                "shortGame": -0.78,
+                "putting": 0.03,
+                "teeToGreen": -9.01,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+12",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": 2.0,
+                "approach": -3.09,
+                "shortGame": 0.58,
+                "putting": -3.74,
+                "teeToGreen": -0.51,
+                "total": -4.25
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "10": {
+      "eventCount": 8,
+      "eventIds": [
+        59463,
+        56937,
+        55704,
+        54741,
+        53622,
+        52877,
+        51974,
+        50704
+      ],
+      "players": [
+        {
+          "id": 40552,
+          "name": "CRANK",
+          "starts": 7,
+          "avgNet": 2.71,
+          "avgGross": 5.0,
+          "netWins": 3,
+          "grossWins": 0,
+          "sg": {
+            "tee": -3.56,
+            "approach": -0.27,
+            "shortGame": 2.66,
+            "putting": 0.85,
+            "teeToGreen": -1.17,
+            "total": -0.32
+          },
+          "events": [
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -5.24,
+                "approach": 2.56,
+                "shortGame": 0.29,
+                "putting": -0.96,
+                "teeToGreen": -2.39,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.55,
+                "approach": -3.85,
+                "shortGame": 3.28,
+                "putting": -1.25,
+                "teeToGreen": -1.12,
+                "total": -2.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 1,
+              "grossPosition": 3,
+              "netTotal": "-4",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -2.28,
+                "approach": 1.74,
+                "shortGame": 2.81,
+                "putting": -0.25,
+                "teeToGreen": 2.28,
+                "total": 2.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "+1",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": -0.97,
+                "approach": -4.56,
+                "shortGame": 6.99,
+                "putting": 2.29,
+                "teeToGreen": 1.46,
+                "total": 3.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -5.1,
+                "approach": 3.76,
+                "shortGame": 1.26,
+                "putting": 4.23,
+                "teeToGreen": -0.07,
+                "total": 4.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 3,
+              "grossPosition": 8,
+              "netTotal": "+2",
+              "grossTotal": "+23",
+              "sg": {
+                "tee": -8.11,
+                "approach": -0.16,
+                "shortGame": 1.32,
+                "putting": -0.91,
+                "teeToGreen": -6.96,
+                "total": -7.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 1,
+              "grossPosition": 6,
+              "netTotal": "-7",
+              "grossTotal": "+5",
+              "sg": {
+                "tee": -2.66,
+                "approach": -1.38,
+                "shortGame": 2.68,
+                "putting": 2.83,
+                "teeToGreen": -1.37,
+                "total": 1.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41801,
+          "name": "KeithK75",
+          "starts": 8,
+          "avgNet": 3.5,
+          "avgGross": 1.5,
+          "netWins": 3,
+          "grossWins": 5,
+          "sg": {
+            "tee": 2.85,
+            "approach": 5.94,
+            "shortGame": 2.28,
+            "putting": 2.0,
+            "teeToGreen": 11.07,
+            "total": 13.07
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 0.62,
+                "approach": 8.05,
+                "shortGame": 6.68,
+                "putting": 2.44,
+                "teeToGreen": 15.35,
+                "total": 17.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 7,
+              "grossPosition": 2,
+              "netTotal": "+3",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 2.92,
+                "approach": 2.71,
+                "shortGame": -0.37,
+                "putting": 1.38,
+                "teeToGreen": 5.27,
+                "total": 6.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 4.96,
+                "approach": 6.28,
+                "shortGame": 4.49,
+                "putting": 2.91,
+                "teeToGreen": 15.72,
+                "total": 18.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 2,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.1,
+                "approach": 6.17,
+                "shortGame": 1.7,
+                "putting": 2.05,
+                "teeToGreen": 12.97,
+                "total": 15.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 6,
+              "grossPosition": 3,
+              "netTotal": "+12",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 1.59,
+                "approach": 5.31,
+                "shortGame": 1.09,
+                "putting": -0.23,
+                "teeToGreen": 7.99,
+                "total": 7.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+6",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 0.58,
+                "approach": 5.22,
+                "shortGame": -0.27,
+                "putting": 3.62,
+                "teeToGreen": 5.54,
+                "total": 9.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-3",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 4.84,
+                "approach": 9.01,
+                "shortGame": 2.68,
+                "putting": 1.6,
+                "teeToGreen": 16.53,
+                "total": 18.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-5",
+              "grossTotal": "-5",
+              "sg": {
+                "tee": 2.21,
+                "approach": 4.76,
+                "shortGame": 2.23,
+                "putting": 2.26,
+                "teeToGreen": 9.2,
+                "total": 11.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41641,
+          "name": "HamSammich",
+          "starts": 6,
+          "avgNet": 4.17,
+          "avgGross": 5.17,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -0.39,
+            "approach": -0.69,
+            "shortGame": -1.63,
+            "putting": 1.01,
+            "teeToGreen": -2.71,
+            "total": -1.7
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+9",
+              "grossTotal": "+37",
+              "sg": {
+                "tee": 0.66,
+                "approach": -2.06,
+                "shortGame": -0.18,
+                "putting": 2.37,
+                "teeToGreen": -1.58,
+                "total": 0.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "-2",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.63,
+                "approach": -0.52,
+                "shortGame": 1.06,
+                "putting": -2.27,
+                "teeToGreen": -1.08,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+2",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": 1.76,
+                "approach": -1.24,
+                "shortGame": 0.35,
+                "putting": 2.77,
+                "teeToGreen": 0.86,
+                "total": 3.63
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+15",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -5.43,
+                "approach": -0.88,
+                "shortGame": -5.78,
+                "putting": 1.84,
+                "teeToGreen": -12.09,
+                "total": -10.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 2,
+              "grossPosition": 5,
+              "netTotal": "-5",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 3.52,
+                "approach": -2.08,
+                "shortGame": -0.41,
+                "putting": 2.12,
+                "teeToGreen": 1.03,
+                "total": 3.15
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 9,
+              "grossPosition": 8,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.24,
+                "approach": 2.65,
+                "shortGame": -4.8,
+                "putting": -0.77,
+                "teeToGreen": -3.38,
+                "total": -4.15
+              }
+            }
+          ]
+        },
+        {
+          "id": 40344,
+          "name": "Dan94",
+          "starts": 8,
+          "avgNet": 4.25,
+          "avgGross": 1.75,
+          "netWins": 0,
+          "grossWins": 2,
+          "sg": {
+            "tee": 5.13,
+            "approach": 2.74,
+            "shortGame": 2.85,
+            "putting": 0.61,
+            "teeToGreen": 10.71,
+            "total": 11.32
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+27",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": 0.61,
+                "approach": 3.63,
+                "shortGame": 1.47,
+                "putting": 1.09,
+                "teeToGreen": 5.71,
+                "total": 6.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.97,
+                "approach": 3.94,
+                "shortGame": -0.26,
+                "putting": 1.99,
+                "teeToGreen": 9.65,
+                "total": 11.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+11",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 6.43,
+                "approach": -2.12,
+                "shortGame": 3.1,
+                "putting": 1.22,
+                "teeToGreen": 7.41,
+                "total": 8.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+2",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 6.08,
+                "approach": 0.7,
+                "shortGame": 3.65,
+                "putting": 0.6,
+                "teeToGreen": 10.43,
+                "total": 11.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+8",
+              "grossTotal": "+8",
+              "sg": {
+                "tee": 5.27,
+                "approach": 5.97,
+                "shortGame": 1.19,
+                "putting": -0.68,
+                "teeToGreen": 12.43,
+                "total": 11.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-3",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 7.91,
+                "approach": 0.22,
+                "shortGame": 7.86,
+                "putting": 2.16,
+                "teeToGreen": 15.99,
+                "total": 18.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 2,
+              "grossPosition": 2,
+              "netTotal": "+1",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 3.87,
+                "approach": 4.23,
+                "shortGame": 3.94,
+                "putting": 1.1,
+                "teeToGreen": 12.04,
+                "total": 13.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "-3",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 4.88,
+                "approach": 5.32,
+                "shortGame": 1.83,
+                "putting": -2.57,
+                "teeToGreen": 12.03,
+                "total": 9.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41637,
+          "name": "DREADFUL",
+          "starts": 8,
+          "avgNet": 4.75,
+          "avgGross": 6.62,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.55,
+            "approach": -1.25,
+            "shortGame": -1.93,
+            "putting": -2.34,
+            "teeToGreen": -4.73,
+            "total": -7.07
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+27",
+              "grossTotal": "+75",
+              "sg": {
+                "tee": -6.09,
+                "approach": -1.34,
+                "shortGame": -0.44,
+                "putting": -4.34,
+                "teeToGreen": -7.87,
+                "total": -12.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.61,
+                "approach": -0.84,
+                "shortGame": -6.02,
+                "putting": -0.0,
+                "teeToGreen": -8.48,
+                "total": -8.48
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 4,
+              "grossPosition": 7,
+              "netTotal": "+9",
+              "grossTotal": "+27",
+              "sg": {
+                "tee": -2.66,
+                "approach": -2.06,
+                "shortGame": -0.16,
+                "putting": -2.49,
+                "teeToGreen": -4.88,
+                "total": -7.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 5,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.57,
+                "approach": -2.44,
+                "shortGame": -1.79,
+                "putting": -4.18,
+                "teeToGreen": -4.79,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": 2.28,
+                "approach": 4.33,
+                "shortGame": -6.01,
+                "putting": -2.85,
+                "teeToGreen": 0.6,
+                "total": -2.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "+1",
+              "grossTotal": "+20",
+              "sg": {
+                "tee": -0.9,
+                "approach": -2.89,
+                "shortGame": -1.48,
+                "putting": 0.43,
+                "teeToGreen": -5.28,
+                "total": -4.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 6,
+              "grossPosition": 7,
+              "netTotal": "+6",
+              "grossTotal": "+23",
+              "sg": {
+                "tee": -1.65,
+                "approach": -1.1,
+                "shortGame": -1.11,
+                "putting": -4.01,
+                "teeToGreen": -3.86,
+                "total": -7.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 5,
+              "grossPosition": 7,
+              "netTotal": "-4",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.18,
+                "approach": -3.68,
+                "shortGame": 1.59,
+                "putting": -1.27,
+                "teeToGreen": -3.27,
+                "total": -4.54
+              }
+            }
+          ]
+        },
+        {
+          "id": 15857,
+          "name": "MashedBROtato",
+          "starts": 8,
+          "avgNet": 4.88,
+          "avgGross": 4.38,
+          "netWins": 1,
+          "grossWins": 1,
+          "sg": {
+            "tee": 0.98,
+            "approach": -0.2,
+            "shortGame": -0.84,
+            "putting": 0.61,
+            "teeToGreen": -0.06,
+            "total": 0.54
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "+15",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": 0.78,
+                "approach": 3.07,
+                "shortGame": 0.92,
+                "putting": 0.02,
+                "teeToGreen": 4.77,
+                "total": 4.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "-2",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -0.16,
+                "approach": 1.21,
+                "shortGame": -0.69,
+                "putting": 0.29,
+                "teeToGreen": 0.36,
+                "total": 0.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+13",
+              "grossTotal": "+25",
+              "sg": {
+                "tee": 1.81,
+                "approach": 0.9,
+                "shortGame": -6.0,
+                "putting": -2.08,
+                "teeToGreen": -3.29,
+                "total": -5.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+14",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.42,
+                "approach": -9.66,
+                "shortGame": -2.35,
+                "putting": 2.46,
+                "teeToGreen": -12.43,
+                "total": -9.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-4",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 2.13,
+                "approach": 6.14,
+                "shortGame": 2.55,
+                "putting": 2.93,
+                "teeToGreen": 10.82,
+                "total": 13.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+7",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": 2.79,
+                "approach": -4.18,
+                "shortGame": 0.9,
+                "putting": -0.36,
+                "teeToGreen": -0.49,
+                "total": -0.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 9,
+              "grossPosition": 5,
+              "netTotal": "+12",
+              "grossTotal": "+21",
+              "sg": {
+                "tee": -1.38,
+                "approach": -1.5,
+                "shortGame": -3.77,
+                "putting": 0.78,
+                "teeToGreen": -6.65,
+                "total": -5.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 3,
+              "grossPosition": 3,
+              "netTotal": "-7",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 2.3,
+                "approach": 2.45,
+                "shortGame": 1.68,
+                "putting": 0.81,
+                "teeToGreen": 6.43,
+                "total": 7.24
+              }
+            }
+          ]
+        },
+        {
+          "id": 40422,
+          "name": "IUDoc92",
+          "starts": 8,
+          "avgNet": 5.5,
+          "avgGross": 6.75,
+          "netWins": 1,
+          "grossWins": 0,
+          "sg": {
+            "tee": -2.7,
+            "approach": -2.1,
+            "shortGame": -2.75,
+            "putting": -1.88,
+            "teeToGreen": -7.55,
+            "total": -9.43
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 6,
+              "grossPosition": 5,
+              "netTotal": "+32",
+              "grossTotal": "+72",
+              "sg": {
+                "tee": -3.49,
+                "approach": -0.45,
+                "shortGame": -3.9,
+                "putting": -2.36,
+                "teeToGreen": -7.84,
+                "total": -10.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -2.73,
+                "approach": 2.35,
+                "shortGame": -0.99,
+                "putting": 1.01,
+                "teeToGreen": -1.37,
+                "total": -0.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+7",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.84,
+                "approach": 2.1,
+                "shortGame": -4.76,
+                "putting": -0.87,
+                "teeToGreen": -3.5,
+                "total": -4.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "E",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -3.46,
+                "approach": -0.45,
+                "shortGame": -1.98,
+                "putting": -0.08,
+                "teeToGreen": -5.9,
+                "total": -5.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+20",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": -2.87,
+                "approach": -12.89,
+                "shortGame": -1.78,
+                "putting": -1.71,
+                "teeToGreen": -17.54,
+                "total": -19.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 8,
+              "grossPosition": 9,
+              "netTotal": "+12",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -6.55,
+                "approach": -0.29,
+                "shortGame": -0.07,
+                "putting": -7.94,
+                "teeToGreen": -6.91,
+                "total": -14.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 7,
+              "grossPosition": 9,
+              "netTotal": "+6",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.12,
+                "approach": -2.73,
+                "shortGame": -5.55,
+                "putting": -0.46,
+                "teeToGreen": -8.4,
+                "total": -8.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 8,
+              "grossPosition": 10,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.56,
+                "approach": -4.43,
+                "shortGame": -2.93,
+                "putting": -2.62,
+                "teeToGreen": -8.92,
+                "total": -11.54
+              }
+            }
+          ]
+        },
+        {
+          "id": 40582,
+          "name": "TEV_11",
+          "starts": 3,
+          "avgNet": 5.67,
+          "avgGross": 6.0,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": 0.05,
+            "approach": -5.15,
+            "shortGame": 0.63,
+            "putting": -0.62,
+            "teeToGreen": -4.46,
+            "total": -5.09
+          },
+          "events": [
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 10,
+              "grossPosition": 10,
+              "netTotal": "+24",
+              "grossTotal": "+35",
+              "sg": {
+                "tee": -5.84,
+                "approach": -16.59,
+                "shortGame": 3.53,
+                "putting": -0.94,
+                "teeToGreen": -18.91,
+                "total": -19.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+4",
+              "grossTotal": "+14",
+              "sg": {
+                "tee": 2.16,
+                "approach": 2.39,
+                "shortGame": -2.39,
+                "putting": -1.03,
+                "teeToGreen": 2.17,
+                "total": 1.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 3.83,
+                "approach": -1.24,
+                "shortGame": 0.76,
+                "putting": 0.11,
+                "teeToGreen": 3.35,
+                "total": 3.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41797,
+          "name": "graycrum",
+          "starts": 3,
+          "avgNet": 6.67,
+          "avgGross": 5.0,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": 0.53,
+            "approach": -1.75,
+            "shortGame": 2.41,
+            "putting": 0.4,
+            "teeToGreen": 1.19,
+            "total": 1.58
+          },
+          "events": [
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 9,
+              "grossPosition": 7,
+              "netTotal": "+12",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -2.15,
+                "approach": -4.46,
+                "shortGame": 3.59,
+                "putting": -0.82,
+                "teeToGreen": -3.02,
+                "total": -3.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 4,
+              "grossPosition": 3,
+              "netTotal": "+3",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": 2.46,
+                "approach": 0.11,
+                "shortGame": 2.61,
+                "putting": -0.05,
+                "teeToGreen": 5.19,
+                "total": 5.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 7,
+              "grossPosition": 5,
+              "netTotal": "-3",
+              "grossTotal": "+4",
+              "sg": {
+                "tee": 1.28,
+                "approach": -0.9,
+                "shortGame": 1.02,
+                "putting": 2.06,
+                "teeToGreen": 1.4,
+                "total": 3.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41006,
+          "name": "Leroy4522",
+          "starts": 8,
+          "avgNet": 6.88,
+          "avgGross": 6.5,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.45,
+            "approach": -4.07,
+            "shortGame": -0.59,
+            "putting": -0.32,
+            "teeToGreen": -6.11,
+            "total": -6.43
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+28",
+              "grossTotal": "+55",
+              "sg": {
+                "tee": -3.55,
+                "approach": -2.04,
+                "shortGame": -4.05,
+                "putting": -1.56,
+                "teeToGreen": -9.64,
+                "total": -11.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 8,
+              "grossPosition": 7,
+              "netTotal": "+5",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": -2.58,
+                "approach": -4.03,
+                "shortGame": -0.74,
+                "putting": -0.01,
+                "teeToGreen": -7.35,
+                "total": -7.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+17",
+              "grossTotal": "+29",
+              "sg": {
+                "tee": -3.73,
+                "approach": -3.13,
+                "shortGame": -0.86,
+                "putting": -1.65,
+                "teeToGreen": -7.72,
+                "total": -9.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -1.65,
+                "approach": -6.58,
+                "shortGame": -0.78,
+                "putting": 0.03,
+                "teeToGreen": -9.01,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+12",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": 2.0,
+                "approach": -3.09,
+                "shortGame": 0.58,
+                "putting": -3.74,
+                "teeToGreen": -0.51,
+                "total": -4.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 3,
+              "grossPosition": 3,
+              "netTotal": "-3",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 4.63,
+                "approach": -6.32,
+                "shortGame": 0.83,
+                "putting": 5.01,
+                "teeToGreen": -0.86,
+                "total": 4.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 8,
+              "grossPosition": 6,
+              "netTotal": "+9",
+              "grossTotal": "+21",
+              "sg": {
+                "tee": -4.4,
+                "approach": -2.7,
+                "shortGame": -0.46,
+                "putting": 1.69,
+                "teeToGreen": -7.56,
+                "total": -5.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 10,
+              "grossPosition": 9,
+              "netTotal": "+3",
+              "grossTotal": "+15",
+              "sg": {
+                "tee": -2.34,
+                "approach": -4.68,
+                "shortGame": 0.77,
+                "putting": -2.29,
+                "teeToGreen": -6.25,
+                "total": -8.54
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "20": {
+      "eventCount": 8,
+      "eventIds": [
+        59463,
+        56937,
+        55704,
+        54741,
+        53622,
+        52877,
+        51974,
+        50704
+      ],
+      "players": [
+        {
+          "id": 40552,
+          "name": "CRANK",
+          "starts": 7,
+          "avgNet": 2.71,
+          "avgGross": 5.0,
+          "netWins": 3,
+          "grossWins": 0,
+          "sg": {
+            "tee": -3.56,
+            "approach": -0.27,
+            "shortGame": 2.66,
+            "putting": 0.85,
+            "teeToGreen": -1.17,
+            "total": -0.32
+          },
+          "events": [
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -5.24,
+                "approach": 2.56,
+                "shortGame": 0.29,
+                "putting": -0.96,
+                "teeToGreen": -2.39,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.55,
+                "approach": -3.85,
+                "shortGame": 3.28,
+                "putting": -1.25,
+                "teeToGreen": -1.12,
+                "total": -2.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 1,
+              "grossPosition": 3,
+              "netTotal": "-4",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -2.28,
+                "approach": 1.74,
+                "shortGame": 2.81,
+                "putting": -0.25,
+                "teeToGreen": 2.28,
+                "total": 2.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "+1",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": -0.97,
+                "approach": -4.56,
+                "shortGame": 6.99,
+                "putting": 2.29,
+                "teeToGreen": 1.46,
+                "total": 3.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": -5.1,
+                "approach": 3.76,
+                "shortGame": 1.26,
+                "putting": 4.23,
+                "teeToGreen": -0.07,
+                "total": 4.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 3,
+              "grossPosition": 8,
+              "netTotal": "+2",
+              "grossTotal": "+23",
+              "sg": {
+                "tee": -8.11,
+                "approach": -0.16,
+                "shortGame": 1.32,
+                "putting": -0.91,
+                "teeToGreen": -6.96,
+                "total": -7.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 1,
+              "grossPosition": 6,
+              "netTotal": "-7",
+              "grossTotal": "+5",
+              "sg": {
+                "tee": -2.66,
+                "approach": -1.38,
+                "shortGame": 2.68,
+                "putting": 2.83,
+                "teeToGreen": -1.37,
+                "total": 1.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41801,
+          "name": "KeithK75",
+          "starts": 8,
+          "avgNet": 3.5,
+          "avgGross": 1.5,
+          "netWins": 3,
+          "grossWins": 5,
+          "sg": {
+            "tee": 2.85,
+            "approach": 5.94,
+            "shortGame": 2.28,
+            "putting": 2.0,
+            "teeToGreen": 11.07,
+            "total": 13.07
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 0.62,
+                "approach": 8.05,
+                "shortGame": 6.68,
+                "putting": 2.44,
+                "teeToGreen": 15.35,
+                "total": 17.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 7,
+              "grossPosition": 2,
+              "netTotal": "+3",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 2.92,
+                "approach": 2.71,
+                "shortGame": -0.37,
+                "putting": 1.38,
+                "teeToGreen": 5.27,
+                "total": 6.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "+1",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 4.96,
+                "approach": 6.28,
+                "shortGame": 4.49,
+                "putting": 2.91,
+                "teeToGreen": 15.72,
+                "total": 18.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 2,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.1,
+                "approach": 6.17,
+                "shortGame": 1.7,
+                "putting": 2.05,
+                "teeToGreen": 12.97,
+                "total": 15.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 6,
+              "grossPosition": 3,
+              "netTotal": "+12",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 1.59,
+                "approach": 5.31,
+                "shortGame": 1.09,
+                "putting": -0.23,
+                "teeToGreen": 7.99,
+                "total": 7.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+6",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 0.58,
+                "approach": 5.22,
+                "shortGame": -0.27,
+                "putting": 3.62,
+                "teeToGreen": 5.54,
+                "total": 9.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-3",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 4.84,
+                "approach": 9.01,
+                "shortGame": 2.68,
+                "putting": 1.6,
+                "teeToGreen": 16.53,
+                "total": 18.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-5",
+              "grossTotal": "-5",
+              "sg": {
+                "tee": 2.21,
+                "approach": 4.76,
+                "shortGame": 2.23,
+                "putting": 2.26,
+                "teeToGreen": 9.2,
+                "total": 11.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41641,
+          "name": "HamSammich",
+          "starts": 6,
+          "avgNet": 4.17,
+          "avgGross": 5.17,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -0.39,
+            "approach": -0.69,
+            "shortGame": -1.63,
+            "putting": 1.01,
+            "teeToGreen": -2.71,
+            "total": -1.7
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+9",
+              "grossTotal": "+37",
+              "sg": {
+                "tee": 0.66,
+                "approach": -2.06,
+                "shortGame": -0.18,
+                "putting": 2.37,
+                "teeToGreen": -1.58,
+                "total": 0.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "-2",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.63,
+                "approach": -0.52,
+                "shortGame": 1.06,
+                "putting": -2.27,
+                "teeToGreen": -1.08,
+                "total": -3.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "+2",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": 1.76,
+                "approach": -1.24,
+                "shortGame": 0.35,
+                "putting": 2.77,
+                "teeToGreen": 0.86,
+                "total": 3.63
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+15",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -5.43,
+                "approach": -0.88,
+                "shortGame": -5.78,
+                "putting": 1.84,
+                "teeToGreen": -12.09,
+                "total": -10.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 2,
+              "grossPosition": 5,
+              "netTotal": "-5",
+              "grossTotal": "+12",
+              "sg": {
+                "tee": 3.52,
+                "approach": -2.08,
+                "shortGame": -0.41,
+                "putting": 2.12,
+                "teeToGreen": 1.03,
+                "total": 3.15
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 9,
+              "grossPosition": 8,
+              "netTotal": "+1",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.24,
+                "approach": 2.65,
+                "shortGame": -4.8,
+                "putting": -0.77,
+                "teeToGreen": -3.38,
+                "total": -4.15
+              }
+            }
+          ]
+        },
+        {
+          "id": 40344,
+          "name": "Dan94",
+          "starts": 8,
+          "avgNet": 4.25,
+          "avgGross": 1.75,
+          "netWins": 0,
+          "grossWins": 2,
+          "sg": {
+            "tee": 5.13,
+            "approach": 2.74,
+            "shortGame": 2.85,
+            "putting": 0.61,
+            "teeToGreen": 10.71,
+            "total": 11.32
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+27",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": 0.61,
+                "approach": 3.63,
+                "shortGame": 1.47,
+                "putting": 1.09,
+                "teeToGreen": 5.71,
+                "total": 6.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-2",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 5.97,
+                "approach": 3.94,
+                "shortGame": -0.26,
+                "putting": 1.99,
+                "teeToGreen": 9.65,
+                "total": 11.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "+11",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 6.43,
+                "approach": -2.12,
+                "shortGame": 3.1,
+                "putting": 1.22,
+                "teeToGreen": 7.41,
+                "total": 8.63
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+2",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 6.08,
+                "approach": 0.7,
+                "shortGame": 3.65,
+                "putting": 0.6,
+                "teeToGreen": 10.43,
+                "total": 11.02
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 4,
+              "grossPosition": 2,
+              "netTotal": "+8",
+              "grossTotal": "+8",
+              "sg": {
+                "tee": 5.27,
+                "approach": 5.97,
+                "shortGame": 1.19,
+                "putting": -0.68,
+                "teeToGreen": 12.43,
+                "total": 11.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 4,
+              "grossPosition": 1,
+              "netTotal": "-3",
+              "grossTotal": "-3",
+              "sg": {
+                "tee": 7.91,
+                "approach": 0.22,
+                "shortGame": 7.86,
+                "putting": 2.16,
+                "teeToGreen": 15.99,
+                "total": 18.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 2,
+              "grossPosition": 2,
+              "netTotal": "+1",
+              "grossTotal": "+2",
+              "sg": {
+                "tee": 3.87,
+                "approach": 4.23,
+                "shortGame": 3.94,
+                "putting": 1.1,
+                "teeToGreen": 12.04,
+                "total": 13.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 6,
+              "grossPosition": 2,
+              "netTotal": "-3",
+              "grossTotal": "-2",
+              "sg": {
+                "tee": 4.88,
+                "approach": 5.32,
+                "shortGame": 1.83,
+                "putting": -2.57,
+                "teeToGreen": 12.03,
+                "total": 9.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41637,
+          "name": "DREADFUL",
+          "starts": 8,
+          "avgNet": 4.75,
+          "avgGross": 6.62,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.55,
+            "approach": -1.25,
+            "shortGame": -1.93,
+            "putting": -2.34,
+            "teeToGreen": -4.73,
+            "total": -7.07
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+27",
+              "grossTotal": "+75",
+              "sg": {
+                "tee": -6.09,
+                "approach": -1.34,
+                "shortGame": -0.44,
+                "putting": -4.34,
+                "teeToGreen": -7.87,
+                "total": -12.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.61,
+                "approach": -0.84,
+                "shortGame": -6.02,
+                "putting": -0.0,
+                "teeToGreen": -8.48,
+                "total": -8.48
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 4,
+              "grossPosition": 7,
+              "netTotal": "+9",
+              "grossTotal": "+27",
+              "sg": {
+                "tee": -2.66,
+                "approach": -2.06,
+                "shortGame": -0.16,
+                "putting": -2.49,
+                "teeToGreen": -4.88,
+                "total": -7.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 5,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -0.57,
+                "approach": -2.44,
+                "shortGame": -1.79,
+                "putting": -4.18,
+                "teeToGreen": -4.79,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+4",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": 2.28,
+                "approach": 4.33,
+                "shortGame": -6.01,
+                "putting": -2.85,
+                "teeToGreen": 0.6,
+                "total": -2.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 5,
+              "grossPosition": 8,
+              "netTotal": "+1",
+              "grossTotal": "+20",
+              "sg": {
+                "tee": -0.9,
+                "approach": -2.89,
+                "shortGame": -1.48,
+                "putting": 0.43,
+                "teeToGreen": -5.28,
+                "total": -4.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 6,
+              "grossPosition": 7,
+              "netTotal": "+6",
+              "grossTotal": "+23",
+              "sg": {
+                "tee": -1.65,
+                "approach": -1.1,
+                "shortGame": -1.11,
+                "putting": -4.01,
+                "teeToGreen": -3.86,
+                "total": -7.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 5,
+              "grossPosition": 7,
+              "netTotal": "-4",
+              "grossTotal": "+13",
+              "sg": {
+                "tee": -1.18,
+                "approach": -3.68,
+                "shortGame": 1.59,
+                "putting": -1.27,
+                "teeToGreen": -3.27,
+                "total": -4.54
+              }
+            }
+          ]
+        },
+        {
+          "id": 15857,
+          "name": "MashedBROtato",
+          "starts": 8,
+          "avgNet": 4.88,
+          "avgGross": 4.38,
+          "netWins": 1,
+          "grossWins": 1,
+          "sg": {
+            "tee": 0.98,
+            "approach": -0.2,
+            "shortGame": -0.84,
+            "putting": 0.61,
+            "teeToGreen": -0.06,
+            "total": 0.54
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "+15",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": 0.78,
+                "approach": 3.07,
+                "shortGame": 0.92,
+                "putting": 0.02,
+                "teeToGreen": 4.77,
+                "total": 4.79
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 2,
+              "grossPosition": 3,
+              "netTotal": "-2",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -0.16,
+                "approach": 1.21,
+                "shortGame": -0.69,
+                "putting": 0.29,
+                "teeToGreen": 0.36,
+                "total": 0.65
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+13",
+              "grossTotal": "+25",
+              "sg": {
+                "tee": 1.81,
+                "approach": 0.9,
+                "shortGame": -6.0,
+                "putting": -2.08,
+                "teeToGreen": -3.29,
+                "total": -5.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+14",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.42,
+                "approach": -9.66,
+                "shortGame": -2.35,
+                "putting": 2.46,
+                "teeToGreen": -12.43,
+                "total": -9.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 1,
+              "grossPosition": 1,
+              "netTotal": "-4",
+              "grossTotal": "+6",
+              "sg": {
+                "tee": 2.13,
+                "approach": 6.14,
+                "shortGame": 2.55,
+                "putting": 2.93,
+                "teeToGreen": 10.82,
+                "total": 13.75
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 7,
+              "grossPosition": 6,
+              "netTotal": "+7",
+              "grossTotal": "+16",
+              "sg": {
+                "tee": 2.79,
+                "approach": -4.18,
+                "shortGame": 0.9,
+                "putting": -0.36,
+                "teeToGreen": -0.49,
+                "total": -0.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 9,
+              "grossPosition": 5,
+              "netTotal": "+12",
+              "grossTotal": "+21",
+              "sg": {
+                "tee": -1.38,
+                "approach": -1.5,
+                "shortGame": -3.77,
+                "putting": 0.78,
+                "teeToGreen": -6.65,
+                "total": -5.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 3,
+              "grossPosition": 3,
+              "netTotal": "-7",
+              "grossTotal": "+1",
+              "sg": {
+                "tee": 2.3,
+                "approach": 2.45,
+                "shortGame": 1.68,
+                "putting": 0.81,
+                "teeToGreen": 6.43,
+                "total": 7.24
+              }
+            }
+          ]
+        },
+        {
+          "id": 40422,
+          "name": "IUDoc92",
+          "starts": 8,
+          "avgNet": 5.5,
+          "avgGross": 6.75,
+          "netWins": 1,
+          "grossWins": 0,
+          "sg": {
+            "tee": -2.7,
+            "approach": -2.1,
+            "shortGame": -2.75,
+            "putting": -1.88,
+            "teeToGreen": -7.55,
+            "total": -9.43
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 6,
+              "grossPosition": 5,
+              "netTotal": "+32",
+              "grossTotal": "+72",
+              "sg": {
+                "tee": -3.49,
+                "approach": -0.45,
+                "shortGame": -3.9,
+                "putting": -2.36,
+                "teeToGreen": -7.84,
+                "total": -10.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 1,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": -2.73,
+                "approach": 2.35,
+                "shortGame": -0.99,
+                "putting": 1.01,
+                "teeToGreen": -1.37,
+                "total": -0.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 3,
+              "grossPosition": 5,
+              "netTotal": "+7",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.84,
+                "approach": 2.1,
+                "shortGame": -4.76,
+                "putting": -0.87,
+                "teeToGreen": -3.5,
+                "total": -4.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 3,
+              "grossPosition": 4,
+              "netTotal": "E",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -3.46,
+                "approach": -0.45,
+                "shortGame": -1.98,
+                "putting": -0.08,
+                "teeToGreen": -5.9,
+                "total": -5.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+20",
+              "grossTotal": "+39",
+              "sg": {
+                "tee": -2.87,
+                "approach": -12.89,
+                "shortGame": -1.78,
+                "putting": -1.71,
+                "teeToGreen": -17.54,
+                "total": -19.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 8,
+              "grossPosition": 9,
+              "netTotal": "+12",
+              "grossTotal": "+30",
+              "sg": {
+                "tee": -6.55,
+                "approach": -0.29,
+                "shortGame": -0.07,
+                "putting": -7.94,
+                "teeToGreen": -6.91,
+                "total": -14.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 7,
+              "grossPosition": 9,
+              "netTotal": "+6",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": -0.12,
+                "approach": -2.73,
+                "shortGame": -5.55,
+                "putting": -0.46,
+                "teeToGreen": -8.4,
+                "total": -8.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 8,
+              "grossPosition": 10,
+              "netTotal": "E",
+              "grossTotal": "+18",
+              "sg": {
+                "tee": -1.56,
+                "approach": -4.43,
+                "shortGame": -2.93,
+                "putting": -2.62,
+                "teeToGreen": -8.92,
+                "total": -11.54
+              }
+            }
+          ]
+        },
+        {
+          "id": 40582,
+          "name": "TEV_11",
+          "starts": 3,
+          "avgNet": 5.67,
+          "avgGross": 6.0,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": 0.05,
+            "approach": -5.15,
+            "shortGame": 0.63,
+            "putting": -0.62,
+            "teeToGreen": -4.46,
+            "total": -5.09
+          },
+          "events": [
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 10,
+              "grossPosition": 10,
+              "netTotal": "+24",
+              "grossTotal": "+35",
+              "sg": {
+                "tee": -5.84,
+                "approach": -16.59,
+                "shortGame": 3.53,
+                "putting": -0.94,
+                "teeToGreen": -18.91,
+                "total": -19.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 5,
+              "grossPosition": 4,
+              "netTotal": "+4",
+              "grossTotal": "+14",
+              "sg": {
+                "tee": 2.16,
+                "approach": 2.39,
+                "shortGame": -2.39,
+                "putting": -1.03,
+                "teeToGreen": 2.17,
+                "total": 1.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 2,
+              "grossPosition": 4,
+              "netTotal": "-7",
+              "grossTotal": "+3",
+              "sg": {
+                "tee": 3.83,
+                "approach": -1.24,
+                "shortGame": 0.76,
+                "putting": 0.11,
+                "teeToGreen": 3.35,
+                "total": 3.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41797,
+          "name": "graycrum",
+          "starts": 3,
+          "avgNet": 6.67,
+          "avgGross": 5.0,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": 0.53,
+            "approach": -1.75,
+            "shortGame": 2.41,
+            "putting": 0.4,
+            "teeToGreen": 1.19,
+            "total": 1.58
+          },
+          "events": [
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 9,
+              "grossPosition": 7,
+              "netTotal": "+12",
+              "grossTotal": "+19",
+              "sg": {
+                "tee": -2.15,
+                "approach": -4.46,
+                "shortGame": 3.59,
+                "putting": -0.82,
+                "teeToGreen": -3.02,
+                "total": -3.85
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 4,
+              "grossPosition": 3,
+              "netTotal": "+3",
+              "grossTotal": "+10",
+              "sg": {
+                "tee": 2.46,
+                "approach": 0.11,
+                "shortGame": 2.61,
+                "putting": -0.05,
+                "teeToGreen": 5.19,
+                "total": 5.13
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 7,
+              "grossPosition": 5,
+              "netTotal": "-3",
+              "grossTotal": "+4",
+              "sg": {
+                "tee": 1.28,
+                "approach": -0.9,
+                "shortGame": 1.02,
+                "putting": 2.06,
+                "teeToGreen": 1.4,
+                "total": 3.46
+              }
+            }
+          ]
+        },
+        {
+          "id": 41006,
+          "name": "Leroy4522",
+          "starts": 8,
+          "avgNet": 6.88,
+          "avgGross": 6.5,
+          "netWins": 0,
+          "grossWins": 0,
+          "sg": {
+            "tee": -1.45,
+            "approach": -4.07,
+            "shortGame": -0.59,
+            "putting": -0.32,
+            "teeToGreen": -6.11,
+            "total": -6.43
+          },
+          "events": [
+            {
+              "tournamentId": 59463,
+              "date": "2026-07-22",
+              "course": "Shinnecock Hills Golf Club",
+              "netPosition": 7,
+              "grossPosition": 7,
+              "netTotal": "+28",
+              "grossTotal": "+55",
+              "sg": {
+                "tee": -3.55,
+                "approach": -2.04,
+                "shortGame": -4.05,
+                "putting": -1.56,
+                "teeToGreen": -9.64,
+                "total": -11.21
+              }
+            },
+            {
+              "tournamentId": 56937,
+              "date": "2026-05-24",
+              "course": "Sage Valley Golf Club",
+              "netPosition": 8,
+              "grossPosition": 7,
+              "netTotal": "+5",
+              "grossTotal": "+17",
+              "sg": {
+                "tee": -2.58,
+                "approach": -4.03,
+                "shortGame": -0.74,
+                "putting": -0.01,
+                "teeToGreen": -7.35,
+                "total": -7.35
+              }
+            },
+            {
+              "tournamentId": 55704,
+              "date": "2026-05-06",
+              "course": "Copperhead CC",
+              "netPosition": 8,
+              "grossPosition": 8,
+              "netTotal": "+17",
+              "grossTotal": "+29",
+              "sg": {
+                "tee": -3.73,
+                "approach": -3.13,
+                "shortGame": -0.86,
+                "putting": -1.65,
+                "teeToGreen": -7.72,
+                "total": -9.37
+              }
+            },
+            {
+              "tournamentId": 54741,
+              "date": "2026-04-22",
+              "course": "Caledonia Golf and Fish Club",
+              "netPosition": 6,
+              "grossPosition": 6,
+              "netTotal": "+10",
+              "grossTotal": "+22",
+              "sg": {
+                "tee": -1.65,
+                "approach": -6.58,
+                "shortGame": -0.78,
+                "putting": 0.03,
+                "teeToGreen": -9.01,
+                "total": -8.98
+              }
+            },
+            {
+              "tournamentId": 53622,
+              "date": "2026-04-11",
+              "course": "ForeBatten Charity Event",
+              "netPosition": 5,
+              "grossPosition": 6,
+              "netTotal": "+12",
+              "grossTotal": "+24",
+              "sg": {
+                "tee": 2.0,
+                "approach": -3.09,
+                "shortGame": 0.58,
+                "putting": -3.74,
+                "teeToGreen": -0.51,
+                "total": -4.25
+              }
+            },
+            {
+              "tournamentId": 52877,
+              "date": "2026-04-01",
+              "course": "Swiss Alpine Valley",
+              "netPosition": 3,
+              "grossPosition": 3,
+              "netTotal": "-3",
+              "grossTotal": "+11",
+              "sg": {
+                "tee": 4.63,
+                "approach": -6.32,
+                "shortGame": 0.83,
+                "putting": 5.01,
+                "teeToGreen": -0.86,
+                "total": 4.15
+              }
+            },
+            {
+              "tournamentId": 51974,
+              "date": "2026-04-01",
+              "course": "DPC Sodgrass",
+              "netPosition": 8,
+              "grossPosition": 6,
+              "netTotal": "+9",
+              "grossTotal": "+21",
+              "sg": {
+                "tee": -4.4,
+                "approach": -2.7,
+                "shortGame": -0.46,
+                "putting": 1.69,
+                "teeToGreen": -7.56,
+                "total": -5.87
+              }
+            },
+            {
+              "tournamentId": 50704,
+              "date": "2026-03-20",
+              "course": "Bay Hill",
+              "netPosition": 10,
+              "grossPosition": 9,
+              "netTotal": "+3",
+              "grossTotal": "+15",
+              "sg": {
+                "tee": -2.34,
+                "approach": -4.68,
+                "shortGame": 0.77,
+                "putting": -2.29,
+                "teeToGreen": -6.25,
+                "total": -8.54
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "processing": {
+    "newlyProcessedEventIds": [
+      59463,
+      56937,
+      54741,
+      53622,
+      51974,
+      52877,
+      50704
+    ],
+    "reusedEventIds": [
+      55704
+    ]
+  }
+}
