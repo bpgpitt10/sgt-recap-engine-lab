@@ -6,7 +6,7 @@ on:
       tournament_id:
         description: "Analyzed SGT tournament ID"
         required: true
-        default: "55704"
+        default: "59463"
       model:
         description: "OpenAI model"
         required: true
@@ -15,6 +15,7 @@ on:
     branches: [main]
     paths:
       - "src/write_recap.py"
+      - "src/recap_history.py"
       - "src/validate_recap_copy.py"
       - ".github/workflows/write-recap.yml"
 
@@ -45,18 +46,19 @@ jobs:
             exit 1
           fi
 
-      - name: Write recap copy
+      - name: Write recap copy with as-of-event history
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ github.event.inputs.model || 'gpt-5.6-luna' }}
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '59463' }}
         run: |
           python src/write_recap.py "data/analysis/$TOURNAMENT_ID.json" \
+            --history data/history.json \
             --facts-output "data/facts/$TOURNAMENT_ID.json"
 
       - name: Cross-check generated copy against verified facts
         env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '59463' }}
         run: |
           python src/validate_recap_copy.py \
             "data/copy/$TOURNAMENT_ID.json" \
@@ -64,7 +66,7 @@ jobs:
 
       - name: Commit generated copy and fact package
         env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '59463' }}
         run: |
           git config user.name "sgt-recap-engine-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -76,12 +78,10 @@ jobs:
 
       - name: Upload generated recap package
         if: always()
-        env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         uses: actions/upload-artifact@v4
         with:
-          name: recap-copy-${{ github.event.inputs.tournament_id || '55704' }}
+          name: recap-copy-${{ github.event.inputs.tournament_id || '59463' }}
           path: |
-            data/facts/${{ github.event.inputs.tournament_id || '55704' }}.json
-            data/copy/${{ github.event.inputs.tournament_id || '55704' }}.json
+            data/facts/${{ github.event.inputs.tournament_id || '59463' }}.json
+            data/copy/${{ github.event.inputs.tournament_id || '59463' }}.json
           if-no-files-found: warn
