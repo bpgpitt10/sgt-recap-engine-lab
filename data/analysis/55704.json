@@ -2,7 +2,11 @@
   "schemaVersion": 1,
   "tournament": {
     "id": 55704,
-    "name": "Week 6 Copperhead PLAYOFF"
+    "name": "Week 6 Copperhead PLAYOFF",
+    "course": "Copperhead CC",
+    "date": "2026-05-06",
+    "displayDate": "May 6, 2026",
+    "url": "https://simulatorgolftour.com/tournament/55704"
   },
   "leaderboard": {
     "gross": [
