@@ -1,4 +1,3 @@
-# trigger Luna recap run
 name: Write AI recap from verified facts
 
 on:
@@ -16,6 +15,7 @@ on:
     branches: [main]
     paths:
       - "src/write_recap.py"
+      - "src/validate_recap_copy.py"
       - ".github/workflows/write-recap.yml"
 
 jobs:
@@ -53,6 +53,14 @@ jobs:
         run: |
           python src/write_recap.py "data/analysis/$TOURNAMENT_ID.json" \
             --facts-output "data/facts/$TOURNAMENT_ID.json"
+
+      - name: Cross-check generated copy against verified facts
+        env:
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
+        run: |
+          python src/validate_recap_copy.py \
+            "data/copy/$TOURNAMENT_ID.json" \
+            "data/facts/$TOURNAMENT_ID.json"
 
       - name: Commit generated copy and fact package
         env:
