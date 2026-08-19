@@ -1,3 +1,4 @@
+# trigger Luna recap run
 name: Write AI recap from verified facts
 
 on:
