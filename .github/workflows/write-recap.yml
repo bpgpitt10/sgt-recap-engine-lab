@@ -11,6 +11,11 @@ on:
         description: "OpenAI model"
         required: true
         default: "gpt-5.6"
+  push:
+    branches: [main]
+    paths:
+      - "src/write_recap.py"
+      - ".github/workflows/write-recap.yml"
 
 jobs:
   write-recap:
@@ -42,15 +47,15 @@ jobs:
       - name: Write recap copy
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ github.event.inputs.model }}
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id }}
+          OPENAI_MODEL: ${{ github.event.inputs.model || 'gpt-5.6' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         run: |
           python src/write_recap.py "data/analysis/$TOURNAMENT_ID.json" \
             --facts-output "data/facts/$TOURNAMENT_ID.json"
 
       - name: Commit generated copy and fact package
         env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         run: |
           git config user.name "sgt-recap-engine-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -62,10 +67,12 @@ jobs:
 
       - name: Upload generated recap package
         if: always()
+        env:
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         uses: actions/upload-artifact@v4
         with:
-          name: recap-copy-${{ github.event.inputs.tournament_id }}
+          name: recap-copy-${{ github.event.inputs.tournament_id || '55704' }}
           path: |
-            data/facts/${{ github.event.inputs.tournament_id }}.json
-            data/copy/${{ github.event.inputs.tournament_id }}.json
+            data/facts/${{ github.event.inputs.tournament_id || '55704' }}.json
+            data/copy/${{ github.event.inputs.tournament_id || '55704' }}.json
           if-no-files-found: warn
