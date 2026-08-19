@@ -1,0 +1,85 @@
+name: Process SGT tour and build rolling history
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_all:
+        description: "Re-export and re-analyze every completed event"
+        required: true
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "src/process_tour.py"
+      - "src/build_history.py"
+      - ".github/workflows/process-tour.yml"
+
+jobs:
+  process-tour:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Discover, analyze missing events, and build rolling history
+        env:
+          REFRESH_ALL: ${{ github.event.inputs.refresh_all || 'false' }}
+        run: |
+          if [ "$REFRESH_ALL" = "true" ]; then
+            python src/process_tour.py --refresh-all
+          else
+            python src/process_tour.py
+          fi
+
+      - name: Validate rolling scopes
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          history = json.loads(Path('data/history.json').read_text())
+          assert history['defaultScope'] == '10'
+          assert history['availableScopes'] == ['all', '5', '10', '20']
+          assert not history['missingAnalysisEventIds'], history['missingAnalysisEventIds']
+          assert history['scopes']['all']['players'], 'No player history produced'
+          print('ROLLING HISTORY PASSED')
+          print('Completed events:', len(history['completedEvents']))
+          for scope in history['availableScopes']:
+              data = history['scopes'][scope]
+              leader = data['players'][0] if data['players'] else None
+              print(scope, 'events=', data['eventCount'], 'players=', len(data['players']), 'avg-net leader=', leader and leader['name'])
+          PY
+
+      - name: Commit deterministic history outputs
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/discovery/ data/analysis/ data/history.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update rolling SGT history"
+            git push
+          fi
+
+      - name: Upload raw processing package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rolling-history-processing
+          path: |
+            data/work/
+            data/discovery/
+            data/analysis/
+            data/history.json
+          if-no-files-found: warn
