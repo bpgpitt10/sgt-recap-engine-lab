@@ -1,0 +1,92 @@
+name: Write rolling league scouting copy
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "OpenAI model"
+        required: true
+        default: "gpt-5.6-luna"
+  push:
+    branches: [main]
+    paths:
+      - "src/write_league_copy.py"
+      - ".github/workflows/write-league-copy.yml"
+
+jobs:
+  write-league-copy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Require OpenAI API key
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY repository secret is missing."
+            exit 1
+          fi
+
+      - name: Write rolling league copy
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ github.event.inputs.model || 'gpt-5.6-luna' }}
+        run: python src/write_league_copy.py data/history.json
+
+      - name: Validate generated scope structure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          history = json.loads(Path('data/history.json').read_text())
+          copy = json.loads(Path('data/league-copy.json').read_text())
+          assert copy['defaultScope'] == history['defaultScope']
+          assert copy['availableScopes'] == history['availableScopes']
+          assert set(copy['scopes']) == set(history['availableScopes'])
+
+          for scope_name in history['availableScopes']:
+              expected_names = [p['name'] for p in history['scopes'][scope_name]['players']]
+              actual_names = [p['name'] for p in copy['scopes'][scope_name]['profiles']]
+              assert actual_names == expected_names, (scope_name, expected_names, actual_names)
+              assert copy['scopes'][scope_name]['eventIds'] == history['scopes'][scope_name]['eventIds']
+
+          # With seven eligible events, All / 10 / 20 should intentionally reuse one AI generation.
+          assert copy['scopes']['all']['leagueSummary'] == copy['scopes']['10']['leagueSummary'] == copy['scopes']['20']['leagueSummary']
+          print('ROLLING LEAGUE COPY PASSED')
+          for scope_name in history['availableScopes']:
+              print(scope_name, 'profiles=', len(copy['scopes'][scope_name]['profiles']), 'generatedFrom=', copy['scopes'][scope_name]['generatedFromScope'])
+          PY
+
+      - name: Commit generated league copy
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/league-copy.json data/league-facts.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Write rolling league scouting copy"
+            git push
+          fi
+
+      - name: Upload league copy package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rolling-league-copy
+          path: |
+            data/league-copy.json
+            data/league-facts.json
+          if-no-files-found: warn
