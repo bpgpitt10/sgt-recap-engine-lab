@@ -6,7 +6,7 @@ on:
       tournament_id:
         description: "SGT tournament ID"
         required: true
-        default: "67350"
+        default: "55704"
   push:
     branches: [main]
     paths:
@@ -34,24 +34,50 @@ jobs:
 
       - name: Export tournament
         env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '67350' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         run: python src/export_tournament.py "$TOURNAMENT_ID"
 
       - name: Build deterministic analysis
         env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '67350' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         run: |
-          if [ "$TOURNAMENT_ID" = "67350" ]; then
-            python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json" \
-              --expect-net-winner CDickerson \
-              --expect-gross-winner CDickerson
-          else
-            python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json"
-          fi
+          case "$TOURNAMENT_ID" in
+            55704)
+              python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json" \
+                --expect-net-winner KeithK75 \
+                --expect-gross-winner KeithK75
+              ;;
+            67350)
+              python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json" \
+                --expect-net-winner CDickerson \
+                --expect-gross-winner CDickerson
+              ;;
+            *)
+              python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json"
+              ;;
+          esac
+
+      - name: Validate High Loft fixture
+        if: ${{ (github.event.inputs.tournament_id || '55704') == '55704' }}
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('data/analysis/55704.json').read_text())
+          assert data['validation']['completedPlayers'] == 8, data['validation']
+          assert len(data['leaderboard']['net']) == 8
+          assert len(data['leaderboard']['gross']) == 8
+          print('HIGH LOFT ANALYSIS PASSED')
+          print(json.dumps({
+              'netWinner': data['winners']['net'],
+              'grossWinner': data['winners']['gross'],
+              'validation': data['validation'],
+          }, indent=2))
+          PY
 
       - name: Commit small derived analysis
         env:
-          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '67350' }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         run: |
           git config user.name "sgt-recap-engine-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -65,7 +91,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tournament-${{ github.event.inputs.tournament_id || '67350' }}
+          name: tournament-${{ github.event.inputs.tournament_id || '55704' }}
           path: |
             data/tournaments/
             data/analysis/
