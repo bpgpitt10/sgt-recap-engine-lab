@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "model": "gpt-5.6-luna",
+  "defaultScope": "10",
+  "availableScopes": [
+    "all",
+    "5",
+    "10",
+    "20"
+  ],
+  "scopes": {
+    "all": {
+      "generatedFromScope": "all",
+      "eventIds": [
+        56937,
+        55704,
+        54741,
+        53622,
+        52877,
+        51974,
+        50704
+      ],
+      "leagueSummary": "NET is doing exactly what it came to do: create a knife fight at the top, with CRANK leading at a 2.71 average net and KeithK75, Dan94, HamSammich, and DREADFUL all packed within two shots of that mark. The underlying golf says KeithK75 and Dan94 are the actual ball-striking monsters, while CRANK is turning ugly gross rounds into net damage with three net wins. Down the board, the profiles get properly chaotic: putting disasters, double-bogey epidemics, and enough approach-game suffering to keep the league name honest.",
+      "leagueBullets": [
+        "KeithK75 and Dan94 own the tee-to-green numbers, combining power, greens, and elite approach play even when the NET results wobble.",
+        "CRANK has three NET wins despite losing 3.56 strokes from the tee, powered by a repeatable short-game edge and a willingness to survive ugly rounds.",
+        "The lower half is a volatility festival: DREADFUL, IUDoc92, and Leroy4522 all lose more than five strokes per window, while MashedBROtato is essentially a coin flip underneath the scorecard."
+      ],
+      "profiles": [
+        {
+          "name": "CRANK",
+          "profile": "CRANK is the NET leader at 2.71 with three wins, and this is a seven-appearance profile built on pure scoreboard violence rather than pretty golf. The gross numbers are rough—5.00 average gross, no gross wins, only 4.0 greens per round—but the short game is a legitimate weapon at 2.66 strokes gained, with putting adding another 0.85. The tradeoff is a tee game losing 3.56 strokes and a statistical diet of 5.57 bogeys and 1.71 doubles per round. That formula produced a net win at Caledonia and Alpine Valley, then got smacked at Sage Valley: sixth in NET and gross, with seven bogeys, two doubles, and negative tee-to-green play. Somehow, the mess keeps cashing checks. That is not pretty golf; that is competitive golf wearing a fake mustache."
+        },
+        {
+          "name": "KeithK75",
+          "profile": "KeithK75 is second in average NET at 3.86, but the underlying profile is the cleanest in the building: 12.40 total strokes gained, 10.46 tee-to-green, 10.0 greens per round, and four gross wins. He brings the whole toolbox—3.17 off the tee, 5.64 on approach, 1.65 short game, and 1.94 putting—plus 4.14 birdies against only 0.71 doubles. The NET ledger has two wins, and the recent evidence is loud: a NET and gross win at Copperhead followed by a gross second at Sage Valley. The only warning flare is the Tobacco Road Major, where eight bogeys and three doubles turned a third-place gross round into sixth in NET. Even the bad week still had positive tee-to-green play. Keith is the league’s blue-chip golfer, which is annoying for everyone else."
+        },
+        {
+          "name": "Dan94",
+          "profile": "Dan94 sits third in NET at 4.29 with no NET wins, but his underlying game is a wrecking ball: 5.77 strokes gained off the tee, 11.43 tee-to-green, 8.71 greens, and the league’s biggest driving profile at 312.29 longest-drive average. He also owns a strong 3.04 short-game number and averages 3.86 birdies against 2.86 bogeys. The catch is that the power occasionally turns into a full-contact relationship with trouble; Copperhead produced just three greens, eight bogeys, and six NET despite a gross second. Sage Valley was the better version, with six birdies, a gross win, and fourth in NET. So the file reads as high-end underlying golf with occasional scorecard hostage situations. Dan does not need to find more speed—he needs fewer rounds where the golf course gets to invoice him."
+        },
+        {
+          "name": "HamSammich",
+          "profile": "HamSammich is fourth in average NET at 4.60 across five appearances, and the NET results are doing some serious heavy lifting: no NET or gross wins, yet a third-place NET finish at Sage Valley despite a +13 gross total. The underlying profile is mixed, with negative tee-to-green play at -2.93, short game at -1.92, and approach at -0.41, while putting is the lone positive at 0.74. The repeat offenders are clear: 31.8 putts, 1.2 three-putts, 4.6 bogeys, and a chunky 3.0 doubles per appearance. There is enough athleticism to flash—296.6 longest-drive average and nine greens at Alpine Valley—but the game can go from functional to dumpster fire quickly. Tobacco Road was the crime scene: +30 gross, six doubles, and -10.25 total strokes gained. The recent NET finishes are respectable; the golf underneath remains deeply suspicious."
+        },
+        {
+          "name": "DREADFUL",
+          "profile": "DREADFUL is fifth in NET at 4.71, and the name is unfortunately supported by a seven-appearance underlying profile: -6.33 total strokes gained, -4.28 tee-to-green, -2.14 short game, and -2.05 putting. The scorecard damage is relentless, with 4.86 bogeys, 4.14 doubles, only 0.86 birdies, 33.86 putts, and 2.71 three-putts per round. Sage Valley produced an even NET finish, which sounds respectable until you see the +18 gross, 40 putts, five three-putts, and -8.48 total SG. Caledonia somehow got even louder, with zero greens and eight doubles. There have been occasional sparks—positive approach and tee-to-green at Tobacco Road, plus a gross fifth there—but the broad profile is a long-running emergency drill. DREADFUL is not losing because of one bad club; the entire golf bag has filed a complaint."
+        },
+        {
+          "name": "MashedBROtato",
+          "profile": "MashedBROtato owns a 5.14 average NET, one NET win, and one gross win, but the seven-appearance profile is almost perfectly split underneath: total strokes gained sits at -0.06. The tee game is slightly positive at 1.01 and putting adds 0.69, while approach and short game both leak strokes. The bigger problem is keeping the round out of the weeds: 2.86 fairways, 6.14 greens, 4.86 bogeys, 3.57 doubles, and 1.86 three-putts. The recent Sage Valley round showed the good version—second in NET, +0.65 total SG, and nine greens—although three three-putts kept it from being clean. Copperhead went the other direction, finishing seventh with -6.0 short-game SG and four doubles. The Tobacco Road NET win proves the ceiling is real. The floor, however, has trapdoors."
+        },
+        {
+          "name": "IUDoc92",
+          "profile": "IUDoc92 is sixth in average NET at 5.43 with one NET win, and the profile underneath is a full-system struggle: -9.32 total strokes gained, with every major category negative. The tee-to-green number is -7.51, greens average 4.29, putting sits at -1.81, and the scorecard carries 5.86 bogeys, 3.57 doubles, 33.71 putts, and 3.29 three-putts. The recent Sage Valley NET win is the odd bright spot, coming with a +10 gross total and only slightly negative total SG; that was survival, not ball-striking domination. Copperhead followed with nine bogeys and a fifth-place NET finish, while Tobacco Road featured one green and -19.25 total SG. There is a real competitive ceiling in the NET results, but the gross golf keeps trying to drag it into the basement. IUDoc92 is proof that simulator golf occasionally rewards simply refusing to leave the building."
+        },
+        {
+          "name": "TEV_11",
+          "profile": "TEV_11 is seventh in average NET at 5.67 after three appearances, so the evidence supports a trend read but not a giant autobiography. The pattern is volatile: 8.33 greens and 2.33 birdies per round are useful, but -5.15 approach SG, -4.46 tee-to-green, 6.33 bogeys, 2.0 doubles, and 2.67 three-putts explain the 6.0 average gross. Bay Hill was a strong NET second at -7, Sawgrass slipped to fifth at +4, and Alpine Valley detonated into tenth at +24 with approach losing 16.59 strokes. That is not a gentle fade; that is the approach game kicking the front door off its hinges. The short game is the one reliable positive at 0.63, but three starts have delivered three very different versions of the golfer. TEV_11 has shown a ceiling, a floor, and one round that apparently found a basement underneath the floor."
+        },
+        {
+          "name": "graycrum",
+          "profile": "graycrum lands eighth in average NET at 6.67 after three appearances, with no wins but a mildly positive underlying profile at 1.58 total strokes gained. The useful pieces are the short game at 2.41 and tee-to-green at 1.19, while approach remains the leak at -1.75. Recent results have been mixed: NET seventh at Bay Hill, fourth at Sawgrass, and ninth at Alpine Valley. The Bay Hill round showed the best scoring control, with just one bogey and one double, while Alpine Valley brought six bogeys and four doubles despite positive short-game SG. The repeatable statistical fingerprint is decent sand work—3.33 saves per appearance—but also 2.67 three-putts and only one birdie. There is enough underneath to avoid calling this hopeless, but the NET number says the good golf has not yet stayed on the card for long enough."
+        },
+        {
+          "name": "Leroy4522",
+          "profile": "Leroy4522 is ninth in average NET at 6.86, and the seven-appearance file is being dragged down by -5.74 total strokes gained and -5.61 tee-to-green. Approach is the central leak at -4.36, greens average just 4.43, and the scoring profile includes 5.57 bogeys and 3.71 doubles per round. The recent stretch has been especially harsh: eighth in NET at Sage Valley, eighth again at Copperhead, and sixth at Caledonia, with approach losing 4.03, 3.13, and 6.58 strokes in those three rounds. Alpine Valley briefly produced third in NET, but that came with -6.32 approach SG and nine bogeys, rescued by 5.01 putting SG. Even the proximity number is a warning label, sitting at 57.23 for the window and spiking to 245.4 at Tobacco Road. Leroy’s good rounds are currently being built on emergency putting. That is a dangerous mortgage to keep refinancing."
+        }
+      ]
+    },
+    "10": {
+      "generatedFromScope": "all",
+      "eventIds": [
+        56937,
+        55704,
+        54741,
+        53622,
+        52877,
+        51974,
+        50704
+      ],
+      "leagueSummary": "NET is doing exactly what it came to do: create a knife fight at the top, with CRANK leading at a 2.71 average net and KeithK75, Dan94, HamSammich, and DREADFUL all packed within two shots of that mark. The underlying golf says KeithK75 and Dan94 are the actual ball-striking monsters, while CRANK is turning ugly gross rounds into net damage with three net wins. Down the board, the profiles get properly chaotic: putting disasters, double-bogey epidemics, and enough approach-game suffering to keep the league name honest.",
+      "leagueBullets": [
+        "KeithK75 and Dan94 own the tee-to-green numbers, combining power, greens, and elite approach play even when the NET results wobble.",
+        "CRANK has three NET wins despite losing 3.56 strokes from the tee, powered by a repeatable short-game edge and a willingness to survive ugly rounds.",
+        "The lower half is a volatility festival: DREADFUL, IUDoc92, and Leroy4522 all lose more than five strokes per window, while MashedBROtato is essentially a coin flip underneath the scorecard."
+      ],
+      "profiles": [
+        {
+          "name": "CRANK",
+          "profile": "CRANK is the NET leader at 2.71 with three wins, and this is a seven-appearance profile built on pure scoreboard violence rather than pretty golf. The gross numbers are rough—5.00 average gross, no gross wins, only 4.0 greens per round—but the short game is a legitimate weapon at 2.66 strokes gained, with putting adding another 0.85. The tradeoff is a tee game losing 3.56 strokes and a statistical diet of 5.57 bogeys and 1.71 doubles per round. That formula produced a net win at Caledonia and Alpine Valley, then got smacked at Sage Valley: sixth in NET and gross, with seven bogeys, two doubles, and negative tee-to-green play. Somehow, the mess keeps cashing checks. That is not pretty golf; that is competitive golf wearing a fake mustache."
+        },
+        {
+          "name": "KeithK75",
+          "profile": "KeithK75 is second in average NET at 3.86, but the underlying profile is the cleanest in the building: 12.40 total strokes gained, 10.46 tee-to-green, 10.0 greens per round, and four gross wins. He brings the whole toolbox—3.17 off the tee, 5.64 on approach, 1.65 short game, and 1.94 putting—plus 4.14 birdies against only 0.71 doubles. The NET ledger has two wins, and the recent evidence is loud: a NET and gross win at Copperhead followed by a gross second at Sage Valley. The only warning flare is the Tobacco Road Major, where eight bogeys and three doubles turned a third-place gross round into sixth in NET. Even the bad week still had positive tee-to-green play. Keith is the league’s blue-chip golfer, which is annoying for everyone else."
+        },
+        {
+          "name": "Dan94",
+          "profile": "Dan94 sits third in NET at 4.29 with no NET wins, but his underlying game is a wrecking ball: 5.77 strokes gained off the tee, 11.43 tee-to-green, 8.71 greens, and the league’s biggest driving profile at 312.29 longest-drive average. He also owns a strong 3.04 short-game number and averages 3.86 birdies against 2.86 bogeys. The catch is that the power occasionally turns into a full-contact relationship with trouble; Copperhead produced just three greens, eight bogeys, and six NET despite a gross second. Sage Valley was the better version, with six birdies, a gross win, and fourth in NET. So the file reads as high-end underlying golf with occasional scorecard hostage situations. Dan does not need to find more speed—he needs fewer rounds where the golf course gets to invoice him."
+        },
+        {
+          "name": "HamSammich",
+          "profile": "HamSammich is fourth in average NET at 4.60 across five appearances, and the NET results are doing some serious heavy lifting: no NET or gross wins, yet a third-place NET finish at Sage Valley despite a +13 gross total. The underlying profile is mixed, with negative tee-to-green play at -2.93, short game at -1.92, and approach at -0.41, while putting is the lone positive at 0.74. The repeat offenders are clear: 31.8 putts, 1.2 three-putts, 4.6 bogeys, and a chunky 3.0 doubles per appearance. There is enough athleticism to flash—296.6 longest-drive average and nine greens at Alpine Valley—but the game can go from functional to dumpster fire quickly. Tobacco Road was the crime scene: +30 gross, six doubles, and -10.25 total strokes gained. The recent NET finishes are respectable; the golf underneath remains deeply suspicious."
+        },
+        {
+          "name": "DREADFUL",
+          "profile": "DREADFUL is fifth in NET at 4.71, and the name is unfortunately supported by a seven-appearance underlying profile: -6.33 total strokes gained, -4.28 tee-to-green, -2.14 short game, and -2.05 putting. The scorecard damage is relentless, with 4.86 bogeys, 4.14 doubles, only 0.86 birdies, 33.86 putts, and 2.71 three-putts per round. Sage Valley produced an even NET finish, which sounds respectable until you see the +18 gross, 40 putts, five three-putts, and -8.48 total SG. Caledonia somehow got even louder, with zero greens and eight doubles. There have been occasional sparks—positive approach and tee-to-green at Tobacco Road, plus a gross fifth there—but the broad profile is a long-running emergency drill. DREADFUL is not losing because of one bad club; the entire golf bag has filed a complaint."
+        },
+        {
+          "name": "MashedBROtato",
+          "profile": "MashedBROtato owns a 5.14 average NET, one NET win, and one gross win, but the seven-appearance profile is almost perfectly split underneath: total strokes gained sits at -0.06. The tee game is slightly positive at 1.01 and putting adds 0.69, while approach and short game both leak strokes. The bigger problem is keeping the round out of the weeds: 2.86 fairways, 6.14 greens, 4.86 bogeys, 3.57 doubles, and 1.86 three-putts. The recent Sage Valley round showed the good version—second in NET, +0.65 total SG, and nine greens—although three three-putts kept it from being clean. Copperhead went the other direction, finishing seventh with -6.0 short-game SG and four doubles. The Tobacco Road NET win proves the ceiling is real. The floor, however, has trapdoors."
+        },
+        {
+          "name": "IUDoc92",
+          "profile": "IUDoc92 is sixth in average NET at 5.43 with one NET win, and the profile underneath is a full-system struggle: -9.32 total strokes gained, with every major category negative. The tee-to-green number is -7.51, greens average 4.29, putting sits at -1.81, and the scorecard carries 5.86 bogeys, 3.57 doubles, 33.71 putts, and 3.29 three-putts. The recent Sage Valley NET win is the odd bright spot, coming with a +10 gross total and only slightly negative total SG; that was survival, not ball-striking domination. Copperhead followed with nine bogeys and a fifth-place NET finish, while Tobacco Road featured one green and -19.25 total SG. There is a real competitive ceiling in the NET results, but the gross golf keeps trying to drag it into the basement. IUDoc92 is proof that simulator golf occasionally rewards simply refusing to leave the building."
+        },
+        {
+          "name": "TEV_11",
+          "profile": "TEV_11 is seventh in average NET at 5.67 after three appearances, so the evidence supports a trend read but not a giant autobiography. The pattern is volatile: 8.33 greens and 2.33 birdies per round are useful, but -5.15 approach SG, -4.46 tee-to-green, 6.33 bogeys, 2.0 doubles, and 2.67 three-putts explain the 6.0 average gross. Bay Hill was a strong NET second at -7, Sawgrass slipped to fifth at +4, and Alpine Valley detonated into tenth at +24 with approach losing 16.59 strokes. That is not a gentle fade; that is the approach game kicking the front door off its hinges. The short game is the one reliable positive at 0.63, but three starts have delivered three very different versions of the golfer. TEV_11 has shown a ceiling, a floor, and one round that apparently found a basement underneath the floor."
+        },
+        {
+          "name": "graycrum",
+          "profile": "graycrum lands eighth in average NET at 6.67 after three appearances, with no wins but a mildly positive underlying profile at 1.58 total strokes gained. The useful pieces are the short game at 2.41 and tee-to-green at 1.19, while approach remains the leak at -1.75. Recent results have been mixed: NET seventh at Bay Hill, fourth at Sawgrass, and ninth at Alpine Valley. The Bay Hill round showed the best scoring control, with just one bogey and one double, while Alpine Valley brought six bogeys and four doubles despite positive short-game SG. The repeatable statistical fingerprint is decent sand work—3.33 saves per appearance—but also 2.67 three-putts and only one birdie. There is enough underneath to avoid calling this hopeless, but the NET number says the good golf has not yet stayed on the card for long enough."
+        },
+        {
+          "name": "Leroy4522",
+          "profile": "Leroy4522 is ninth in average NET at 6.86, and the seven-appearance file is being dragged down by -5.74 total strokes gained and -5.61 tee-to-green. Approach is the central leak at -4.36, greens average just 4.43, and the scoring profile includes 5.57 bogeys and 3.71 doubles per round. The recent stretch has been especially harsh: eighth in NET at Sage Valley, eighth again at Copperhead, and sixth at Caledonia, with approach losing 4.03, 3.13, and 6.58 strokes in those three rounds. Alpine Valley briefly produced third in NET, but that came with -6.32 approach SG and nine bogeys, rescued by 5.01 putting SG. Even the proximity number is a warning label, sitting at 57.23 for the window and spiking to 245.4 at Tobacco Road. Leroy’s good rounds are currently being built on emergency putting. That is a dangerous mortgage to keep refinancing."
+        }
+      ]
+    },
+    "20": {
+      "generatedFromScope": "all",
+      "eventIds": [
+        56937,
+        55704,
+        54741,
+        53622,
+        52877,
+        51974,
+        50704
+      ],
+      "leagueSummary": "NET is doing exactly what it came to do: create a knife fight at the top, with CRANK leading at a 2.71 average net and KeithK75, Dan94, HamSammich, and DREADFUL all packed within two shots of that mark. The underlying golf says KeithK75 and Dan94 are the actual ball-striking monsters, while CRANK is turning ugly gross rounds into net damage with three net wins. Down the board, the profiles get properly chaotic: putting disasters, double-bogey epidemics, and enough approach-game suffering to keep the league name honest.",
+      "leagueBullets": [
+        "KeithK75 and Dan94 own the tee-to-green numbers, combining power, greens, and elite approach play even when the NET results wobble.",
+        "CRANK has three NET wins despite losing 3.56 strokes from the tee, powered by a repeatable short-game edge and a willingness to survive ugly rounds.",
+        "The lower half is a volatility festival: DREADFUL, IUDoc92, and Leroy4522 all lose more than five strokes per window, while MashedBROtato is essentially a coin flip underneath the scorecard."
+      ],
+      "profiles": [
+        {
+          "name": "CRANK",
+          "profile": "CRANK is the NET leader at 2.71 with three wins, and this is a seven-appearance profile built on pure scoreboard violence rather than pretty golf. The gross numbers are rough—5.00 average gross, no gross wins, only 4.0 greens per round—but the short game is a legitimate weapon at 2.66 strokes gained, with putting adding another 0.85. The tradeoff is a tee game losing 3.56 strokes and a statistical diet of 5.57 bogeys and 1.71 doubles per round. That formula produced a net win at Caledonia and Alpine Valley, then got smacked at Sage Valley: sixth in NET and gross, with seven bogeys, two doubles, and negative tee-to-green play. Somehow, the mess keeps cashing checks. That is not pretty golf; that is competitive golf wearing a fake mustache."
+        },
+        {
+          "name": "KeithK75",
+          "profile": "KeithK75 is second in average NET at 3.86, but the underlying profile is the cleanest in the building: 12.40 total strokes gained, 10.46 tee-to-green, 10.0 greens per round, and four gross wins. He brings the whole toolbox—3.17 off the tee, 5.64 on approach, 1.65 short game, and 1.94 putting—plus 4.14 birdies against only 0.71 doubles. The NET ledger has two wins, and the recent evidence is loud: a NET and gross win at Copperhead followed by a gross second at Sage Valley. The only warning flare is the Tobacco Road Major, where eight bogeys and three doubles turned a third-place gross round into sixth in NET. Even the bad week still had positive tee-to-green play. Keith is the league’s blue-chip golfer, which is annoying for everyone else."
+        },
+        {
+          "name": "Dan94",
+          "profile": "Dan94 sits third in NET at 4.29 with no NET wins, but his underlying game is a wrecking ball: 5.77 strokes gained off the tee, 11.43 tee-to-green, 8.71 greens, and the league’s biggest driving profile at 312.29 longest-drive average. He also owns a strong 3.04 short-game number and averages 3.86 birdies against 2.86 bogeys. The catch is that the power occasionally turns into a full-contact relationship with trouble; Copperhead produced just three greens, eight bogeys, and six NET despite a gross second. Sage Valley was the better version, with six birdies, a gross win, and fourth in NET. So the file reads as high-end underlying golf with occasional scorecard hostage situations. Dan does not need to find more speed—he needs fewer rounds where the golf course gets to invoice him."
+        },
+        {
+          "name": "HamSammich",
+          "profile": "HamSammich is fourth in average NET at 4.60 across five appearances, and the NET results are doing some serious heavy lifting: no NET or gross wins, yet a third-place NET finish at Sage Valley despite a +13 gross total. The underlying profile is mixed, with negative tee-to-green play at -2.93, short game at -1.92, and approach at -0.41, while putting is the lone positive at 0.74. The repeat offenders are clear: 31.8 putts, 1.2 three-putts, 4.6 bogeys, and a chunky 3.0 doubles per appearance. There is enough athleticism to flash—296.6 longest-drive average and nine greens at Alpine Valley—but the game can go from functional to dumpster fire quickly. Tobacco Road was the crime scene: +30 gross, six doubles, and -10.25 total strokes gained. The recent NET finishes are respectable; the golf underneath remains deeply suspicious."
+        },
+        {
+          "name": "DREADFUL",
+          "profile": "DREADFUL is fifth in NET at 4.71, and the name is unfortunately supported by a seven-appearance underlying profile: -6.33 total strokes gained, -4.28 tee-to-green, -2.14 short game, and -2.05 putting. The scorecard damage is relentless, with 4.86 bogeys, 4.14 doubles, only 0.86 birdies, 33.86 putts, and 2.71 three-putts per round. Sage Valley produced an even NET finish, which sounds respectable until you see the +18 gross, 40 putts, five three-putts, and -8.48 total SG. Caledonia somehow got even louder, with zero greens and eight doubles. There have been occasional sparks—positive approach and tee-to-green at Tobacco Road, plus a gross fifth there—but the broad profile is a long-running emergency drill. DREADFUL is not losing because of one bad club; the entire golf bag has filed a complaint."
+        },
+        {
+          "name": "MashedBROtato",
+          "profile": "MashedBROtato owns a 5.14 average NET, one NET win, and one gross win, but the seven-appearance profile is almost perfectly split underneath: total strokes gained sits at -0.06. The tee game is slightly positive at 1.01 and putting adds 0.69, while approach and short game both leak strokes. The bigger problem is keeping the round out of the weeds: 2.86 fairways, 6.14 greens, 4.86 bogeys, 3.57 doubles, and 1.86 three-putts. The recent Sage Valley round showed the good version—second in NET, +0.65 total SG, and nine greens—although three three-putts kept it from being clean. Copperhead went the other direction, finishing seventh with -6.0 short-game SG and four doubles. The Tobacco Road NET win proves the ceiling is real. The floor, however, has trapdoors."
+        },
+        {
+          "name": "IUDoc92",
+          "profile": "IUDoc92 is sixth in average NET at 5.43 with one NET win, and the profile underneath is a full-system struggle: -9.32 total strokes gained, with every major category negative. The tee-to-green number is -7.51, greens average 4.29, putting sits at -1.81, and the scorecard carries 5.86 bogeys, 3.57 doubles, 33.71 putts, and 3.29 three-putts. The recent Sage Valley NET win is the odd bright spot, coming with a +10 gross total and only slightly negative total SG; that was survival, not ball-striking domination. Copperhead followed with nine bogeys and a fifth-place NET finish, while Tobacco Road featured one green and -19.25 total SG. There is a real competitive ceiling in the NET results, but the gross golf keeps trying to drag it into the basement. IUDoc92 is proof that simulator golf occasionally rewards simply refusing to leave the building."
+        },
+        {
+          "name": "TEV_11",
+          "profile": "TEV_11 is seventh in average NET at 5.67 after three appearances, so the evidence supports a trend read but not a giant autobiography. The pattern is volatile: 8.33 greens and 2.33 birdies per round are useful, but -5.15 approach SG, -4.46 tee-to-green, 6.33 bogeys, 2.0 doubles, and 2.67 three-putts explain the 6.0 average gross. Bay Hill was a strong NET second at -7, Sawgrass slipped to fifth at +4, and Alpine Valley detonated into tenth at +24 with approach losing 16.59 strokes. That is not a gentle fade; that is the approach game kicking the front door off its hinges. The short game is the one reliable positive at 0.63, but three starts have delivered three very different versions of the golfer. TEV_11 has shown a ceiling, a floor, and one round that apparently found a basement underneath the floor."
+        },
+        {
+          "name": "graycrum",
+          "profile": "graycrum lands eighth in average NET at 6.67 after three appearances, with no wins but a mildly positive underlying profile at 1.58 total strokes gained. The useful pieces are the short game at 2.41 and tee-to-green at 1.19, while approach remains the leak at -1.75. Recent results have been mixed: NET seventh at Bay Hill, fourth at Sawgrass, and ninth at Alpine Valley. The Bay Hill round showed the best scoring control, with just one bogey and one double, while Alpine Valley brought six bogeys and four doubles despite positive short-game SG. The repeatable statistical fingerprint is decent sand work—3.33 saves per appearance—but also 2.67 three-putts and only one birdie. There is enough underneath to avoid calling this hopeless, but the NET number says the good golf has not yet stayed on the card for long enough."
+        },
+        {
+          "name": "Leroy4522",
+          "profile": "Leroy4522 is ninth in average NET at 6.86, and the seven-appearance file is being dragged down by -5.74 total strokes gained and -5.61 tee-to-green. Approach is the central leak at -4.36, greens average just 4.43, and the scoring profile includes 5.57 bogeys and 3.71 doubles per round. The recent stretch has been especially harsh: eighth in NET at Sage Valley, eighth again at Copperhead, and sixth at Caledonia, with approach losing 4.03, 3.13, and 6.58 strokes in those three rounds. Alpine Valley briefly produced third in NET, but that came with -6.32 approach SG and nine bogeys, rescued by 5.01 putting SG. Even the proximity number is a warning label, sitting at 57.23 for the window and spiking to 245.4 at Tobacco Road. Leroy’s good rounds are currently being built on emergency putting. That is a dangerous mortgage to keep refinancing."
+        }
+      ]
+    },
+    "5": {
+      "generatedFromScope": "5",
+      "eventIds": [
+        56937,
+        55704,
+        54741,
+        53622,
+        52877
+      ],
+      "leagueSummary": "NET is doing exactly what this league promises: creating a knife fight between ugly golf and useful golf. CRANK leads the five-event window at 3.0 average NET with two wins, while HamSammich is right behind despite zero wins; meanwhile Dan94 and KeithK75 are producing the best underlying golf but sitting at 4.4 NET. The top of the table is crowded, and the scoring gap between “actually playing well” and “somehow cashing a net result” remains aggressively entertaining.",
+      "leagueBullets": [
+        "The NET race is packed: CRANK leads, HamSammich is half a stroke back, and three players sit together at 4.4.",
+        "Dan94 and KeithK75 own the strongest tee-to-green profiles, but their gross dominance has not translated into the best NET averages.",
+        "Short game is keeping several rounds alive; for DREADFUL, IUDoc92, and Leroy4522, it is mostly being asked to clean up a crime scene."
+      ],
+      "profiles": [
+        {
+          "name": "CRANK",
+          "profile": "CRANK is the NET king of this window, with a 3.0 average and two wins, but the underlying golf looks like a man trying to win a demolition derby in a rental car. The tee game is a consistent liability at -2.83 strokes gained, while the short game is the great escape artist at +2.93 and putting chips in another +0.81. He averages only 4.0 greens and 6.8 fairways, yet still keeps finding ways to cash; the five-round profile says scrambling and damage control are not side dishes, they are the entire restaurant. The recent Sage Valley round was a sixth-place NET finish with seven bogeys and two doubles, so the champion’s cape came with some serious duct tape."
+        },
+        {
+          "name": "HamSammich",
+          "profile": "HamSammich sits second at 3.5 average NET without a win, which is a very HamSammich way to be dangerous: constantly around the front, never actually taking the trophy home. The power is obvious—300.25 average longest drive and 265.75 average drive distance—but only four fairways per round means the ball is being launched into a group chat, not necessarily a playable position. His putting is the reliable department at +1.11, while approach, short game, and tee-to-green are all negative; the four-event record is therefore more “big engine, loose steering” than polished scoring machine. He bounced from a +3.63 SG round at Copperhead to -10.25 at the Tobacco Road event, with six doubles in that disaster, so the ceiling is real and the floor has trapdoors."
+        },
+        {
+          "name": "DREADFUL",
+          "profile": "DREADFUL’s 4.4 average NET is held together by a short-game emergency response team that simply stopped answering the phone. The five-event profile is negative in every major SG area except nothing, with -3.09 around the greens, -1.82 putting, and -4.57 tee-to-green; three three-putts per round and 4.4 doubles explain why the scorecard keeps developing new forms of punctuation. There is enough distance to make the problems especially rude, but 4.8 greens and just 0.8 birdies per round leave very little margin. The recent Sage Valley round landed fifth in NET despite -8.48 total SG, including -6.02 short game, which is less a recovery plan than repeatedly putting out small fires with a leaf blower."
+        },
+        {
+          "name": "Dan94",
+          "profile": "Dan94 is the league’s loudest example of excellent golf not automatically becoming excellent NET golf: 4.4 average NET, zero NET wins, and two gross wins. The underlying numbers are absurdly healthy—+12.24 total SG, +6.33 off the tee, +1.74 approach, +3.11 short game, and nine greens per round—backed by 3.6 birdies, only 1.2 doubles, and 27.8 putts. He is hitting enough fairways and greens to make the rest of the room look like they are playing a different simulator, but the NET results still refuse to fully cooperate. His latest gross win at Sage Valley came with a fourth-place NET finish, even after six birdies and +11.65 total SG, so the golf is absolutely there; the NET column is just being a complete bastard."
+        },
+        {
+          "name": "KeithK75",
+          "profile": "KeithK75 has the cleanest all-around profile near the top: 4.4 average NET, one NET win, two gross wins, and positive SG in every major category. Approach is the calling card at +5.14, supported by +3.03 off the tee, +1.33 short game, and +1.95 putting; nine greens per round, 2.4 birdies, and only 0.6 three-putts make this a thoroughly unpleasant opponent when the machinery is switched on. The record is not flawless—an eighth-place NET result at the Tobacco Road event included eight bogeys and three doubles—but the broader five-event evidence says the game is repeatable. He followed that mess with a NET win at Copperhead, gaining +18.63 total, then posted another positive Sage Valley round; that is a pretty convincing way to make one bad week look like a clerical error."
+        },
+        {
+          "name": "IUDoc92",
+          "profile": "IUDoc92 owns a 4.6 average NET and one win, but the five-event underlying profile is a constant negotiation with disaster: -8.96 total SG, -7.04 tee-to-green, and negative numbers in every component. The fairways are respectable at 6.4, yet only four greens, 6.2 bogeys, 3.2 doubles, 33.8 putts, and 3.6 three-putts show where the round goes to die. Still, NET golf rewards survival, and IUDoc92 has proven capable of finding it; the latest round at Sage Valley was a NET win despite slightly negative total SG, with seven bogeys balanced by a useful net total of -7. The profile is volatile, but that win is evidence that this player can keep extracting blood from a stone."
+        },
+        {
+          "name": "MashedBROtato",
+          "profile": "MashedBROtato is seventh at 4.8 average NET and might be the window’s purest volatility merchant. The five-event SG profile is nearly flat overall, with a positive tee game and putting offset by negative approach and short game; 3.4 fairways, 6.2 greens, five bogeys, and 3.4 doubles make every round feel like it is being negotiated in real time. There is legitimate scoring juice—1.6 birdies, a NET win, a gross win, and an eagle in the average stat line—but the results swing wildly from a -4 NET win at the Tobacco Road event to +14 at Caledonia. The latest Sage Valley round was much healthier at +0.65 total SG and second in NET, suggesting the good version is still very much in the building; unfortunately, the bad version keeps finding the keys."
+        },
+        {
+          "name": "Leroy4522",
+          "profile": "Leroy4522 sits at 6.0 average NET with no wins, and the data points to one very specific leak: approach play is putting the whole operation underwater at -4.63 SG. The rest is not exactly innocent—only four greens, 7.2 bogeys, 3.2 doubles, and 32.6 putts per round—but the approach number is the headline act. The five-event run has only 0.6 birdies against a steady parade of bogeys, and the recent stretch has been especially grim, with NET finishes of sixth, eighth, and fifth. There was a third-place NET result at Alpine Valley, but even that round included nine bogeys; this is not a collapse so much as a long-term commitment to making every hole harder than the architect intended."
+        },
+        {
+          "name": "graycrum",
+          "profile": "graycrum has only one appearance in the rolling window, so this is a scouting note, not a personality test. The Alpine Valley round finished ninth in NET at +12, with -3.85 total SG driven by -4.46 approach and -2.15 off the tee. The short game was the bright spot at +3.59, supported by three sand saves, but six bogeys, four doubles, and three three-putts kept the round from becoming anything more than a salvage mission. Seven greens and a 30.4 GIR proximity number show there was playable golf in the mix; the approach game simply kept hiding it under the furniture."
+        },
+        {
+          "name": "TEV_11",
+          "profile": "TEV_11 also has a single appearance, and it was a rough introduction: tenth in NET at +24 with -19.85 total SG. The damage was concentrated in tee-to-green play, especially a brutal -16.59 approach mark and -5.84 off the tee, while the short game offered +3.53 as the lone functioning department. Three fairways, six greens, five bogeys, four doubles, and three three-putts made for a scorecard with almost no quiet holes. There is not enough evidence to call this a trend, but that one round did establish a clear scouting report: the short game was bailing, and the rest of the bag was actively throwing things overboard."
+        }
+      ]
+    }
+  }
+}
