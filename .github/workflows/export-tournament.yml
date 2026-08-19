@@ -1,4 +1,4 @@
-name: Export full SGT tournament
+name: Export and analyze SGT tournament
 
 on:
   workflow_dispatch:
@@ -11,13 +11,14 @@ on:
     branches: [main]
     paths:
       - "src/export_tournament.py"
+      - "src/analyze_tournament.py"
       - ".github/workflows/export-tournament.yml"
 
 jobs:
-  export-tournament:
+  export-analyze:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
 
     steps:
       - name: Check out repository
@@ -36,12 +37,37 @@ jobs:
           TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '67350' }}
         run: python src/export_tournament.py "$TOURNAMENT_ID"
 
-      - name: Upload tournament package
+      - name: Build deterministic analysis
+        env:
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '67350' }}
+        run: |
+          if [ "$TOURNAMENT_ID" = "67350" ]; then
+            python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json" \
+              --expect-net-winner CDickerson \
+              --expect-gross-winner CDickerson
+          else
+            python src/analyze_tournament.py "data/tournaments/$TOURNAMENT_ID.json"
+          fi
+
+      - name: Commit small derived analysis
+        env:
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '67350' }}
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "data/analysis/$TOURNAMENT_ID.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Store analysis for tournament $TOURNAMENT_ID"
+            git push
+          fi
+
+      - name: Upload raw and analyzed package
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: tournament-${{ github.event.inputs.tournament_id || '67350' }}
           path: |
             data/tournaments/
+            data/analysis/
             data/debug/
           if-no-files-found: warn
