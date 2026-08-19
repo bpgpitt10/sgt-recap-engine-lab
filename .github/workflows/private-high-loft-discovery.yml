@@ -1,0 +1,64 @@
+name: Private High Loft discovery test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/private-high-loft-discovery.yml"
+      - "src/discover.py"
+
+jobs:
+  private-discovery:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Discover private High Loft tour 1825
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from src.discover import fetch_events_html, parse_events
+
+          TOUR_ID = 1825
+          KNOWN_EVENT_IDS = {50704, 51974, 52877, 53622, 54741, 55704, 56937}
+
+          html = fetch_events_html(TOUR_ID)
+          discovered = parse_events(html, TOUR_ID, "High Loft / Low Standards")
+          found_ids = {event["id"] for event in discovered["active"] + discovered["completed"]}
+          missing = sorted(KNOWN_EVENT_IDS - found_ids)
+
+          output = Path("data/private-test/tour-1825-discovery.json")
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(json.dumps(discovered, indent=2) + "\n", encoding="utf-8")
+
+          print(f"Tour {TOUR_ID}: {len(discovered['active'])} active, {len(discovered['completed'])} completed")
+          print("Found event IDs:", sorted(found_ids))
+          print("Known High Loft IDs present:", sorted(KNOWN_EVENT_IDS & found_ids))
+
+          if missing:
+              raise RuntimeError(f"Private discovery did not expose known High Loft tournament IDs: {missing}")
+
+          print("PRIVATE TOUR DISCOVERY PASSED")
+          PY
+
+      - name: Upload private discovery result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: high-loft-private-tour-1825
+          path: data/private-test/tour-1825-discovery.json
+          if-no-files-found: warn
