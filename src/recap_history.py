@@ -101,12 +101,12 @@ def aggregate_prior_events(events: list[dict]) -> dict:
     return {
         "starts": starts,
         "evidenceLevel": evidence_level(starts),
-        "avgNet": mean([float(value) for value in net_positions]),
-        "avgGross": mean([float(value) for value in gross_positions]),
+        "avgNetFinish": mean([float(value) for value in net_positions]),
+        "avgGrossFinish": mean([float(value) for value in gross_positions]),
         "netWins": sum(1 for value in net_positions if value == 1),
         "grossWins": sum(1 for value in gross_positions if value == 1),
-        "sg": {key: mean(values) for key, values in sg_values.items()},
-        "stats": {key: mean(values) for key, values in stat_values.items()},
+        "sgPerAppearance": {key: mean(values) for key, values in sg_values.items()},
+        "statsPerAppearance": {key: mean(values) for key, values in stat_values.items()},
         "recentEvents": events[:5],
     }
 
@@ -135,7 +135,7 @@ def build_as_of_history(history: dict, target_tournament: dict, current_player_n
         players[name] = aggregate_prior_events(prior_events)
 
     return {
-        "definition": "Only profile-eligible completed events confidently before this tournament are included. Future events and same-day ambiguous events are excluded.",
+        "definition": "Only profile-eligible completed events confidently before this tournament are included. avgNetFinish and avgGrossFinish are average finishing positions, never scores. SG/stat averages are per appearance. Future events and same-day ambiguous events are excluded.",
         "priorEligibleEventIds": sorted(prior_event_ids),
         "players": players,
     }
