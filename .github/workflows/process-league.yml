@@ -1,0 +1,101 @@
+name: Build rolling league profiles
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_all:
+        description: "Re-export and re-analyze every completed event"
+        required: true
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "config.json"
+      - "src/process_league.py"
+      - "src/build_profiles.py"
+      - ".github/workflows/process-league.yml"
+
+jobs:
+  build-profiles:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Discover, analyze, and build profile history
+        env:
+          REFRESH_ALL: ${{ github.event.inputs.refresh_all || 'false' }}
+        run: |
+          if [ "$REFRESH_ALL" = "true" ]; then
+            python src/process_league.py --refresh-all
+          else
+            python src/process_league.py
+          fi
+
+      - name: Validate rolling profile math
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          history = json.loads(Path('data/history.json').read_text())
+          assert history['schemaVersion'] == 2
+          assert history['defaultScope'] == '10'
+          assert history['availableScopes'] == ['all', '5', '10', '20']
+          assert not history['missingAnalysisEventIds'], history['missingAnalysisEventIds']
+          assert len(history['completedEvents']) == 8, len(history['completedEvents'])
+          assert len(history['profileEligibleEvents']) == 7, len(history['profileEligibleEvents'])
+          assert [e['id'] for e in history['excludedProfileEvents']] == [59463]
+          assert 59463 not in history['scopes']['all']['eventIds']
+
+          players = {p['name']: p for p in history['scopes']['all']['players']}
+          expected = {
+              'CRANK': {'starts': 7, 'avgNet': 2.71, 'netWins': 3, 'grossWins': 0},
+              'KeithK75': {'starts': 7, 'avgNet': 3.86, 'netWins': 2, 'grossWins': 4},
+              'Dan94': {'starts': 7, 'avgNet': 4.29, 'netWins': 0, 'grossWins': 2},
+          }
+          for name, values in expected.items():
+              actual = players[name]
+              for key, value in values.items():
+                  assert actual[key] == value, (name, key, actual[key], value)
+
+          assert history['scopes']['all']['players'][0]['name'] == 'CRANK'
+          print('ROLLING PROFILE HISTORY PASSED')
+          print('Eligible events:', history['scopes']['all']['eventIds'])
+          for p in history['scopes']['all']['players']:
+              print(p['name'], 'starts=', p['starts'], 'avgNet=', p['avgNet'], 'netWins=', p['netWins'], 'grossWins=', p['grossWins'])
+          PY
+
+      - name: Commit deterministic league outputs
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/discovery/ data/analysis/ data/history.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update eligibility-aware league history"
+            git push
+          fi
+
+      - name: Upload processing package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rolling-league-profiles
+          path: |
+            data/work/
+            data/discovery/
+            data/analysis/
+            data/history.json
+          if-no-files-found: warn
