@@ -10,7 +10,7 @@ on:
       model:
         description: "OpenAI model"
         required: true
-        default: "gpt-5.6"
+        default: "gpt-5.6-luna"
   push:
     branches: [main]
     paths:
@@ -47,7 +47,7 @@ jobs:
       - name: Write recap copy
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_MODEL: ${{ github.event.inputs.model || 'gpt-5.6' }}
+          OPENAI_MODEL: ${{ github.event.inputs.model || 'gpt-5.6-luna' }}
           TOURNAMENT_ID: ${{ github.event.inputs.tournament_id || '55704' }}
         run: |
           python src/write_recap.py "data/analysis/$TOURNAMENT_ID.json" \
