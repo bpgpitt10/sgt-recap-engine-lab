@@ -1,0 +1,71 @@
+name: Write AI recap from verified facts
+
+on:
+  workflow_dispatch:
+    inputs:
+      tournament_id:
+        description: "Analyzed SGT tournament ID"
+        required: true
+        default: "55704"
+      model:
+        description: "OpenAI model"
+        required: true
+        default: "gpt-5.6"
+
+jobs:
+  write-recap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Require OpenAI API key
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY repository secret is missing."
+            exit 1
+          fi
+
+      - name: Write recap copy
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ github.event.inputs.model }}
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id }}
+        run: |
+          python src/write_recap.py "data/analysis/$TOURNAMENT_ID.json" \
+            --facts-output "data/facts/$TOURNAMENT_ID.json"
+
+      - name: Commit generated copy and fact package
+        env:
+          TOURNAMENT_ID: ${{ github.event.inputs.tournament_id }}
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "data/copy/$TOURNAMENT_ID.json" "data/facts/$TOURNAMENT_ID.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Write recap copy for tournament $TOURNAMENT_ID"
+            git push
+          fi
+
+      - name: Upload generated recap package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: recap-copy-${{ github.event.inputs.tournament_id }}
+          path: |
+            data/facts/${{ github.event.inputs.tournament_id }}.json
+            data/copy/${{ github.event.inputs.tournament_id }}.json
+          if-no-files-found: warn
