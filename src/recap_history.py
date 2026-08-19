@@ -5,21 +5,9 @@ from datetime import date
 
 SG_KEYS = ("tee", "approach", "shortGame", "putting", "teeToGreen", "total")
 PROFILE_STAT_KEYS = (
-    "LONGEST DRIVE",
-    "AVG DRIVE DISTANCE (FIR)",
-    "FAIRWAYS HIT",
-    "GREENS IN REGULATION",
-    "GIR PROXIMITY",
-    "SAND SAVES",
-    "SAND SAVES ATTEMPTS",
-    "TOTAL PUTTS",
-    "TOTAL 3-PUTTS",
-    "EAGLES",
-    "BIRDIES",
-    "BOGEYS",
-    "DBL BOGEYS",
-    "ACES",
-    "TOTAL FEET OF PUTTS MADE",
+    "LONGEST DRIVE", "AVG DRIVE DISTANCE (FIR)", "FAIRWAYS HIT", "GREENS IN REGULATION",
+    "GIR PROXIMITY", "SAND SAVES", "SAND SAVES ATTEMPTS", "TOTAL PUTTS", "TOTAL 3-PUTTS",
+    "EAGLES", "BIRDIES", "BOGEYS", "DBL BOGEYS", "ACES", "TOTAL FEET OF PUTTS MADE",
 )
 
 
@@ -48,13 +36,10 @@ def confidently_before(candidate: dict, target: dict) -> bool:
         return True
     if candidate_date > target_date:
         return False
-
     candidate_seq = sequence_number(candidate.get("tourName") or candidate.get("name"))
     target_seq = sequence_number(target.get("name") or target.get("tourName"))
     if candidate_seq is not None and target_seq is not None:
         return candidate_seq < target_seq
-
-    # Same-day events with no clear sequence are intentionally treated as ambiguous.
     return False
 
 
@@ -81,12 +66,26 @@ def numeric(value: object) -> float | None:
     return float(match.group()) if match else None
 
 
+def compact_prior_event(event: dict) -> dict:
+    return {
+        "tournamentId": event.get("tournamentId"),
+        "name": event.get("name"),
+        "date": event.get("date"),
+        "course": event.get("course"),
+        "netFinish": event.get("netPosition"),
+        "grossFinish": event.get("grossPosition"),
+        "netScoreToPar": event.get("netTotal"),
+        "grossScoreToPar": event.get("grossTotal"),
+        "sg": event.get("sg") or {},
+        "stats": event.get("stats") or {},
+    }
+
+
 def aggregate_prior_events(events: list[dict]) -> dict:
     net_positions = [event.get("netPosition") for event in events if isinstance(event.get("netPosition"), int)]
     gross_positions = [event.get("grossPosition") for event in events if isinstance(event.get("grossPosition"), int)]
     sg_values = {key: [] for key in SG_KEYS}
     stat_values = {key: [] for key in PROFILE_STAT_KEYS}
-
     for event in events:
         for key in SG_KEYS:
             value = (event.get("sg") or {}).get(key)
@@ -96,7 +95,6 @@ def aggregate_prior_events(events: list[dict]) -> dict:
             value = numeric((event.get("stats") or {}).get(key))
             if value is not None:
                 stat_values[key].append(value)
-
     starts = len(events)
     return {
         "starts": starts,
@@ -107,18 +105,13 @@ def aggregate_prior_events(events: list[dict]) -> dict:
         "grossWins": sum(1 for value in gross_positions if value == 1),
         "sgPerAppearance": {key: mean(values) for key, values in sg_values.items()},
         "statsPerAppearance": {key: mean(values) for key, values in stat_values.items()},
-        "recentEvents": events[:5],
+        "recentEvents": [compact_prior_event(event) for event in events[:5]],
     }
 
 
 def build_as_of_history(history: dict, target_tournament: dict, current_player_names: list[str]) -> dict:
     eligible_events = history.get("profileEligibleEvents", [])
-    prior_event_ids = {
-        int(event["id"])
-        for event in eligible_events
-        if confidently_before(event, target_tournament)
-    }
-
+    prior_event_ids = {int(event["id"]) for event in eligible_events if confidently_before(event, target_tournament)}
     all_players = history.get("scopes", {}).get("all", {}).get("players", [])
     player_by_name = {player.get("name"): player for player in all_players if player.get("name")}
     players = {}
@@ -127,15 +120,10 @@ def build_as_of_history(history: dict, target_tournament: dict, current_player_n
         if not player:
             players[name] = aggregate_prior_events([])
             continue
-        prior_events = [
-            event
-            for event in player.get("events", [])
-            if int(event.get("tournamentId", -1)) in prior_event_ids
-        ]
+        prior_events = [event for event in player.get("events", []) if int(event.get("tournamentId", -1)) in prior_event_ids]
         players[name] = aggregate_prior_events(prior_events)
-
     return {
-        "definition": "Only profile-eligible completed events confidently before this tournament are included. avgNetFinish and avgGrossFinish are average finishing positions, never scores. SG/stat averages are per appearance. Future events and same-day ambiguous events are excluded.",
+        "definition": "Only profile-eligible completed events confidently before this tournament are included. avgNetFinish and avgGrossFinish are average finishing positions, never scores. SG/stat averages are per appearance. Derived net adjustments are intentionally omitted. Future events and same-day ambiguous events are excluded.",
         "priorEligibleEventIds": sorted(prior_event_ids),
         "players": players,
     }
