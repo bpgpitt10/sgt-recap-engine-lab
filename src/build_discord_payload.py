@@ -23,25 +23,10 @@ def score(value: object) -> str:
     return "E" if value in {"0", "+0", "-0", "E"} else value
 
 
-def fmt_distance(feet: float) -> str:
-    if abs(feet - round(feet)) < 0.05:
-        return f"{int(round(feet))} ft"
-    return f"{feet:.1f} ft"
-
-
 def parse_yards(description: str | None) -> float | None:
     if not description:
         return None
     match = re.match(r"\s*(\d+(?:\.\d+)?)\s*yds?\b", description, re.I)
-    return float(match.group(1)) if match else None
-
-
-def parse_missed_putt(description: str | None) -> float | None:
-    if not description:
-        return None
-    # SGT uses 'Putted X ft, Y ft left...' for a putt that did not finish in the hole.
-    # Holed putts are described separately as 'Made putt from X ft'.
-    match = re.search(r"\bPutted\s+(\d+(?:\.\d+)?)\s*ft\b.*\bleft\s+to\s+the\s+hole\b", description, re.I)
     return float(match.group(1)) if match else None
 
 
@@ -66,7 +51,6 @@ def verified_awards(analysis: dict, raw: dict | None) -> list[str]:
     if not raw:
         return awards
 
-    shortest_miss: tuple[float, str] | None = None
     shortest_drive: tuple[float, str, int] | None = None
 
     for player in raw.get("players", []):
@@ -82,11 +66,6 @@ def verified_awards(analysis: dict, raw: dict | None) -> list[str]:
             hole_no = int(hole.get("hole"))
             shots = hole.get("shots") or []
 
-            for shot in shots:
-                miss = parse_missed_putt(shot.get("description"))
-                if miss is not None and (shortest_miss is None or miss < shortest_miss[0]):
-                    shortest_miss = (miss, name)
-
             # 'Shortest drive' = shortest first tee ball on a par 4 or par 5.
             # We intentionally do not assume which club was used.
             if par_by_hole.get((round_no, hole_no)) in {4, 5} and shots:
@@ -95,8 +74,6 @@ def verified_awards(analysis: dict, raw: dict | None) -> list[str]:
                 if yards is not None and (shortest_drive is None or yards < shortest_drive[0]):
                     shortest_drive = (yards, name, hole_no)
 
-    if shortest_miss:
-        awards.append(f"🤏 **YOU MISSED THAT? AWARD:** {shortest_miss[1]} · {fmt_distance(shortest_miss[0])}")
     if shortest_drive:
         yards, name, hole_no = shortest_drive
         yard_label = f"{int(round(yards))} yds" if abs(yards - round(yards)) < 0.05 else f"{yards:.1f} yds"
