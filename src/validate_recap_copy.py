@@ -15,7 +15,12 @@ ORDINAL_WORDS = {
 }
 ORDINAL_TOKEN = r"(?:" + "|".join(ORDINAL_WORDS) + r"|\d{1,2}(?:st|nd|rd|th))"
 UNSUPPORTED_FACT_LANGUAGE = re.compile(
-    r"\b(handicap|handicapper|net adjustment|net-adjustment|adjustment math|handicap math|mph|miles per hour|club(?:head)? speed|ball speed)\b",
+    r"\b(?:handicap(?:per)?|net[- ]?adjustment|adjustment math|handicap math|"
+    r"mph|miles?[- ]?(?:per|an)[- ]?hour|club(?:head)?[- ]?speed|swing[- ]?speed|ball[- ]?speed)\b",
+    re.IGNORECASE,
+)
+MODEL_SELF_CORRECTION = re.compile(
+    r"(?:\?\s*(?:no|actually|correction|rather)\b|\b(?:correction|scratch that|ignore that|rather,? no)\b)",
     re.IGNORECASE,
 )
 
@@ -38,11 +43,13 @@ def hole_references(commentary: str, player_name: str) -> set[int]:
         refs.add(int(match.group(1)))
     for match in re.finditer(rf"\bpar[- ]?\d+\s+({ORDINAL_TOKEN})\b", commentary, re.IGNORECASE):
         value = ordinal_value(match.group(1))
-        if value is not None: refs.add(value)
+        if value is not None:
+            refs.add(value)
     possessive = re.escape(player_name) + r"['’]s"
     for match in re.finditer(rf"\b{possessive}\s+({ORDINAL_TOKEN})\b", commentary, re.IGNORECASE):
         value = ordinal_value(match.group(1))
-        if value is not None: refs.add(value)
+        if value is not None:
+            refs.add(value)
     return refs
 
 
@@ -62,13 +69,22 @@ def validate(copy: dict, facts: dict) -> None:
         raise RuntimeError(f"Carnage order mismatch: expected {expected_carnage}, got {actual_carnage}")
 
     full_text = " ".join([
-        copy.get("thirtySeconds", ""), copy.get("latestTournamentTeaser", ""), copy.get("stateOfLeague", ""),
+        copy.get("thirtySeconds", ""),
+        copy.get("latestTournamentTeaser", ""),
+        copy.get("stateOfLeague", ""),
         *[p.get("tagline", "") + " " + p.get("body", "") for p in copy.get("players", [])],
         *[c.get("commentary", "") for c in copy.get("carnage", [])],
     ])
     bad = UNSUPPORTED_FACT_LANGUAGE.search(full_text)
     if bad:
-        raise RuntimeError(f"Copy uses unsupported fact language {bad.group(0)!r}; handicap/adjustment/speed data was not supplied")
+        raise RuntimeError(
+            f"Copy uses unsupported fact language {bad.group(0)!r}; handicap/adjustment/speed data was not supplied"
+        )
+    correction = MODEL_SELF_CORRECTION.search(full_text)
+    if correction:
+        raise RuntimeError(
+            f"Copy contains model self-correction language {correction.group(0)!r}; published prose must be clean and final"
+        )
 
     fact_by_name = {item["name"]: item["hole"] for item in facts["carnageOrder"]}
     for item in copy.get("carnage", []):
@@ -78,20 +94,29 @@ def validate(copy: dict, facts: dict) -> None:
         expected_hole, expected_par = int(fact["hole"]), int(fact["par"])
         wrong_holes = sorted(ref for ref in hole_references(commentary, name) if ref != expected_hole)
         if wrong_holes:
-            raise RuntimeError(f"Carnage commentary for {name} references wrong hole(s) {wrong_holes}; verified worst hole is {expected_hole}. Commentary: {commentary!r}")
+            raise RuntimeError(
+                f"Carnage commentary for {name} references wrong hole(s) {wrong_holes}; "
+                f"verified worst hole is {expected_hole}. Commentary: {commentary!r}"
+            )
         wrong_pars = sorted(ref for ref in par_references(commentary) if ref != expected_par)
         if wrong_pars:
-            raise RuntimeError(f"Carnage commentary for {name} references wrong par(s) {wrong_pars}; verified par is {expected_par}. Commentary: {commentary!r}")
+            raise RuntimeError(
+                f"Carnage commentary for {name} references wrong par(s) {wrong_pars}; "
+                f"verified par is {expected_par}. Commentary: {commentary!r}"
+            )
 
     print(f"Validated {len(actual_players)} player writeups and {len(actual_carnage)} Carnage comments")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Cross-check AI recap copy against verified deterministic facts.")
-    parser.add_argument("copy", type=Path); parser.add_argument("facts", type=Path); args = parser.parse_args()
+    parser.add_argument("copy", type=Path)
+    parser.add_argument("facts", type=Path)
+    args = parser.parse_args()
     cp = args.copy if args.copy.is_absolute() else ROOT / args.copy
     fp = args.facts if args.facts.is_absolute() else ROOT / args.facts
     validate(load_json(cp), load_json(fp))
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()
