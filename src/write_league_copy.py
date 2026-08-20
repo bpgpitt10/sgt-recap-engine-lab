@@ -43,12 +43,20 @@ COPY REQUIREMENTS
 - profiles: exactly one profile for every supplied player, in supplied AVG NET FINISH order.
 - Each profile has:
   - tagline: a short, funny golf-identity label or roast grounded in repeatable evidence. No finishing-position language. No markdown. Think 'VIOLENCE OFF THE TEE' or 'WAR AGAINST GREENS IN REGULATION', not generic labels like 'Established file'.
-  - profile: one cohesive analytical paragraph substantial enough that people enjoy reading about themselves.
-- Blend average finish pattern, wins when useful, SG fingerprint, repeatable stat tendencies, volatility, and recent event evidence.
+  - profile: one cohesive scouting paragraph that people enjoy reading about themselves.
+- The player card ALREADY shows STARTS, AVG NET, GROSS WINS, NET WINS, and the SG fingerprint. Do NOT narrate those visible metrics back to the reader.
+- A profile is NOT a statistical summary. It should feel like a funny scouting note from somebody who has watched this person's golf for months.
+- Lead with the player's repeatable golf identity, contradiction, strength, weakness, or recurring form of self-sabotage.
+- Prefer synthesis and wit over data. 'The driver keeps writing checks the irons cannot cash' is better than listing tee SG, approach SG, GIR and putting.
+- Normally use ZERO or ONE exact number in the prose. Two exact numeric facts is the hard maximum.
+- Do not enumerate SG categories. The bars are literally sitting under the paragraph.
+- Do not mechanically state average finish, starts, wins, GIR, fairways, putts, proximity, birdies, doubles, and recent-event results just because those facts exist.
+- Use recent events only as evidence for a larger tendency, not as a chronological recap.
+- Every profile should contain at least one specific bit of personality/wit about that player's golf.
 - Roast bad golf when the evidence earns it.
+- Aim for roughly 65-110 words. Dense with character and insight, light on accounting.
 - Do not add a separate Verdict line.
 - Do not put markdown formatting in the output; the renderer owns typography.
-- Avoid overloading every paragraph with numbers. Use exact numbers only when they make the point sharper.
 - Write clean final prose only. Never include visible self-correction or drafting artifacts.
 """.strip()
 
@@ -134,6 +142,10 @@ def fact_package(history: dict, scope_names: list[str], scope: dict) -> dict:
     }
 
 
+def numeric_fact_count(text: str) -> int:
+    return len(re.findall(r"(?<![A-Za-z])[-+]?\d+(?:\.\d+)?%?", text))
+
+
 def validate_copy(copy: dict, facts: dict) -> None:
     expected = [player["name"] for player in facts["playersAvgNetFinishOrder"]]
     actual = [player.get("name") for player in copy.get("profiles", [])]
@@ -146,6 +158,13 @@ def validate_copy(copy: dict, facts: dict) -> None:
         body = profile.get("profile", "")
         if TAG_FINISH.search(tagline):
             raise RuntimeError(f"Profile tagline contains finishing-position language for {profile.get('name')}: {tagline!r}")
+        words = re.findall(r"\b\w+[’'-]?\w*\b", body)
+        if len(words) > 130:
+            raise RuntimeError(f"Scouting profile is too long for {profile.get('name')}: {len(words)} words; max 130")
+        if numeric_fact_count(body) > 2:
+            raise RuntimeError(
+                f"Scouting profile is too data-heavy for {profile.get('name')}: more than 2 explicit numeric facts. The card already shows the metrics."
+            )
         text_parts.extend([tagline, body])
     text = " ".join(text_parts)
 
