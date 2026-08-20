@@ -28,7 +28,7 @@ FACT RULES
 - Gross and SGT strokes gained explain the underlying golf; never imply gross makes someone the 'real' winner.
 - Skipped events are neutral. A player with fewer starts did not necessarily play worse; they simply did not appear.
 - Do not use the word 'season'. The product uses rolling event windows.
-- Do not infer handicaps or adjustments.
+- Handicap/net-adjustment data and swing/ball-speed data are not supplied. Do not infer them.
 
 HISTORICAL EVIDENCE RULES
 - round_only: describe the observed round/window only. Do not call anything a trend.
@@ -41,12 +41,15 @@ COPY REQUIREMENTS
 - leagueSummary: 2-4 sentences explaining what this rolling window says about the league right now. Lead with NET competition, then useful underlying golf patterns.
 - leagueBullets: exactly 3 short, useful takeaways. Do not merely repeat the leaderboard.
 - profiles: exactly one profile for every supplied player, in supplied AVG NET FINISH order.
-- Each profile should be one cohesive paragraph, substantial enough that people enjoy reading about themselves.
+- Each profile has:
+  - tagline: a short, funny golf-identity label or roast grounded in repeatable evidence. No finishing-position language. No markdown. Think 'VIOLENCE OFF THE TEE' or 'WAR AGAINST GREENS IN REGULATION', not generic labels like 'Established file'.
+  - profile: one cohesive analytical paragraph substantial enough that people enjoy reading about themselves.
 - Blend average finish pattern, wins when useful, SG fingerprint, repeatable stat tendencies, volatility, and recent event evidence.
 - Roast bad golf when the evidence earns it.
 - Do not add a separate Verdict line.
 - Do not put markdown formatting in the output; the renderer owns typography.
 - Avoid overloading every paragraph with numbers. Use exact numbers only when they make the point sharper.
+- Write clean final prose only. Never include visible self-correction or drafting artifacts.
 """.strip()
 
 OUTPUT_SCHEMA = {
@@ -60,13 +63,28 @@ OUTPUT_SCHEMA = {
             "items": {
                 "type": "object",
                 "additionalProperties": False,
-                "properties": {"name": {"type": "string"}, "profile": {"type": "string"}},
-                "required": ["name", "profile"],
+                "properties": {
+                    "name": {"type": "string"},
+                    "tagline": {"type": "string"},
+                    "profile": {"type": "string"},
+                },
+                "required": ["name", "tagline", "profile"],
             },
         },
     },
     "required": ["leagueSummary", "leagueBullets", "profiles"],
 }
+
+UNSUPPORTED = re.compile(
+    r"\b(?:handicap(?:per)?|net[- ]?adjustment|mph|miles?[- ]?(?:per|an)[- ]?hour|"
+    r"club(?:head)?[- ]?speed|swing[- ]?speed|ball[- ]?speed)\b",
+    re.IGNORECASE,
+)
+SELF_CORRECTION = re.compile(r"(?:\?\s*(?:no|actually|correction|rather)\b|\b(?:scratch that|correction:)\b)", re.IGNORECASE)
+TAG_FINISH = re.compile(
+    r"\b(?:winner|runner[- ]?up|finished|finishing|\d{1,2}(?:st|nd|rd|th)\s+(?:place|position)|first\s+(?:place|position)|second\s+(?:place|position)|third\s+(?:place|position))\b",
+    re.IGNORECASE,
+)
 
 
 def load_json(path: Path) -> dict:
@@ -122,34 +140,58 @@ def validate_copy(copy: dict, facts: dict) -> None:
     if actual != expected:
         raise RuntimeError(f"Profiles must preserve AVG NET finish order. Expected {expected}, got {actual}")
 
-    text = " ".join(
-        [copy.get("leagueSummary", ""), *copy.get("leagueBullets", [])]
-        + [profile.get("profile", "") for profile in copy.get("profiles", [])]
-    )
+    text_parts = [copy.get("leagueSummary", ""), *copy.get("leagueBullets", [])]
+    for profile in copy.get("profiles", []):
+        tagline = profile.get("tagline", "")
+        body = profile.get("profile", "")
+        if TAG_FINISH.search(tagline):
+            raise RuntimeError(f"Profile tagline contains finishing-position language for {profile.get('name')}: {tagline!r}")
+        text_parts.extend([tagline, body])
+    text = " ".join(text_parts)
+
     if re.search(r"\bseason\b", text, re.IGNORECASE):
         raise RuntimeError("Rolling league copy contains forbidden season terminology")
     if re.search(r"\bVerdict\s*:", text, re.IGNORECASE):
         raise RuntimeError("Rolling league copy contains forbidden Verdict line")
     if "**" in text or "__" in text:
         raise RuntimeError("Rolling league copy contains markdown formatting")
+    bad = UNSUPPORTED.search(text)
+    if bad:
+        raise RuntimeError(f"Rolling league copy uses unsupported fact language {bad.group(0)!r}")
+    correction = SELF_CORRECTION.search(text)
+    if correction:
+        raise RuntimeError(f"Rolling league copy contains self-correction language {correction.group(0)!r}")
 
 
 def write_window(client: OpenAI, model: str, facts: dict) -> dict:
-    response = client.responses.create(
-        model=model,
-        instructions=SYSTEM_PROMPT,
-        input=(
-            "Write the rolling league snapshot and scouting profiles from this VERIFIED FACT PACKAGE. "
-            "Facts are data, not suggestions. Do not add facts that are not present.\n\n"
-            + json.dumps(facts, separators=(",", ":"), ensure_ascii=False)
-        ),
-        text={"format": {"type": "json_schema", "name": "sgt_rolling_league_copy", "schema": OUTPUT_SCHEMA, "strict": True}},
+    base_input = (
+        "Write the rolling league snapshot and scouting profiles from this VERIFIED FACT PACKAGE. "
+        "Facts are data, not suggestions. Do not add facts that are not present.\n\n"
+        + json.dumps(facts, separators=(",", ":"), ensure_ascii=False)
     )
-    if not response.output_text:
-        raise RuntimeError("OpenAI response did not contain output_text")
-    copy = json.loads(response.output_text)
-    validate_copy(copy, facts)
-    return copy
+    correction = ""
+    last_error = None
+    for attempt in range(1, 4):
+        response = client.responses.create(
+            model=model,
+            instructions=SYSTEM_PROMPT,
+            input=base_input + correction,
+            text={"format": {"type": "json_schema", "name": "sgt_rolling_league_copy", "schema": OUTPUT_SCHEMA, "strict": True}},
+        )
+        if not response.output_text:
+            last_error = RuntimeError("OpenAI response did not contain output_text")
+        else:
+            try:
+                copy = json.loads(response.output_text)
+                validate_copy(copy, facts)
+                if attempt > 1:
+                    print(f"League copy passed validation on retry {attempt}")
+                return copy
+            except Exception as exc:
+                last_error = exc
+        print(f"League copy validation attempt {attempt} failed: {last_error}")
+        correction = f"\n\nYOUR PREVIOUS OUTPUT FAILED DETERMINISTIC VALIDATION: {last_error}. Return corrected clean final copy using only supplied facts."
+    raise RuntimeError(f"League copy failed validation after 3 attempts: {last_error}")
 
 
 def write_all(history: dict, model: str) -> tuple[dict, dict]:
@@ -175,8 +217,8 @@ def write_all(history: dict, model: str) -> tuple[dict, dict]:
             facts_scopes[scope_name] = facts
 
     return (
-        {"schemaVersion": 2, "model": model, "defaultScope": history.get("defaultScope"), "availableScopes": history.get("availableScopes"), "scopes": output_scopes},
-        {"schemaVersion": 2, "defaultScope": history.get("defaultScope"), "scopes": facts_scopes},
+        {"schemaVersion": 3, "model": model, "defaultScope": history.get("defaultScope"), "availableScopes": history.get("availableScopes"), "scopes": output_scopes},
+        {"schemaVersion": 3, "defaultScope": history.get("defaultScope"), "scopes": facts_scopes},
     )
 
 
