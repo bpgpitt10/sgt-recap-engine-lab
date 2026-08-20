@@ -10,24 +10,33 @@ HIGH_LOFT_EDITORIAL = r"""
 HIGH LOFT EDITORIAL OVERRIDES
 These rules are more specific than the generic recap rules above and control the final style.
 
+LATEST TOURNAMENT TEASER
+- This copy appears in VERY LARGE type on the landing page. It must be a headline, not a paragraph.
+- Maximum 18 words. Prefer 10-16.
+- One idea only: net winner + the funniest/most revealing hook from the round.
+- Do NOT cram net margin, gross score, strokes gained, runner-up, and course story into the same teaser.
+- The longer Tournament in 30 Seconds copy exists immediately below it and can carry the detail.
+- Write it like a sharp headline someone would actually want to click, not a compressed box score.
+
 CARNAGE COMMENTARY
 - The renderer ALREADY shows the full shot trail immediately above the commentary. DO NOT narrate that trail back to the reader.
 - Never walk through every shot in order. Never write a play-by-play recap such as "the drive went..., then..., then..., then...".
 - Commentary should be 1-3 punchy sentences and normally 20-55 words.
 - Pick only the one or two moments that define why the hole became ridiculous: a penalty, shank, bunker loop, zero/one-yard move, repeated failed recovery, four-putt, etc.
-- If the trail itself is funny, summarize the pattern rather than restating distances. Example: "Three straight recovery attempts somehow made the hole less solved each time. By the time he found the green, the par four had become a hostage situation."
+- If the trail itself is funny, summarize the pattern rather than restating distances.
 - The job is interpretation + joke. The visible shot trail is the evidence.
 
 PLAYER-BY-PLAYER BODY
 - Write a STORY about the round, not an inventory of the fact package.
 - Start from a clear thesis: what kind of round was this, what actually drove the net result, and what does it say about this player's golf right now?
-- Be selective. Use only the 2-4 most useful numbers/facts that explain the story. Do not march through SG categories, GIR, fairways, putts, birdies, doubles, and worst-hole details just because they exist.
-- A stat earns its way into the paragraph only if it changes the reader's understanding of the round.
-- Prefer synthesis: "the irons carried him while the putter tried to file an injunction" over a category-by-category data dump.
-- Shot evidence is seasoning, not a transcript. Mention a specific hole/shot only when it is unusually funny, decisive, or revealing.
+- Be aggressively selective. The reader can already see the leaderboard and other visible data. Most supplied numbers should NOT appear in prose.
+- Normally use 0-2 exact numeric facts in the entire paragraph. A number earns its way in only if it is the reason the story works.
+- Never march through SG categories, GIR, fairways, putts, birdies, doubles, and worst-hole details just because they exist.
+- Prefer synthesis and jokes: "the irons carried him while the putter tried to file an injunction" over category-by-category reporting.
+- Shot evidence is seasoning, not a transcript. Mention a specific hole/shot only when unusually funny, decisive, or revealing.
 - Prior history should be used only when it adds a real comparison or trend. Do not mechanically append prior averages to every player.
-- Do not end with a mini spreadsheet sentence containing several metrics.
-- Aim for roughly 90-150 words, but prioritize a cohesive funny paragraph over filling space.
+- The paragraph should feel like somebody who watched the round and knows the player's tendencies, not somebody reading a spreadsheet aloud.
+- Aim for roughly 80-135 words. More wit, judgment, and golf identity; less accounting.
 
 OVERALL
 - Assume the reader can see the leaderboard, shot trail, and metric cards on the page. Copy should add judgment, synthesis, context, and comedy rather than duplicate visible information.
@@ -39,8 +48,21 @@ write_recap.SYSTEM_PROMPT = write_recap.SYSTEM_PROMPT + "\n\n" + HIGH_LOFT_EDITO
 _original_validate = write_recap.validate_copy
 
 
+def numeric_fact_count(text: str) -> int:
+    # Count visible numeric facts while ignoring apostrophes and punctuation. This is
+    # intentionally simple: the purpose is to prevent spreadsheet prose, not police style.
+    return len(re.findall(r"(?<![A-Za-z])[-+]?\d+(?:\.\d+)?%?", text))
+
+
 def high_loft_validate(copy: dict, facts: dict) -> None:
     _original_validate(copy, facts)
+
+    teaser = (copy.get("latestTournamentTeaser") or "").strip()
+    teaser_words = re.findall(r"\b\w+[’'-]?\w*\b", teaser)
+    if len(teaser_words) > 18:
+        raise RuntimeError(
+            f"Latest Tournament teaser is too long for the landing-page headline: {len(teaser_words)} words; max 18"
+        )
 
     for item in copy.get("carnage", []):
         text = (item.get("commentary") or "").strip()
@@ -49,8 +71,6 @@ def high_loft_validate(copy: dict, facts: dict) -> None:
             raise RuntimeError(
                 f"Carnage commentary is too long / too play-by-play for {item.get('name')}: {len(words)} words; max 65"
             )
-        # A long chain of sequence words is a strong signal that the model is merely
-        # retelling the already-visible shot trail instead of interpreting it.
         sequence_hits = len(re.findall(r"\b(?:then|next|followed|after that|finally|before the|the next)\b", text, re.I))
         if sequence_hits >= 4:
             raise RuntimeError(
@@ -59,12 +79,14 @@ def high_loft_validate(copy: dict, facts: dict) -> None:
 
     for item in copy.get("players", []):
         body = (item.get("body") or "").strip()
-        # Do not force every paragraph to hit a word target, but kill obvious stat-dump
-        # monsters before they reach the site.
         words = re.findall(r"\b\w+[’'-]?\w*\b", body)
-        if len(words) > 185:
+        if len(words) > 160:
             raise RuntimeError(
-                f"Player body is too long / insufficiently selective for {item.get('name')}: {len(words)} words; max 185"
+                f"Player body is too long / insufficiently selective for {item.get('name')}: {len(words)} words; max 160"
+            )
+        if numeric_fact_count(body) > 3:
+            raise RuntimeError(
+                f"Player body is too data-heavy for {item.get('name')}: more than 3 explicit numeric facts. Tell the story instead."
             )
 
 
