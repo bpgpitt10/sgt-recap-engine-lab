@@ -4,7 +4,7 @@
     "id": 1825,
     "name": "High Loft / Low Standards"
   },
-  "scopeDefinition": "Rolling windows are based on the league's most recent completed profile-eligible tournaments, not each player's most recent starts. Excluded team/special events remain in the archive but do not affect player scouting history.",
+  "scopeDefinition": "Rolling windows use the league's most recent profile-eligible completed tournaments, not each player's most recent starts.",
   "defaultScope": "10",
   "availableScopes": [
     "all",
@@ -112,7 +112,8 @@
       "displayDate": "May 24, 2026",
       "url": "https://simulatorgolftour.com/tournament/56937",
       "grossWinner": "Dan94",
-      "netWinner": "IUDoc92"
+      "netWinner": "IUDoc92",
+      "profileHistoryEligible": true
     },
     {
       "id": 55704,
@@ -123,7 +124,8 @@
       "displayDate": "May 6, 2026",
       "url": "https://simulatorgolftour.com/tournament/55704",
       "grossWinner": "KeithK75",
-      "netWinner": "KeithK75"
+      "netWinner": "KeithK75",
+      "profileHistoryEligible": true
     },
     {
       "id": 54741,
@@ -134,7 +136,8 @@
       "displayDate": "Apr 22, 2026",
       "url": "https://simulatorgolftour.com/tournament/54741",
       "grossWinner": "KeithK75",
-      "netWinner": "CRANK"
+      "netWinner": "CRANK",
+      "profileHistoryEligible": true
     },
     {
       "id": 53622,
@@ -145,7 +148,8 @@
       "displayDate": "Apr 11, 2026",
       "url": "https://simulatorgolftour.com/tournament/53622",
       "grossWinner": "MashedBROtato",
-      "netWinner": "MashedBROtato"
+      "netWinner": "MashedBROtato",
+      "profileHistoryEligible": true
     },
     {
       "id": 52877,
@@ -156,7 +160,8 @@
       "displayDate": "Apr 1, 2026",
       "url": "https://simulatorgolftour.com/tournament/52877",
       "grossWinner": "Dan94",
-      "netWinner": "CRANK"
+      "netWinner": "CRANK",
+      "profileHistoryEligible": true
     },
     {
       "id": 51974,
@@ -167,7 +172,8 @@
       "displayDate": "Apr 1, 2026",
       "url": "https://simulatorgolftour.com/tournament/51974",
       "grossWinner": "KeithK75",
-      "netWinner": "KeithK75"
+      "netWinner": "KeithK75",
+      "profileHistoryEligible": true
     },
     {
       "id": 50704,
@@ -178,7 +184,8 @@
       "displayDate": "Mar 20, 2026",
       "url": "https://simulatorgolftour.com/tournament/50704",
       "grossWinner": "KeithK75",
-      "netWinner": "CRANK"
+      "netWinner": "CRANK",
+      "profileHistoryEligible": true
     }
   ],
   "excludedProfileEvents": [
@@ -264,6 +271,7 @@
               "grossPosition": 6,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -5.24,
                 "approach": 2.56,
@@ -287,13 +295,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "-5.24",
-                "APPROACH STROKES GAINED": "2.56",
-                "SHORT GAME STROKES GAINED": "0.29",
-                "PUTTING STROKES GAINED": "-0.96",
-                "TEE TO GREEN STROKES GAINED": "-2.39",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             },
             {
@@ -305,6 +307,7 @@
               "grossPosition": 4,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.55,
                 "approach": -3.85,
@@ -328,13 +331,7 @@
                 "BOGEYS": "10",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "59",
-                "TEE STROKES GAINED": "-0.55",
-                "APPROACH STROKES GAINED": "-3.85",
-                "SHORT GAME STROKES GAINED": "3.28",
-                "PUTTING STROKES GAINED": "-1.25",
-                "TEE TO GREEN STROKES GAINED": "-1.12",
-                "TOTAL STROKES GAINED": "-2.37"
+                "TOTAL FEET OF PUTTS MADE": "59"
               }
             },
             {
@@ -346,6 +343,7 @@
               "grossPosition": 3,
               "netTotal": "-4",
               "grossTotal": "+11",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -2.28,
                 "approach": 1.74,
@@ -369,13 +367,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "33",
-                "TEE STROKES GAINED": "-2.28",
-                "APPROACH STROKES GAINED": "1.74",
-                "SHORT GAME STROKES GAINED": "2.81",
-                "PUTTING STROKES GAINED": "-0.25",
-                "TEE TO GREEN STROKES GAINED": "2.28",
-                "TOTAL STROKES GAINED": "2.02"
+                "TOTAL FEET OF PUTTS MADE": "33"
               }
             },
             {
@@ -387,6 +379,7 @@
               "grossPosition": 4,
               "netTotal": "+1",
               "grossTotal": "+16",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -0.97,
                 "approach": -4.56,
@@ -410,13 +403,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-0.97",
-                "APPROACH STROKES GAINED": "-4.56",
-                "SHORT GAME STROKES GAINED": "6.99",
-                "PUTTING STROKES GAINED": "2.29",
-                "TEE TO GREEN STROKES GAINED": "1.46",
-                "TOTAL STROKES GAINED": "3.75"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             },
             {
@@ -428,6 +415,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+11",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -5.1,
                 "approach": 3.76,
@@ -451,13 +439,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "169",
-                "TEE STROKES GAINED": "-5.1",
-                "APPROACH STROKES GAINED": "3.76",
-                "SHORT GAME STROKES GAINED": "1.26",
-                "PUTTING STROKES GAINED": "4.23",
-                "TEE TO GREEN STROKES GAINED": "-0.07",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "169"
               }
             },
             {
@@ -469,6 +451,7 @@
               "grossPosition": 8,
               "netTotal": "+2",
               "grossTotal": "+23",
+              "netAdjustment": 21,
               "sg": {
                 "tee": -8.11,
                 "approach": -0.16,
@@ -492,13 +475,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-8.11",
-                "APPROACH STROKES GAINED": "-0.16",
-                "SHORT GAME STROKES GAINED": "1.32",
-                "PUTTING STROKES GAINED": "-0.91",
-                "TEE TO GREEN STROKES GAINED": "-6.96",
-                "TOTAL STROKES GAINED": "-7.87"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -510,6 +487,7 @@
               "grossPosition": 6,
               "netTotal": "-7",
               "grossTotal": "+5",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.66,
                 "approach": -1.38,
@@ -533,13 +511,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "69",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-1.38",
-                "SHORT GAME STROKES GAINED": "2.68",
-                "PUTTING STROKES GAINED": "2.83",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "1.46"
+                "TOTAL FEET OF PUTTS MADE": "69"
               }
             }
           ]
@@ -588,6 +560,7 @@
               "grossPosition": 2,
               "netTotal": "+3",
               "grossTotal": "+3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.92,
                 "approach": 2.71,
@@ -611,13 +584,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "2.92",
-                "APPROACH STROKES GAINED": "2.71",
-                "SHORT GAME STROKES GAINED": "-0.37",
-                "PUTTING STROKES GAINED": "1.38",
-                "TEE TO GREEN STROKES GAINED": "5.27",
-                "TOTAL STROKES GAINED": "6.65"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -629,6 +596,7 @@
               "grossPosition": 1,
               "netTotal": "+1",
               "grossTotal": "+1",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.96,
                 "approach": 6.28,
@@ -652,13 +620,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "4.96",
-                "APPROACH STROKES GAINED": "6.28",
-                "SHORT GAME STROKES GAINED": "4.49",
-                "PUTTING STROKES GAINED": "2.91",
-                "TEE TO GREEN STROKES GAINED": "15.72",
-                "TOTAL STROKES GAINED": "18.63"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -670,6 +632,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.1,
                 "approach": 6.17,
@@ -693,13 +656,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "93",
-                "TEE STROKES GAINED": "5.1",
-                "APPROACH STROKES GAINED": "6.17",
-                "SHORT GAME STROKES GAINED": "1.7",
-                "PUTTING STROKES GAINED": "2.05",
-                "TEE TO GREEN STROKES GAINED": "12.97",
-                "TOTAL STROKES GAINED": "15.02"
+                "TOTAL FEET OF PUTTS MADE": "93"
               }
             },
             {
@@ -711,6 +668,7 @@
               "grossPosition": 3,
               "netTotal": "+12",
               "grossTotal": "+12",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 1.59,
                 "approach": 5.31,
@@ -734,13 +692,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "1.59",
-                "APPROACH STROKES GAINED": "5.31",
-                "SHORT GAME STROKES GAINED": "1.09",
-                "PUTTING STROKES GAINED": "-0.23",
-                "TEE TO GREEN STROKES GAINED": "7.99",
-                "TOTAL STROKES GAINED": "7.75"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -752,6 +704,7 @@
               "grossPosition": 2,
               "netTotal": "+6",
               "grossTotal": "+6",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 0.58,
                 "approach": 5.22,
@@ -775,13 +728,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "97",
-                "TEE STROKES GAINED": "0.58",
-                "APPROACH STROKES GAINED": "5.22",
-                "SHORT GAME STROKES GAINED": "-0.27",
-                "PUTTING STROKES GAINED": "3.62",
-                "TEE TO GREEN STROKES GAINED": "5.54",
-                "TOTAL STROKES GAINED": "9.15"
+                "TOTAL FEET OF PUTTS MADE": "97"
               }
             },
             {
@@ -793,6 +740,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.84,
                 "approach": 9.01,
@@ -816,13 +764,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "69",
-                "TEE STROKES GAINED": "4.84",
-                "APPROACH STROKES GAINED": "9.01",
-                "SHORT GAME STROKES GAINED": "2.68",
-                "PUTTING STROKES GAINED": "1.6",
-                "TEE TO GREEN STROKES GAINED": "16.53",
-                "TOTAL STROKES GAINED": "18.13"
+                "TOTAL FEET OF PUTTS MADE": "69"
               }
             },
             {
@@ -834,6 +776,7 @@
               "grossPosition": 1,
               "netTotal": "-5",
               "grossTotal": "-5",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.21,
                 "approach": 4.76,
@@ -857,13 +800,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "100",
-                "TEE STROKES GAINED": "2.21",
-                "APPROACH STROKES GAINED": "4.76",
-                "SHORT GAME STROKES GAINED": "2.23",
-                "PUTTING STROKES GAINED": "2.26",
-                "TEE TO GREEN STROKES GAINED": "9.2",
-                "TOTAL STROKES GAINED": "11.46"
+                "TOTAL FEET OF PUTTS MADE": "100"
               }
             }
           ]
@@ -912,6 +849,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.97,
                 "approach": 3.94,
@@ -935,13 +873,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "138",
-                "TEE STROKES GAINED": "5.97",
-                "APPROACH STROKES GAINED": "3.94",
-                "SHORT GAME STROKES GAINED": "-0.26",
-                "PUTTING STROKES GAINED": "1.99",
-                "TEE TO GREEN STROKES GAINED": "9.65",
-                "TOTAL STROKES GAINED": "11.65"
+                "TOTAL FEET OF PUTTS MADE": "138"
               }
             },
             {
@@ -953,6 +885,7 @@
               "grossPosition": 2,
               "netTotal": "+11",
               "grossTotal": "+11",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.43,
                 "approach": -2.12,
@@ -976,13 +909,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "45",
-                "TEE STROKES GAINED": "6.43",
-                "APPROACH STROKES GAINED": "-2.12",
-                "SHORT GAME STROKES GAINED": "3.1",
-                "PUTTING STROKES GAINED": "1.22",
-                "TEE TO GREEN STROKES GAINED": "7.41",
-                "TOTAL STROKES GAINED": "8.63"
+                "TOTAL FEET OF PUTTS MADE": "45"
               }
             },
             {
@@ -994,6 +921,7 @@
               "grossPosition": 2,
               "netTotal": "+2",
               "grossTotal": "+2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.08,
                 "approach": 0.7,
@@ -1017,13 +945,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "6.08",
-                "APPROACH STROKES GAINED": "0.7",
-                "SHORT GAME STROKES GAINED": "3.65",
-                "PUTTING STROKES GAINED": "0.6",
-                "TEE TO GREEN STROKES GAINED": "10.43",
-                "TOTAL STROKES GAINED": "11.02"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -1035,6 +957,7 @@
               "grossPosition": 2,
               "netTotal": "+8",
               "grossTotal": "+8",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.27,
                 "approach": 5.97,
@@ -1058,13 +981,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "5.27",
-                "APPROACH STROKES GAINED": "5.97",
-                "SHORT GAME STROKES GAINED": "1.19",
-                "PUTTING STROKES GAINED": "-0.68",
-                "TEE TO GREEN STROKES GAINED": "12.43",
-                "TOTAL STROKES GAINED": "11.75"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -1076,6 +993,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 7.91,
                 "approach": 0.22,
@@ -1099,13 +1017,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "107",
-                "TEE STROKES GAINED": "7.91",
-                "APPROACH STROKES GAINED": "0.22",
-                "SHORT GAME STROKES GAINED": "7.86",
-                "PUTTING STROKES GAINED": "2.16",
-                "TEE TO GREEN STROKES GAINED": "15.99",
-                "TOTAL STROKES GAINED": "18.15"
+                "TOTAL FEET OF PUTTS MADE": "107"
               }
             },
             {
@@ -1117,6 +1029,7 @@
               "grossPosition": 2,
               "netTotal": "+1",
               "grossTotal": "+2",
+              "netAdjustment": 1,
               "sg": {
                 "tee": 3.87,
                 "approach": 4.23,
@@ -1140,13 +1053,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "35",
-                "TEE STROKES GAINED": "3.87",
-                "APPROACH STROKES GAINED": "4.23",
-                "SHORT GAME STROKES GAINED": "3.94",
-                "PUTTING STROKES GAINED": "1.1",
-                "TEE TO GREEN STROKES GAINED": "12.04",
-                "TOTAL STROKES GAINED": "13.13"
+                "TOTAL FEET OF PUTTS MADE": "35"
               }
             },
             {
@@ -1158,6 +1065,7 @@
               "grossPosition": 2,
               "netTotal": "-3",
               "grossTotal": "-2",
+              "netAdjustment": 1,
               "sg": {
                 "tee": 4.88,
                 "approach": 5.32,
@@ -1181,13 +1089,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "4.88",
-                "APPROACH STROKES GAINED": "5.32",
-                "SHORT GAME STROKES GAINED": "1.83",
-                "PUTTING STROKES GAINED": "-2.57",
-                "TEE TO GREEN STROKES GAINED": "12.03",
-                "TOTAL STROKES GAINED": "9.46"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             }
           ]
@@ -1236,6 +1138,7 @@
               "grossPosition": 5,
               "netTotal": "-2",
               "grossTotal": "+13",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -1.63,
                 "approach": -0.52,
@@ -1259,13 +1162,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "51",
-                "TEE STROKES GAINED": "-1.63",
-                "APPROACH STROKES GAINED": "-0.52",
-                "SHORT GAME STROKES GAINED": "1.06",
-                "PUTTING STROKES GAINED": "-2.27",
-                "TEE TO GREEN STROKES GAINED": "-1.08",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "51"
               }
             },
             {
@@ -1277,6 +1174,7 @@
               "grossPosition": 3,
               "netTotal": "+2",
               "grossTotal": "+17",
+              "netAdjustment": 15,
               "sg": {
                 "tee": 1.76,
                 "approach": -1.24,
@@ -1300,13 +1198,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "75",
-                "TEE STROKES GAINED": "1.76",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.35",
-                "PUTTING STROKES GAINED": "2.77",
-                "TEE TO GREEN STROKES GAINED": "0.86",
-                "TOTAL STROKES GAINED": "3.63"
+                "TOTAL FEET OF PUTTS MADE": "75"
               }
             },
             {
@@ -1318,6 +1210,7 @@
               "grossPosition": 7,
               "netTotal": "+15",
               "grossTotal": "+30",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -5.43,
                 "approach": -0.88,
@@ -1341,13 +1234,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "-5.43",
-                "APPROACH STROKES GAINED": "-0.88",
-                "SHORT GAME STROKES GAINED": "-5.78",
-                "PUTTING STROKES GAINED": "1.84",
-                "TEE TO GREEN STROKES GAINED": "-12.09",
-                "TOTAL STROKES GAINED": "-10.25"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -1359,6 +1246,7 @@
               "grossPosition": 5,
               "netTotal": "-5",
               "grossTotal": "+12",
+              "netAdjustment": 17,
               "sg": {
                 "tee": 3.52,
                 "approach": -2.08,
@@ -1382,13 +1270,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "74",
-                "TEE STROKES GAINED": "3.52",
-                "APPROACH STROKES GAINED": "-2.08",
-                "SHORT GAME STROKES GAINED": "-0.41",
-                "PUTTING STROKES GAINED": "2.12",
-                "TEE TO GREEN STROKES GAINED": "1.03",
-                "TOTAL STROKES GAINED": "3.15"
+                "TOTAL FEET OF PUTTS MADE": "74"
               }
             },
             {
@@ -1400,6 +1282,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.24,
                 "approach": 2.65,
@@ -1423,13 +1306,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-1.24",
-                "APPROACH STROKES GAINED": "2.65",
-                "SHORT GAME STROKES GAINED": "-4.8",
-                "PUTTING STROKES GAINED": "-0.77",
-                "TEE TO GREEN STROKES GAINED": "-3.38",
-                "TOTAL STROKES GAINED": "-4.15"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             }
           ]
@@ -1478,6 +1355,7 @@
               "grossPosition": 8,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.61,
                 "approach": -0.84,
@@ -1501,13 +1379,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-1.61",
-                "APPROACH STROKES GAINED": "-0.84",
-                "SHORT GAME STROKES GAINED": "-6.02",
-                "PUTTING STROKES GAINED": "-0",
-                "TEE TO GREEN STROKES GAINED": "-8.48",
-                "TOTAL STROKES GAINED": "-8.48"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -1519,6 +1391,7 @@
               "grossPosition": 7,
               "netTotal": "+9",
               "grossTotal": "+27",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -2.66,
                 "approach": -2.06,
@@ -1542,13 +1415,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "141",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-2.06",
-                "SHORT GAME STROKES GAINED": "-0.16",
-                "PUTTING STROKES GAINED": "-2.49",
-                "TEE TO GREEN STROKES GAINED": "-4.88",
-                "TOTAL STROKES GAINED": "-7.37"
+                "TOTAL FEET OF PUTTS MADE": "141"
               }
             },
             {
@@ -1560,6 +1427,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.57,
                 "approach": -2.44,
@@ -1583,13 +1451,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "8",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "83",
-                "TEE STROKES GAINED": "-0.57",
-                "APPROACH STROKES GAINED": "-2.44",
-                "SHORT GAME STROKES GAINED": "-1.79",
-                "PUTTING STROKES GAINED": "-4.18",
-                "TEE TO GREEN STROKES GAINED": "-4.79",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "83"
               }
             },
             {
@@ -1601,6 +1463,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": 2.28,
                 "approach": 4.33,
@@ -1624,13 +1487,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "48",
-                "TEE STROKES GAINED": "2.28",
-                "APPROACH STROKES GAINED": "4.33",
-                "SHORT GAME STROKES GAINED": "-6.01",
-                "PUTTING STROKES GAINED": "-2.85",
-                "TEE TO GREEN STROKES GAINED": "0.6",
-                "TOTAL STROKES GAINED": "-2.25"
+                "TOTAL FEET OF PUTTS MADE": "48"
               }
             },
             {
@@ -1642,6 +1499,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+20",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -0.9,
                 "approach": -2.89,
@@ -1665,13 +1523,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "-0.9",
-                "APPROACH STROKES GAINED": "-2.89",
-                "SHORT GAME STROKES GAINED": "-1.48",
-                "PUTTING STROKES GAINED": "0.43",
-                "TEE TO GREEN STROKES GAINED": "-5.28",
-                "TOTAL STROKES GAINED": "-4.85"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -1683,6 +1535,7 @@
               "grossPosition": 7,
               "netTotal": "+6",
               "grossTotal": "+23",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -1.65,
                 "approach": -1.1,
@@ -1706,13 +1559,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "54",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-1.1",
-                "SHORT GAME STROKES GAINED": "-1.11",
-                "PUTTING STROKES GAINED": "-4.01",
-                "TEE TO GREEN STROKES GAINED": "-3.86",
-                "TOTAL STROKES GAINED": "-7.87"
+                "TOTAL FEET OF PUTTS MADE": "54"
               }
             },
             {
@@ -1724,6 +1571,7 @@
               "grossPosition": 7,
               "netTotal": "-4",
               "grossTotal": "+13",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -1.18,
                 "approach": -3.68,
@@ -1747,13 +1595,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "42",
-                "TEE STROKES GAINED": "-1.18",
-                "APPROACH STROKES GAINED": "-3.68",
-                "SHORT GAME STROKES GAINED": "1.59",
-                "PUTTING STROKES GAINED": "-1.27",
-                "TEE TO GREEN STROKES GAINED": "-3.27",
-                "TOTAL STROKES GAINED": "-4.54"
+                "TOTAL FEET OF PUTTS MADE": "42"
               }
             }
           ]
@@ -1802,6 +1644,7 @@
               "grossPosition": 3,
               "netTotal": "-2",
               "grossTotal": "+10",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.16,
                 "approach": 1.21,
@@ -1825,13 +1668,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "92",
-                "TEE STROKES GAINED": "-0.16",
-                "APPROACH STROKES GAINED": "1.21",
-                "SHORT GAME STROKES GAINED": "-0.69",
-                "PUTTING STROKES GAINED": "0.29",
-                "TEE TO GREEN STROKES GAINED": "0.36",
-                "TOTAL STROKES GAINED": "0.65"
+                "TOTAL FEET OF PUTTS MADE": "92"
               }
             },
             {
@@ -1843,6 +1680,7 @@
               "grossPosition": 6,
               "netTotal": "+13",
               "grossTotal": "+25",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 1.81,
                 "approach": 0.9,
@@ -1866,13 +1704,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "1.81",
-                "APPROACH STROKES GAINED": "0.9",
-                "SHORT GAME STROKES GAINED": "-6",
-                "PUTTING STROKES GAINED": "-2.08",
-                "TEE TO GREEN STROKES GAINED": "-3.29",
-                "TOTAL STROKES GAINED": "-5.37"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -1884,6 +1716,7 @@
               "grossPosition": 7,
               "netTotal": "+14",
               "grossTotal": "+24",
+              "netAdjustment": 10,
               "sg": {
                 "tee": -0.42,
                 "approach": -9.66,
@@ -1907,13 +1740,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "119",
-                "TEE STROKES GAINED": "-0.42",
-                "APPROACH STROKES GAINED": "-9.66",
-                "SHORT GAME STROKES GAINED": "-2.35",
-                "PUTTING STROKES GAINED": "2.46",
-                "TEE TO GREEN STROKES GAINED": "-12.43",
-                "TOTAL STROKES GAINED": "-9.98"
+                "TOTAL FEET OF PUTTS MADE": "119"
               }
             },
             {
@@ -1925,6 +1752,7 @@
               "grossPosition": 1,
               "netTotal": "-4",
               "grossTotal": "+6",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.13,
                 "approach": 6.14,
@@ -1948,13 +1776,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "66",
-                "TEE STROKES GAINED": "2.13",
-                "APPROACH STROKES GAINED": "6.14",
-                "SHORT GAME STROKES GAINED": "2.55",
-                "PUTTING STROKES GAINED": "2.93",
-                "TEE TO GREEN STROKES GAINED": "10.82",
-                "TOTAL STROKES GAINED": "13.75"
+                "TOTAL FEET OF PUTTS MADE": "66"
               }
             },
             {
@@ -1966,6 +1788,7 @@
               "grossPosition": 6,
               "netTotal": "+7",
               "grossTotal": "+16",
+              "netAdjustment": 9,
               "sg": {
                 "tee": 2.79,
                 "approach": -4.18,
@@ -1989,13 +1812,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "88",
-                "TEE STROKES GAINED": "2.79",
-                "APPROACH STROKES GAINED": "-4.18",
-                "SHORT GAME STROKES GAINED": "0.9",
-                "PUTTING STROKES GAINED": "-0.36",
-                "TEE TO GREEN STROKES GAINED": "-0.49",
-                "TOTAL STROKES GAINED": "-0.85"
+                "TOTAL FEET OF PUTTS MADE": "88"
               }
             },
             {
@@ -2007,6 +1824,7 @@
               "grossPosition": 5,
               "netTotal": "+12",
               "grossTotal": "+21",
+              "netAdjustment": 9,
               "sg": {
                 "tee": -1.38,
                 "approach": -1.5,
@@ -2030,13 +1848,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "94",
-                "TEE STROKES GAINED": "-1.38",
-                "APPROACH STROKES GAINED": "-1.5",
-                "SHORT GAME STROKES GAINED": "-3.77",
-                "PUTTING STROKES GAINED": "0.78",
-                "TEE TO GREEN STROKES GAINED": "-6.65",
-                "TOTAL STROKES GAINED": "-5.87"
+                "TOTAL FEET OF PUTTS MADE": "94"
               }
             },
             {
@@ -2048,6 +1860,7 @@
               "grossPosition": 3,
               "netTotal": "-7",
               "grossTotal": "+1",
+              "netAdjustment": 8,
               "sg": {
                 "tee": 2.3,
                 "approach": 2.45,
@@ -2071,13 +1884,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "76",
-                "TEE STROKES GAINED": "2.3",
-                "APPROACH STROKES GAINED": "2.45",
-                "SHORT GAME STROKES GAINED": "1.68",
-                "PUTTING STROKES GAINED": "0.81",
-                "TEE TO GREEN STROKES GAINED": "6.43",
-                "TOTAL STROKES GAINED": "7.24"
+                "TOTAL FEET OF PUTTS MADE": "76"
               }
             }
           ]
@@ -2126,6 +1933,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+10",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -2.73,
                 "approach": 2.35,
@@ -2149,13 +1957,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "71",
-                "TEE STROKES GAINED": "-2.73",
-                "APPROACH STROKES GAINED": "2.35",
-                "SHORT GAME STROKES GAINED": "-0.99",
-                "PUTTING STROKES GAINED": "1.01",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "-0.35"
+                "TOTAL FEET OF PUTTS MADE": "71"
               }
             },
             {
@@ -2167,6 +1969,7 @@
               "grossPosition": 5,
               "netTotal": "+7",
               "grossTotal": "+24",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -0.84,
                 "approach": 2.1,
@@ -2190,13 +1993,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-0.84",
-                "APPROACH STROKES GAINED": "2.1",
-                "SHORT GAME STROKES GAINED": "-4.76",
-                "PUTTING STROKES GAINED": "-0.87",
-                "TEE TO GREEN STROKES GAINED": "-3.5",
-                "TOTAL STROKES GAINED": "-4.37"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -2208,6 +2005,7 @@
               "grossPosition": 4,
               "netTotal": "E",
               "grossTotal": "+19",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -3.46,
                 "approach": -0.45,
@@ -2231,13 +2029,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "57",
-                "TEE STROKES GAINED": "-3.46",
-                "APPROACH STROKES GAINED": "-0.45",
-                "SHORT GAME STROKES GAINED": "-1.98",
-                "PUTTING STROKES GAINED": "-0.08",
-                "TEE TO GREEN STROKES GAINED": "-5.9",
-                "TOTAL STROKES GAINED": "-5.98"
+                "TOTAL FEET OF PUTTS MADE": "57"
               }
             },
             {
@@ -2249,6 +2041,7 @@
               "grossPosition": 8,
               "netTotal": "+20",
               "grossTotal": "+39",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -2.87,
                 "approach": -12.89,
@@ -2272,13 +2065,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "23",
-                "TEE STROKES GAINED": "-2.87",
-                "APPROACH STROKES GAINED": "-12.89",
-                "SHORT GAME STROKES GAINED": "-1.78",
-                "PUTTING STROKES GAINED": "-1.71",
-                "TEE TO GREEN STROKES GAINED": "-17.54",
-                "TOTAL STROKES GAINED": "-19.25"
+                "TOTAL FEET OF PUTTS MADE": "23"
               }
             },
             {
@@ -2290,6 +2077,7 @@
               "grossPosition": 9,
               "netTotal": "+12",
               "grossTotal": "+30",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -6.55,
                 "approach": -0.29,
@@ -2313,13 +2101,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-6.55",
-                "APPROACH STROKES GAINED": "-0.29",
-                "SHORT GAME STROKES GAINED": "-0.07",
-                "PUTTING STROKES GAINED": "-7.94",
-                "TEE TO GREEN STROKES GAINED": "-6.91",
-                "TOTAL STROKES GAINED": "-14.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             },
             {
@@ -2331,6 +2113,7 @@
               "grossPosition": 9,
               "netTotal": "+6",
               "grossTotal": "+24",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.12,
                 "approach": -2.73,
@@ -2354,13 +2137,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "64",
-                "TEE STROKES GAINED": "-0.12",
-                "APPROACH STROKES GAINED": "-2.73",
-                "SHORT GAME STROKES GAINED": "-5.55",
-                "PUTTING STROKES GAINED": "-0.46",
-                "TEE TO GREEN STROKES GAINED": "-8.4",
-                "TOTAL STROKES GAINED": "-8.87"
+                "TOTAL FEET OF PUTTS MADE": "64"
               }
             },
             {
@@ -2372,6 +2149,7 @@
               "grossPosition": 10,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.56,
                 "approach": -4.43,
@@ -2395,13 +2173,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "54",
-                "TEE STROKES GAINED": "-1.56",
-                "APPROACH STROKES GAINED": "-4.43",
-                "SHORT GAME STROKES GAINED": "-2.93",
-                "PUTTING STROKES GAINED": "-2.62",
-                "TEE TO GREEN STROKES GAINED": "-8.92",
-                "TOTAL STROKES GAINED": "-11.54"
+                "TOTAL FEET OF PUTTS MADE": "54"
               }
             }
           ]
@@ -2450,6 +2222,7 @@
               "grossPosition": 10,
               "netTotal": "+24",
               "grossTotal": "+35",
+              "netAdjustment": 11,
               "sg": {
                 "tee": -5.84,
                 "approach": -16.59,
@@ -2473,13 +2246,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "60",
-                "TEE STROKES GAINED": "-5.84",
-                "APPROACH STROKES GAINED": "-16.59",
-                "SHORT GAME STROKES GAINED": "3.53",
-                "PUTTING STROKES GAINED": "-0.94",
-                "TEE TO GREEN STROKES GAINED": "-18.91",
-                "TOTAL STROKES GAINED": "-19.85"
+                "TOTAL FEET OF PUTTS MADE": "60"
               }
             },
             {
@@ -2491,6 +2258,7 @@
               "grossPosition": 4,
               "netTotal": "+4",
               "grossTotal": "+14",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.16,
                 "approach": 2.39,
@@ -2514,13 +2282,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "2.16",
-                "APPROACH STROKES GAINED": "2.39",
-                "SHORT GAME STROKES GAINED": "-2.39",
-                "PUTTING STROKES GAINED": "-1.03",
-                "TEE TO GREEN STROKES GAINED": "2.17",
-                "TOTAL STROKES GAINED": "1.13"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -2532,6 +2294,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+3",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 3.83,
                 "approach": -1.24,
@@ -2555,13 +2318,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "94",
-                "TEE STROKES GAINED": "3.83",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.76",
-                "PUTTING STROKES GAINED": "0.11",
-                "TEE TO GREEN STROKES GAINED": "3.35",
-                "TOTAL STROKES GAINED": "3.46"
+                "TOTAL FEET OF PUTTS MADE": "94"
               }
             }
           ]
@@ -2610,6 +2367,7 @@
               "grossPosition": 7,
               "netTotal": "+12",
               "grossTotal": "+19",
+              "netAdjustment": 7,
               "sg": {
                 "tee": -2.15,
                 "approach": -4.46,
@@ -2633,13 +2391,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-2.15",
-                "APPROACH STROKES GAINED": "-4.46",
-                "SHORT GAME STROKES GAINED": "3.59",
-                "PUTTING STROKES GAINED": "-0.82",
-                "TEE TO GREEN STROKES GAINED": "-3.02",
-                "TOTAL STROKES GAINED": "-3.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             },
             {
@@ -2651,6 +2403,7 @@
               "grossPosition": 3,
               "netTotal": "+3",
               "grossTotal": "+10",
+              "netAdjustment": 7,
               "sg": {
                 "tee": 2.46,
                 "approach": 0.11,
@@ -2674,13 +2427,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "64",
-                "TEE STROKES GAINED": "2.46",
-                "APPROACH STROKES GAINED": "0.11",
-                "SHORT GAME STROKES GAINED": "2.61",
-                "PUTTING STROKES GAINED": "-0.05",
-                "TEE TO GREEN STROKES GAINED": "5.19",
-                "TOTAL STROKES GAINED": "5.13"
+                "TOTAL FEET OF PUTTS MADE": "64"
               }
             },
             {
@@ -2692,6 +2439,7 @@
               "grossPosition": 5,
               "netTotal": "-3",
               "grossTotal": "+4",
+              "netAdjustment": 7,
               "sg": {
                 "tee": 1.28,
                 "approach": -0.9,
@@ -2715,13 +2463,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "101",
-                "TEE STROKES GAINED": "1.28",
-                "APPROACH STROKES GAINED": "-0.9",
-                "SHORT GAME STROKES GAINED": "1.02",
-                "PUTTING STROKES GAINED": "2.06",
-                "TEE TO GREEN STROKES GAINED": "1.4",
-                "TOTAL STROKES GAINED": "3.46"
+                "TOTAL FEET OF PUTTS MADE": "101"
               }
             }
           ]
@@ -2770,6 +2512,7 @@
               "grossPosition": 7,
               "netTotal": "+5",
               "grossTotal": "+17",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.58,
                 "approach": -4.03,
@@ -2793,13 +2536,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "47",
-                "TEE STROKES GAINED": "-2.58",
-                "APPROACH STROKES GAINED": "-4.03",
-                "SHORT GAME STROKES GAINED": "-0.74",
-                "PUTTING STROKES GAINED": "-0.01",
-                "TEE TO GREEN STROKES GAINED": "-7.35",
-                "TOTAL STROKES GAINED": "-7.35"
+                "TOTAL FEET OF PUTTS MADE": "47"
               }
             },
             {
@@ -2811,6 +2548,7 @@
               "grossPosition": 8,
               "netTotal": "+17",
               "grossTotal": "+29",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -3.73,
                 "approach": -3.13,
@@ -2834,13 +2572,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "58",
-                "TEE STROKES GAINED": "-3.73",
-                "APPROACH STROKES GAINED": "-3.13",
-                "SHORT GAME STROKES GAINED": "-0.86",
-                "PUTTING STROKES GAINED": "-1.65",
-                "TEE TO GREEN STROKES GAINED": "-7.72",
-                "TOTAL STROKES GAINED": "-9.37"
+                "TOTAL FEET OF PUTTS MADE": "58"
               }
             },
             {
@@ -2852,6 +2584,7 @@
               "grossPosition": 6,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.65,
                 "approach": -6.58,
@@ -2875,13 +2608,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "85",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-6.58",
-                "SHORT GAME STROKES GAINED": "-0.78",
-                "PUTTING STROKES GAINED": "0.03",
-                "TEE TO GREEN STROKES GAINED": "-9.01",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "85"
               }
             },
             {
@@ -2893,6 +2620,7 @@
               "grossPosition": 6,
               "netTotal": "+12",
               "grossTotal": "+24",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 2.0,
                 "approach": -3.09,
@@ -2916,13 +2644,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "2",
-                "APPROACH STROKES GAINED": "-3.09",
-                "SHORT GAME STROKES GAINED": "0.58",
-                "PUTTING STROKES GAINED": "-3.74",
-                "TEE TO GREEN STROKES GAINED": "-0.51",
-                "TOTAL STROKES GAINED": "-4.25"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -2934,6 +2656,7 @@
               "grossPosition": 3,
               "netTotal": "-3",
               "grossTotal": "+11",
+              "netAdjustment": 14,
               "sg": {
                 "tee": 4.63,
                 "approach": -6.32,
@@ -2957,13 +2680,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "140",
-                "TEE STROKES GAINED": "4.63",
-                "APPROACH STROKES GAINED": "-6.32",
-                "SHORT GAME STROKES GAINED": "0.83",
-                "PUTTING STROKES GAINED": "5.01",
-                "TEE TO GREEN STROKES GAINED": "-0.86",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "140"
               }
             },
             {
@@ -2975,6 +2692,7 @@
               "grossPosition": 6,
               "netTotal": "+9",
               "grossTotal": "+21",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -4.4,
                 "approach": -2.7,
@@ -2998,13 +2716,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "90",
-                "TEE STROKES GAINED": "-4.4",
-                "APPROACH STROKES GAINED": "-2.7",
-                "SHORT GAME STROKES GAINED": "-0.46",
-                "PUTTING STROKES GAINED": "1.69",
-                "TEE TO GREEN STROKES GAINED": "-7.56",
-                "TOTAL STROKES GAINED": "-5.87"
+                "TOTAL FEET OF PUTTS MADE": "90"
               }
             },
             {
@@ -3016,6 +2728,7 @@
               "grossPosition": 9,
               "netTotal": "+3",
               "grossTotal": "+15",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.34,
                 "approach": -4.68,
@@ -3039,13 +2752,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-2.34",
-                "APPROACH STROKES GAINED": "-4.68",
-                "SHORT GAME STROKES GAINED": "0.77",
-                "PUTTING STROKES GAINED": "-2.29",
-                "TEE TO GREEN STROKES GAINED": "-6.25",
-                "TOTAL STROKES GAINED": "-8.54"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             }
           ]
@@ -3106,6 +2813,7 @@
               "grossPosition": 6,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -5.24,
                 "approach": 2.56,
@@ -3129,13 +2837,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "-5.24",
-                "APPROACH STROKES GAINED": "2.56",
-                "SHORT GAME STROKES GAINED": "0.29",
-                "PUTTING STROKES GAINED": "-0.96",
-                "TEE TO GREEN STROKES GAINED": "-2.39",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             },
             {
@@ -3147,6 +2849,7 @@
               "grossPosition": 4,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.55,
                 "approach": -3.85,
@@ -3170,13 +2873,7 @@
                 "BOGEYS": "10",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "59",
-                "TEE STROKES GAINED": "-0.55",
-                "APPROACH STROKES GAINED": "-3.85",
-                "SHORT GAME STROKES GAINED": "3.28",
-                "PUTTING STROKES GAINED": "-1.25",
-                "TEE TO GREEN STROKES GAINED": "-1.12",
-                "TOTAL STROKES GAINED": "-2.37"
+                "TOTAL FEET OF PUTTS MADE": "59"
               }
             },
             {
@@ -3188,6 +2885,7 @@
               "grossPosition": 3,
               "netTotal": "-4",
               "grossTotal": "+11",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -2.28,
                 "approach": 1.74,
@@ -3211,13 +2909,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "33",
-                "TEE STROKES GAINED": "-2.28",
-                "APPROACH STROKES GAINED": "1.74",
-                "SHORT GAME STROKES GAINED": "2.81",
-                "PUTTING STROKES GAINED": "-0.25",
-                "TEE TO GREEN STROKES GAINED": "2.28",
-                "TOTAL STROKES GAINED": "2.02"
+                "TOTAL FEET OF PUTTS MADE": "33"
               }
             },
             {
@@ -3229,6 +2921,7 @@
               "grossPosition": 4,
               "netTotal": "+1",
               "grossTotal": "+16",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -0.97,
                 "approach": -4.56,
@@ -3252,13 +2945,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-0.97",
-                "APPROACH STROKES GAINED": "-4.56",
-                "SHORT GAME STROKES GAINED": "6.99",
-                "PUTTING STROKES GAINED": "2.29",
-                "TEE TO GREEN STROKES GAINED": "1.46",
-                "TOTAL STROKES GAINED": "3.75"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             },
             {
@@ -3270,6 +2957,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+11",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -5.1,
                 "approach": 3.76,
@@ -3293,13 +2981,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "169",
-                "TEE STROKES GAINED": "-5.1",
-                "APPROACH STROKES GAINED": "3.76",
-                "SHORT GAME STROKES GAINED": "1.26",
-                "PUTTING STROKES GAINED": "4.23",
-                "TEE TO GREEN STROKES GAINED": "-0.07",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "169"
               }
             }
           ]
@@ -3348,6 +3030,7 @@
               "grossPosition": 5,
               "netTotal": "-2",
               "grossTotal": "+13",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -1.63,
                 "approach": -0.52,
@@ -3371,13 +3054,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "51",
-                "TEE STROKES GAINED": "-1.63",
-                "APPROACH STROKES GAINED": "-0.52",
-                "SHORT GAME STROKES GAINED": "1.06",
-                "PUTTING STROKES GAINED": "-2.27",
-                "TEE TO GREEN STROKES GAINED": "-1.08",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "51"
               }
             },
             {
@@ -3389,6 +3066,7 @@
               "grossPosition": 3,
               "netTotal": "+2",
               "grossTotal": "+17",
+              "netAdjustment": 15,
               "sg": {
                 "tee": 1.76,
                 "approach": -1.24,
@@ -3412,13 +3090,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "75",
-                "TEE STROKES GAINED": "1.76",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.35",
-                "PUTTING STROKES GAINED": "2.77",
-                "TEE TO GREEN STROKES GAINED": "0.86",
-                "TOTAL STROKES GAINED": "3.63"
+                "TOTAL FEET OF PUTTS MADE": "75"
               }
             },
             {
@@ -3430,6 +3102,7 @@
               "grossPosition": 7,
               "netTotal": "+15",
               "grossTotal": "+30",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -5.43,
                 "approach": -0.88,
@@ -3453,13 +3126,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "-5.43",
-                "APPROACH STROKES GAINED": "-0.88",
-                "SHORT GAME STROKES GAINED": "-5.78",
-                "PUTTING STROKES GAINED": "1.84",
-                "TEE TO GREEN STROKES GAINED": "-12.09",
-                "TOTAL STROKES GAINED": "-10.25"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -3471,6 +3138,7 @@
               "grossPosition": 5,
               "netTotal": "-5",
               "grossTotal": "+12",
+              "netAdjustment": 17,
               "sg": {
                 "tee": 3.52,
                 "approach": -2.08,
@@ -3494,13 +3162,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "74",
-                "TEE STROKES GAINED": "3.52",
-                "APPROACH STROKES GAINED": "-2.08",
-                "SHORT GAME STROKES GAINED": "-0.41",
-                "PUTTING STROKES GAINED": "2.12",
-                "TEE TO GREEN STROKES GAINED": "1.03",
-                "TOTAL STROKES GAINED": "3.15"
+                "TOTAL FEET OF PUTTS MADE": "74"
               }
             }
           ]
@@ -3549,6 +3211,7 @@
               "grossPosition": 8,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.61,
                 "approach": -0.84,
@@ -3572,13 +3235,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-1.61",
-                "APPROACH STROKES GAINED": "-0.84",
-                "SHORT GAME STROKES GAINED": "-6.02",
-                "PUTTING STROKES GAINED": "-0",
-                "TEE TO GREEN STROKES GAINED": "-8.48",
-                "TOTAL STROKES GAINED": "-8.48"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -3590,6 +3247,7 @@
               "grossPosition": 7,
               "netTotal": "+9",
               "grossTotal": "+27",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -2.66,
                 "approach": -2.06,
@@ -3613,13 +3271,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "141",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-2.06",
-                "SHORT GAME STROKES GAINED": "-0.16",
-                "PUTTING STROKES GAINED": "-2.49",
-                "TEE TO GREEN STROKES GAINED": "-4.88",
-                "TOTAL STROKES GAINED": "-7.37"
+                "TOTAL FEET OF PUTTS MADE": "141"
               }
             },
             {
@@ -3631,6 +3283,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.57,
                 "approach": -2.44,
@@ -3654,13 +3307,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "8",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "83",
-                "TEE STROKES GAINED": "-0.57",
-                "APPROACH STROKES GAINED": "-2.44",
-                "SHORT GAME STROKES GAINED": "-1.79",
-                "PUTTING STROKES GAINED": "-4.18",
-                "TEE TO GREEN STROKES GAINED": "-4.79",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "83"
               }
             },
             {
@@ -3672,6 +3319,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": 2.28,
                 "approach": 4.33,
@@ -3695,13 +3343,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "48",
-                "TEE STROKES GAINED": "2.28",
-                "APPROACH STROKES GAINED": "4.33",
-                "SHORT GAME STROKES GAINED": "-6.01",
-                "PUTTING STROKES GAINED": "-2.85",
-                "TEE TO GREEN STROKES GAINED": "0.6",
-                "TOTAL STROKES GAINED": "-2.25"
+                "TOTAL FEET OF PUTTS MADE": "48"
               }
             },
             {
@@ -3713,6 +3355,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+20",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -0.9,
                 "approach": -2.89,
@@ -3736,13 +3379,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "-0.9",
-                "APPROACH STROKES GAINED": "-2.89",
-                "SHORT GAME STROKES GAINED": "-1.48",
-                "PUTTING STROKES GAINED": "0.43",
-                "TEE TO GREEN STROKES GAINED": "-5.28",
-                "TOTAL STROKES GAINED": "-4.85"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             }
           ]
@@ -3791,6 +3428,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.97,
                 "approach": 3.94,
@@ -3814,13 +3452,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "138",
-                "TEE STROKES GAINED": "5.97",
-                "APPROACH STROKES GAINED": "3.94",
-                "SHORT GAME STROKES GAINED": "-0.26",
-                "PUTTING STROKES GAINED": "1.99",
-                "TEE TO GREEN STROKES GAINED": "9.65",
-                "TOTAL STROKES GAINED": "11.65"
+                "TOTAL FEET OF PUTTS MADE": "138"
               }
             },
             {
@@ -3832,6 +3464,7 @@
               "grossPosition": 2,
               "netTotal": "+11",
               "grossTotal": "+11",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.43,
                 "approach": -2.12,
@@ -3855,13 +3488,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "45",
-                "TEE STROKES GAINED": "6.43",
-                "APPROACH STROKES GAINED": "-2.12",
-                "SHORT GAME STROKES GAINED": "3.1",
-                "PUTTING STROKES GAINED": "1.22",
-                "TEE TO GREEN STROKES GAINED": "7.41",
-                "TOTAL STROKES GAINED": "8.63"
+                "TOTAL FEET OF PUTTS MADE": "45"
               }
             },
             {
@@ -3873,6 +3500,7 @@
               "grossPosition": 2,
               "netTotal": "+2",
               "grossTotal": "+2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.08,
                 "approach": 0.7,
@@ -3896,13 +3524,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "6.08",
-                "APPROACH STROKES GAINED": "0.7",
-                "SHORT GAME STROKES GAINED": "3.65",
-                "PUTTING STROKES GAINED": "0.6",
-                "TEE TO GREEN STROKES GAINED": "10.43",
-                "TOTAL STROKES GAINED": "11.02"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -3914,6 +3536,7 @@
               "grossPosition": 2,
               "netTotal": "+8",
               "grossTotal": "+8",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.27,
                 "approach": 5.97,
@@ -3937,13 +3560,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "5.27",
-                "APPROACH STROKES GAINED": "5.97",
-                "SHORT GAME STROKES GAINED": "1.19",
-                "PUTTING STROKES GAINED": "-0.68",
-                "TEE TO GREEN STROKES GAINED": "12.43",
-                "TOTAL STROKES GAINED": "11.75"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -3955,6 +3572,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 7.91,
                 "approach": 0.22,
@@ -3978,13 +3596,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "107",
-                "TEE STROKES GAINED": "7.91",
-                "APPROACH STROKES GAINED": "0.22",
-                "SHORT GAME STROKES GAINED": "7.86",
-                "PUTTING STROKES GAINED": "2.16",
-                "TEE TO GREEN STROKES GAINED": "15.99",
-                "TOTAL STROKES GAINED": "18.15"
+                "TOTAL FEET OF PUTTS MADE": "107"
               }
             }
           ]
@@ -4033,6 +3645,7 @@
               "grossPosition": 2,
               "netTotal": "+3",
               "grossTotal": "+3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.92,
                 "approach": 2.71,
@@ -4056,13 +3669,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "2.92",
-                "APPROACH STROKES GAINED": "2.71",
-                "SHORT GAME STROKES GAINED": "-0.37",
-                "PUTTING STROKES GAINED": "1.38",
-                "TEE TO GREEN STROKES GAINED": "5.27",
-                "TOTAL STROKES GAINED": "6.65"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -4074,6 +3681,7 @@
               "grossPosition": 1,
               "netTotal": "+1",
               "grossTotal": "+1",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.96,
                 "approach": 6.28,
@@ -4097,13 +3705,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "4.96",
-                "APPROACH STROKES GAINED": "6.28",
-                "SHORT GAME STROKES GAINED": "4.49",
-                "PUTTING STROKES GAINED": "2.91",
-                "TEE TO GREEN STROKES GAINED": "15.72",
-                "TOTAL STROKES GAINED": "18.63"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -4115,6 +3717,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.1,
                 "approach": 6.17,
@@ -4138,13 +3741,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "93",
-                "TEE STROKES GAINED": "5.1",
-                "APPROACH STROKES GAINED": "6.17",
-                "SHORT GAME STROKES GAINED": "1.7",
-                "PUTTING STROKES GAINED": "2.05",
-                "TEE TO GREEN STROKES GAINED": "12.97",
-                "TOTAL STROKES GAINED": "15.02"
+                "TOTAL FEET OF PUTTS MADE": "93"
               }
             },
             {
@@ -4156,6 +3753,7 @@
               "grossPosition": 3,
               "netTotal": "+12",
               "grossTotal": "+12",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 1.59,
                 "approach": 5.31,
@@ -4179,13 +3777,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "1.59",
-                "APPROACH STROKES GAINED": "5.31",
-                "SHORT GAME STROKES GAINED": "1.09",
-                "PUTTING STROKES GAINED": "-0.23",
-                "TEE TO GREEN STROKES GAINED": "7.99",
-                "TOTAL STROKES GAINED": "7.75"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -4197,6 +3789,7 @@
               "grossPosition": 2,
               "netTotal": "+6",
               "grossTotal": "+6",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 0.58,
                 "approach": 5.22,
@@ -4220,13 +3813,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "97",
-                "TEE STROKES GAINED": "0.58",
-                "APPROACH STROKES GAINED": "5.22",
-                "SHORT GAME STROKES GAINED": "-0.27",
-                "PUTTING STROKES GAINED": "3.62",
-                "TEE TO GREEN STROKES GAINED": "5.54",
-                "TOTAL STROKES GAINED": "9.15"
+                "TOTAL FEET OF PUTTS MADE": "97"
               }
             }
           ]
@@ -4275,6 +3862,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+10",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -2.73,
                 "approach": 2.35,
@@ -4298,13 +3886,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "71",
-                "TEE STROKES GAINED": "-2.73",
-                "APPROACH STROKES GAINED": "2.35",
-                "SHORT GAME STROKES GAINED": "-0.99",
-                "PUTTING STROKES GAINED": "1.01",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "-0.35"
+                "TOTAL FEET OF PUTTS MADE": "71"
               }
             },
             {
@@ -4316,6 +3898,7 @@
               "grossPosition": 5,
               "netTotal": "+7",
               "grossTotal": "+24",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -0.84,
                 "approach": 2.1,
@@ -4339,13 +3922,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-0.84",
-                "APPROACH STROKES GAINED": "2.1",
-                "SHORT GAME STROKES GAINED": "-4.76",
-                "PUTTING STROKES GAINED": "-0.87",
-                "TEE TO GREEN STROKES GAINED": "-3.5",
-                "TOTAL STROKES GAINED": "-4.37"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -4357,6 +3934,7 @@
               "grossPosition": 4,
               "netTotal": "E",
               "grossTotal": "+19",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -3.46,
                 "approach": -0.45,
@@ -4380,13 +3958,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "57",
-                "TEE STROKES GAINED": "-3.46",
-                "APPROACH STROKES GAINED": "-0.45",
-                "SHORT GAME STROKES GAINED": "-1.98",
-                "PUTTING STROKES GAINED": "-0.08",
-                "TEE TO GREEN STROKES GAINED": "-5.9",
-                "TOTAL STROKES GAINED": "-5.98"
+                "TOTAL FEET OF PUTTS MADE": "57"
               }
             },
             {
@@ -4398,6 +3970,7 @@
               "grossPosition": 8,
               "netTotal": "+20",
               "grossTotal": "+39",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -2.87,
                 "approach": -12.89,
@@ -4421,13 +3994,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "23",
-                "TEE STROKES GAINED": "-2.87",
-                "APPROACH STROKES GAINED": "-12.89",
-                "SHORT GAME STROKES GAINED": "-1.78",
-                "PUTTING STROKES GAINED": "-1.71",
-                "TEE TO GREEN STROKES GAINED": "-17.54",
-                "TOTAL STROKES GAINED": "-19.25"
+                "TOTAL FEET OF PUTTS MADE": "23"
               }
             },
             {
@@ -4439,6 +4006,7 @@
               "grossPosition": 9,
               "netTotal": "+12",
               "grossTotal": "+30",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -6.55,
                 "approach": -0.29,
@@ -4462,13 +4030,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-6.55",
-                "APPROACH STROKES GAINED": "-0.29",
-                "SHORT GAME STROKES GAINED": "-0.07",
-                "PUTTING STROKES GAINED": "-7.94",
-                "TEE TO GREEN STROKES GAINED": "-6.91",
-                "TOTAL STROKES GAINED": "-14.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             }
           ]
@@ -4517,6 +4079,7 @@
               "grossPosition": 3,
               "netTotal": "-2",
               "grossTotal": "+10",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.16,
                 "approach": 1.21,
@@ -4540,13 +4103,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "92",
-                "TEE STROKES GAINED": "-0.16",
-                "APPROACH STROKES GAINED": "1.21",
-                "SHORT GAME STROKES GAINED": "-0.69",
-                "PUTTING STROKES GAINED": "0.29",
-                "TEE TO GREEN STROKES GAINED": "0.36",
-                "TOTAL STROKES GAINED": "0.65"
+                "TOTAL FEET OF PUTTS MADE": "92"
               }
             },
             {
@@ -4558,6 +4115,7 @@
               "grossPosition": 6,
               "netTotal": "+13",
               "grossTotal": "+25",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 1.81,
                 "approach": 0.9,
@@ -4581,13 +4139,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "1.81",
-                "APPROACH STROKES GAINED": "0.9",
-                "SHORT GAME STROKES GAINED": "-6",
-                "PUTTING STROKES GAINED": "-2.08",
-                "TEE TO GREEN STROKES GAINED": "-3.29",
-                "TOTAL STROKES GAINED": "-5.37"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -4599,6 +4151,7 @@
               "grossPosition": 7,
               "netTotal": "+14",
               "grossTotal": "+24",
+              "netAdjustment": 10,
               "sg": {
                 "tee": -0.42,
                 "approach": -9.66,
@@ -4622,13 +4175,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "119",
-                "TEE STROKES GAINED": "-0.42",
-                "APPROACH STROKES GAINED": "-9.66",
-                "SHORT GAME STROKES GAINED": "-2.35",
-                "PUTTING STROKES GAINED": "2.46",
-                "TEE TO GREEN STROKES GAINED": "-12.43",
-                "TOTAL STROKES GAINED": "-9.98"
+                "TOTAL FEET OF PUTTS MADE": "119"
               }
             },
             {
@@ -4640,6 +4187,7 @@
               "grossPosition": 1,
               "netTotal": "-4",
               "grossTotal": "+6",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.13,
                 "approach": 6.14,
@@ -4663,13 +4211,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "66",
-                "TEE STROKES GAINED": "2.13",
-                "APPROACH STROKES GAINED": "6.14",
-                "SHORT GAME STROKES GAINED": "2.55",
-                "PUTTING STROKES GAINED": "2.93",
-                "TEE TO GREEN STROKES GAINED": "10.82",
-                "TOTAL STROKES GAINED": "13.75"
+                "TOTAL FEET OF PUTTS MADE": "66"
               }
             },
             {
@@ -4681,6 +4223,7 @@
               "grossPosition": 6,
               "netTotal": "+7",
               "grossTotal": "+16",
+              "netAdjustment": 9,
               "sg": {
                 "tee": 2.79,
                 "approach": -4.18,
@@ -4704,13 +4247,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "88",
-                "TEE STROKES GAINED": "2.79",
-                "APPROACH STROKES GAINED": "-4.18",
-                "SHORT GAME STROKES GAINED": "0.9",
-                "PUTTING STROKES GAINED": "-0.36",
-                "TEE TO GREEN STROKES GAINED": "-0.49",
-                "TOTAL STROKES GAINED": "-0.85"
+                "TOTAL FEET OF PUTTS MADE": "88"
               }
             }
           ]
@@ -4759,6 +4296,7 @@
               "grossPosition": 7,
               "netTotal": "+5",
               "grossTotal": "+17",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.58,
                 "approach": -4.03,
@@ -4782,13 +4320,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "47",
-                "TEE STROKES GAINED": "-2.58",
-                "APPROACH STROKES GAINED": "-4.03",
-                "SHORT GAME STROKES GAINED": "-0.74",
-                "PUTTING STROKES GAINED": "-0.01",
-                "TEE TO GREEN STROKES GAINED": "-7.35",
-                "TOTAL STROKES GAINED": "-7.35"
+                "TOTAL FEET OF PUTTS MADE": "47"
               }
             },
             {
@@ -4800,6 +4332,7 @@
               "grossPosition": 8,
               "netTotal": "+17",
               "grossTotal": "+29",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -3.73,
                 "approach": -3.13,
@@ -4823,13 +4356,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "58",
-                "TEE STROKES GAINED": "-3.73",
-                "APPROACH STROKES GAINED": "-3.13",
-                "SHORT GAME STROKES GAINED": "-0.86",
-                "PUTTING STROKES GAINED": "-1.65",
-                "TEE TO GREEN STROKES GAINED": "-7.72",
-                "TOTAL STROKES GAINED": "-9.37"
+                "TOTAL FEET OF PUTTS MADE": "58"
               }
             },
             {
@@ -4841,6 +4368,7 @@
               "grossPosition": 6,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.65,
                 "approach": -6.58,
@@ -4864,13 +4392,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "85",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-6.58",
-                "SHORT GAME STROKES GAINED": "-0.78",
-                "PUTTING STROKES GAINED": "0.03",
-                "TEE TO GREEN STROKES GAINED": "-9.01",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "85"
               }
             },
             {
@@ -4882,6 +4404,7 @@
               "grossPosition": 6,
               "netTotal": "+12",
               "grossTotal": "+24",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 2.0,
                 "approach": -3.09,
@@ -4905,13 +4428,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "2",
-                "APPROACH STROKES GAINED": "-3.09",
-                "SHORT GAME STROKES GAINED": "0.58",
-                "PUTTING STROKES GAINED": "-3.74",
-                "TEE TO GREEN STROKES GAINED": "-0.51",
-                "TOTAL STROKES GAINED": "-4.25"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -4923,6 +4440,7 @@
               "grossPosition": 3,
               "netTotal": "-3",
               "grossTotal": "+11",
+              "netAdjustment": 14,
               "sg": {
                 "tee": 4.63,
                 "approach": -6.32,
@@ -4946,13 +4464,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "140",
-                "TEE STROKES GAINED": "4.63",
-                "APPROACH STROKES GAINED": "-6.32",
-                "SHORT GAME STROKES GAINED": "0.83",
-                "PUTTING STROKES GAINED": "5.01",
-                "TEE TO GREEN STROKES GAINED": "-0.86",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "140"
               }
             }
           ]
@@ -5001,6 +4513,7 @@
               "grossPosition": 7,
               "netTotal": "+12",
               "grossTotal": "+19",
+              "netAdjustment": 7,
               "sg": {
                 "tee": -2.15,
                 "approach": -4.46,
@@ -5024,13 +4537,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-2.15",
-                "APPROACH STROKES GAINED": "-4.46",
-                "SHORT GAME STROKES GAINED": "3.59",
-                "PUTTING STROKES GAINED": "-0.82",
-                "TEE TO GREEN STROKES GAINED": "-3.02",
-                "TOTAL STROKES GAINED": "-3.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             }
           ]
@@ -5079,6 +4586,7 @@
               "grossPosition": 10,
               "netTotal": "+24",
               "grossTotal": "+35",
+              "netAdjustment": 11,
               "sg": {
                 "tee": -5.84,
                 "approach": -16.59,
@@ -5102,13 +4610,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "60",
-                "TEE STROKES GAINED": "-5.84",
-                "APPROACH STROKES GAINED": "-16.59",
-                "SHORT GAME STROKES GAINED": "3.53",
-                "PUTTING STROKES GAINED": "-0.94",
-                "TEE TO GREEN STROKES GAINED": "-18.91",
-                "TOTAL STROKES GAINED": "-19.85"
+                "TOTAL FEET OF PUTTS MADE": "60"
               }
             }
           ]
@@ -5171,6 +4673,7 @@
               "grossPosition": 6,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -5.24,
                 "approach": 2.56,
@@ -5194,13 +4697,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "-5.24",
-                "APPROACH STROKES GAINED": "2.56",
-                "SHORT GAME STROKES GAINED": "0.29",
-                "PUTTING STROKES GAINED": "-0.96",
-                "TEE TO GREEN STROKES GAINED": "-2.39",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             },
             {
@@ -5212,6 +4709,7 @@
               "grossPosition": 4,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.55,
                 "approach": -3.85,
@@ -5235,13 +4733,7 @@
                 "BOGEYS": "10",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "59",
-                "TEE STROKES GAINED": "-0.55",
-                "APPROACH STROKES GAINED": "-3.85",
-                "SHORT GAME STROKES GAINED": "3.28",
-                "PUTTING STROKES GAINED": "-1.25",
-                "TEE TO GREEN STROKES GAINED": "-1.12",
-                "TOTAL STROKES GAINED": "-2.37"
+                "TOTAL FEET OF PUTTS MADE": "59"
               }
             },
             {
@@ -5253,6 +4745,7 @@
               "grossPosition": 3,
               "netTotal": "-4",
               "grossTotal": "+11",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -2.28,
                 "approach": 1.74,
@@ -5276,13 +4769,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "33",
-                "TEE STROKES GAINED": "-2.28",
-                "APPROACH STROKES GAINED": "1.74",
-                "SHORT GAME STROKES GAINED": "2.81",
-                "PUTTING STROKES GAINED": "-0.25",
-                "TEE TO GREEN STROKES GAINED": "2.28",
-                "TOTAL STROKES GAINED": "2.02"
+                "TOTAL FEET OF PUTTS MADE": "33"
               }
             },
             {
@@ -5294,6 +4781,7 @@
               "grossPosition": 4,
               "netTotal": "+1",
               "grossTotal": "+16",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -0.97,
                 "approach": -4.56,
@@ -5317,13 +4805,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-0.97",
-                "APPROACH STROKES GAINED": "-4.56",
-                "SHORT GAME STROKES GAINED": "6.99",
-                "PUTTING STROKES GAINED": "2.29",
-                "TEE TO GREEN STROKES GAINED": "1.46",
-                "TOTAL STROKES GAINED": "3.75"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             },
             {
@@ -5335,6 +4817,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+11",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -5.1,
                 "approach": 3.76,
@@ -5358,13 +4841,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "169",
-                "TEE STROKES GAINED": "-5.1",
-                "APPROACH STROKES GAINED": "3.76",
-                "SHORT GAME STROKES GAINED": "1.26",
-                "PUTTING STROKES GAINED": "4.23",
-                "TEE TO GREEN STROKES GAINED": "-0.07",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "169"
               }
             },
             {
@@ -5376,6 +4853,7 @@
               "grossPosition": 8,
               "netTotal": "+2",
               "grossTotal": "+23",
+              "netAdjustment": 21,
               "sg": {
                 "tee": -8.11,
                 "approach": -0.16,
@@ -5399,13 +4877,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-8.11",
-                "APPROACH STROKES GAINED": "-0.16",
-                "SHORT GAME STROKES GAINED": "1.32",
-                "PUTTING STROKES GAINED": "-0.91",
-                "TEE TO GREEN STROKES GAINED": "-6.96",
-                "TOTAL STROKES GAINED": "-7.87"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -5417,6 +4889,7 @@
               "grossPosition": 6,
               "netTotal": "-7",
               "grossTotal": "+5",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.66,
                 "approach": -1.38,
@@ -5440,13 +4913,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "69",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-1.38",
-                "SHORT GAME STROKES GAINED": "2.68",
-                "PUTTING STROKES GAINED": "2.83",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "1.46"
+                "TOTAL FEET OF PUTTS MADE": "69"
               }
             }
           ]
@@ -5495,6 +4962,7 @@
               "grossPosition": 2,
               "netTotal": "+3",
               "grossTotal": "+3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.92,
                 "approach": 2.71,
@@ -5518,13 +4986,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "2.92",
-                "APPROACH STROKES GAINED": "2.71",
-                "SHORT GAME STROKES GAINED": "-0.37",
-                "PUTTING STROKES GAINED": "1.38",
-                "TEE TO GREEN STROKES GAINED": "5.27",
-                "TOTAL STROKES GAINED": "6.65"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -5536,6 +4998,7 @@
               "grossPosition": 1,
               "netTotal": "+1",
               "grossTotal": "+1",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.96,
                 "approach": 6.28,
@@ -5559,13 +5022,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "4.96",
-                "APPROACH STROKES GAINED": "6.28",
-                "SHORT GAME STROKES GAINED": "4.49",
-                "PUTTING STROKES GAINED": "2.91",
-                "TEE TO GREEN STROKES GAINED": "15.72",
-                "TOTAL STROKES GAINED": "18.63"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -5577,6 +5034,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.1,
                 "approach": 6.17,
@@ -5600,13 +5058,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "93",
-                "TEE STROKES GAINED": "5.1",
-                "APPROACH STROKES GAINED": "6.17",
-                "SHORT GAME STROKES GAINED": "1.7",
-                "PUTTING STROKES GAINED": "2.05",
-                "TEE TO GREEN STROKES GAINED": "12.97",
-                "TOTAL STROKES GAINED": "15.02"
+                "TOTAL FEET OF PUTTS MADE": "93"
               }
             },
             {
@@ -5618,6 +5070,7 @@
               "grossPosition": 3,
               "netTotal": "+12",
               "grossTotal": "+12",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 1.59,
                 "approach": 5.31,
@@ -5641,13 +5094,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "1.59",
-                "APPROACH STROKES GAINED": "5.31",
-                "SHORT GAME STROKES GAINED": "1.09",
-                "PUTTING STROKES GAINED": "-0.23",
-                "TEE TO GREEN STROKES GAINED": "7.99",
-                "TOTAL STROKES GAINED": "7.75"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -5659,6 +5106,7 @@
               "grossPosition": 2,
               "netTotal": "+6",
               "grossTotal": "+6",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 0.58,
                 "approach": 5.22,
@@ -5682,13 +5130,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "97",
-                "TEE STROKES GAINED": "0.58",
-                "APPROACH STROKES GAINED": "5.22",
-                "SHORT GAME STROKES GAINED": "-0.27",
-                "PUTTING STROKES GAINED": "3.62",
-                "TEE TO GREEN STROKES GAINED": "5.54",
-                "TOTAL STROKES GAINED": "9.15"
+                "TOTAL FEET OF PUTTS MADE": "97"
               }
             },
             {
@@ -5700,6 +5142,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.84,
                 "approach": 9.01,
@@ -5723,13 +5166,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "69",
-                "TEE STROKES GAINED": "4.84",
-                "APPROACH STROKES GAINED": "9.01",
-                "SHORT GAME STROKES GAINED": "2.68",
-                "PUTTING STROKES GAINED": "1.6",
-                "TEE TO GREEN STROKES GAINED": "16.53",
-                "TOTAL STROKES GAINED": "18.13"
+                "TOTAL FEET OF PUTTS MADE": "69"
               }
             },
             {
@@ -5741,6 +5178,7 @@
               "grossPosition": 1,
               "netTotal": "-5",
               "grossTotal": "-5",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.21,
                 "approach": 4.76,
@@ -5764,13 +5202,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "100",
-                "TEE STROKES GAINED": "2.21",
-                "APPROACH STROKES GAINED": "4.76",
-                "SHORT GAME STROKES GAINED": "2.23",
-                "PUTTING STROKES GAINED": "2.26",
-                "TEE TO GREEN STROKES GAINED": "9.2",
-                "TOTAL STROKES GAINED": "11.46"
+                "TOTAL FEET OF PUTTS MADE": "100"
               }
             }
           ]
@@ -5819,6 +5251,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.97,
                 "approach": 3.94,
@@ -5842,13 +5275,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "138",
-                "TEE STROKES GAINED": "5.97",
-                "APPROACH STROKES GAINED": "3.94",
-                "SHORT GAME STROKES GAINED": "-0.26",
-                "PUTTING STROKES GAINED": "1.99",
-                "TEE TO GREEN STROKES GAINED": "9.65",
-                "TOTAL STROKES GAINED": "11.65"
+                "TOTAL FEET OF PUTTS MADE": "138"
               }
             },
             {
@@ -5860,6 +5287,7 @@
               "grossPosition": 2,
               "netTotal": "+11",
               "grossTotal": "+11",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.43,
                 "approach": -2.12,
@@ -5883,13 +5311,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "45",
-                "TEE STROKES GAINED": "6.43",
-                "APPROACH STROKES GAINED": "-2.12",
-                "SHORT GAME STROKES GAINED": "3.1",
-                "PUTTING STROKES GAINED": "1.22",
-                "TEE TO GREEN STROKES GAINED": "7.41",
-                "TOTAL STROKES GAINED": "8.63"
+                "TOTAL FEET OF PUTTS MADE": "45"
               }
             },
             {
@@ -5901,6 +5323,7 @@
               "grossPosition": 2,
               "netTotal": "+2",
               "grossTotal": "+2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.08,
                 "approach": 0.7,
@@ -5924,13 +5347,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "6.08",
-                "APPROACH STROKES GAINED": "0.7",
-                "SHORT GAME STROKES GAINED": "3.65",
-                "PUTTING STROKES GAINED": "0.6",
-                "TEE TO GREEN STROKES GAINED": "10.43",
-                "TOTAL STROKES GAINED": "11.02"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -5942,6 +5359,7 @@
               "grossPosition": 2,
               "netTotal": "+8",
               "grossTotal": "+8",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.27,
                 "approach": 5.97,
@@ -5965,13 +5383,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "5.27",
-                "APPROACH STROKES GAINED": "5.97",
-                "SHORT GAME STROKES GAINED": "1.19",
-                "PUTTING STROKES GAINED": "-0.68",
-                "TEE TO GREEN STROKES GAINED": "12.43",
-                "TOTAL STROKES GAINED": "11.75"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -5983,6 +5395,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 7.91,
                 "approach": 0.22,
@@ -6006,13 +5419,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "107",
-                "TEE STROKES GAINED": "7.91",
-                "APPROACH STROKES GAINED": "0.22",
-                "SHORT GAME STROKES GAINED": "7.86",
-                "PUTTING STROKES GAINED": "2.16",
-                "TEE TO GREEN STROKES GAINED": "15.99",
-                "TOTAL STROKES GAINED": "18.15"
+                "TOTAL FEET OF PUTTS MADE": "107"
               }
             },
             {
@@ -6024,6 +5431,7 @@
               "grossPosition": 2,
               "netTotal": "+1",
               "grossTotal": "+2",
+              "netAdjustment": 1,
               "sg": {
                 "tee": 3.87,
                 "approach": 4.23,
@@ -6047,13 +5455,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "35",
-                "TEE STROKES GAINED": "3.87",
-                "APPROACH STROKES GAINED": "4.23",
-                "SHORT GAME STROKES GAINED": "3.94",
-                "PUTTING STROKES GAINED": "1.1",
-                "TEE TO GREEN STROKES GAINED": "12.04",
-                "TOTAL STROKES GAINED": "13.13"
+                "TOTAL FEET OF PUTTS MADE": "35"
               }
             },
             {
@@ -6065,6 +5467,7 @@
               "grossPosition": 2,
               "netTotal": "-3",
               "grossTotal": "-2",
+              "netAdjustment": 1,
               "sg": {
                 "tee": 4.88,
                 "approach": 5.32,
@@ -6088,13 +5491,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "4.88",
-                "APPROACH STROKES GAINED": "5.32",
-                "SHORT GAME STROKES GAINED": "1.83",
-                "PUTTING STROKES GAINED": "-2.57",
-                "TEE TO GREEN STROKES GAINED": "12.03",
-                "TOTAL STROKES GAINED": "9.46"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             }
           ]
@@ -6143,6 +5540,7 @@
               "grossPosition": 5,
               "netTotal": "-2",
               "grossTotal": "+13",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -1.63,
                 "approach": -0.52,
@@ -6166,13 +5564,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "51",
-                "TEE STROKES GAINED": "-1.63",
-                "APPROACH STROKES GAINED": "-0.52",
-                "SHORT GAME STROKES GAINED": "1.06",
-                "PUTTING STROKES GAINED": "-2.27",
-                "TEE TO GREEN STROKES GAINED": "-1.08",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "51"
               }
             },
             {
@@ -6184,6 +5576,7 @@
               "grossPosition": 3,
               "netTotal": "+2",
               "grossTotal": "+17",
+              "netAdjustment": 15,
               "sg": {
                 "tee": 1.76,
                 "approach": -1.24,
@@ -6207,13 +5600,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "75",
-                "TEE STROKES GAINED": "1.76",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.35",
-                "PUTTING STROKES GAINED": "2.77",
-                "TEE TO GREEN STROKES GAINED": "0.86",
-                "TOTAL STROKES GAINED": "3.63"
+                "TOTAL FEET OF PUTTS MADE": "75"
               }
             },
             {
@@ -6225,6 +5612,7 @@
               "grossPosition": 7,
               "netTotal": "+15",
               "grossTotal": "+30",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -5.43,
                 "approach": -0.88,
@@ -6248,13 +5636,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "-5.43",
-                "APPROACH STROKES GAINED": "-0.88",
-                "SHORT GAME STROKES GAINED": "-5.78",
-                "PUTTING STROKES GAINED": "1.84",
-                "TEE TO GREEN STROKES GAINED": "-12.09",
-                "TOTAL STROKES GAINED": "-10.25"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -6266,6 +5648,7 @@
               "grossPosition": 5,
               "netTotal": "-5",
               "grossTotal": "+12",
+              "netAdjustment": 17,
               "sg": {
                 "tee": 3.52,
                 "approach": -2.08,
@@ -6289,13 +5672,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "74",
-                "TEE STROKES GAINED": "3.52",
-                "APPROACH STROKES GAINED": "-2.08",
-                "SHORT GAME STROKES GAINED": "-0.41",
-                "PUTTING STROKES GAINED": "2.12",
-                "TEE TO GREEN STROKES GAINED": "1.03",
-                "TOTAL STROKES GAINED": "3.15"
+                "TOTAL FEET OF PUTTS MADE": "74"
               }
             },
             {
@@ -6307,6 +5684,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.24,
                 "approach": 2.65,
@@ -6330,13 +5708,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-1.24",
-                "APPROACH STROKES GAINED": "2.65",
-                "SHORT GAME STROKES GAINED": "-4.8",
-                "PUTTING STROKES GAINED": "-0.77",
-                "TEE TO GREEN STROKES GAINED": "-3.38",
-                "TOTAL STROKES GAINED": "-4.15"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             }
           ]
@@ -6385,6 +5757,7 @@
               "grossPosition": 8,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.61,
                 "approach": -0.84,
@@ -6408,13 +5781,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-1.61",
-                "APPROACH STROKES GAINED": "-0.84",
-                "SHORT GAME STROKES GAINED": "-6.02",
-                "PUTTING STROKES GAINED": "-0",
-                "TEE TO GREEN STROKES GAINED": "-8.48",
-                "TOTAL STROKES GAINED": "-8.48"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -6426,6 +5793,7 @@
               "grossPosition": 7,
               "netTotal": "+9",
               "grossTotal": "+27",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -2.66,
                 "approach": -2.06,
@@ -6449,13 +5817,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "141",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-2.06",
-                "SHORT GAME STROKES GAINED": "-0.16",
-                "PUTTING STROKES GAINED": "-2.49",
-                "TEE TO GREEN STROKES GAINED": "-4.88",
-                "TOTAL STROKES GAINED": "-7.37"
+                "TOTAL FEET OF PUTTS MADE": "141"
               }
             },
             {
@@ -6467,6 +5829,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.57,
                 "approach": -2.44,
@@ -6490,13 +5853,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "8",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "83",
-                "TEE STROKES GAINED": "-0.57",
-                "APPROACH STROKES GAINED": "-2.44",
-                "SHORT GAME STROKES GAINED": "-1.79",
-                "PUTTING STROKES GAINED": "-4.18",
-                "TEE TO GREEN STROKES GAINED": "-4.79",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "83"
               }
             },
             {
@@ -6508,6 +5865,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": 2.28,
                 "approach": 4.33,
@@ -6531,13 +5889,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "48",
-                "TEE STROKES GAINED": "2.28",
-                "APPROACH STROKES GAINED": "4.33",
-                "SHORT GAME STROKES GAINED": "-6.01",
-                "PUTTING STROKES GAINED": "-2.85",
-                "TEE TO GREEN STROKES GAINED": "0.6",
-                "TOTAL STROKES GAINED": "-2.25"
+                "TOTAL FEET OF PUTTS MADE": "48"
               }
             },
             {
@@ -6549,6 +5901,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+20",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -0.9,
                 "approach": -2.89,
@@ -6572,13 +5925,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "-0.9",
-                "APPROACH STROKES GAINED": "-2.89",
-                "SHORT GAME STROKES GAINED": "-1.48",
-                "PUTTING STROKES GAINED": "0.43",
-                "TEE TO GREEN STROKES GAINED": "-5.28",
-                "TOTAL STROKES GAINED": "-4.85"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -6590,6 +5937,7 @@
               "grossPosition": 7,
               "netTotal": "+6",
               "grossTotal": "+23",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -1.65,
                 "approach": -1.1,
@@ -6613,13 +5961,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "54",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-1.1",
-                "SHORT GAME STROKES GAINED": "-1.11",
-                "PUTTING STROKES GAINED": "-4.01",
-                "TEE TO GREEN STROKES GAINED": "-3.86",
-                "TOTAL STROKES GAINED": "-7.87"
+                "TOTAL FEET OF PUTTS MADE": "54"
               }
             },
             {
@@ -6631,6 +5973,7 @@
               "grossPosition": 7,
               "netTotal": "-4",
               "grossTotal": "+13",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -1.18,
                 "approach": -3.68,
@@ -6654,13 +5997,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "42",
-                "TEE STROKES GAINED": "-1.18",
-                "APPROACH STROKES GAINED": "-3.68",
-                "SHORT GAME STROKES GAINED": "1.59",
-                "PUTTING STROKES GAINED": "-1.27",
-                "TEE TO GREEN STROKES GAINED": "-3.27",
-                "TOTAL STROKES GAINED": "-4.54"
+                "TOTAL FEET OF PUTTS MADE": "42"
               }
             }
           ]
@@ -6709,6 +6046,7 @@
               "grossPosition": 3,
               "netTotal": "-2",
               "grossTotal": "+10",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.16,
                 "approach": 1.21,
@@ -6732,13 +6070,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "92",
-                "TEE STROKES GAINED": "-0.16",
-                "APPROACH STROKES GAINED": "1.21",
-                "SHORT GAME STROKES GAINED": "-0.69",
-                "PUTTING STROKES GAINED": "0.29",
-                "TEE TO GREEN STROKES GAINED": "0.36",
-                "TOTAL STROKES GAINED": "0.65"
+                "TOTAL FEET OF PUTTS MADE": "92"
               }
             },
             {
@@ -6750,6 +6082,7 @@
               "grossPosition": 6,
               "netTotal": "+13",
               "grossTotal": "+25",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 1.81,
                 "approach": 0.9,
@@ -6773,13 +6106,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "1.81",
-                "APPROACH STROKES GAINED": "0.9",
-                "SHORT GAME STROKES GAINED": "-6",
-                "PUTTING STROKES GAINED": "-2.08",
-                "TEE TO GREEN STROKES GAINED": "-3.29",
-                "TOTAL STROKES GAINED": "-5.37"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -6791,6 +6118,7 @@
               "grossPosition": 7,
               "netTotal": "+14",
               "grossTotal": "+24",
+              "netAdjustment": 10,
               "sg": {
                 "tee": -0.42,
                 "approach": -9.66,
@@ -6814,13 +6142,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "119",
-                "TEE STROKES GAINED": "-0.42",
-                "APPROACH STROKES GAINED": "-9.66",
-                "SHORT GAME STROKES GAINED": "-2.35",
-                "PUTTING STROKES GAINED": "2.46",
-                "TEE TO GREEN STROKES GAINED": "-12.43",
-                "TOTAL STROKES GAINED": "-9.98"
+                "TOTAL FEET OF PUTTS MADE": "119"
               }
             },
             {
@@ -6832,6 +6154,7 @@
               "grossPosition": 1,
               "netTotal": "-4",
               "grossTotal": "+6",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.13,
                 "approach": 6.14,
@@ -6855,13 +6178,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "66",
-                "TEE STROKES GAINED": "2.13",
-                "APPROACH STROKES GAINED": "6.14",
-                "SHORT GAME STROKES GAINED": "2.55",
-                "PUTTING STROKES GAINED": "2.93",
-                "TEE TO GREEN STROKES GAINED": "10.82",
-                "TOTAL STROKES GAINED": "13.75"
+                "TOTAL FEET OF PUTTS MADE": "66"
               }
             },
             {
@@ -6873,6 +6190,7 @@
               "grossPosition": 6,
               "netTotal": "+7",
               "grossTotal": "+16",
+              "netAdjustment": 9,
               "sg": {
                 "tee": 2.79,
                 "approach": -4.18,
@@ -6896,13 +6214,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "88",
-                "TEE STROKES GAINED": "2.79",
-                "APPROACH STROKES GAINED": "-4.18",
-                "SHORT GAME STROKES GAINED": "0.9",
-                "PUTTING STROKES GAINED": "-0.36",
-                "TEE TO GREEN STROKES GAINED": "-0.49",
-                "TOTAL STROKES GAINED": "-0.85"
+                "TOTAL FEET OF PUTTS MADE": "88"
               }
             },
             {
@@ -6914,6 +6226,7 @@
               "grossPosition": 5,
               "netTotal": "+12",
               "grossTotal": "+21",
+              "netAdjustment": 9,
               "sg": {
                 "tee": -1.38,
                 "approach": -1.5,
@@ -6937,13 +6250,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "94",
-                "TEE STROKES GAINED": "-1.38",
-                "APPROACH STROKES GAINED": "-1.5",
-                "SHORT GAME STROKES GAINED": "-3.77",
-                "PUTTING STROKES GAINED": "0.78",
-                "TEE TO GREEN STROKES GAINED": "-6.65",
-                "TOTAL STROKES GAINED": "-5.87"
+                "TOTAL FEET OF PUTTS MADE": "94"
               }
             },
             {
@@ -6955,6 +6262,7 @@
               "grossPosition": 3,
               "netTotal": "-7",
               "grossTotal": "+1",
+              "netAdjustment": 8,
               "sg": {
                 "tee": 2.3,
                 "approach": 2.45,
@@ -6978,13 +6286,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "76",
-                "TEE STROKES GAINED": "2.3",
-                "APPROACH STROKES GAINED": "2.45",
-                "SHORT GAME STROKES GAINED": "1.68",
-                "PUTTING STROKES GAINED": "0.81",
-                "TEE TO GREEN STROKES GAINED": "6.43",
-                "TOTAL STROKES GAINED": "7.24"
+                "TOTAL FEET OF PUTTS MADE": "76"
               }
             }
           ]
@@ -7033,6 +6335,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+10",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -2.73,
                 "approach": 2.35,
@@ -7056,13 +6359,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "71",
-                "TEE STROKES GAINED": "-2.73",
-                "APPROACH STROKES GAINED": "2.35",
-                "SHORT GAME STROKES GAINED": "-0.99",
-                "PUTTING STROKES GAINED": "1.01",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "-0.35"
+                "TOTAL FEET OF PUTTS MADE": "71"
               }
             },
             {
@@ -7074,6 +6371,7 @@
               "grossPosition": 5,
               "netTotal": "+7",
               "grossTotal": "+24",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -0.84,
                 "approach": 2.1,
@@ -7097,13 +6395,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-0.84",
-                "APPROACH STROKES GAINED": "2.1",
-                "SHORT GAME STROKES GAINED": "-4.76",
-                "PUTTING STROKES GAINED": "-0.87",
-                "TEE TO GREEN STROKES GAINED": "-3.5",
-                "TOTAL STROKES GAINED": "-4.37"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -7115,6 +6407,7 @@
               "grossPosition": 4,
               "netTotal": "E",
               "grossTotal": "+19",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -3.46,
                 "approach": -0.45,
@@ -7138,13 +6431,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "57",
-                "TEE STROKES GAINED": "-3.46",
-                "APPROACH STROKES GAINED": "-0.45",
-                "SHORT GAME STROKES GAINED": "-1.98",
-                "PUTTING STROKES GAINED": "-0.08",
-                "TEE TO GREEN STROKES GAINED": "-5.9",
-                "TOTAL STROKES GAINED": "-5.98"
+                "TOTAL FEET OF PUTTS MADE": "57"
               }
             },
             {
@@ -7156,6 +6443,7 @@
               "grossPosition": 8,
               "netTotal": "+20",
               "grossTotal": "+39",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -2.87,
                 "approach": -12.89,
@@ -7179,13 +6467,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "23",
-                "TEE STROKES GAINED": "-2.87",
-                "APPROACH STROKES GAINED": "-12.89",
-                "SHORT GAME STROKES GAINED": "-1.78",
-                "PUTTING STROKES GAINED": "-1.71",
-                "TEE TO GREEN STROKES GAINED": "-17.54",
-                "TOTAL STROKES GAINED": "-19.25"
+                "TOTAL FEET OF PUTTS MADE": "23"
               }
             },
             {
@@ -7197,6 +6479,7 @@
               "grossPosition": 9,
               "netTotal": "+12",
               "grossTotal": "+30",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -6.55,
                 "approach": -0.29,
@@ -7220,13 +6503,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-6.55",
-                "APPROACH STROKES GAINED": "-0.29",
-                "SHORT GAME STROKES GAINED": "-0.07",
-                "PUTTING STROKES GAINED": "-7.94",
-                "TEE TO GREEN STROKES GAINED": "-6.91",
-                "TOTAL STROKES GAINED": "-14.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             },
             {
@@ -7238,6 +6515,7 @@
               "grossPosition": 9,
               "netTotal": "+6",
               "grossTotal": "+24",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.12,
                 "approach": -2.73,
@@ -7261,13 +6539,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "64",
-                "TEE STROKES GAINED": "-0.12",
-                "APPROACH STROKES GAINED": "-2.73",
-                "SHORT GAME STROKES GAINED": "-5.55",
-                "PUTTING STROKES GAINED": "-0.46",
-                "TEE TO GREEN STROKES GAINED": "-8.4",
-                "TOTAL STROKES GAINED": "-8.87"
+                "TOTAL FEET OF PUTTS MADE": "64"
               }
             },
             {
@@ -7279,6 +6551,7 @@
               "grossPosition": 10,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.56,
                 "approach": -4.43,
@@ -7302,13 +6575,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "54",
-                "TEE STROKES GAINED": "-1.56",
-                "APPROACH STROKES GAINED": "-4.43",
-                "SHORT GAME STROKES GAINED": "-2.93",
-                "PUTTING STROKES GAINED": "-2.62",
-                "TEE TO GREEN STROKES GAINED": "-8.92",
-                "TOTAL STROKES GAINED": "-11.54"
+                "TOTAL FEET OF PUTTS MADE": "54"
               }
             }
           ]
@@ -7357,6 +6624,7 @@
               "grossPosition": 10,
               "netTotal": "+24",
               "grossTotal": "+35",
+              "netAdjustment": 11,
               "sg": {
                 "tee": -5.84,
                 "approach": -16.59,
@@ -7380,13 +6648,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "60",
-                "TEE STROKES GAINED": "-5.84",
-                "APPROACH STROKES GAINED": "-16.59",
-                "SHORT GAME STROKES GAINED": "3.53",
-                "PUTTING STROKES GAINED": "-0.94",
-                "TEE TO GREEN STROKES GAINED": "-18.91",
-                "TOTAL STROKES GAINED": "-19.85"
+                "TOTAL FEET OF PUTTS MADE": "60"
               }
             },
             {
@@ -7398,6 +6660,7 @@
               "grossPosition": 4,
               "netTotal": "+4",
               "grossTotal": "+14",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.16,
                 "approach": 2.39,
@@ -7421,13 +6684,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "2.16",
-                "APPROACH STROKES GAINED": "2.39",
-                "SHORT GAME STROKES GAINED": "-2.39",
-                "PUTTING STROKES GAINED": "-1.03",
-                "TEE TO GREEN STROKES GAINED": "2.17",
-                "TOTAL STROKES GAINED": "1.13"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -7439,6 +6696,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+3",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 3.83,
                 "approach": -1.24,
@@ -7462,13 +6720,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "94",
-                "TEE STROKES GAINED": "3.83",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.76",
-                "PUTTING STROKES GAINED": "0.11",
-                "TEE TO GREEN STROKES GAINED": "3.35",
-                "TOTAL STROKES GAINED": "3.46"
+                "TOTAL FEET OF PUTTS MADE": "94"
               }
             }
           ]
@@ -7517,6 +6769,7 @@
               "grossPosition": 7,
               "netTotal": "+12",
               "grossTotal": "+19",
+              "netAdjustment": 7,
               "sg": {
                 "tee": -2.15,
                 "approach": -4.46,
@@ -7540,13 +6793,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-2.15",
-                "APPROACH STROKES GAINED": "-4.46",
-                "SHORT GAME STROKES GAINED": "3.59",
-                "PUTTING STROKES GAINED": "-0.82",
-                "TEE TO GREEN STROKES GAINED": "-3.02",
-                "TOTAL STROKES GAINED": "-3.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             },
             {
@@ -7558,6 +6805,7 @@
               "grossPosition": 3,
               "netTotal": "+3",
               "grossTotal": "+10",
+              "netAdjustment": 7,
               "sg": {
                 "tee": 2.46,
                 "approach": 0.11,
@@ -7581,13 +6829,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "64",
-                "TEE STROKES GAINED": "2.46",
-                "APPROACH STROKES GAINED": "0.11",
-                "SHORT GAME STROKES GAINED": "2.61",
-                "PUTTING STROKES GAINED": "-0.05",
-                "TEE TO GREEN STROKES GAINED": "5.19",
-                "TOTAL STROKES GAINED": "5.13"
+                "TOTAL FEET OF PUTTS MADE": "64"
               }
             },
             {
@@ -7599,6 +6841,7 @@
               "grossPosition": 5,
               "netTotal": "-3",
               "grossTotal": "+4",
+              "netAdjustment": 7,
               "sg": {
                 "tee": 1.28,
                 "approach": -0.9,
@@ -7622,13 +6865,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "101",
-                "TEE STROKES GAINED": "1.28",
-                "APPROACH STROKES GAINED": "-0.9",
-                "SHORT GAME STROKES GAINED": "1.02",
-                "PUTTING STROKES GAINED": "2.06",
-                "TEE TO GREEN STROKES GAINED": "1.4",
-                "TOTAL STROKES GAINED": "3.46"
+                "TOTAL FEET OF PUTTS MADE": "101"
               }
             }
           ]
@@ -7677,6 +6914,7 @@
               "grossPosition": 7,
               "netTotal": "+5",
               "grossTotal": "+17",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.58,
                 "approach": -4.03,
@@ -7700,13 +6938,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "47",
-                "TEE STROKES GAINED": "-2.58",
-                "APPROACH STROKES GAINED": "-4.03",
-                "SHORT GAME STROKES GAINED": "-0.74",
-                "PUTTING STROKES GAINED": "-0.01",
-                "TEE TO GREEN STROKES GAINED": "-7.35",
-                "TOTAL STROKES GAINED": "-7.35"
+                "TOTAL FEET OF PUTTS MADE": "47"
               }
             },
             {
@@ -7718,6 +6950,7 @@
               "grossPosition": 8,
               "netTotal": "+17",
               "grossTotal": "+29",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -3.73,
                 "approach": -3.13,
@@ -7741,13 +6974,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "58",
-                "TEE STROKES GAINED": "-3.73",
-                "APPROACH STROKES GAINED": "-3.13",
-                "SHORT GAME STROKES GAINED": "-0.86",
-                "PUTTING STROKES GAINED": "-1.65",
-                "TEE TO GREEN STROKES GAINED": "-7.72",
-                "TOTAL STROKES GAINED": "-9.37"
+                "TOTAL FEET OF PUTTS MADE": "58"
               }
             },
             {
@@ -7759,6 +6986,7 @@
               "grossPosition": 6,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.65,
                 "approach": -6.58,
@@ -7782,13 +7010,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "85",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-6.58",
-                "SHORT GAME STROKES GAINED": "-0.78",
-                "PUTTING STROKES GAINED": "0.03",
-                "TEE TO GREEN STROKES GAINED": "-9.01",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "85"
               }
             },
             {
@@ -7800,6 +7022,7 @@
               "grossPosition": 6,
               "netTotal": "+12",
               "grossTotal": "+24",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 2.0,
                 "approach": -3.09,
@@ -7823,13 +7046,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "2",
-                "APPROACH STROKES GAINED": "-3.09",
-                "SHORT GAME STROKES GAINED": "0.58",
-                "PUTTING STROKES GAINED": "-3.74",
-                "TEE TO GREEN STROKES GAINED": "-0.51",
-                "TOTAL STROKES GAINED": "-4.25"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -7841,6 +7058,7 @@
               "grossPosition": 3,
               "netTotal": "-3",
               "grossTotal": "+11",
+              "netAdjustment": 14,
               "sg": {
                 "tee": 4.63,
                 "approach": -6.32,
@@ -7864,13 +7082,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "140",
-                "TEE STROKES GAINED": "4.63",
-                "APPROACH STROKES GAINED": "-6.32",
-                "SHORT GAME STROKES GAINED": "0.83",
-                "PUTTING STROKES GAINED": "5.01",
-                "TEE TO GREEN STROKES GAINED": "-0.86",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "140"
               }
             },
             {
@@ -7882,6 +7094,7 @@
               "grossPosition": 6,
               "netTotal": "+9",
               "grossTotal": "+21",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -4.4,
                 "approach": -2.7,
@@ -7905,13 +7118,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "90",
-                "TEE STROKES GAINED": "-4.4",
-                "APPROACH STROKES GAINED": "-2.7",
-                "SHORT GAME STROKES GAINED": "-0.46",
-                "PUTTING STROKES GAINED": "1.69",
-                "TEE TO GREEN STROKES GAINED": "-7.56",
-                "TOTAL STROKES GAINED": "-5.87"
+                "TOTAL FEET OF PUTTS MADE": "90"
               }
             },
             {
@@ -7923,6 +7130,7 @@
               "grossPosition": 9,
               "netTotal": "+3",
               "grossTotal": "+15",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.34,
                 "approach": -4.68,
@@ -7946,13 +7154,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-2.34",
-                "APPROACH STROKES GAINED": "-4.68",
-                "SHORT GAME STROKES GAINED": "0.77",
-                "PUTTING STROKES GAINED": "-2.29",
-                "TEE TO GREEN STROKES GAINED": "-6.25",
-                "TOTAL STROKES GAINED": "-8.54"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             }
           ]
@@ -8015,6 +7217,7 @@
               "grossPosition": 6,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -5.24,
                 "approach": 2.56,
@@ -8038,13 +7241,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "-5.24",
-                "APPROACH STROKES GAINED": "2.56",
-                "SHORT GAME STROKES GAINED": "0.29",
-                "PUTTING STROKES GAINED": "-0.96",
-                "TEE TO GREEN STROKES GAINED": "-2.39",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             },
             {
@@ -8056,6 +7253,7 @@
               "grossPosition": 4,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.55,
                 "approach": -3.85,
@@ -8079,13 +7277,7 @@
                 "BOGEYS": "10",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "59",
-                "TEE STROKES GAINED": "-0.55",
-                "APPROACH STROKES GAINED": "-3.85",
-                "SHORT GAME STROKES GAINED": "3.28",
-                "PUTTING STROKES GAINED": "-1.25",
-                "TEE TO GREEN STROKES GAINED": "-1.12",
-                "TOTAL STROKES GAINED": "-2.37"
+                "TOTAL FEET OF PUTTS MADE": "59"
               }
             },
             {
@@ -8097,6 +7289,7 @@
               "grossPosition": 3,
               "netTotal": "-4",
               "grossTotal": "+11",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -2.28,
                 "approach": 1.74,
@@ -8120,13 +7313,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "33",
-                "TEE STROKES GAINED": "-2.28",
-                "APPROACH STROKES GAINED": "1.74",
-                "SHORT GAME STROKES GAINED": "2.81",
-                "PUTTING STROKES GAINED": "-0.25",
-                "TEE TO GREEN STROKES GAINED": "2.28",
-                "TOTAL STROKES GAINED": "2.02"
+                "TOTAL FEET OF PUTTS MADE": "33"
               }
             },
             {
@@ -8138,6 +7325,7 @@
               "grossPosition": 4,
               "netTotal": "+1",
               "grossTotal": "+16",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -0.97,
                 "approach": -4.56,
@@ -8161,13 +7349,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-0.97",
-                "APPROACH STROKES GAINED": "-4.56",
-                "SHORT GAME STROKES GAINED": "6.99",
-                "PUTTING STROKES GAINED": "2.29",
-                "TEE TO GREEN STROKES GAINED": "1.46",
-                "TOTAL STROKES GAINED": "3.75"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             },
             {
@@ -8179,6 +7361,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+11",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -5.1,
                 "approach": 3.76,
@@ -8202,13 +7385,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "169",
-                "TEE STROKES GAINED": "-5.1",
-                "APPROACH STROKES GAINED": "3.76",
-                "SHORT GAME STROKES GAINED": "1.26",
-                "PUTTING STROKES GAINED": "4.23",
-                "TEE TO GREEN STROKES GAINED": "-0.07",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "169"
               }
             },
             {
@@ -8220,6 +7397,7 @@
               "grossPosition": 8,
               "netTotal": "+2",
               "grossTotal": "+23",
+              "netAdjustment": 21,
               "sg": {
                 "tee": -8.11,
                 "approach": -0.16,
@@ -8243,13 +7421,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-8.11",
-                "APPROACH STROKES GAINED": "-0.16",
-                "SHORT GAME STROKES GAINED": "1.32",
-                "PUTTING STROKES GAINED": "-0.91",
-                "TEE TO GREEN STROKES GAINED": "-6.96",
-                "TOTAL STROKES GAINED": "-7.87"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -8261,6 +7433,7 @@
               "grossPosition": 6,
               "netTotal": "-7",
               "grossTotal": "+5",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.66,
                 "approach": -1.38,
@@ -8284,13 +7457,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "69",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-1.38",
-                "SHORT GAME STROKES GAINED": "2.68",
-                "PUTTING STROKES GAINED": "2.83",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "1.46"
+                "TOTAL FEET OF PUTTS MADE": "69"
               }
             }
           ]
@@ -8339,6 +7506,7 @@
               "grossPosition": 2,
               "netTotal": "+3",
               "grossTotal": "+3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.92,
                 "approach": 2.71,
@@ -8362,13 +7530,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "2.92",
-                "APPROACH STROKES GAINED": "2.71",
-                "SHORT GAME STROKES GAINED": "-0.37",
-                "PUTTING STROKES GAINED": "1.38",
-                "TEE TO GREEN STROKES GAINED": "5.27",
-                "TOTAL STROKES GAINED": "6.65"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -8380,6 +7542,7 @@
               "grossPosition": 1,
               "netTotal": "+1",
               "grossTotal": "+1",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.96,
                 "approach": 6.28,
@@ -8403,13 +7566,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "4.96",
-                "APPROACH STROKES GAINED": "6.28",
-                "SHORT GAME STROKES GAINED": "4.49",
-                "PUTTING STROKES GAINED": "2.91",
-                "TEE TO GREEN STROKES GAINED": "15.72",
-                "TOTAL STROKES GAINED": "18.63"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -8421,6 +7578,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.1,
                 "approach": 6.17,
@@ -8444,13 +7602,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "93",
-                "TEE STROKES GAINED": "5.1",
-                "APPROACH STROKES GAINED": "6.17",
-                "SHORT GAME STROKES GAINED": "1.7",
-                "PUTTING STROKES GAINED": "2.05",
-                "TEE TO GREEN STROKES GAINED": "12.97",
-                "TOTAL STROKES GAINED": "15.02"
+                "TOTAL FEET OF PUTTS MADE": "93"
               }
             },
             {
@@ -8462,6 +7614,7 @@
               "grossPosition": 3,
               "netTotal": "+12",
               "grossTotal": "+12",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 1.59,
                 "approach": 5.31,
@@ -8485,13 +7638,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "1.59",
-                "APPROACH STROKES GAINED": "5.31",
-                "SHORT GAME STROKES GAINED": "1.09",
-                "PUTTING STROKES GAINED": "-0.23",
-                "TEE TO GREEN STROKES GAINED": "7.99",
-                "TOTAL STROKES GAINED": "7.75"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -8503,6 +7650,7 @@
               "grossPosition": 2,
               "netTotal": "+6",
               "grossTotal": "+6",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 0.58,
                 "approach": 5.22,
@@ -8526,13 +7674,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "97",
-                "TEE STROKES GAINED": "0.58",
-                "APPROACH STROKES GAINED": "5.22",
-                "SHORT GAME STROKES GAINED": "-0.27",
-                "PUTTING STROKES GAINED": "3.62",
-                "TEE TO GREEN STROKES GAINED": "5.54",
-                "TOTAL STROKES GAINED": "9.15"
+                "TOTAL FEET OF PUTTS MADE": "97"
               }
             },
             {
@@ -8544,6 +7686,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 4.84,
                 "approach": 9.01,
@@ -8567,13 +7710,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "69",
-                "TEE STROKES GAINED": "4.84",
-                "APPROACH STROKES GAINED": "9.01",
-                "SHORT GAME STROKES GAINED": "2.68",
-                "PUTTING STROKES GAINED": "1.6",
-                "TEE TO GREEN STROKES GAINED": "16.53",
-                "TOTAL STROKES GAINED": "18.13"
+                "TOTAL FEET OF PUTTS MADE": "69"
               }
             },
             {
@@ -8585,6 +7722,7 @@
               "grossPosition": 1,
               "netTotal": "-5",
               "grossTotal": "-5",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 2.21,
                 "approach": 4.76,
@@ -8608,13 +7746,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "100",
-                "TEE STROKES GAINED": "2.21",
-                "APPROACH STROKES GAINED": "4.76",
-                "SHORT GAME STROKES GAINED": "2.23",
-                "PUTTING STROKES GAINED": "2.26",
-                "TEE TO GREEN STROKES GAINED": "9.2",
-                "TOTAL STROKES GAINED": "11.46"
+                "TOTAL FEET OF PUTTS MADE": "100"
               }
             }
           ]
@@ -8663,6 +7795,7 @@
               "grossPosition": 1,
               "netTotal": "-2",
               "grossTotal": "-2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.97,
                 "approach": 3.94,
@@ -8686,13 +7819,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "138",
-                "TEE STROKES GAINED": "5.97",
-                "APPROACH STROKES GAINED": "3.94",
-                "SHORT GAME STROKES GAINED": "-0.26",
-                "PUTTING STROKES GAINED": "1.99",
-                "TEE TO GREEN STROKES GAINED": "9.65",
-                "TOTAL STROKES GAINED": "11.65"
+                "TOTAL FEET OF PUTTS MADE": "138"
               }
             },
             {
@@ -8704,6 +7831,7 @@
               "grossPosition": 2,
               "netTotal": "+11",
               "grossTotal": "+11",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.43,
                 "approach": -2.12,
@@ -8727,13 +7855,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "45",
-                "TEE STROKES GAINED": "6.43",
-                "APPROACH STROKES GAINED": "-2.12",
-                "SHORT GAME STROKES GAINED": "3.1",
-                "PUTTING STROKES GAINED": "1.22",
-                "TEE TO GREEN STROKES GAINED": "7.41",
-                "TOTAL STROKES GAINED": "8.63"
+                "TOTAL FEET OF PUTTS MADE": "45"
               }
             },
             {
@@ -8745,6 +7867,7 @@
               "grossPosition": 2,
               "netTotal": "+2",
               "grossTotal": "+2",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 6.08,
                 "approach": 0.7,
@@ -8768,13 +7891,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "6.08",
-                "APPROACH STROKES GAINED": "0.7",
-                "SHORT GAME STROKES GAINED": "3.65",
-                "PUTTING STROKES GAINED": "0.6",
-                "TEE TO GREEN STROKES GAINED": "10.43",
-                "TOTAL STROKES GAINED": "11.02"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -8786,6 +7903,7 @@
               "grossPosition": 2,
               "netTotal": "+8",
               "grossTotal": "+8",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 5.27,
                 "approach": 5.97,
@@ -8809,13 +7927,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "5.27",
-                "APPROACH STROKES GAINED": "5.97",
-                "SHORT GAME STROKES GAINED": "1.19",
-                "PUTTING STROKES GAINED": "-0.68",
-                "TEE TO GREEN STROKES GAINED": "12.43",
-                "TOTAL STROKES GAINED": "11.75"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -8827,6 +7939,7 @@
               "grossPosition": 1,
               "netTotal": "-3",
               "grossTotal": "-3",
+              "netAdjustment": 0,
               "sg": {
                 "tee": 7.91,
                 "approach": 0.22,
@@ -8850,13 +7963,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "107",
-                "TEE STROKES GAINED": "7.91",
-                "APPROACH STROKES GAINED": "0.22",
-                "SHORT GAME STROKES GAINED": "7.86",
-                "PUTTING STROKES GAINED": "2.16",
-                "TEE TO GREEN STROKES GAINED": "15.99",
-                "TOTAL STROKES GAINED": "18.15"
+                "TOTAL FEET OF PUTTS MADE": "107"
               }
             },
             {
@@ -8868,6 +7975,7 @@
               "grossPosition": 2,
               "netTotal": "+1",
               "grossTotal": "+2",
+              "netAdjustment": 1,
               "sg": {
                 "tee": 3.87,
                 "approach": 4.23,
@@ -8891,13 +7999,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "35",
-                "TEE STROKES GAINED": "3.87",
-                "APPROACH STROKES GAINED": "4.23",
-                "SHORT GAME STROKES GAINED": "3.94",
-                "PUTTING STROKES GAINED": "1.1",
-                "TEE TO GREEN STROKES GAINED": "12.04",
-                "TOTAL STROKES GAINED": "13.13"
+                "TOTAL FEET OF PUTTS MADE": "35"
               }
             },
             {
@@ -8909,6 +8011,7 @@
               "grossPosition": 2,
               "netTotal": "-3",
               "grossTotal": "-2",
+              "netAdjustment": 1,
               "sg": {
                 "tee": 4.88,
                 "approach": 5.32,
@@ -8932,13 +8035,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "46",
-                "TEE STROKES GAINED": "4.88",
-                "APPROACH STROKES GAINED": "5.32",
-                "SHORT GAME STROKES GAINED": "1.83",
-                "PUTTING STROKES GAINED": "-2.57",
-                "TEE TO GREEN STROKES GAINED": "12.03",
-                "TOTAL STROKES GAINED": "9.46"
+                "TOTAL FEET OF PUTTS MADE": "46"
               }
             }
           ]
@@ -8987,6 +8084,7 @@
               "grossPosition": 5,
               "netTotal": "-2",
               "grossTotal": "+13",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -1.63,
                 "approach": -0.52,
@@ -9010,13 +8108,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "51",
-                "TEE STROKES GAINED": "-1.63",
-                "APPROACH STROKES GAINED": "-0.52",
-                "SHORT GAME STROKES GAINED": "1.06",
-                "PUTTING STROKES GAINED": "-2.27",
-                "TEE TO GREEN STROKES GAINED": "-1.08",
-                "TOTAL STROKES GAINED": "-3.35"
+                "TOTAL FEET OF PUTTS MADE": "51"
               }
             },
             {
@@ -9028,6 +8120,7 @@
               "grossPosition": 3,
               "netTotal": "+2",
               "grossTotal": "+17",
+              "netAdjustment": 15,
               "sg": {
                 "tee": 1.76,
                 "approach": -1.24,
@@ -9051,13 +8144,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "75",
-                "TEE STROKES GAINED": "1.76",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.35",
-                "PUTTING STROKES GAINED": "2.77",
-                "TEE TO GREEN STROKES GAINED": "0.86",
-                "TOTAL STROKES GAINED": "3.63"
+                "TOTAL FEET OF PUTTS MADE": "75"
               }
             },
             {
@@ -9069,6 +8156,7 @@
               "grossPosition": 7,
               "netTotal": "+15",
               "grossTotal": "+30",
+              "netAdjustment": 15,
               "sg": {
                 "tee": -5.43,
                 "approach": -0.88,
@@ -9092,13 +8180,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "72",
-                "TEE STROKES GAINED": "-5.43",
-                "APPROACH STROKES GAINED": "-0.88",
-                "SHORT GAME STROKES GAINED": "-5.78",
-                "PUTTING STROKES GAINED": "1.84",
-                "TEE TO GREEN STROKES GAINED": "-12.09",
-                "TOTAL STROKES GAINED": "-10.25"
+                "TOTAL FEET OF PUTTS MADE": "72"
               }
             },
             {
@@ -9110,6 +8192,7 @@
               "grossPosition": 5,
               "netTotal": "-5",
               "grossTotal": "+12",
+              "netAdjustment": 17,
               "sg": {
                 "tee": 3.52,
                 "approach": -2.08,
@@ -9133,13 +8216,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "74",
-                "TEE STROKES GAINED": "3.52",
-                "APPROACH STROKES GAINED": "-2.08",
-                "SHORT GAME STROKES GAINED": "-0.41",
-                "PUTTING STROKES GAINED": "2.12",
-                "TEE TO GREEN STROKES GAINED": "1.03",
-                "TOTAL STROKES GAINED": "3.15"
+                "TOTAL FEET OF PUTTS MADE": "74"
               }
             },
             {
@@ -9151,6 +8228,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+13",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.24,
                 "approach": 2.65,
@@ -9174,13 +8252,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "41",
-                "TEE STROKES GAINED": "-1.24",
-                "APPROACH STROKES GAINED": "2.65",
-                "SHORT GAME STROKES GAINED": "-4.8",
-                "PUTTING STROKES GAINED": "-0.77",
-                "TEE TO GREEN STROKES GAINED": "-3.38",
-                "TOTAL STROKES GAINED": "-4.15"
+                "TOTAL FEET OF PUTTS MADE": "41"
               }
             }
           ]
@@ -9229,6 +8301,7 @@
               "grossPosition": 8,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.61,
                 "approach": -0.84,
@@ -9252,13 +8325,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "67",
-                "TEE STROKES GAINED": "-1.61",
-                "APPROACH STROKES GAINED": "-0.84",
-                "SHORT GAME STROKES GAINED": "-6.02",
-                "PUTTING STROKES GAINED": "-0",
-                "TEE TO GREEN STROKES GAINED": "-8.48",
-                "TOTAL STROKES GAINED": "-8.48"
+                "TOTAL FEET OF PUTTS MADE": "67"
               }
             },
             {
@@ -9270,6 +8337,7 @@
               "grossPosition": 7,
               "netTotal": "+9",
               "grossTotal": "+27",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -2.66,
                 "approach": -2.06,
@@ -9293,13 +8361,7 @@
                 "BOGEYS": "3",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "141",
-                "TEE STROKES GAINED": "-2.66",
-                "APPROACH STROKES GAINED": "-2.06",
-                "SHORT GAME STROKES GAINED": "-0.16",
-                "PUTTING STROKES GAINED": "-2.49",
-                "TEE TO GREEN STROKES GAINED": "-4.88",
-                "TOTAL STROKES GAINED": "-7.37"
+                "TOTAL FEET OF PUTTS MADE": "141"
               }
             },
             {
@@ -9311,6 +8373,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.57,
                 "approach": -2.44,
@@ -9334,13 +8397,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "8",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "83",
-                "TEE STROKES GAINED": "-0.57",
-                "APPROACH STROKES GAINED": "-2.44",
-                "SHORT GAME STROKES GAINED": "-1.79",
-                "PUTTING STROKES GAINED": "-4.18",
-                "TEE TO GREEN STROKES GAINED": "-4.79",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "83"
               }
             },
             {
@@ -9352,6 +8409,7 @@
               "grossPosition": 5,
               "netTotal": "+4",
               "grossTotal": "+22",
+              "netAdjustment": 18,
               "sg": {
                 "tee": 2.28,
                 "approach": 4.33,
@@ -9375,13 +8433,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "48",
-                "TEE STROKES GAINED": "2.28",
-                "APPROACH STROKES GAINED": "4.33",
-                "SHORT GAME STROKES GAINED": "-6.01",
-                "PUTTING STROKES GAINED": "-2.85",
-                "TEE TO GREEN STROKES GAINED": "0.6",
-                "TOTAL STROKES GAINED": "-2.25"
+                "TOTAL FEET OF PUTTS MADE": "48"
               }
             },
             {
@@ -9393,6 +8445,7 @@
               "grossPosition": 8,
               "netTotal": "+1",
               "grossTotal": "+20",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -0.9,
                 "approach": -2.89,
@@ -9416,13 +8469,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "-0.9",
-                "APPROACH STROKES GAINED": "-2.89",
-                "SHORT GAME STROKES GAINED": "-1.48",
-                "PUTTING STROKES GAINED": "0.43",
-                "TEE TO GREEN STROKES GAINED": "-5.28",
-                "TOTAL STROKES GAINED": "-4.85"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -9434,6 +8481,7 @@
               "grossPosition": 7,
               "netTotal": "+6",
               "grossTotal": "+23",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -1.65,
                 "approach": -1.1,
@@ -9457,13 +8505,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "54",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-1.1",
-                "SHORT GAME STROKES GAINED": "-1.11",
-                "PUTTING STROKES GAINED": "-4.01",
-                "TEE TO GREEN STROKES GAINED": "-3.86",
-                "TOTAL STROKES GAINED": "-7.87"
+                "TOTAL FEET OF PUTTS MADE": "54"
               }
             },
             {
@@ -9475,6 +8517,7 @@
               "grossPosition": 7,
               "netTotal": "-4",
               "grossTotal": "+13",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -1.18,
                 "approach": -3.68,
@@ -9498,13 +8541,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "42",
-                "TEE STROKES GAINED": "-1.18",
-                "APPROACH STROKES GAINED": "-3.68",
-                "SHORT GAME STROKES GAINED": "1.59",
-                "PUTTING STROKES GAINED": "-1.27",
-                "TEE TO GREEN STROKES GAINED": "-3.27",
-                "TOTAL STROKES GAINED": "-4.54"
+                "TOTAL FEET OF PUTTS MADE": "42"
               }
             }
           ]
@@ -9553,6 +8590,7 @@
               "grossPosition": 3,
               "netTotal": "-2",
               "grossTotal": "+10",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -0.16,
                 "approach": 1.21,
@@ -9576,13 +8614,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "92",
-                "TEE STROKES GAINED": "-0.16",
-                "APPROACH STROKES GAINED": "1.21",
-                "SHORT GAME STROKES GAINED": "-0.69",
-                "PUTTING STROKES GAINED": "0.29",
-                "TEE TO GREEN STROKES GAINED": "0.36",
-                "TOTAL STROKES GAINED": "0.65"
+                "TOTAL FEET OF PUTTS MADE": "92"
               }
             },
             {
@@ -9594,6 +8626,7 @@
               "grossPosition": 6,
               "netTotal": "+13",
               "grossTotal": "+25",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 1.81,
                 "approach": 0.9,
@@ -9617,13 +8650,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "55",
-                "TEE STROKES GAINED": "1.81",
-                "APPROACH STROKES GAINED": "0.9",
-                "SHORT GAME STROKES GAINED": "-6",
-                "PUTTING STROKES GAINED": "-2.08",
-                "TEE TO GREEN STROKES GAINED": "-3.29",
-                "TOTAL STROKES GAINED": "-5.37"
+                "TOTAL FEET OF PUTTS MADE": "55"
               }
             },
             {
@@ -9635,6 +8662,7 @@
               "grossPosition": 7,
               "netTotal": "+14",
               "grossTotal": "+24",
+              "netAdjustment": 10,
               "sg": {
                 "tee": -0.42,
                 "approach": -9.66,
@@ -9658,13 +8686,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "119",
-                "TEE STROKES GAINED": "-0.42",
-                "APPROACH STROKES GAINED": "-9.66",
-                "SHORT GAME STROKES GAINED": "-2.35",
-                "PUTTING STROKES GAINED": "2.46",
-                "TEE TO GREEN STROKES GAINED": "-12.43",
-                "TOTAL STROKES GAINED": "-9.98"
+                "TOTAL FEET OF PUTTS MADE": "119"
               }
             },
             {
@@ -9676,6 +8698,7 @@
               "grossPosition": 1,
               "netTotal": "-4",
               "grossTotal": "+6",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.13,
                 "approach": 6.14,
@@ -9699,13 +8722,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "66",
-                "TEE STROKES GAINED": "2.13",
-                "APPROACH STROKES GAINED": "6.14",
-                "SHORT GAME STROKES GAINED": "2.55",
-                "PUTTING STROKES GAINED": "2.93",
-                "TEE TO GREEN STROKES GAINED": "10.82",
-                "TOTAL STROKES GAINED": "13.75"
+                "TOTAL FEET OF PUTTS MADE": "66"
               }
             },
             {
@@ -9717,6 +8734,7 @@
               "grossPosition": 6,
               "netTotal": "+7",
               "grossTotal": "+16",
+              "netAdjustment": 9,
               "sg": {
                 "tee": 2.79,
                 "approach": -4.18,
@@ -9740,13 +8758,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "88",
-                "TEE STROKES GAINED": "2.79",
-                "APPROACH STROKES GAINED": "-4.18",
-                "SHORT GAME STROKES GAINED": "0.9",
-                "PUTTING STROKES GAINED": "-0.36",
-                "TEE TO GREEN STROKES GAINED": "-0.49",
-                "TOTAL STROKES GAINED": "-0.85"
+                "TOTAL FEET OF PUTTS MADE": "88"
               }
             },
             {
@@ -9758,6 +8770,7 @@
               "grossPosition": 5,
               "netTotal": "+12",
               "grossTotal": "+21",
+              "netAdjustment": 9,
               "sg": {
                 "tee": -1.38,
                 "approach": -1.5,
@@ -9781,13 +8794,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "94",
-                "TEE STROKES GAINED": "-1.38",
-                "APPROACH STROKES GAINED": "-1.5",
-                "SHORT GAME STROKES GAINED": "-3.77",
-                "PUTTING STROKES GAINED": "0.78",
-                "TEE TO GREEN STROKES GAINED": "-6.65",
-                "TOTAL STROKES GAINED": "-5.87"
+                "TOTAL FEET OF PUTTS MADE": "94"
               }
             },
             {
@@ -9799,6 +8806,7 @@
               "grossPosition": 3,
               "netTotal": "-7",
               "grossTotal": "+1",
+              "netAdjustment": 8,
               "sg": {
                 "tee": 2.3,
                 "approach": 2.45,
@@ -9822,13 +8830,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "76",
-                "TEE STROKES GAINED": "2.3",
-                "APPROACH STROKES GAINED": "2.45",
-                "SHORT GAME STROKES GAINED": "1.68",
-                "PUTTING STROKES GAINED": "0.81",
-                "TEE TO GREEN STROKES GAINED": "6.43",
-                "TOTAL STROKES GAINED": "7.24"
+                "TOTAL FEET OF PUTTS MADE": "76"
               }
             }
           ]
@@ -9877,6 +8879,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+10",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -2.73,
                 "approach": 2.35,
@@ -9900,13 +8903,7 @@
                 "BOGEYS": "7",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "71",
-                "TEE STROKES GAINED": "-2.73",
-                "APPROACH STROKES GAINED": "2.35",
-                "SHORT GAME STROKES GAINED": "-0.99",
-                "PUTTING STROKES GAINED": "1.01",
-                "TEE TO GREEN STROKES GAINED": "-1.37",
-                "TOTAL STROKES GAINED": "-0.35"
+                "TOTAL FEET OF PUTTS MADE": "71"
               }
             },
             {
@@ -9918,6 +8915,7 @@
               "grossPosition": 5,
               "netTotal": "+7",
               "grossTotal": "+24",
+              "netAdjustment": 17,
               "sg": {
                 "tee": -0.84,
                 "approach": 2.1,
@@ -9941,13 +8939,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-0.84",
-                "APPROACH STROKES GAINED": "2.1",
-                "SHORT GAME STROKES GAINED": "-4.76",
-                "PUTTING STROKES GAINED": "-0.87",
-                "TEE TO GREEN STROKES GAINED": "-3.5",
-                "TOTAL STROKES GAINED": "-4.37"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -9959,6 +8951,7 @@
               "grossPosition": 4,
               "netTotal": "E",
               "grossTotal": "+19",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -3.46,
                 "approach": -0.45,
@@ -9982,13 +8975,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "57",
-                "TEE STROKES GAINED": "-3.46",
-                "APPROACH STROKES GAINED": "-0.45",
-                "SHORT GAME STROKES GAINED": "-1.98",
-                "PUTTING STROKES GAINED": "-0.08",
-                "TEE TO GREEN STROKES GAINED": "-5.9",
-                "TOTAL STROKES GAINED": "-5.98"
+                "TOTAL FEET OF PUTTS MADE": "57"
               }
             },
             {
@@ -10000,6 +8987,7 @@
               "grossPosition": 8,
               "netTotal": "+20",
               "grossTotal": "+39",
+              "netAdjustment": 19,
               "sg": {
                 "tee": -2.87,
                 "approach": -12.89,
@@ -10023,13 +9011,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "23",
-                "TEE STROKES GAINED": "-2.87",
-                "APPROACH STROKES GAINED": "-12.89",
-                "SHORT GAME STROKES GAINED": "-1.78",
-                "PUTTING STROKES GAINED": "-1.71",
-                "TEE TO GREEN STROKES GAINED": "-17.54",
-                "TOTAL STROKES GAINED": "-19.25"
+                "TOTAL FEET OF PUTTS MADE": "23"
               }
             },
             {
@@ -10041,6 +9023,7 @@
               "grossPosition": 9,
               "netTotal": "+12",
               "grossTotal": "+30",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -6.55,
                 "approach": -0.29,
@@ -10064,13 +9047,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-6.55",
-                "APPROACH STROKES GAINED": "-0.29",
-                "SHORT GAME STROKES GAINED": "-0.07",
-                "PUTTING STROKES GAINED": "-7.94",
-                "TEE TO GREEN STROKES GAINED": "-6.91",
-                "TOTAL STROKES GAINED": "-14.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             },
             {
@@ -10082,6 +9059,7 @@
               "grossPosition": 9,
               "netTotal": "+6",
               "grossTotal": "+24",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -0.12,
                 "approach": -2.73,
@@ -10105,13 +9083,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "64",
-                "TEE STROKES GAINED": "-0.12",
-                "APPROACH STROKES GAINED": "-2.73",
-                "SHORT GAME STROKES GAINED": "-5.55",
-                "PUTTING STROKES GAINED": "-0.46",
-                "TEE TO GREEN STROKES GAINED": "-8.4",
-                "TOTAL STROKES GAINED": "-8.87"
+                "TOTAL FEET OF PUTTS MADE": "64"
               }
             },
             {
@@ -10123,6 +9095,7 @@
               "grossPosition": 10,
               "netTotal": "E",
               "grossTotal": "+18",
+              "netAdjustment": 18,
               "sg": {
                 "tee": -1.56,
                 "approach": -4.43,
@@ -10146,13 +9119,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "54",
-                "TEE STROKES GAINED": "-1.56",
-                "APPROACH STROKES GAINED": "-4.43",
-                "SHORT GAME STROKES GAINED": "-2.93",
-                "PUTTING STROKES GAINED": "-2.62",
-                "TEE TO GREEN STROKES GAINED": "-8.92",
-                "TOTAL STROKES GAINED": "-11.54"
+                "TOTAL FEET OF PUTTS MADE": "54"
               }
             }
           ]
@@ -10201,6 +9168,7 @@
               "grossPosition": 10,
               "netTotal": "+24",
               "grossTotal": "+35",
+              "netAdjustment": 11,
               "sg": {
                 "tee": -5.84,
                 "approach": -16.59,
@@ -10224,13 +9192,7 @@
                 "BOGEYS": "5",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "60",
-                "TEE STROKES GAINED": "-5.84",
-                "APPROACH STROKES GAINED": "-16.59",
-                "SHORT GAME STROKES GAINED": "3.53",
-                "PUTTING STROKES GAINED": "-0.94",
-                "TEE TO GREEN STROKES GAINED": "-18.91",
-                "TOTAL STROKES GAINED": "-19.85"
+                "TOTAL FEET OF PUTTS MADE": "60"
               }
             },
             {
@@ -10242,6 +9204,7 @@
               "grossPosition": 4,
               "netTotal": "+4",
               "grossTotal": "+14",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 2.16,
                 "approach": 2.39,
@@ -10265,13 +9228,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "2.16",
-                "APPROACH STROKES GAINED": "2.39",
-                "SHORT GAME STROKES GAINED": "-2.39",
-                "PUTTING STROKES GAINED": "-1.03",
-                "TEE TO GREEN STROKES GAINED": "2.17",
-                "TOTAL STROKES GAINED": "1.13"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             },
             {
@@ -10283,6 +9240,7 @@
               "grossPosition": 4,
               "netTotal": "-7",
               "grossTotal": "+3",
+              "netAdjustment": 10,
               "sg": {
                 "tee": 3.83,
                 "approach": -1.24,
@@ -10306,13 +9264,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "0",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "94",
-                "TEE STROKES GAINED": "3.83",
-                "APPROACH STROKES GAINED": "-1.24",
-                "SHORT GAME STROKES GAINED": "0.76",
-                "PUTTING STROKES GAINED": "0.11",
-                "TEE TO GREEN STROKES GAINED": "3.35",
-                "TOTAL STROKES GAINED": "3.46"
+                "TOTAL FEET OF PUTTS MADE": "94"
               }
             }
           ]
@@ -10361,6 +9313,7 @@
               "grossPosition": 7,
               "netTotal": "+12",
               "grossTotal": "+19",
+              "netAdjustment": 7,
               "sg": {
                 "tee": -2.15,
                 "approach": -4.46,
@@ -10384,13 +9337,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "73",
-                "TEE STROKES GAINED": "-2.15",
-                "APPROACH STROKES GAINED": "-4.46",
-                "SHORT GAME STROKES GAINED": "3.59",
-                "PUTTING STROKES GAINED": "-0.82",
-                "TEE TO GREEN STROKES GAINED": "-3.02",
-                "TOTAL STROKES GAINED": "-3.85"
+                "TOTAL FEET OF PUTTS MADE": "73"
               }
             },
             {
@@ -10402,6 +9349,7 @@
               "grossPosition": 3,
               "netTotal": "+3",
               "grossTotal": "+10",
+              "netAdjustment": 7,
               "sg": {
                 "tee": 2.46,
                 "approach": 0.11,
@@ -10425,13 +9373,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "64",
-                "TEE STROKES GAINED": "2.46",
-                "APPROACH STROKES GAINED": "0.11",
-                "SHORT GAME STROKES GAINED": "2.61",
-                "PUTTING STROKES GAINED": "-0.05",
-                "TEE TO GREEN STROKES GAINED": "5.19",
-                "TOTAL STROKES GAINED": "5.13"
+                "TOTAL FEET OF PUTTS MADE": "64"
               }
             },
             {
@@ -10443,6 +9385,7 @@
               "grossPosition": 5,
               "netTotal": "-3",
               "grossTotal": "+4",
+              "netAdjustment": 7,
               "sg": {
                 "tee": 1.28,
                 "approach": -0.9,
@@ -10466,13 +9409,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "101",
-                "TEE STROKES GAINED": "1.28",
-                "APPROACH STROKES GAINED": "-0.9",
-                "SHORT GAME STROKES GAINED": "1.02",
-                "PUTTING STROKES GAINED": "2.06",
-                "TEE TO GREEN STROKES GAINED": "1.4",
-                "TOTAL STROKES GAINED": "3.46"
+                "TOTAL FEET OF PUTTS MADE": "101"
               }
             }
           ]
@@ -10521,6 +9458,7 @@
               "grossPosition": 7,
               "netTotal": "+5",
               "grossTotal": "+17",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.58,
                 "approach": -4.03,
@@ -10544,13 +9482,7 @@
                 "BOGEYS": "8",
                 "DBL BOGEYS": "3",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "47",
-                "TEE STROKES GAINED": "-2.58",
-                "APPROACH STROKES GAINED": "-4.03",
-                "SHORT GAME STROKES GAINED": "-0.74",
-                "PUTTING STROKES GAINED": "-0.01",
-                "TEE TO GREEN STROKES GAINED": "-7.35",
-                "TOTAL STROKES GAINED": "-7.35"
+                "TOTAL FEET OF PUTTS MADE": "47"
               }
             },
             {
@@ -10562,6 +9494,7 @@
               "grossPosition": 8,
               "netTotal": "+17",
               "grossTotal": "+29",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -3.73,
                 "approach": -3.13,
@@ -10585,13 +9518,7 @@
                 "BOGEYS": "4",
                 "DBL BOGEYS": "4",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "58",
-                "TEE STROKES GAINED": "-3.73",
-                "APPROACH STROKES GAINED": "-3.13",
-                "SHORT GAME STROKES GAINED": "-0.86",
-                "PUTTING STROKES GAINED": "-1.65",
-                "TEE TO GREEN STROKES GAINED": "-7.72",
-                "TOTAL STROKES GAINED": "-9.37"
+                "TOTAL FEET OF PUTTS MADE": "58"
               }
             },
             {
@@ -10603,6 +9530,7 @@
               "grossPosition": 6,
               "netTotal": "+10",
               "grossTotal": "+22",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -1.65,
                 "approach": -6.58,
@@ -10626,13 +9554,7 @@
                 "BOGEYS": "6",
                 "DBL BOGEYS": "1",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "85",
-                "TEE STROKES GAINED": "-1.65",
-                "APPROACH STROKES GAINED": "-6.58",
-                "SHORT GAME STROKES GAINED": "-0.78",
-                "PUTTING STROKES GAINED": "0.03",
-                "TEE TO GREEN STROKES GAINED": "-9.01",
-                "TOTAL STROKES GAINED": "-8.98"
+                "TOTAL FEET OF PUTTS MADE": "85"
               }
             },
             {
@@ -10644,6 +9566,7 @@
               "grossPosition": 6,
               "netTotal": "+12",
               "grossTotal": "+24",
+              "netAdjustment": 12,
               "sg": {
                 "tee": 2.0,
                 "approach": -3.09,
@@ -10667,13 +9590,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "6",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "77",
-                "TEE STROKES GAINED": "2",
-                "APPROACH STROKES GAINED": "-3.09",
-                "SHORT GAME STROKES GAINED": "0.58",
-                "PUTTING STROKES GAINED": "-3.74",
-                "TEE TO GREEN STROKES GAINED": "-0.51",
-                "TOTAL STROKES GAINED": "-4.25"
+                "TOTAL FEET OF PUTTS MADE": "77"
               }
             },
             {
@@ -10685,6 +9602,7 @@
               "grossPosition": 3,
               "netTotal": "-3",
               "grossTotal": "+11",
+              "netAdjustment": 14,
               "sg": {
                 "tee": 4.63,
                 "approach": -6.32,
@@ -10708,13 +9626,7 @@
                 "BOGEYS": "9",
                 "DBL BOGEYS": "2",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "140",
-                "TEE STROKES GAINED": "4.63",
-                "APPROACH STROKES GAINED": "-6.32",
-                "SHORT GAME STROKES GAINED": "0.83",
-                "PUTTING STROKES GAINED": "5.01",
-                "TEE TO GREEN STROKES GAINED": "-0.86",
-                "TOTAL STROKES GAINED": "4.15"
+                "TOTAL FEET OF PUTTS MADE": "140"
               }
             },
             {
@@ -10726,6 +9638,7 @@
               "grossPosition": 6,
               "netTotal": "+9",
               "grossTotal": "+21",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -4.4,
                 "approach": -2.7,
@@ -10749,13 +9662,7 @@
                 "BOGEYS": "2",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "90",
-                "TEE STROKES GAINED": "-4.4",
-                "APPROACH STROKES GAINED": "-2.7",
-                "SHORT GAME STROKES GAINED": "-0.46",
-                "PUTTING STROKES GAINED": "1.69",
-                "TEE TO GREEN STROKES GAINED": "-7.56",
-                "TOTAL STROKES GAINED": "-5.87"
+                "TOTAL FEET OF PUTTS MADE": "90"
               }
             },
             {
@@ -10767,6 +9674,7 @@
               "grossPosition": 9,
               "netTotal": "+3",
               "grossTotal": "+15",
+              "netAdjustment": 12,
               "sg": {
                 "tee": -2.34,
                 "approach": -4.68,
@@ -10790,13 +9698,7 @@
                 "BOGEYS": "1",
                 "DBL BOGEYS": "5",
                 "ACES": "0",
-                "TOTAL FEET OF PUTTS MADE": "61",
-                "TEE STROKES GAINED": "-2.34",
-                "APPROACH STROKES GAINED": "-4.68",
-                "SHORT GAME STROKES GAINED": "0.77",
-                "PUTTING STROKES GAINED": "-2.29",
-                "TEE TO GREEN STROKES GAINED": "-6.25",
-                "TOTAL STROKES GAINED": "-8.54"
+                "TOTAL FEET OF PUTTS MADE": "61"
               }
             }
           ]
