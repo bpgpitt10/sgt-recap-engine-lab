@@ -2,9 +2,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
+from analyze_tournament import parse_scorecard, parse_shots
+
 ROOT = Path(__file__).resolve().parents[1]
+MAX_CHARS = 1900
+MAX_MESSAGES = 3
 
 
 def load(path: Path) -> dict:
@@ -18,53 +23,166 @@ def score(value: object) -> str:
     return "E" if value in {"0", "+0", "-0", "E"} else value
 
 
-def build(analysis: dict, copy: dict, recap_url: str) -> dict:
+def fmt_distance(feet: float) -> str:
+    if abs(feet - round(feet)) < 0.05:
+        return f"{int(round(feet))} ft"
+    return f"{feet:.1f} ft"
+
+
+def parse_yards(description: str | None) -> float | None:
+    if not description:
+        return None
+    match = re.match(r"\s*(\d+(?:\.\d+)?)\s*yds?\b", description, re.I)
+    return float(match.group(1)) if match else None
+
+
+def parse_missed_putt(description: str | None) -> float | None:
+    if not description:
+        return None
+    # SGT uses 'Putted X ft, Y ft left...' for a putt that did not finish in the hole.
+    # Holed putts are described separately as 'Made putt from X ft'.
+    match = re.search(r"\bPutted\s+(\d+(?:\.\d+)?)\s*ft\b.*\bleft\s+to\s+the\s+hole\b", description, re.I)
+    return float(match.group(1)) if match else None
+
+
+def verified_awards(analysis: dict, raw: dict | None) -> list[str]:
+    awards: list[str] = []
+
+    carnage = analysis.get("carnage", [])
+    if carnage:
+        king = carnage[0]
+        hole = king.get("hole")
+        if isinstance(hole, dict):
+            hole_no = hole.get("hole")
+            gross = hole.get("gross")
+            damage = hole.get("grossToPar")
+        else:
+            hole_no = king.get("hole")
+            gross = king.get("gross")
+            damage = king.get("grossToPar")
+        damage_label = f"+{damage}" if isinstance(damage, (int, float)) and damage > 0 else str(damage or "—")
+        awards.append(f"👑 **CARNAGE KING:** {king.get('name')} · Hole {hole_no} · {gross} ({damage_label})")
+
+    if not raw:
+        return awards
+
+    shortest_miss: tuple[float, str] | None = None
+    shortest_drive: tuple[float, str, int] | None = None
+
+    for player in raw.get("players", []):
+        name = player.get("name") or "—"
+        scorecard = parse_scorecard(player.get("scorecard"))
+        par_by_hole = {
+            (int(h.get("round") or 1), int(h["hole"])): h.get("par")
+            for h in scorecard.get("holes", [])
+            if h.get("hole") is not None
+        }
+        for hole in parse_shots(player.get("shots")):
+            round_no = int(hole.get("round") or 1)
+            hole_no = int(hole.get("hole"))
+            shots = hole.get("shots") or []
+
+            for shot in shots:
+                miss = parse_missed_putt(shot.get("description"))
+                if miss is not None and (shortest_miss is None or miss < shortest_miss[0]):
+                    shortest_miss = (miss, name)
+
+            # 'Shortest drive' = shortest first tee ball on a par 4 or par 5.
+            # We intentionally do not assume which club was used.
+            if par_by_hole.get((round_no, hole_no)) in {4, 5} and shots:
+                first = next((s for s in shots if s.get("number") == 1), shots[0])
+                yards = parse_yards(first.get("description"))
+                if yards is not None and (shortest_drive is None or yards < shortest_drive[0]):
+                    shortest_drive = (yards, name, hole_no)
+
+    if shortest_miss:
+        awards.append(f"🤏 **YOU MISSED THAT? AWARD:** {shortest_miss[1]} · {fmt_distance(shortest_miss[0])}")
+    if shortest_drive:
+        yards, name, hole_no = shortest_drive
+        yard_label = f"{int(round(yards))} yds" if abs(yards - round(yards)) < 0.05 else f"{yards:.1f} yds"
+        awards.append(f"🪱 **WORM BURNER:** {name} · {yard_label} · Hole {hole_no}")
+
+    return awards
+
+
+def ranking_messages(net: list[dict], taglines: dict[str, str]) -> list[str]:
+    messages: list[str] = []
+    current = "**NET RANKING**"
+    for i, row in enumerate(net, 1):
+        name = row.get("name", "—")
+        roast = taglines.get(name, "").strip()
+        line = f"**{i}. {name} · {score(row.get('total'))}** — {roast}"
+        candidate = current + "\n" + line
+        if len(candidate) <= MAX_CHARS:
+            current = candidate
+            continue
+        messages.append(current)
+        current = "**NET RANKING · CONTINUED**\n" + line
+    messages.append(current)
+    return messages
+
+
+def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -> dict:
     net = analysis.get("leaderboard", {}).get("net", [])
     gross = analysis.get("leaderboard", {}).get("gross", [])
     taglines = {p["name"]: p.get("tagline", "") for p in copy.get("players", [])}
+    title = (analysis.get("tournament") or {}).get("name") or "High Loft tournament"
+    teaser = (copy.get("latestTournamentTeaser") or "").strip()
 
-    lines = [
+    intro_lines = [
         "🏆 **New High Loft recap is live**",
-        copy.get("latestTournamentTeaser", "").strip(),
-        "",
+        f"**{title}** — {recap_url}",
     ]
+    if teaser:
+        intro_lines.extend([teaser, ""])
     if net:
-        lines.append(f"**Net:** {net[0]['name']} {score(net[0].get('total'))}")
+        intro_lines.append(f"**NET:** {net[0]['name']} · {score(net[0].get('total'))}")
     if gross:
-        lines.append(f"**Gross:** {gross[0]['name']} {score(gross[0].get('total'))}")
-    lines.extend(["", "**NET RANKING**"])
-    for i, row in enumerate(net, 1):
-        roast = taglines.get(row.get("name"), "").strip()
-        lines.append(f"**{i}. {row.get('name')} · {score(row.get('total'))}** — {roast}")
-    lines.extend(["", f"**Read the full carnage →** {recap_url}"])
+        intro_lines.append(f"**GROSS:** {gross[0]['name']} · {score(gross[0].get('total'))}")
 
-    content = "\n".join(lines)
-    if len(content) > 1950:
-        # Keep every player, but remove the teaser before sacrificing any ranking/roast line.
-        lines[1] = ""
-        content = "\n".join(lines)
-    if len(content) > 1950:
-        raise RuntimeError(f"Discord recap message is too long ({len(content)} chars); shorten generated taglines")
+    awards = verified_awards(analysis, raw)
+    if awards:
+        intro_lines.extend(["", "**THE HECKLER'S HARDWARE**", *awards])
 
-    return {"content": content}
+    intro = "\n".join(intro_lines)
+    if len(intro) > MAX_CHARS:
+        raise RuntimeError(f"Discord intro/awards post is too long ({len(intro)} chars)")
+
+    messages = [intro, *ranking_messages(net, taglines)]
+    if len(messages) > MAX_MESSAGES:
+        # This should only happen with an unusually huge field or absurdly long taglines.
+        # Keep the complete player list rather than silently dropping people.
+        raise RuntimeError(f"Discord payload needs {len(messages)} messages; max is {MAX_MESSAGES}. Shorten roast taglines.")
+
+    return {"messages": messages, "characterCounts": [len(m) for m in messages]}
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build the High Loft Discord webhook payload from validated recap data.")
+    parser = argparse.ArgumentParser(description="Build High Loft Discord webhook messages from validated recap data.")
     parser.add_argument("analysis", type=Path)
     parser.add_argument("copy", type=Path)
+    parser.add_argument("--raw", type=Path)
     parser.add_argument("--recap-url", required=True)
     parser.add_argument("--output", type=Path, default=Path("data/discord-payload.json"))
     args = parser.parse_args()
 
     analysis_path = args.analysis if args.analysis.is_absolute() else ROOT / args.analysis
     copy_path = args.copy if args.copy.is_absolute() else ROOT / args.copy
+    raw_path = None if args.raw is None else (args.raw if args.raw.is_absolute() else ROOT / args.raw)
     output = args.output if args.output.is_absolute() else ROOT / args.output
-    payload = build(load(analysis_path), load(copy_path), args.recap_url)
+
+    payload = build(
+        load(analysis_path),
+        load(copy_path),
+        args.recap_url,
+        load(raw_path) if raw_path and raw_path.exists() else None,
+    )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(payload["content"])
-    print(f"Discord payload chars: {len(payload['content'])}")
+    for i, message in enumerate(payload["messages"], 1):
+        print(f"--- Discord post {i} · {len(message)} chars ---")
+        print(message)
+    print(f"Discord posts: {len(payload['messages'])}")
 
 
 if __name__ == "__main__":
