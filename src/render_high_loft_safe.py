@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import render_high_loft as renderer
 
+# Capture the original function before monkey-patching it below. Otherwise the
+# wrapper calls itself forever after renderer.analysis_map is reassigned.
+_original_analysis_map = renderer.analysis_map
+
 
 def normalized_analysis_map() -> dict[int, dict]:
     """Accept both supported Carnage shapes before handing data to the renderer.
@@ -12,7 +16,7 @@ def normalized_analysis_map() -> dict[int, dict]:
     Preserve an already-expanded object; otherwise resolve it from the
     authoritative completed player record.
     """
-    analyses = renderer.analysis_map()
+    analyses = _original_analysis_map()
     for analysis in analyses.values():
         players = {
             player.get("name"): player
