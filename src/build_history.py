@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -9,10 +10,33 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCOPES = ("all", "5", "10", "20")
 SG_KEYS = ("tee", "approach", "shortGame", "putting", "teeToGreen", "total")
+PROFILE_STAT_KEYS = (
+    "LONGEST DRIVE",
+    "AVG DRIVE DISTANCE (FIR)",
+    "FAIRWAYS HIT",
+    "GREENS IN REGULATION",
+    "GIR PROXIMITY",
+    "SAND SAVES",
+    "SAND SAVES ATTEMPTS",
+    "TOTAL PUTTS",
+    "TOTAL 3-PUTTS",
+    "EAGLES",
+    "BIRDIES",
+    "BOGEYS",
+    "DBL BOGEYS",
+    "ACES",
+    "TOTAL FEET OF PUTTS MADE",
+)
 
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def sequence_number(event: dict) -> int:
+    name = event.get("name") or event.get("tourName") or ""
+    match = re.search(r"\b(?:week|event|round)\s*(\d+)\b", name, re.IGNORECASE)
+    return int(match.group(1)) if match else 0
 
 
 def event_sort_key(event: dict) -> tuple:
@@ -21,7 +45,8 @@ def event_sort_key(event: dict) -> tuple:
         parsed = date.fromisoformat(raw) if raw else date.min
     except ValueError:
         parsed = date.min
-    return (parsed, int(event.get("id", 0)))
+    # Date is primary chronology. A clear Week/Event/Round number may disambiguate same-day events.
+    return (parsed, sequence_number(event))
 
 
 def mean(values: list[float | int]) -> float | None:
@@ -30,11 +55,30 @@ def mean(values: list[float | int]) -> float | None:
     return round(sum(values) / len(values), 2)
 
 
+def numeric(value: object) -> float | None:
+    if isinstance(value, (int, float)):
+        return float(value)
+    if value is None:
+        return None
+    match = re.search(r"[-+]?\d+(?:\.\d+)?", str(value).replace(",", ""))
+    return float(match.group()) if match else None
+
+
+def evidence_level(starts: int) -> str:
+    if starts <= 1:
+        return "round_only"
+    if starts == 2:
+        return "possible_change"
+    if starts < 5:
+        return "trend"
+    return "strong_trend"
+
+
 def history_config() -> dict:
     path = ROOT / "config.json"
     if not path.exists():
         return {"defaultScope": "10", "scopes": list(SCOPES), "excludeEventIds": []}
-    return (load_json(path).get("history") or {})
+    return load_json(path).get("history") or {}
 
 
 def scope_events(completed: list[dict], scope: str) -> list[dict]:
@@ -82,6 +126,7 @@ def aggregate_scope(events: list[dict], analyses: dict[int, dict]) -> dict:
                     "netWins": 0,
                     "grossWins": 0,
                     "sgValues": defaultdict(list),
+                    "statValues": defaultdict(list),
                 },
             )
             if not entry.get("name") and player.get("name"):
@@ -104,21 +149,32 @@ def aggregate_scope(events: list[dict], analyses: dict[int, dict]) -> dict:
                 if isinstance(value, (int, float)):
                     entry["sgValues"][key].append(float(value))
 
+            stats = player.get("stats") or {}
+            for key in PROFILE_STAT_KEYS:
+                value = numeric(stats.get(key))
+                if value is not None:
+                    entry["statValues"][key].append(value)
+
             entry["events"].append(player_event_record(event, player))
 
     players = []
     for entry in by_player.values():
+        starts = len(entry["events"])
         sg_avg = {key: mean(entry["sgValues"].get(key, [])) for key in SG_KEYS}
+        stat_avg = {key: mean(entry["statValues"].get(key, [])) for key in PROFILE_STAT_KEYS}
         players.append(
             {
                 "id": entry["id"],
                 "name": entry["name"],
-                "starts": len(entry["events"]),
+                "starts": starts,
+                "evidenceLevel": evidence_level(starts),
                 "avgNet": mean(entry["netPositions"]),
                 "avgGross": mean(entry["grossPositions"]),
                 "netWins": entry["netWins"],
                 "grossWins": entry["grossWins"],
                 "sg": sg_avg,
+                "stats": stat_avg,
+                # Events remain newest-first inside the selected league window.
                 "events": entry["events"],
             }
         )
@@ -200,6 +256,8 @@ def validate(history: dict) -> None:
         for player in scope["players"]:
             if player["starts"] <= 0:
                 raise RuntimeError(f"Invalid starts for {player['name']} in scope {scope_name}")
+            if player.get("evidenceLevel") != evidence_level(player["starts"]):
+                raise RuntimeError(f"Evidence level mismatch for {player['name']} in scope {scope_name}")
             avg = player["avgNet"]
             if avg is not None and last_avg is not None and avg < last_avg:
                 raise RuntimeError(f"AVG NET ordering failed in scope {scope_name}")
