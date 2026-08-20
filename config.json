@@ -5,5 +5,17 @@
     "defaultScope": "10",
     "scopes": ["all", "5", "10", "20"],
     "excludeEventIds": [59463]
+  },
+  "site": {
+    "recapSlugs": {
+      "50704": "bay-hill",
+      "51974": "tpc-sawgrass",
+      "52877": "alpine-valley",
+      "53622": "tobacco-road-major",
+      "54741": "caledonia",
+      "55704": "copperhead-playoff",
+      "56937": "sage-valley-championship",
+      "59463": "4-man-best-ball-tournament"
+    }
   }
 }
