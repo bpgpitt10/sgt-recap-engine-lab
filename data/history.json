@@ -224,6 +224,7 @@
           "id": 40552,
           "name": "CRANK",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 2.71,
           "avgGross": 5.0,
           "netWins": 3,
@@ -235,6 +236,23 @@
             "putting": 0.85,
             "teeToGreen": -1.17,
             "total": -0.32
+          },
+          "stats": {
+            "LONGEST DRIVE": 231.14,
+            "AVG DRIVE DISTANCE (FIR)": 200.14,
+            "FAIRWAYS HIT": 6.43,
+            "GREENS IN REGULATION": 4.0,
+            "GIR PROXIMITY": 29.03,
+            "SAND SAVES": 1.43,
+            "SAND SAVES ATTEMPTS": 4.57,
+            "TOTAL PUTTS": 28.57,
+            "TOTAL 3-PUTTS": 1.29,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 5.57,
+            "DBL BOGEYS": 1.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 69.14
           },
           "events": [
             {
@@ -530,6 +548,7 @@
           "id": 41801,
           "name": "KeithK75",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 3.86,
           "avgGross": 1.57,
           "netWins": 2,
@@ -541,6 +560,23 @@
             "putting": 1.94,
             "teeToGreen": 10.46,
             "total": 12.4
+          },
+          "stats": {
+            "LONGEST DRIVE": 288.57,
+            "AVG DRIVE DISTANCE (FIR)": 256.86,
+            "FAIRWAYS HIT": 5.57,
+            "GREENS IN REGULATION": 10.0,
+            "GIR PROXIMITY": 20.3,
+            "SAND SAVES": 1.57,
+            "SAND SAVES ATTEMPTS": 3.43,
+            "TOTAL PUTTS": 27.0,
+            "TOTAL 3-PUTTS": 0.43,
+            "EAGLES": 0.0,
+            "BIRDIES": 4.14,
+            "BOGEYS": 3.57,
+            "DBL BOGEYS": 0.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 76.57
           },
           "events": [
             {
@@ -836,6 +872,7 @@
           "id": 40344,
           "name": "Dan94",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.29,
           "avgGross": 1.71,
           "netWins": 0,
@@ -847,6 +884,23 @@
             "putting": 0.55,
             "teeToGreen": 11.43,
             "total": 11.97
+          },
+          "stats": {
+            "LONGEST DRIVE": 312.29,
+            "AVG DRIVE DISTANCE (FIR)": 280.57,
+            "FAIRWAYS HIT": 6.0,
+            "GREENS IN REGULATION": 8.71,
+            "GIR PROXIMITY": 22.34,
+            "SAND SAVES": 1.57,
+            "SAND SAVES ATTEMPTS": 3.57,
+            "TOTAL PUTTS": 26.86,
+            "TOTAL 3-PUTTS": 0.71,
+            "EAGLES": 0.0,
+            "BIRDIES": 3.86,
+            "BOGEYS": 2.86,
+            "DBL BOGEYS": 1.14,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 71.14
           },
           "events": [
             {
@@ -1142,6 +1196,7 @@
           "id": 41641,
           "name": "HamSammich",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.6,
           "avgGross": 5.6,
           "netWins": 0,
@@ -1153,6 +1208,23 @@
             "putting": 0.74,
             "teeToGreen": -2.93,
             "total": -2.19
+          },
+          "stats": {
+            "LONGEST DRIVE": 296.6,
+            "AVG DRIVE DISTANCE (FIR)": 269.0,
+            "FAIRWAYS HIT": 3.4,
+            "GREENS IN REGULATION": 6.6,
+            "GIR PROXIMITY": 28.16,
+            "SAND SAVES": 0.8,
+            "SAND SAVES ATTEMPTS": 3.8,
+            "TOTAL PUTTS": 31.8,
+            "TOTAL 3-PUTTS": 1.2,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.2,
+            "BOGEYS": 4.6,
+            "DBL BOGEYS": 3.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 62.6
           },
           "events": [
             {
@@ -1366,6 +1438,7 @@
           "id": 41637,
           "name": "DREADFUL",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.71,
           "avgGross": 6.71,
           "netWins": 0,
@@ -1377,6 +1450,23 @@
             "putting": -2.05,
             "teeToGreen": -4.28,
             "total": -6.33
+          },
+          "stats": {
+            "LONGEST DRIVE": 281.57,
+            "AVG DRIVE DISTANCE (FIR)": 256.86,
+            "FAIRWAYS HIT": 4.57,
+            "GREENS IN REGULATION": 5.71,
+            "GIR PROXIMITY": 29.3,
+            "SAND SAVES": 1.0,
+            "SAND SAVES ATTEMPTS": 4.14,
+            "TOTAL PUTTS": 33.86,
+            "TOTAL 3-PUTTS": 2.71,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.86,
+            "BOGEYS": 4.86,
+            "DBL BOGEYS": 4.14,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 73.14
           },
           "events": [
             {
@@ -1672,6 +1762,7 @@
           "id": 15857,
           "name": "MashedBROtato",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 5.14,
           "avgGross": 4.43,
           "netWins": 1,
@@ -1683,6 +1774,23 @@
             "putting": 0.69,
             "teeToGreen": -0.75,
             "total": -0.06
+          },
+          "stats": {
+            "LONGEST DRIVE": 275.2,
+            "AVG DRIVE DISTANCE (FIR)": 248.8,
+            "FAIRWAYS HIT": 2.86,
+            "GREENS IN REGULATION": 6.14,
+            "GIR PROXIMITY": 28.26,
+            "SAND SAVES": 1.43,
+            "SAND SAVES ATTEMPTS": 4.57,
+            "TOTAL PUTTS": 30.71,
+            "TOTAL 3-PUTTS": 1.86,
+            "EAGLES": 0.29,
+            "BIRDIES": 1.86,
+            "BOGEYS": 4.86,
+            "DBL BOGEYS": 3.57,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 84.29
           },
           "events": [
             {
@@ -1978,6 +2086,7 @@
           "id": 40422,
           "name": "IUDoc92",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 5.43,
           "avgGross": 7.0,
           "netWins": 1,
@@ -1989,6 +2098,23 @@
             "putting": -1.81,
             "teeToGreen": -7.51,
             "total": -9.32
+          },
+          "stats": {
+            "LONGEST DRIVE": 239.86,
+            "AVG DRIVE DISTANCE (FIR)": 211.86,
+            "FAIRWAYS HIT": 6.57,
+            "GREENS IN REGULATION": 4.29,
+            "GIR PROXIMITY": 28.49,
+            "SAND SAVES": 1.14,
+            "SAND SAVES ATTEMPTS": 6.29,
+            "TOTAL PUTTS": 33.71,
+            "TOTAL 3-PUTTS": 3.29,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.57,
+            "BOGEYS": 5.86,
+            "DBL BOGEYS": 3.57,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 57.57
           },
           "events": [
             {
@@ -2284,6 +2410,7 @@
           "id": 40582,
           "name": "TEV_11",
           "starts": 3,
+          "evidenceLevel": "trend",
           "avgNet": 5.67,
           "avgGross": 6.0,
           "netWins": 0,
@@ -2295,6 +2422,23 @@
             "putting": -0.62,
             "teeToGreen": -4.46,
             "total": -5.09
+          },
+          "stats": {
+            "LONGEST DRIVE": 281.33,
+            "AVG DRIVE DISTANCE (FIR)": 258.67,
+            "FAIRWAYS HIT": 2.67,
+            "GREENS IN REGULATION": 8.33,
+            "GIR PROXIMITY": 24.83,
+            "SAND SAVES": 1.67,
+            "SAND SAVES ATTEMPTS": 5.67,
+            "TOTAL PUTTS": 31.67,
+            "TOTAL 3-PUTTS": 2.67,
+            "EAGLES": 0.0,
+            "BIRDIES": 2.33,
+            "BOGEYS": 6.33,
+            "DBL BOGEYS": 2.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 71.67
           },
           "events": [
             {
@@ -2426,6 +2570,7 @@
           "id": 41797,
           "name": "graycrum",
           "starts": 3,
+          "evidenceLevel": "trend",
           "avgNet": 6.67,
           "avgGross": 5.0,
           "netWins": 0,
@@ -2437,6 +2582,23 @@
             "putting": 0.4,
             "teeToGreen": 1.19,
             "total": 1.58
+          },
+          "stats": {
+            "LONGEST DRIVE": 267.67,
+            "AVG DRIVE DISTANCE (FIR)": 232.0,
+            "FAIRWAYS HIT": 5.33,
+            "GREENS IN REGULATION": 6.33,
+            "GIR PROXIMITY": 27.57,
+            "SAND SAVES": 3.33,
+            "SAND SAVES ATTEMPTS": 5.67,
+            "TOTAL PUTTS": 30.67,
+            "TOTAL 3-PUTTS": 2.67,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 4.33,
+            "DBL BOGEYS": 2.33,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 79.33
           },
           "events": [
             {
@@ -2568,6 +2730,7 @@
           "id": 41006,
           "name": "Leroy4522",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 6.86,
           "avgGross": 6.43,
           "netWins": 0,
@@ -2579,6 +2742,23 @@
             "putting": -0.14,
             "teeToGreen": -5.61,
             "total": -5.74
+          },
+          "stats": {
+            "LONGEST DRIVE": 260.14,
+            "AVG DRIVE DISTANCE (FIR)": 231.57,
+            "FAIRWAYS HIT": 5.0,
+            "GREENS IN REGULATION": 4.43,
+            "GIR PROXIMITY": 57.23,
+            "SAND SAVES": 1.71,
+            "SAND SAVES ATTEMPTS": 5.43,
+            "TOTAL PUTTS": 32.29,
+            "TOTAL 3-PUTTS": 2.14,
+            "EAGLES": 0.14,
+            "BIRDIES": 0.71,
+            "BOGEYS": 5.57,
+            "DBL BOGEYS": 3.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 79.71
           },
           "events": [
             {
@@ -2886,6 +3066,7 @@
           "id": 40552,
           "name": "CRANK",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 3.0,
           "avgGross": 4.2,
           "netWins": 2,
@@ -2897,6 +3078,23 @@
             "putting": 0.81,
             "teeToGreen": 0.03,
             "total": 0.84
+          },
+          "stats": {
+            "LONGEST DRIVE": 233.6,
+            "AVG DRIVE DISTANCE (FIR)": 200.4,
+            "FAIRWAYS HIT": 6.8,
+            "GREENS IN REGULATION": 4.0,
+            "GIR PROXIMITY": 29.98,
+            "SAND SAVES": 1.4,
+            "SAND SAVES ATTEMPTS": 4.4,
+            "TOTAL PUTTS": 29.2,
+            "TOTAL 3-PUTTS": 1.4,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 6.0,
+            "DBL BOGEYS": 2.2,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 69.6
           },
           "events": [
             {
@@ -3110,6 +3308,7 @@
           "id": 41641,
           "name": "HamSammich",
           "starts": 4,
+          "evidenceLevel": "trend",
           "avgNet": 3.5,
           "avgGross": 5.0,
           "netWins": 0,
@@ -3121,6 +3320,23 @@
             "putting": 1.11,
             "teeToGreen": -2.82,
             "total": -1.71
+          },
+          "stats": {
+            "LONGEST DRIVE": 300.25,
+            "AVG DRIVE DISTANCE (FIR)": 265.75,
+            "FAIRWAYS HIT": 4.0,
+            "GREENS IN REGULATION": 6.0,
+            "GIR PROXIMITY": 30.15,
+            "SAND SAVES": 0.5,
+            "SAND SAVES ATTEMPTS": 3.75,
+            "TOTAL PUTTS": 32.0,
+            "TOTAL 3-PUTTS": 1.25,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.25,
+            "BOGEYS": 5.0,
+            "DBL BOGEYS": 3.25,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 68.0
           },
           "events": [
             {
@@ -3293,6 +3509,7 @@
           "id": 41637,
           "name": "DREADFUL",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.4,
           "avgGross": 6.6,
           "netWins": 0,
@@ -3304,6 +3521,23 @@
             "putting": -1.82,
             "teeToGreen": -4.57,
             "total": -6.39
+          },
+          "stats": {
+            "LONGEST DRIVE": 287.0,
+            "AVG DRIVE DISTANCE (FIR)": 260.8,
+            "FAIRWAYS HIT": 4.0,
+            "GREENS IN REGULATION": 4.8,
+            "GIR PROXIMITY": 33.2,
+            "SAND SAVES": 1.0,
+            "SAND SAVES ATTEMPTS": 4.4,
+            "TOTAL PUTTS": 34.2,
+            "TOTAL 3-PUTTS": 3.0,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.8,
+            "BOGEYS": 5.0,
+            "DBL BOGEYS": 4.4,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 83.2
           },
           "events": [
             {
@@ -3517,6 +3751,7 @@
           "id": 40344,
           "name": "Dan94",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.4,
           "avgGross": 1.6,
           "netWins": 0,
@@ -3528,6 +3763,23 @@
             "putting": 1.06,
             "teeToGreen": 11.18,
             "total": 12.24
+          },
+          "stats": {
+            "LONGEST DRIVE": 319.0,
+            "AVG DRIVE DISTANCE (FIR)": 285.0,
+            "FAIRWAYS HIT": 6.6,
+            "GREENS IN REGULATION": 9.0,
+            "GIR PROXIMITY": 22.6,
+            "SAND SAVES": 1.2,
+            "SAND SAVES ATTEMPTS": 3.6,
+            "TOTAL PUTTS": 27.8,
+            "TOTAL 3-PUTTS": 1.0,
+            "EAGLES": 0.0,
+            "BIRDIES": 3.6,
+            "BOGEYS": 3.0,
+            "DBL BOGEYS": 1.2,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 83.4
           },
           "events": [
             {
@@ -3741,6 +3993,7 @@
           "id": 41801,
           "name": "KeithK75",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.4,
           "avgGross": 1.8,
           "netWins": 1,
@@ -3752,6 +4005,23 @@
             "putting": 1.95,
             "teeToGreen": 9.5,
             "total": 11.44
+          },
+          "stats": {
+            "LONGEST DRIVE": 293.4,
+            "AVG DRIVE DISTANCE (FIR)": 265.2,
+            "FAIRWAYS HIT": 5.8,
+            "GREENS IN REGULATION": 9.0,
+            "GIR PROXIMITY": 21.98,
+            "SAND SAVES": 1.6,
+            "SAND SAVES ATTEMPTS": 3.8,
+            "TOTAL PUTTS": 28.2,
+            "TOTAL 3-PUTTS": 0.6,
+            "EAGLES": 0.0,
+            "BIRDIES": 2.4,
+            "BOGEYS": 3.8,
+            "DBL BOGEYS": 1.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 73.4
           },
           "events": [
             {
@@ -3965,6 +4235,7 @@
           "id": 40422,
           "name": "IUDoc92",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.6,
           "avgGross": 6.0,
           "netWins": 1,
@@ -3976,6 +4247,23 @@
             "putting": -1.92,
             "teeToGreen": -7.04,
             "total": -8.96
+          },
+          "stats": {
+            "LONGEST DRIVE": 247.6,
+            "AVG DRIVE DISTANCE (FIR)": 213.6,
+            "FAIRWAYS HIT": 6.4,
+            "GREENS IN REGULATION": 4.0,
+            "GIR PROXIMITY": 27.74,
+            "SAND SAVES": 1.2,
+            "SAND SAVES ATTEMPTS": 6.2,
+            "TOTAL PUTTS": 33.8,
+            "TOTAL 3-PUTTS": 3.6,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.6,
+            "BOGEYS": 6.2,
+            "DBL BOGEYS": 3.2,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 57.0
           },
           "events": [
             {
@@ -4189,6 +4477,7 @@
           "id": 15857,
           "name": "MashedBROtato",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.8,
           "avgGross": 4.6,
           "netWins": 1,
@@ -4200,6 +4489,23 @@
             "putting": 0.65,
             "teeToGreen": -1.01,
             "total": -0.36
+          },
+          "stats": {
+            "LONGEST DRIVE": 284.25,
+            "AVG DRIVE DISTANCE (FIR)": 254.0,
+            "FAIRWAYS HIT": 3.4,
+            "GREENS IN REGULATION": 6.2,
+            "GIR PROXIMITY": 29.62,
+            "SAND SAVES": 0.8,
+            "SAND SAVES ATTEMPTS": 4.4,
+            "TOTAL PUTTS": 31.8,
+            "TOTAL 3-PUTTS": 2.4,
+            "EAGLES": 0.2,
+            "BIRDIES": 1.6,
+            "BOGEYS": 5.0,
+            "DBL BOGEYS": 3.4,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 84.0
           },
           "events": [
             {
@@ -4413,6 +4719,7 @@
           "id": 41006,
           "name": "Leroy4522",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 6.0,
           "avgGross": 6.0,
           "netWins": 0,
@@ -4424,6 +4731,23 @@
             "putting": -0.07,
             "teeToGreen": -5.09,
             "total": -5.16
+          },
+          "stats": {
+            "LONGEST DRIVE": 263.2,
+            "AVG DRIVE DISTANCE (FIR)": 233.8,
+            "FAIRWAYS HIT": 5.4,
+            "GREENS IN REGULATION": 4.0,
+            "GIR PROXIMITY": 69.04,
+            "SAND SAVES": 1.6,
+            "SAND SAVES ATTEMPTS": 6.2,
+            "TOTAL PUTTS": 32.6,
+            "TOTAL 3-PUTTS": 2.4,
+            "EAGLES": 0.2,
+            "BIRDIES": 0.6,
+            "BOGEYS": 7.2,
+            "DBL BOGEYS": 3.2,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 81.4
           },
           "events": [
             {
@@ -4637,6 +4961,7 @@
           "id": 41797,
           "name": "graycrum",
           "starts": 1,
+          "evidenceLevel": "round_only",
           "avgNet": 9.0,
           "avgGross": 7.0,
           "netWins": 0,
@@ -4648,6 +4973,23 @@
             "putting": -0.82,
             "teeToGreen": -3.02,
             "total": -3.85
+          },
+          "stats": {
+            "LONGEST DRIVE": 292.0,
+            "AVG DRIVE DISTANCE (FIR)": 253.0,
+            "FAIRWAYS HIT": 4.0,
+            "GREENS IN REGULATION": 7.0,
+            "GIR PROXIMITY": 30.4,
+            "SAND SAVES": 3.0,
+            "SAND SAVES ATTEMPTS": 8.0,
+            "TOTAL PUTTS": 34.0,
+            "TOTAL 3-PUTTS": 3.0,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 6.0,
+            "DBL BOGEYS": 4.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 73.0
           },
           "events": [
             {
@@ -4697,6 +5039,7 @@
           "id": 40582,
           "name": "TEV_11",
           "starts": 1,
+          "evidenceLevel": "round_only",
           "avgNet": 10.0,
           "avgGross": 10.0,
           "netWins": 0,
@@ -4708,6 +5051,23 @@
             "putting": -0.94,
             "teeToGreen": -18.91,
             "total": -19.85
+          },
+          "stats": {
+            "LONGEST DRIVE": 293.0,
+            "AVG DRIVE DISTANCE (FIR)": 261.0,
+            "FAIRWAYS HIT": 3.0,
+            "GREENS IN REGULATION": 6.0,
+            "GIR PROXIMITY": 22.5,
+            "SAND SAVES": 1.0,
+            "SAND SAVES ATTEMPTS": 8.0,
+            "TOTAL PUTTS": 30.0,
+            "TOTAL 3-PUTTS": 3.0,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.0,
+            "BOGEYS": 5.0,
+            "DBL BOGEYS": 4.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 60.0
           },
           "events": [
             {
@@ -4771,6 +5131,7 @@
           "id": 40552,
           "name": "CRANK",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 2.71,
           "avgGross": 5.0,
           "netWins": 3,
@@ -4782,6 +5143,23 @@
             "putting": 0.85,
             "teeToGreen": -1.17,
             "total": -0.32
+          },
+          "stats": {
+            "LONGEST DRIVE": 231.14,
+            "AVG DRIVE DISTANCE (FIR)": 200.14,
+            "FAIRWAYS HIT": 6.43,
+            "GREENS IN REGULATION": 4.0,
+            "GIR PROXIMITY": 29.03,
+            "SAND SAVES": 1.43,
+            "SAND SAVES ATTEMPTS": 4.57,
+            "TOTAL PUTTS": 28.57,
+            "TOTAL 3-PUTTS": 1.29,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 5.57,
+            "DBL BOGEYS": 1.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 69.14
           },
           "events": [
             {
@@ -5077,6 +5455,7 @@
           "id": 41801,
           "name": "KeithK75",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 3.86,
           "avgGross": 1.57,
           "netWins": 2,
@@ -5088,6 +5467,23 @@
             "putting": 1.94,
             "teeToGreen": 10.46,
             "total": 12.4
+          },
+          "stats": {
+            "LONGEST DRIVE": 288.57,
+            "AVG DRIVE DISTANCE (FIR)": 256.86,
+            "FAIRWAYS HIT": 5.57,
+            "GREENS IN REGULATION": 10.0,
+            "GIR PROXIMITY": 20.3,
+            "SAND SAVES": 1.57,
+            "SAND SAVES ATTEMPTS": 3.43,
+            "TOTAL PUTTS": 27.0,
+            "TOTAL 3-PUTTS": 0.43,
+            "EAGLES": 0.0,
+            "BIRDIES": 4.14,
+            "BOGEYS": 3.57,
+            "DBL BOGEYS": 0.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 76.57
           },
           "events": [
             {
@@ -5383,6 +5779,7 @@
           "id": 40344,
           "name": "Dan94",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.29,
           "avgGross": 1.71,
           "netWins": 0,
@@ -5394,6 +5791,23 @@
             "putting": 0.55,
             "teeToGreen": 11.43,
             "total": 11.97
+          },
+          "stats": {
+            "LONGEST DRIVE": 312.29,
+            "AVG DRIVE DISTANCE (FIR)": 280.57,
+            "FAIRWAYS HIT": 6.0,
+            "GREENS IN REGULATION": 8.71,
+            "GIR PROXIMITY": 22.34,
+            "SAND SAVES": 1.57,
+            "SAND SAVES ATTEMPTS": 3.57,
+            "TOTAL PUTTS": 26.86,
+            "TOTAL 3-PUTTS": 0.71,
+            "EAGLES": 0.0,
+            "BIRDIES": 3.86,
+            "BOGEYS": 2.86,
+            "DBL BOGEYS": 1.14,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 71.14
           },
           "events": [
             {
@@ -5689,6 +6103,7 @@
           "id": 41641,
           "name": "HamSammich",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.6,
           "avgGross": 5.6,
           "netWins": 0,
@@ -5700,6 +6115,23 @@
             "putting": 0.74,
             "teeToGreen": -2.93,
             "total": -2.19
+          },
+          "stats": {
+            "LONGEST DRIVE": 296.6,
+            "AVG DRIVE DISTANCE (FIR)": 269.0,
+            "FAIRWAYS HIT": 3.4,
+            "GREENS IN REGULATION": 6.6,
+            "GIR PROXIMITY": 28.16,
+            "SAND SAVES": 0.8,
+            "SAND SAVES ATTEMPTS": 3.8,
+            "TOTAL PUTTS": 31.8,
+            "TOTAL 3-PUTTS": 1.2,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.2,
+            "BOGEYS": 4.6,
+            "DBL BOGEYS": 3.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 62.6
           },
           "events": [
             {
@@ -5913,6 +6345,7 @@
           "id": 41637,
           "name": "DREADFUL",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.71,
           "avgGross": 6.71,
           "netWins": 0,
@@ -5924,6 +6357,23 @@
             "putting": -2.05,
             "teeToGreen": -4.28,
             "total": -6.33
+          },
+          "stats": {
+            "LONGEST DRIVE": 281.57,
+            "AVG DRIVE DISTANCE (FIR)": 256.86,
+            "FAIRWAYS HIT": 4.57,
+            "GREENS IN REGULATION": 5.71,
+            "GIR PROXIMITY": 29.3,
+            "SAND SAVES": 1.0,
+            "SAND SAVES ATTEMPTS": 4.14,
+            "TOTAL PUTTS": 33.86,
+            "TOTAL 3-PUTTS": 2.71,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.86,
+            "BOGEYS": 4.86,
+            "DBL BOGEYS": 4.14,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 73.14
           },
           "events": [
             {
@@ -6219,6 +6669,7 @@
           "id": 15857,
           "name": "MashedBROtato",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 5.14,
           "avgGross": 4.43,
           "netWins": 1,
@@ -6230,6 +6681,23 @@
             "putting": 0.69,
             "teeToGreen": -0.75,
             "total": -0.06
+          },
+          "stats": {
+            "LONGEST DRIVE": 275.2,
+            "AVG DRIVE DISTANCE (FIR)": 248.8,
+            "FAIRWAYS HIT": 2.86,
+            "GREENS IN REGULATION": 6.14,
+            "GIR PROXIMITY": 28.26,
+            "SAND SAVES": 1.43,
+            "SAND SAVES ATTEMPTS": 4.57,
+            "TOTAL PUTTS": 30.71,
+            "TOTAL 3-PUTTS": 1.86,
+            "EAGLES": 0.29,
+            "BIRDIES": 1.86,
+            "BOGEYS": 4.86,
+            "DBL BOGEYS": 3.57,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 84.29
           },
           "events": [
             {
@@ -6525,6 +6993,7 @@
           "id": 40422,
           "name": "IUDoc92",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 5.43,
           "avgGross": 7.0,
           "netWins": 1,
@@ -6536,6 +7005,23 @@
             "putting": -1.81,
             "teeToGreen": -7.51,
             "total": -9.32
+          },
+          "stats": {
+            "LONGEST DRIVE": 239.86,
+            "AVG DRIVE DISTANCE (FIR)": 211.86,
+            "FAIRWAYS HIT": 6.57,
+            "GREENS IN REGULATION": 4.29,
+            "GIR PROXIMITY": 28.49,
+            "SAND SAVES": 1.14,
+            "SAND SAVES ATTEMPTS": 6.29,
+            "TOTAL PUTTS": 33.71,
+            "TOTAL 3-PUTTS": 3.29,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.57,
+            "BOGEYS": 5.86,
+            "DBL BOGEYS": 3.57,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 57.57
           },
           "events": [
             {
@@ -6831,6 +7317,7 @@
           "id": 40582,
           "name": "TEV_11",
           "starts": 3,
+          "evidenceLevel": "trend",
           "avgNet": 5.67,
           "avgGross": 6.0,
           "netWins": 0,
@@ -6842,6 +7329,23 @@
             "putting": -0.62,
             "teeToGreen": -4.46,
             "total": -5.09
+          },
+          "stats": {
+            "LONGEST DRIVE": 281.33,
+            "AVG DRIVE DISTANCE (FIR)": 258.67,
+            "FAIRWAYS HIT": 2.67,
+            "GREENS IN REGULATION": 8.33,
+            "GIR PROXIMITY": 24.83,
+            "SAND SAVES": 1.67,
+            "SAND SAVES ATTEMPTS": 5.67,
+            "TOTAL PUTTS": 31.67,
+            "TOTAL 3-PUTTS": 2.67,
+            "EAGLES": 0.0,
+            "BIRDIES": 2.33,
+            "BOGEYS": 6.33,
+            "DBL BOGEYS": 2.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 71.67
           },
           "events": [
             {
@@ -6973,6 +7477,7 @@
           "id": 41797,
           "name": "graycrum",
           "starts": 3,
+          "evidenceLevel": "trend",
           "avgNet": 6.67,
           "avgGross": 5.0,
           "netWins": 0,
@@ -6984,6 +7489,23 @@
             "putting": 0.4,
             "teeToGreen": 1.19,
             "total": 1.58
+          },
+          "stats": {
+            "LONGEST DRIVE": 267.67,
+            "AVG DRIVE DISTANCE (FIR)": 232.0,
+            "FAIRWAYS HIT": 5.33,
+            "GREENS IN REGULATION": 6.33,
+            "GIR PROXIMITY": 27.57,
+            "SAND SAVES": 3.33,
+            "SAND SAVES ATTEMPTS": 5.67,
+            "TOTAL PUTTS": 30.67,
+            "TOTAL 3-PUTTS": 2.67,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 4.33,
+            "DBL BOGEYS": 2.33,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 79.33
           },
           "events": [
             {
@@ -7115,6 +7637,7 @@
           "id": 41006,
           "name": "Leroy4522",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 6.86,
           "avgGross": 6.43,
           "netWins": 0,
@@ -7126,6 +7649,23 @@
             "putting": -0.14,
             "teeToGreen": -5.61,
             "total": -5.74
+          },
+          "stats": {
+            "LONGEST DRIVE": 260.14,
+            "AVG DRIVE DISTANCE (FIR)": 231.57,
+            "FAIRWAYS HIT": 5.0,
+            "GREENS IN REGULATION": 4.43,
+            "GIR PROXIMITY": 57.23,
+            "SAND SAVES": 1.71,
+            "SAND SAVES ATTEMPTS": 5.43,
+            "TOTAL PUTTS": 32.29,
+            "TOTAL 3-PUTTS": 2.14,
+            "EAGLES": 0.14,
+            "BIRDIES": 0.71,
+            "BOGEYS": 5.57,
+            "DBL BOGEYS": 3.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 79.71
           },
           "events": [
             {
@@ -7435,6 +7975,7 @@
           "id": 40552,
           "name": "CRANK",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 2.71,
           "avgGross": 5.0,
           "netWins": 3,
@@ -7446,6 +7987,23 @@
             "putting": 0.85,
             "teeToGreen": -1.17,
             "total": -0.32
+          },
+          "stats": {
+            "LONGEST DRIVE": 231.14,
+            "AVG DRIVE DISTANCE (FIR)": 200.14,
+            "FAIRWAYS HIT": 6.43,
+            "GREENS IN REGULATION": 4.0,
+            "GIR PROXIMITY": 29.03,
+            "SAND SAVES": 1.43,
+            "SAND SAVES ATTEMPTS": 4.57,
+            "TOTAL PUTTS": 28.57,
+            "TOTAL 3-PUTTS": 1.29,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 5.57,
+            "DBL BOGEYS": 1.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 69.14
           },
           "events": [
             {
@@ -7741,6 +8299,7 @@
           "id": 41801,
           "name": "KeithK75",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 3.86,
           "avgGross": 1.57,
           "netWins": 2,
@@ -7752,6 +8311,23 @@
             "putting": 1.94,
             "teeToGreen": 10.46,
             "total": 12.4
+          },
+          "stats": {
+            "LONGEST DRIVE": 288.57,
+            "AVG DRIVE DISTANCE (FIR)": 256.86,
+            "FAIRWAYS HIT": 5.57,
+            "GREENS IN REGULATION": 10.0,
+            "GIR PROXIMITY": 20.3,
+            "SAND SAVES": 1.57,
+            "SAND SAVES ATTEMPTS": 3.43,
+            "TOTAL PUTTS": 27.0,
+            "TOTAL 3-PUTTS": 0.43,
+            "EAGLES": 0.0,
+            "BIRDIES": 4.14,
+            "BOGEYS": 3.57,
+            "DBL BOGEYS": 0.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 76.57
           },
           "events": [
             {
@@ -8047,6 +8623,7 @@
           "id": 40344,
           "name": "Dan94",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.29,
           "avgGross": 1.71,
           "netWins": 0,
@@ -8058,6 +8635,23 @@
             "putting": 0.55,
             "teeToGreen": 11.43,
             "total": 11.97
+          },
+          "stats": {
+            "LONGEST DRIVE": 312.29,
+            "AVG DRIVE DISTANCE (FIR)": 280.57,
+            "FAIRWAYS HIT": 6.0,
+            "GREENS IN REGULATION": 8.71,
+            "GIR PROXIMITY": 22.34,
+            "SAND SAVES": 1.57,
+            "SAND SAVES ATTEMPTS": 3.57,
+            "TOTAL PUTTS": 26.86,
+            "TOTAL 3-PUTTS": 0.71,
+            "EAGLES": 0.0,
+            "BIRDIES": 3.86,
+            "BOGEYS": 2.86,
+            "DBL BOGEYS": 1.14,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 71.14
           },
           "events": [
             {
@@ -8353,6 +8947,7 @@
           "id": 41641,
           "name": "HamSammich",
           "starts": 5,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.6,
           "avgGross": 5.6,
           "netWins": 0,
@@ -8364,6 +8959,23 @@
             "putting": 0.74,
             "teeToGreen": -2.93,
             "total": -2.19
+          },
+          "stats": {
+            "LONGEST DRIVE": 296.6,
+            "AVG DRIVE DISTANCE (FIR)": 269.0,
+            "FAIRWAYS HIT": 3.4,
+            "GREENS IN REGULATION": 6.6,
+            "GIR PROXIMITY": 28.16,
+            "SAND SAVES": 0.8,
+            "SAND SAVES ATTEMPTS": 3.8,
+            "TOTAL PUTTS": 31.8,
+            "TOTAL 3-PUTTS": 1.2,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.2,
+            "BOGEYS": 4.6,
+            "DBL BOGEYS": 3.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 62.6
           },
           "events": [
             {
@@ -8577,6 +9189,7 @@
           "id": 41637,
           "name": "DREADFUL",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 4.71,
           "avgGross": 6.71,
           "netWins": 0,
@@ -8588,6 +9201,23 @@
             "putting": -2.05,
             "teeToGreen": -4.28,
             "total": -6.33
+          },
+          "stats": {
+            "LONGEST DRIVE": 281.57,
+            "AVG DRIVE DISTANCE (FIR)": 256.86,
+            "FAIRWAYS HIT": 4.57,
+            "GREENS IN REGULATION": 5.71,
+            "GIR PROXIMITY": 29.3,
+            "SAND SAVES": 1.0,
+            "SAND SAVES ATTEMPTS": 4.14,
+            "TOTAL PUTTS": 33.86,
+            "TOTAL 3-PUTTS": 2.71,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.86,
+            "BOGEYS": 4.86,
+            "DBL BOGEYS": 4.14,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 73.14
           },
           "events": [
             {
@@ -8883,6 +9513,7 @@
           "id": 15857,
           "name": "MashedBROtato",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 5.14,
           "avgGross": 4.43,
           "netWins": 1,
@@ -8894,6 +9525,23 @@
             "putting": 0.69,
             "teeToGreen": -0.75,
             "total": -0.06
+          },
+          "stats": {
+            "LONGEST DRIVE": 275.2,
+            "AVG DRIVE DISTANCE (FIR)": 248.8,
+            "FAIRWAYS HIT": 2.86,
+            "GREENS IN REGULATION": 6.14,
+            "GIR PROXIMITY": 28.26,
+            "SAND SAVES": 1.43,
+            "SAND SAVES ATTEMPTS": 4.57,
+            "TOTAL PUTTS": 30.71,
+            "TOTAL 3-PUTTS": 1.86,
+            "EAGLES": 0.29,
+            "BIRDIES": 1.86,
+            "BOGEYS": 4.86,
+            "DBL BOGEYS": 3.57,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 84.29
           },
           "events": [
             {
@@ -9189,6 +9837,7 @@
           "id": 40422,
           "name": "IUDoc92",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 5.43,
           "avgGross": 7.0,
           "netWins": 1,
@@ -9200,6 +9849,23 @@
             "putting": -1.81,
             "teeToGreen": -7.51,
             "total": -9.32
+          },
+          "stats": {
+            "LONGEST DRIVE": 239.86,
+            "AVG DRIVE DISTANCE (FIR)": 211.86,
+            "FAIRWAYS HIT": 6.57,
+            "GREENS IN REGULATION": 4.29,
+            "GIR PROXIMITY": 28.49,
+            "SAND SAVES": 1.14,
+            "SAND SAVES ATTEMPTS": 6.29,
+            "TOTAL PUTTS": 33.71,
+            "TOTAL 3-PUTTS": 3.29,
+            "EAGLES": 0.0,
+            "BIRDIES": 0.57,
+            "BOGEYS": 5.86,
+            "DBL BOGEYS": 3.57,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 57.57
           },
           "events": [
             {
@@ -9495,6 +10161,7 @@
           "id": 40582,
           "name": "TEV_11",
           "starts": 3,
+          "evidenceLevel": "trend",
           "avgNet": 5.67,
           "avgGross": 6.0,
           "netWins": 0,
@@ -9506,6 +10173,23 @@
             "putting": -0.62,
             "teeToGreen": -4.46,
             "total": -5.09
+          },
+          "stats": {
+            "LONGEST DRIVE": 281.33,
+            "AVG DRIVE DISTANCE (FIR)": 258.67,
+            "FAIRWAYS HIT": 2.67,
+            "GREENS IN REGULATION": 8.33,
+            "GIR PROXIMITY": 24.83,
+            "SAND SAVES": 1.67,
+            "SAND SAVES ATTEMPTS": 5.67,
+            "TOTAL PUTTS": 31.67,
+            "TOTAL 3-PUTTS": 2.67,
+            "EAGLES": 0.0,
+            "BIRDIES": 2.33,
+            "BOGEYS": 6.33,
+            "DBL BOGEYS": 2.0,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 71.67
           },
           "events": [
             {
@@ -9637,6 +10321,7 @@
           "id": 41797,
           "name": "graycrum",
           "starts": 3,
+          "evidenceLevel": "trend",
           "avgNet": 6.67,
           "avgGross": 5.0,
           "netWins": 0,
@@ -9648,6 +10333,23 @@
             "putting": 0.4,
             "teeToGreen": 1.19,
             "total": 1.58
+          },
+          "stats": {
+            "LONGEST DRIVE": 267.67,
+            "AVG DRIVE DISTANCE (FIR)": 232.0,
+            "FAIRWAYS HIT": 5.33,
+            "GREENS IN REGULATION": 6.33,
+            "GIR PROXIMITY": 27.57,
+            "SAND SAVES": 3.33,
+            "SAND SAVES ATTEMPTS": 5.67,
+            "TOTAL PUTTS": 30.67,
+            "TOTAL 3-PUTTS": 2.67,
+            "EAGLES": 0.0,
+            "BIRDIES": 1.0,
+            "BOGEYS": 4.33,
+            "DBL BOGEYS": 2.33,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 79.33
           },
           "events": [
             {
@@ -9779,6 +10481,7 @@
           "id": 41006,
           "name": "Leroy4522",
           "starts": 7,
+          "evidenceLevel": "strong_trend",
           "avgNet": 6.86,
           "avgGross": 6.43,
           "netWins": 0,
@@ -9790,6 +10493,23 @@
             "putting": -0.14,
             "teeToGreen": -5.61,
             "total": -5.74
+          },
+          "stats": {
+            "LONGEST DRIVE": 260.14,
+            "AVG DRIVE DISTANCE (FIR)": 231.57,
+            "FAIRWAYS HIT": 5.0,
+            "GREENS IN REGULATION": 4.43,
+            "GIR PROXIMITY": 57.23,
+            "SAND SAVES": 1.71,
+            "SAND SAVES ATTEMPTS": 5.43,
+            "TOTAL PUTTS": 32.29,
+            "TOTAL 3-PUTTS": 2.14,
+            "EAGLES": 0.14,
+            "BIRDIES": 0.71,
+            "BOGEYS": 5.57,
+            "DBL BOGEYS": 3.71,
+            "ACES": 0.0,
+            "TOTAL FEET OF PUTTS MADE": 79.71
           },
           "events": [
             {
