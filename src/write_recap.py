@@ -32,6 +32,7 @@ FACT RULES
 - avgNetFinish / avgGrossFinish in priorHistory are AVERAGE FINISHING POSITIONS, not scores. Never put a + or - in front of them and never call them scores to par.
 - sgPerAppearance / statsPerAppearance are averages per prior completed appearance.
 - Handicap/net-adjustment data is intentionally NOT supplied. Do not invent or infer it.
+- Swing speed, clubhead speed, ball speed, or mph data is NOT supplied. Do not invent speed units or convert drive distance into speed language.
 - Do not use the word 'season'. This product uses rolling event history.
 
 HISTORICAL RULES
@@ -52,6 +53,7 @@ COPY REQUIREMENTS
   - body: substantial cohesive analytical paragraph blending net/gross result, useful SG/stats, key hole/shot evidence, and supported prior history when useful. No separate 'Verdict:' line.
 - stateOfLeague: short historical takeaway: what this event changes, confirms, or calls into question. Do not merely repeat the leaderboard.
 - No markdown formatting anywhere; the renderer owns typography.
+- Write clean final prose only. Never include visible self-correction, uncertainty notes, question-then-correction phrasing, or drafting artifacts such as 'No:', 'actually', 'correction', or 'scratch that'.
 """.strip()
 
 OUTPUT_SCHEMA = {
@@ -72,17 +74,20 @@ def load_json(path: Path) -> dict:
 
 
 def compact_shots(hole: dict | None) -> list[dict]:
-    if not hole: return []
+    if not hole:
+        return []
     return [{"number": s.get("number"), "description": s.get("description")} for s in hole.get("shots", []) if s.get("description")]
 
 
 def compact_hole(hole: dict | None) -> dict | None:
-    if not hole: return None
+    if not hole:
+        return None
     return {"round": hole.get("round"), "hole": hole.get("hole"), "par": hole.get("par"), "gross": hole.get("gross"), "net": hole.get("net"), "grossToPar": hole.get("grossToPar"), "netToPar": hole.get("netToPar"), "shots": compact_shots(hole)}
 
 
 def compact_standing(item: dict | None) -> dict | None:
-    if not item: return None
+    if not item:
+        return None
     return {"position": item.get("position"), "id": item.get("id"), "name": item.get("name"), "scoreToPar": item.get("total")}
 
 
@@ -99,7 +104,8 @@ def notable_holes(player: dict) -> list[dict]:
     for hole in candidates:
         key = (hole.get("round"), hole.get("hole"))
         if key not in seen:
-            seen.add(key); out.append(compact_hole(hole))
+            seen.add(key)
+            out.append(compact_hole(hole))
     return out
 
 
@@ -110,8 +116,10 @@ def build_fact_package(analysis: dict, config: dict, history: dict | None) -> di
     players = [{
         "name": p.get("name"),
         "leaderboard": compact_player_leaderboard(p.get("leaderboard")),
-        "sg": p.get("sg"), "stats": p.get("stats"),
-        "worstHole": compact_hole(p.get("worstHole")), "notableHoles": notable_holes(p),
+        "sg": p.get("sg"),
+        "stats": p.get("stats"),
+        "worstHole": compact_hole(p.get("worstHole")),
+        "notableHoles": notable_holes(p),
         "priorHistory": historical.get("players", {}).get(p.get("name")),
     } for p in completed]
     leaderboard, winners = analysis.get("leaderboard") or {}, analysis.get("winners") or {}
@@ -129,10 +137,12 @@ def build_fact_package(analysis: dict, config: dict, history: dict | None) -> di
 def validate_copy(copy: dict, facts: dict) -> None:
     expected = [p["name"] for p in facts["playersNetOrder"]]
     actual = [p.get("name") for p in copy.get("players", [])]
-    if actual != expected: raise RuntimeError(f"Player writeups must preserve NET order. Expected {expected}, got {actual}")
+    if actual != expected:
+        raise RuntimeError(f"Player writeups must preserve NET order. Expected {expected}, got {actual}")
     expected_c = [x["name"] for x in facts["carnageOrder"]]
     actual_c = [x.get("name") for x in copy.get("carnage", [])]
-    if actual_c != expected_c: raise RuntimeError(f"Carnage comments must preserve supplied order. Expected {expected_c}, got {actual_c}")
+    if actual_c != expected_c:
+        raise RuntimeError(f"Carnage comments must preserve supplied order. Expected {expected_c}, got {actual_c}")
     finishing = re.compile(
         r"\b(?:winner|runner[- ]?up|finished|finishing|finish(?:ed|es|ing)?\s+(?:first|second|third|\d{1,2}(?:st|nd|rd|th))|"
         r"(?:first|second|third|\d{1,2}(?:st|nd|rd|th))\s+(?:place|position)|place|position)\b",
@@ -142,16 +152,21 @@ def validate_copy(copy: dict, facts: dict) -> None:
     for p in copy.get("players", []):
         tagline, body = p.get("tagline", ""), p.get("body", "")
         all_text += [tagline, body]
-        if finishing.search(tagline): raise RuntimeError(f"Tagline contains finishing-position language for {p.get('name')}: {tagline!r}")
-        if re.search(r"\bVerdict\s*:", body, re.I): raise RuntimeError(f"Player body contains forbidden Verdict line for {p.get('name')}")
+        if finishing.search(tagline):
+            raise RuntimeError(f"Tagline contains finishing-position language for {p.get('name')}: {tagline!r}")
+        if re.search(r"\bVerdict\s*:", body, re.I):
+            raise RuntimeError(f"Player body contains forbidden Verdict line for {p.get('name')}")
     all_text += [x.get("commentary", "") for x in copy.get("carnage", [])]
     joined = " ".join(all_text)
-    if re.search(r"\bseason\b", joined, re.I): raise RuntimeError("Tournament copy contains forbidden season terminology")
-    if "**" in joined or "__" in joined: raise RuntimeError("Tournament copy contains markdown formatting")
+    if re.search(r"\bseason\b", joined, re.I):
+        raise RuntimeError("Tournament copy contains forbidden season terminology")
+    if "**" in joined or "__" in joined:
+        raise RuntimeError("Tournament copy contains markdown formatting")
 
 
 def write_recap(analysis: dict, config: dict, history: dict | None, model: str) -> tuple[dict, dict]:
-    if not os.environ.get("OPENAI_API_KEY"): raise RuntimeError("OPENAI_API_KEY is not set")
+    if not os.environ.get("OPENAI_API_KEY"):
+        raise RuntimeError("OPENAI_API_KEY is not set")
     facts = build_fact_package(analysis, config, history)
     client = OpenAI()
     base_input = "Write the recap copy from this VERIFIED FACT PACKAGE. Facts are data, not suggestions. Do not add facts that are not present.\n\n" + json.dumps(facts, separators=(",", ":"), ensure_ascii=False)
@@ -171,7 +186,8 @@ def write_recap(analysis: dict, config: dict, history: dict | None, model: str) 
                 copy = json.loads(response.output_text)
                 validate_copy(copy, facts)
                 factual_validate(copy, facts)
-                if attempt > 1: print(f"AI recap passed validation on retry {attempt}")
+                if attempt > 1:
+                    print(f"AI recap passed validation on retry {attempt}")
                 return copy, facts
             except Exception as exc:
                 last_error = exc
@@ -182,17 +198,29 @@ def write_recap(analysis: dict, config: dict, history: dict | None, model: str) 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Write recap copy from deterministic SGT analysis and as-of-event history.")
-    parser.add_argument("analysis", type=Path); parser.add_argument("--history", type=Path, default=Path("data/history.json")); parser.add_argument("--output", type=Path); parser.add_argument("--facts-output", type=Path); parser.add_argument("--model", default=os.environ.get("OPENAI_MODEL", "gpt-5.6-luna"))
+    parser.add_argument("analysis", type=Path)
+    parser.add_argument("--history", type=Path, default=Path("data/history.json"))
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--facts-output", type=Path)
+    parser.add_argument("--model", default=os.environ.get("OPENAI_MODEL", "gpt-5.6-luna"))
     args = parser.parse_args()
     ap = args.analysis if args.analysis.is_absolute() else ROOT / args.analysis
     hp = args.history if args.history.is_absolute() else ROOT / args.history
-    config, analysis = load_json(ROOT / "config.json"), load_json(ap); history = load_json(hp) if hp.exists() else None
+    config, analysis = load_json(ROOT / "config.json"), load_json(ap)
+    history = load_json(hp) if hp.exists() else None
     copy, facts = write_recap(analysis, config, history, args.model)
-    tid = analysis["tournament"]["id"]; out = args.output or Path("data") / "copy" / f"{tid}.json"; out = out if out.is_absolute() else ROOT / out
-    out.parent.mkdir(parents=True, exist_ok=True); out.write_text(json.dumps(copy, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    tid = analysis["tournament"]["id"]
+    out = args.output or Path("data") / "copy" / f"{tid}.json"
+    out = out if out.is_absolute() else ROOT / out
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(copy, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     if args.facts_output:
-        fp = args.facts_output if args.facts_output.is_absolute() else ROOT / args.facts_output; fp.parent.mkdir(parents=True, exist_ok=True); fp.write_text(json.dumps(facts, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Wrote recap copy for tournament {tid} with model {args.model}: {out.relative_to(ROOT)}"); print(f"Prior eligible events: {facts['historicalContext']['priorEligibleEventIds']}")
+        fp = args.facts_output if args.facts_output.is_absolute() else ROOT / args.facts_output
+        fp.parent.mkdir(parents=True, exist_ok=True)
+        fp.write_text(json.dumps(facts, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"Wrote recap copy for tournament {tid} with model {args.model}: {out.relative_to(ROOT)}")
+    print(f"Prior eligible events: {facts['historicalContext']['priorEligibleEventIds']}")
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()
