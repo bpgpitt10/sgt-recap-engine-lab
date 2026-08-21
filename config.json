@@ -6,6 +6,9 @@
     "scopes": ["all", "5", "10", "20"],
     "excludeEventIds": [59463]
   },
+  "competitionOverrides": {
+    "66943": "gross"
+  },
   "site": {
     "recapSlugs": {
       "50704": "bay-hill",
