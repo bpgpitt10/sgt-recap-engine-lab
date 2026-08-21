@@ -10,11 +10,18 @@ HIGH_LOFT_EDITORIAL = r"""
 HIGH LOFT EDITORIAL OVERRIDES
 These rules are more specific than the generic recap rules above and control the final style.
 
+COMPETITION MODE OVERRIDE
+- Inspect league.primaryCompetition in the VERIFIED FACT PACKAGE.
+- Normally it is "net", and all normal High Loft net-primary rules apply.
+- If it is "gross", this is an explicitly configured scratch/gross-primary event. GROSS determines the tournament winner, challenger(s), recap lead, teaser, and player-by-player order. Net is secondary context only.
+- This gross-primary instruction overrides every generic instruction that says Net determines the tournament or player order.
+- For backward compatibility the fact-package key playersNetOrder still contains the required primary player order; for a gross-primary event that list is intentionally in GROSS order.
+
 LATEST TOURNAMENT TEASER
 - This copy appears in VERY LARGE type on the landing page. It must be a headline, not a paragraph.
 - Maximum 18 words. Prefer 10-16.
-- One idea only: net winner + the funniest/most revealing hook from the round.
-- Do NOT cram net margin, gross score, strokes gained, runner-up, and course story into the same teaser.
+- One idea only: primary-competition winner + the funniest/most revealing hook from the round.
+- Do NOT cram margin, secondary score, strokes gained, runner-up, and course story into the same teaser.
 - The longer Tournament in 30 Seconds copy exists immediately below it and can carry the detail.
 - Write it like a sharp headline someone would actually want to click, not a compressed box score.
 
@@ -28,7 +35,7 @@ CARNAGE COMMENTARY
 
 PLAYER-BY-PLAYER BODY
 - Write a STORY about the round, not an inventory of the fact package.
-- Start from a clear thesis: what kind of round was this, what actually drove the net result, and what does it say about this player's golf right now?
+- Start from a clear thesis: what kind of round was this, what actually drove the primary result, and what does it say about this player's golf right now?
 - Be aggressively selective. The reader can already see the leaderboard and other visible data. Most supplied numbers should NOT appear in prose.
 - Normally use 0-2 exact numeric facts in the entire paragraph. A number earns its way in only if it is the reason the story works.
 - Never march through SG categories, GIR, fairways, putts, birdies, doubles, and worst-hole details just because they exist.
@@ -50,6 +57,37 @@ OVERALL
 write_recap.SYSTEM_PROMPT = write_recap.SYSTEM_PROMPT + "\n\n" + HIGH_LOFT_EDITORIAL
 
 _original_validate = write_recap.validate_copy
+_original_build_fact_package = write_recap.build_fact_package
+
+
+def competition_mode(config: dict, analysis: dict) -> str:
+    tournament = analysis.get("tournament") or {}
+    event_id = str(tournament.get("id"))
+    return str((config.get("competitionOverrides") or {}).get(event_id, "net")).lower()
+
+
+def high_loft_build_fact_package(analysis: dict, config: dict, history: dict | None) -> dict:
+    facts = _original_build_fact_package(analysis, config, history)
+    mode = competition_mode(config, analysis)
+    facts.setdefault("league", {})["primaryCompetition"] = mode
+    if mode == "gross":
+        players = list(facts.get("playersNetOrder") or [])
+        players.sort(
+            key=lambda p: (
+                (p.get("leaderboard") or {}).get("grossFinish")
+                if (p.get("leaderboard") or {}).get("grossFinish") is not None
+                else 999,
+                str(p.get("name") or ""),
+            )
+        )
+        facts["playersNetOrder"] = players
+        facts["competitionOverride"] = (
+            "This event is explicitly configured as scratch/gross-primary. Gross determines the tournament result and primary player order; net is secondary context."
+        )
+    return facts
+
+
+write_recap.build_fact_package = high_loft_build_fact_package
 
 
 def numeric_fact_count(text: str) -> int:
