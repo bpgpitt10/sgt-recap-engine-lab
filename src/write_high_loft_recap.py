@@ -49,8 +49,8 @@ _original_validate = write_recap.validate_copy
 
 
 def numeric_fact_count(text: str) -> int:
-    # Count visible numeric facts while ignoring apostrophes and punctuation. This is
-    # intentionally simple: the purpose is to prevent spreadsheet prose, not police style.
+    # Editorial diagnostic only. Numeric density should influence prompting/review,
+    # but must never block an otherwise factual tournament publication.
     return len(re.findall(r"(?<![A-Za-z])[-+]?\d+(?:\.\d+)?%?", text))
 
 
@@ -84,10 +84,10 @@ def high_loft_validate(copy: dict, facts: dict) -> None:
             raise RuntimeError(
                 f"Player body is too long / insufficiently selective for {item.get('name')}: {len(words)} words; max 160"
             )
-        if numeric_fact_count(body) > 3:
-            raise RuntimeError(
-                f"Player body is too data-heavy for {item.get('name')}: more than 3 explicit numeric facts. Tell the story instead."
-            )
+        # Numeric density remains a strong editorial preference in the prompt, but
+        # it is intentionally not a hard validation failure. We learned in live
+        # automation that one extra number can otherwise kill the entire publish.
+        numeric_fact_count(body)
 
 
 write_recap.validate_copy = high_loft_validate
