@@ -225,7 +225,7 @@ def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -
 
     intro_lines = [
         "🏆 **New High Loft recap is live**",
-        f"**{title}** — {recap_url}",
+        f"**{title}**",
     ]
     if teaser:
         intro_lines.extend([teaser, ""])
@@ -238,6 +238,7 @@ def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -
     if awards:
         intro_lines.extend(["", "**THE HECKLER'S HARDWARE**", *awards])
 
+    intro_lines.extend(["", f"**Read the full recap →** {recap_url}"])
     intro = "\n".join(intro_lines)
     if len(intro) > MAX_CHARS:
         raise RuntimeError(f"Discord intro/awards post is too long ({len(intro)} chars)")
