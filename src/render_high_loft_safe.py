@@ -69,7 +69,6 @@ function board'''
     if count != 1:
         raise RuntimeError("Could not upgrade landing-page scouting cards")
 
-    # Pass the scope-wide ceiling into every card in the rendered scope.
     html, count = re.subn(
         r"const cp=Object\.fromEntries\(c\.profiles\.map\(x=>\[x\.name,x\]\)\);document\.querySelector\('#players-grid'\)\.innerHTML=h\.players\.map\(p=>playerCard\(p,cp\[p\.name\]\)\)\.join\(''\);",
         "const cp=Object.fromEntries(c.profiles.map(x=>[x.name,x]));const max=sgScale(h.players);document.querySelector('#players-grid').innerHTML=h.players.map(p=>playerCard(p,cp[p.name],max)).join('');",
@@ -113,10 +112,23 @@ def gross_primary_landing(history: dict, league_copy: dict, analyses: dict[int, 
 
 
 def compact_recap_cards(html: str) -> str:
+    carnage_index = 0
+
     def carnage_card(match: re.Match) -> str:
+        nonlocal carnage_index
         card = match.group(0)
-        card = card.replace("<article ", '<article data-carnage-card ', 1)
-        card = card[:-10] + '<button type="button" class="expand-control recap-expand" data-carnage-expand aria-expanded="false">Open crime scene <span>+</span></button></article>'
+        initially_open = carnage_index < 2
+        carnage_index += 1
+        card = card.replace(
+            "<article ",
+            '<article data-carnage-card class="initial-open" ' if initially_open else '<article data-carnage-card ',
+            1,
+        )
+        if initially_open:
+            card = card.replace(' class="initial-open" class="', ' class="initial-open ', 1)
+        button_text = 'Close crime scene <span>−</span>' if initially_open else 'Open crime scene <span>+</span>'
+        expanded = "true" if initially_open else "false"
+        card = card[:-10] + f'<button type="button" class="expand-control recap-expand" data-carnage-expand aria-expanded="{expanded}">{button_text}</button></article>'
         return card
 
     html = re.sub(
@@ -126,17 +138,26 @@ def compact_recap_cards(html: str) -> str:
         flags=re.S,
     )
 
+    player_index = 0
+
     def player_card(match: re.Match) -> str:
+        nonlocal player_index
         card = match.group(0)
+        initially_open = player_index < 2
+        player_index += 1
+        details_hidden = "" if initially_open else " hidden"
         card = re.sub(
             r'(<p class="player-roast">.*?</p>)(<p>.*?</p>)',
-            r'\1<div class="round-details" hidden>\2</div>',
+            rf'\1<div class="round-details"{details_hidden}>\2</div>',
             card,
             count=1,
             flags=re.S,
         )
-        card = card.replace("<article>", '<article data-player-card>', 1)
-        card = card[:-10] + '<button type="button" class="expand-control recap-expand" data-player-expand aria-expanded="false">Read full breakdown <span>+</span></button></article>'
+        article_class = ' class="is-open"' if initially_open else ""
+        card = card.replace("<article>", f'<article data-player-card{article_class}>', 1)
+        button_text = 'Close breakdown <span>−</span>' if initially_open else 'Read full breakdown <span>+</span>'
+        expanded = "true" if initially_open else "false"
+        card = card[:-10] + f'<button type="button" class="expand-control recap-expand" data-player-expand aria-expanded="{expanded}">{button_text}</button></article>'
         return card
 
     player_block = re.search(
@@ -150,6 +171,7 @@ def compact_recap_cards(html: str) -> str:
 
     recap_js = r'''
 <script>
+document.querySelectorAll('[data-carnage-card].initial-open').forEach(card=>card.classList.add('is-open'));
 document.addEventListener('click',e=>{
   const carnageBtn=e.target.closest('[data-carnage-expand]');
   if(carnageBtn){
@@ -225,17 +247,21 @@ def scalable_recap_layout(html: str, analysis: dict) -> str:
 .recap-summary .leaderboard-view{max-height:750px;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
 .recap-summary .leader-scroll-note{padding-top:12px;color:#9ba79d;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:center}
 .hole-grid{gap:10px}
-.hole-card{padding:18px 20px}
+.hole-card{padding:12px 16px}
+.hole-card.is-open{padding:18px 20px}
 .hole-card .shot-trail{display:none}
-.hole-card>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-bottom:0}
+.hole-card>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;margin:6px 0 0}
 .hole-card.is-open .shot-trail{display:flex}
-.hole-card.is-open>p{display:block;-webkit-line-clamp:unset;overflow:visible}
+.hole-card.is-open>p{display:block;-webkit-line-clamp:unset;overflow:visible;margin-top:12px}
 .recap-players{gap:10px}
-.recap-players article{padding:18px 20px}
+.recap-players article{padding:12px 16px;min-height:0}
+.recap-players article.is-open{padding:18px 20px}
+.recap-players .player-roast{margin-bottom:8px}
 .recap-players .round-details[hidden]{display:none}
 .recap-players .round-details p{margin-bottom:0}
-.recap-expand{margin-top:12px}
-.expand-control{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #314137;border-radius:11px;background:#0f1711;color:#b6f34a;padding:9px 12px;font:inherit;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}
+.recap-expand{margin-top:8px}
+.is-open .recap-expand{margin-top:12px}
+.expand-control{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #314137;border-radius:11px;background:#0f1711;color:#b6f34a;padding:8px 11px;font:inherit;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}
 .expand-control span{font-size:17px;line-height:1}
 @media (max-width:820px){
   .recap-summary .tourney-board{margin-top:0}
