@@ -10,6 +10,16 @@ HIGH_LOFT_PROFILE_EDITORIAL = r"""
 HIGH LOFT SCOUTING-FILE OVERRIDES
 These rules are more specific than the generic league-copy rules above.
 
+SGT STROKES GAINED INTERPRETATION
+- The SG fingerprint uses SGT-supplied values. Do NOT describe them as strokes gained versus scratch, par, PGA Tour, or GSPro Portal.
+- Treat SG primarily as a RELATIVE PERFORMANCE SIGNAL.
+- Within a player, the category relationships matter: which part of the game consistently carries them and which part gives strokes back.
+- Across league players, category ranking/relative strength matters: who is stronger or weaker off the tee, on approach, around the green, or putting under SGT's benchmark.
+- Across repeated starts, persistent direction and ordering of categories are strong scouting evidence.
+- Exact values are valid, but do not over-interpret the magnitude. The comparison, rank, sign, and recurring pattern usually matter more than the raw number.
+- Never infer handicap, scratch-equivalent ability, or expected gross score from an SG value.
+- If prose needs to name the metric, call it "SGT SG" or say "against the SGT benchmark."
+
 PLAYER PROFILE PROSE
 - The player card ALREADY shows STARTS, AVG NET, GROSS WINS, NET WINS, and the four-category SG fingerprint. Do not restate those metrics unless one is absolutely central to the identity/story.
 - The profile is not a statistical summary. It is a scouting note with a point of view.
