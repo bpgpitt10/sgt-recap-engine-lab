@@ -47,9 +47,28 @@ def process_tour(*, refresh_all: bool = False) -> dict:
     config = load_config()
     tour_id = int(config["tourId"])
     tour_name = config.get("tourName")
+    ignored_event_ids = {int(x) for x in config.get("ignoreEventIds", [])}
 
     print(f"Discovering Tour {tour_id} ({tour_name})")
     discovery = parse_events(fetch_events_html(tour_id), tour_id, tour_name)
+
+    # Some SGT entries are test/wonky/non-league events that should never enter the
+    # publishing pipeline. Remove configured IDs before analysis, history, latest-event
+    # selection, or Discord can see them. Keep a small audit trail in discovery output.
+    discovered_completed = list(discovery.get("completed", []))
+    ignored_completed = [
+        event for event in discovered_completed if int(event["id"]) in ignored_event_ids
+    ]
+    discovery["completed"] = [
+        event for event in discovered_completed if int(event["id"]) not in ignored_event_ids
+    ]
+    discovery["ignoredCompleted"] = ignored_completed
+    if ignored_completed:
+        print(
+            "IGNORED completed event IDs: "
+            + ", ".join(str(event["id"]) for event in ignored_completed)
+        )
+
     discovery_path = ROOT / "data" / "discovery" / f"{tour_id}.json"
     write_json(discovery_path, discovery)
 
@@ -90,11 +109,15 @@ def process_tour(*, refresh_all: bool = False) -> dict:
     history["processing"] = {
         "newlyProcessedEventIds": processed,
         "reusedEventIds": reused,
+        "ignoredEventIds": sorted(ignored_event_ids),
     }
     history_path = ROOT / "data" / "history.json"
     write_json(history_path, history)
 
-    print(f"Tour complete: completed={len(discovery.get('completed', []))} processed={processed} reused={reused}")
+    print(
+        f"Tour complete: completed={len(discovery.get('completed', []))} "
+        f"ignored={len(ignored_completed)} processed={processed} reused={reused}"
+    )
     return history
 
 
