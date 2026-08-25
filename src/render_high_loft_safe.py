@@ -51,10 +51,16 @@ def normalized_analysis_map() -> dict[int, dict]:
 
 
 def scalable_landing_layout(html: str) -> str:
-    replacement = r'''function playerCard(p,c){const sg=p.sg||{};const safeName=escHtml(p.name);return `<article class="player scouting-card"><div class="ghost">${fmt(p.avgNet)}</div><h3>${safeName}</h3><div class="tag">${escHtml(c?.tagline||'')}</div><div class="chips"><div class="chip"><b>${p.starts}</b><small>STARTS</small></div><div class="chip"><b>${fmt(p.avgNet)}</b><small>AVG NET</small></div><div class="chip"><b>${p.grossWins}</b><small>GROSS WINS</small></div><div class="chip"><b>${p.netWins}</b><small>NET WINS</small></div></div><div class="fingerprint">${bar('TEE',sg.tee)}${bar('APP',sg.approach)}${bar('SHORT',sg.shortGame)}${bar('PUTT',sg.putting)}</div><div class="scouting-details" hidden><p>${escHtml(c?.profile||'')}</p></div><button type="button" class="expand-control" data-profile-expand aria-expanded="false">Read scouting file <span>+</span></button></article>`}
+    # All cards in the currently selected scope share one SG scale. This keeps
+    # player-to-player/category comparisons honest while avoiding a permanently
+    # under-filled fixed +/-8 axis. Ceiling = largest absolute visible category,
+    # rounded up to the next whole stroke, with a minimum +/-3.
+    replacement = r'''function sgScale(players){let m=0;for(const p of players||[]){const sg=p.sg||{};for(const v of [sg.tee,sg.approach,sg.shortGame,sg.putting]){const n=Math.abs(Number(v||0));if(Number.isFinite(n))m=Math.max(m,n)}}return Math.max(3,Math.ceil(m))}
+function bar(label,v,max){const n=Number(v||0),w=Math.min(50,Math.abs(n)/max*50);return `<span>${label}</span><div class="bar"><i class="${n>=0?'pos':'neg'}" style="width:${w}%"></i></div><b>${n>=0?'+':''}${fmt(n)}</b>`}
+function playerCard(p,c,max){const sg=p.sg||{};const safeName=escHtml(p.name);return `<article class="player scouting-card"><div class="ghost">${fmt(p.avgNet)}</div><h3>${safeName}</h3><div class="tag">${escHtml(c?.tagline||'')}</div><div class="chips"><div class="chip"><b>${p.starts}</b><small>STARTS</small></div><div class="chip"><b>${fmt(p.avgNet)}</b><small>AVG NET</small></div><div class="chip"><b>${p.grossWins}</b><small>GROSS WINS</small></div><div class="chip"><b>${p.netWins}</b><small>NET WINS</small></div></div><div class="fingerprint">${bar('TEE',sg.tee,max)}${bar('APP',sg.approach,max)}${bar('SHORT',sg.shortGame,max)}${bar('PUTT',sg.putting,max)}</div><div class="scouting-details" hidden><p>${escHtml(c?.profile||'')}</p></div><button type="button" class="expand-control" data-profile-expand aria-expanded="false">Read scouting file <span>+</span></button></article>`}
 function board'''
     html, count = re.subn(
-        r"function playerCard\(p,c\)\{.*?\}\nfunction board",
+        r"function bar\(label,v\)\{.*?\}\nfunction playerCard\(p,c\)\{.*?\}\nfunction board",
         replacement,
         html,
         count=1,
@@ -62,6 +68,16 @@ function board'''
     )
     if count != 1:
         raise RuntimeError("Could not upgrade landing-page scouting cards")
+
+    # Pass the scope-wide ceiling into every card in the rendered scope.
+    html, count = re.subn(
+        r"const cp=Object\.fromEntries\(c\.profiles\.map\(x=>\[x\.name,x\]\)\);document\.querySelector\('#players-grid'\)\.innerHTML=h\.players\.map\(p=>playerCard\(p,cp\[p\.name\]\)\)\.join\(''\);",
+        "const cp=Object.fromEntries(c.profiles.map(x=>[x.name,x]));const max=sgScale(h.players);document.querySelector('#players-grid').innerHTML=h.players.map(p=>playerCard(p,cp[p.name],max)).join('');",
+        html,
+        count=1,
+    )
+    if count != 1:
+        raise RuntimeError("Could not wire scope-wide SG scale into profile render")
 
     click_hook = r'''
 document.addEventListener('click',e=>{const btn=e.target.closest('[data-profile-expand]');if(!btn)return;const card=btn.closest('.scouting-card');const details=card?.querySelector('.scouting-details');if(!details)return;const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));details.hidden=open;card.classList.toggle('is-open',!open);btn.innerHTML=!open?'Close scouting file <span>−</span>':'Read scouting file <span>+</span>';});
