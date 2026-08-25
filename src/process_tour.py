@@ -43,6 +43,21 @@ def enrich_metadata(analysis: dict, event: dict) -> dict:
     return analysis
 
 
+def load_valid_existing_history() -> dict | None:
+    history_path = ROOT / "data" / "history.json"
+    if not history_path.exists():
+        return None
+    try:
+        history = json.loads(history_path.read_text(encoding="utf-8"))
+        validate_history(history)
+        if not history.get("completedEvents"):
+            return None
+        return history
+    except Exception as exc:
+        print(f"Existing history is not a usable fallback: {exc}")
+        return None
+
+
 def process_tour(*, refresh_all: bool = False) -> dict:
     config = load_config()
     tour_id = int(config["tourId"])
@@ -52,10 +67,28 @@ def process_tour(*, refresh_all: bool = False) -> dict:
     print(f"Discovering Tour {tour_id} ({tour_name})")
     discovery = parse_events(fetch_events_html(tour_id), tour_id, tour_name)
 
+    # SGT occasionally returns a normal HTTP 200 containing a login/error/HTML shell
+    # instead of the events payload. In that case parsing can yield zero completed
+    # tournaments. A transient upstream failure must never erase or invalidate a
+    # previously healthy league history, nor should it create a red scheduled-action
+    # loop. Preserve the last validated committed history and treat this run as a
+    # clean no-op. If no valid history exists yet, still fail loudly.
+    discovered_completed = list(discovery.get("completed", []))
+    if not discovered_completed:
+        existing_history = load_valid_existing_history()
+        if existing_history is not None:
+            print(
+                "SGT discovery returned zero completed events. "
+                "Preserving existing validated history and exiting cleanly with no publication changes."
+            )
+            return existing_history
+        raise RuntimeError(
+            "SGT discovery returned zero completed events and no valid existing history is available"
+        )
+
     # Some SGT entries are test/wonky/non-league events that should never enter the
     # publishing pipeline. Remove configured IDs before analysis, history, latest-event
     # selection, or Discord can see them. Keep a small audit trail in discovery output.
-    discovered_completed = list(discovery.get("completed", []))
     ignored_completed = [
         event for event in discovered_completed if int(event["id"]) in ignored_event_ids
     ]
