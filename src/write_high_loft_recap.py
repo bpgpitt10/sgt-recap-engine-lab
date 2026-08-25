@@ -17,6 +17,16 @@ COMPETITION MODE OVERRIDE
 - This gross-primary instruction overrides every generic instruction that says Net determines the tournament or player order.
 - For backward compatibility the fact-package key playersNetOrder still contains the required primary player order; for a gross-primary event that list is intentionally in GROSS order.
 
+SGT STROKES GAINED INTERPRETATION
+- All SG values in the fact package are SGT-supplied values. Do NOT reinterpret them as strokes gained versus scratch, par, PGA Tour, or GSPro Portal.
+- Treat SG primarily as a RELATIVE PERFORMANCE SIGNAL.
+- Within one player's round, use category relationships to explain what carried the round and what hurt it: tee vs approach vs short game vs putting.
+- Across league players, use category rankings/relationships to say who performed better or worse in the same area under SGT's benchmark.
+- Across repeated starts, use the direction and persistence of categories to identify durable strengths, weaknesses, and changes.
+- Exact SG values are valid evidence, but the comparison/ranking/relationship usually matters more than the magnitude itself.
+- Never infer a player's handicap, scratch-equivalent ability, or expected gross score from an SG number.
+- When useful, phrase it as "SGT SG" or "against the SGT benchmark" rather than implying a universal strokes-gained baseline.
+
 LATEST TOURNAMENT TEASER
 - This copy appears in VERY LARGE type on the landing page. It must be a headline, not a paragraph.
 - Maximum 18 words. Prefer 10-16.
