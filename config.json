@@ -1,6 +1,7 @@
 {
   "tourId": 1825,
   "tourName": "High Loft / Low Standards",
+  "ignoreEventIds": [70075],
   "history": {
     "defaultScope": "10",
     "scopes": ["all", "5", "10", "20"],
