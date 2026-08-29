@@ -2,6 +2,20 @@
   "tourId": 1825,
   "tourName": "High Loft / Low Standards",
   "ignoreEventIds": [70075],
+  "pinnedCompletedEvents": [
+    {
+      "id": 66943,
+      "status": "completed",
+      "tourName": "Par 3 Canyon Run Scratch Tournament",
+      "name": "Par 3 Canyon Run Scratch Tournament",
+      "course": "Canyon Run - Par 3",
+      "date": "2026-08-20",
+      "displayDate": "Aug 20, 2026",
+      "url": "https://simulatorgolftour.com/tournament/66943",
+      "grossWinner": "KeithK75",
+      "netWinner": "IUDoc92"
+    }
+  ],
   "history": {
     "defaultScope": "10",
     "scopes": ["all", "5", "10", "20"],
@@ -19,7 +33,8 @@
       "54741": "caledonia",
       "55704": "copperhead-playoff",
       "56937": "sage-valley-championship",
-      "59463": "4-man-best-ball-tournament"
+      "59463": "4-man-best-ball-tournament",
+      "66943": "par-3-canyon-run-scratch-tournament"
     }
   }
 }
