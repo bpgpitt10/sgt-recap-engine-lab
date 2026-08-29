@@ -1,19 +1,31 @@
 {
   "tourId": 1825,
   "tourName": "High Loft / Low Standards",
-  "fetchedAt": "2026-08-20T01:25:20.220668+00:00",
+  "fetchedAt": "2026-08-29T17:12:59.474118+00:00",
   "active": [
     {
-      "id": 66943,
+      "id": 70248,
       "status": "active",
-      "tourName": "Par 3 Canyon Run Scratch Tournament",
-      "course": "Canyon Run - Par 3",
-      "date": "2026-08-20",
-      "displayDate": "Aug 20, 2026",
-      "url": "https://simulatorgolftour.com/tournament/66943"
+      "tourName": "Week 1 Trosper Golf Club",
+      "course": "Trosper Golf Club",
+      "date": "2026-09-05",
+      "displayDate": "Sep 5, 2026",
+      "url": "https://simulatorgolftour.com/tournament/70248"
     }
   ],
   "completed": [
+    {
+      "id": 66943,
+      "status": "completed",
+      "tourName": "Par 3 Canyon Run Scratch Tournament",
+      "name": "Par 3 Canyon Run Scratch Tournament",
+      "course": "Canyon Run - Par 3",
+      "date": "2026-08-20",
+      "displayDate": "Aug 20, 2026",
+      "url": "https://simulatorgolftour.com/tournament/66943",
+      "grossWinner": "KeithK75",
+      "netWinner": "IUDoc92"
+    },
     {
       "id": 59463,
       "status": "completed",
@@ -70,17 +82,6 @@
       "netWinner": "MashedBROtato"
     },
     {
-      "id": 51974,
-      "status": "completed",
-      "tourName": "Week 2 TPC Sawgrass",
-      "course": "DPC Sodgrass",
-      "date": "2026-04-01",
-      "displayDate": "Apr 1, 2026",
-      "url": "https://simulatorgolftour.com/tournament/51974",
-      "grossWinner": "KeithK75",
-      "netWinner": "KeithK75"
-    },
-    {
       "id": 52877,
       "status": "completed",
       "tourName": "Week 3 Alpine Valley",
@@ -90,6 +91,17 @@
       "url": "https://simulatorgolftour.com/tournament/52877",
       "grossWinner": "Dan94",
       "netWinner": "CRANK"
+    },
+    {
+      "id": 51974,
+      "status": "completed",
+      "tourName": "Week 2 TPC Sawgrass",
+      "course": "DPC Sodgrass",
+      "date": "2026-04-01",
+      "displayDate": "Apr 1, 2026",
+      "url": "https://simulatorgolftour.com/tournament/51974",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
     },
     {
       "id": 50704,
@@ -102,5 +114,6 @@
       "grossWinner": "KeithK75",
       "netWinner": "CRANK"
     }
-  ]
+  ],
+  "ignoredCompleted": []
 }
