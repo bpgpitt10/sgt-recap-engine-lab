@@ -58,24 +58,80 @@ def load_valid_existing_history() -> dict | None:
         return None
 
 
+def add_pinned_completed_events(discovery: dict, config: dict) -> list[int]:
+    completed = list(discovery.get("completed", []))
+    known_ids = {int(event["id"]) for event in completed}
+    added: list[int] = []
+
+    for pinned in config.get("pinnedCompletedEvents", []):
+        event_id = int(pinned["id"])
+        if event_id in known_ids:
+            continue
+        completed.append(dict(pinned))
+        known_ids.add(event_id)
+        added.append(event_id)
+
+    discovery["completed"] = completed
+    return added
+
+
+def validate_history_did_not_shrink(previous: dict | None, current: dict, ignored_event_ids: set[int]) -> None:
+    if previous is None:
+        return
+
+    previous_ids = {int(event["id"]) for event in previous.get("completedEvents", [])}
+    current_ids = {int(event["id"]) for event in current.get("completedEvents", [])}
+    disappeared = previous_ids - current_ids - ignored_event_ids
+    if disappeared:
+        raise RuntimeError(
+            "Completed tournament history regressed; previously validated event IDs disappeared: "
+            + ", ".join(str(x) for x in sorted(disappeared))
+        )
+
+    previous_dates = {
+        int(event["id"]): event.get("date") for event in previous.get("completedEvents", [])
+    }
+    current_dates = {
+        int(event["id"]): event.get("date") for event in current.get("completedEvents", [])
+    }
+    shared = previous_ids & current_ids
+    date_regressions = [
+        event_id
+        for event_id in shared
+        if previous_dates.get(event_id) and current_dates.get(event_id)
+        and previous_dates[event_id] != current_dates[event_id]
+    ]
+    if date_regressions:
+        raise RuntimeError(
+            "Completed tournament chronology changed for previously validated event IDs: "
+            + ", ".join(str(x) for x in sorted(date_regressions))
+        )
+
+
 def process_tour(*, refresh_all: bool = False) -> dict:
     config = load_config()
     tour_id = int(config["tourId"])
     tour_name = config.get("tourName")
     ignored_event_ids = {int(x) for x in config.get("ignoreEventIds", [])}
+    existing_history = load_valid_existing_history()
 
     print(f"Discovering Tour {tour_id} ({tour_name})")
     discovery = parse_events(fetch_events_html(tour_id), tour_id, tour_name)
 
+    pinned_added = add_pinned_completed_events(discovery, config)
+    if pinned_added:
+        print(
+            "PINNED completed event IDs missing from SGT tour discovery: "
+            + ", ".join(str(x) for x in pinned_added)
+        )
+
     # SGT occasionally returns a normal HTTP 200 containing a login/error/HTML shell
     # instead of the events payload. In that case parsing can yield zero completed
-    # tournaments. A transient upstream failure must never erase or invalidate a
-    # previously healthy league history, nor should it create a red scheduled-action
-    # loop. Preserve the last validated committed history and treat this run as a
-    # clean no-op. If no valid history exists yet, still fail loudly.
+    # tournaments. Pinned events are added first so known completed tournaments can
+    # still be rebuilt directly by ID. If nothing remains, preserve the last healthy
+    # history rather than publishing an empty/regressed site.
     discovered_completed = list(discovery.get("completed", []))
     if not discovered_completed:
-        existing_history = load_valid_existing_history()
         if existing_history is not None:
             print(
                 "SGT discovery returned zero completed events. "
@@ -135,6 +191,7 @@ def process_tour(*, refresh_all: bool = False) -> dict:
 
     history = build_history(discovery, analyses_dir)
     validate_history(history)
+    validate_history_did_not_shrink(existing_history, history, ignored_event_ids)
     if history["missingAnalysisEventIds"]:
         raise RuntimeError(
             f"Completed events still missing deterministic analysis: {history['missingAnalysisEventIds']}"
@@ -143,13 +200,14 @@ def process_tour(*, refresh_all: bool = False) -> dict:
         "newlyProcessedEventIds": processed,
         "reusedEventIds": reused,
         "ignoredEventIds": sorted(ignored_event_ids),
+        "pinnedEventIdsAddedToDiscovery": pinned_added,
     }
     history_path = ROOT / "data" / "history.json"
     write_json(history_path, history)
 
     print(
         f"Tour complete: completed={len(discovery.get('completed', []))} "
-        f"ignored={len(ignored_completed)} processed={processed} reused={reused}"
+        f"ignored={len(ignored_completed)} pinned={pinned_added} processed={processed} reused={reused}"
     )
     return history
 
