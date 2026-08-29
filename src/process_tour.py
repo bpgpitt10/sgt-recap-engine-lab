@@ -75,6 +75,36 @@ def add_pinned_completed_events(discovery: dict, config: dict) -> list[int]:
     return added
 
 
+def carry_forward_validated_completed_events(discovery: dict, previous: dict | None) -> list[int]:
+    """Preserve durable completed history when SGT returns only part of the tour.
+
+    SGT's tour-events endpoint is useful for discovering new events, but it is not a
+    reliable historical database: older completed events can disappear from a valid
+    HTTP 200 response. Once an event has passed our deterministic validation and is
+    present in history.json, absence from a later discovery response must not delete it.
+
+    Current SGT discovery wins for IDs it does return. We only append previously
+    validated event cards whose IDs are missing entirely from the current response.
+    """
+    if previous is None:
+        return []
+
+    completed = list(discovery.get("completed", []))
+    known_ids = {int(event["id"]) for event in completed}
+    carried: list[int] = []
+
+    for prior in previous.get("completedEvents", []):
+        event_id = int(prior["id"])
+        if event_id in known_ids:
+            continue
+        completed.append(dict(prior))
+        known_ids.add(event_id)
+        carried.append(event_id)
+
+    discovery["completed"] = completed
+    return carried
+
+
 def validate_history_did_not_shrink(previous: dict | None, current: dict, ignored_event_ids: set[int]) -> None:
     if previous is None:
         return
@@ -125,16 +155,22 @@ def process_tour(*, refresh_all: bool = False) -> dict:
             + ", ".join(str(x) for x in pinned_added)
         )
 
+    carried_forward = carry_forward_validated_completed_events(discovery, existing_history)
+    if carried_forward:
+        print(
+            "CARRY FORWARD previously validated completed event IDs missing from SGT discovery: "
+            + ", ".join(str(x) for x in carried_forward)
+        )
+
     # SGT occasionally returns a normal HTTP 200 containing a login/error/HTML shell
-    # instead of the events payload. In that case parsing can yield zero completed
-    # tournaments. Pinned events are added first so known completed tournaments can
-    # still be rebuilt directly by ID. If nothing remains, preserve the last healthy
-    # history rather than publishing an empty/regressed site.
+    # instead of the events payload, or a partial payload that omits older completed
+    # tournaments. Pinned events and previously validated completed history are merged
+    # first, so a flaky discovery response cannot silently erase league history.
     discovered_completed = list(discovery.get("completed", []))
     if not discovered_completed:
         if existing_history is not None:
             print(
-                "SGT discovery returned zero completed events. "
+                "SGT discovery returned zero usable completed events. "
                 "Preserving existing validated history and exiting cleanly with no publication changes."
             )
             return existing_history
@@ -176,7 +212,7 @@ def process_tour(*, refresh_all: bool = False) -> dict:
             analysis = json.loads(analysis_path.read_text(encoding="utf-8"))
             validate_event_against_sgt(event, analysis)
             reused.append(event_id)
-            print(f"REUSE {event_id}: existing deterministic analysis validated against SGT event card")
+            print(f"REUSE {event_id}: existing deterministic analysis validated against event metadata")
             continue
 
         print(f"PROCESS {event_id}: {event.get('course')} | {event.get('date')}")
@@ -201,13 +237,15 @@ def process_tour(*, refresh_all: bool = False) -> dict:
         "reusedEventIds": reused,
         "ignoredEventIds": sorted(ignored_event_ids),
         "pinnedEventIdsAddedToDiscovery": pinned_added,
+        "carriedForwardValidatedEventIds": carried_forward,
     }
     history_path = ROOT / "data" / "history.json"
     write_json(history_path, history)
 
     print(
         f"Tour complete: completed={len(discovery.get('completed', []))} "
-        f"ignored={len(ignored_completed)} pinned={pinned_added} processed={processed} reused={reused}"
+        f"ignored={len(ignored_completed)} pinned={pinned_added} carried={carried_forward} "
+        f"processed={processed} reused={reused}"
     )
     return history
 
