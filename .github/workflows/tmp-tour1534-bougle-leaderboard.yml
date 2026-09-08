@@ -1,0 +1,40 @@
+name: Temporary Tour 1534 Bougle leaderboard inspect
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  check:
+    if: github.event.issue.title == 'TEMP TOUR 1534 BOUGLE LEADERBOARD'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Inspect Bougle leaderboard rows
+        run: |
+          python - <<'PY'
+          import re, sys
+          from bs4 import BeautifulSoup
+          sys.path.insert(0, 'src')
+          import export_tournament as ex
+          tid=65301
+          op=ex.build_opener(); url=f'{ex.BASE_URL}/tournament/{tid}'
+          with op.open(url,timeout=30) as r: r.read()
+          for kind,path in [('GROSS',f'/sgt-api/leaderboard/{tid}'),('NET',f'/sgt-api/leaderboard/{tid}/net')]:
+              html=ex.fetch_text(op,path,url); soup=BeautifulSoup(html,'html.parser')
+              print('BOARD',kind)
+              seen=set()
+              for a in soup.find_all('a',href=re.compile(rf'/scorecard/{tid}/\d+')):
+                  m=re.search(rf'/scorecard/{tid}/(\d+)',a.get('href','')); pid=int(m.group(1))
+                  if pid in seen: continue
+                  seen.add(pid)
+                  row=a.find_parent('tr')
+                  txt=' | '.join(s.strip() for s in row.stripped_strings) if row else a.get_text(' ',strip=True)
+                  print(f'ROW pid={pid} text={txt}')
+          PY
