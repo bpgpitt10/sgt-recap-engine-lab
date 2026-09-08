@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MAX_CHARS = 1900
 MAX_MESSAGES = 3
 MAX_ROTATING_AWARDS = 3
+TOP_ROAST_COUNT = 5
+BOTTOM_ROAST_COUNT = 5
 
 
 def load(path: Path) -> dict:
@@ -199,21 +201,31 @@ def verified_awards(analysis: dict, raw: dict | None) -> list[str]:
     return awards
 
 
-def ranking_messages(net: list[dict], taglines: dict[str, str]) -> list[str]:
-    messages: list[str] = []
-    current = "**NET RANKING**"
-    for i, row in enumerate(net, 1):
+def ranking_message(net: list[dict], taglines: dict[str, str]) -> str | None:
+    if not net:
+        return None
+
+    def line(rank: int, row: dict) -> str:
         name = row.get("name", "—")
         roast = taglines.get(name, "").strip()
-        line = f"**{i}. {name} · {score(row.get('total'))}** — {roast}"
-        candidate = current + "\n" + line
-        if len(candidate) <= MAX_CHARS:
-            current = candidate
-            continue
-        messages.append(current)
-        current = "**NET RANKING · CONTINUED**\n" + line
-    messages.append(current)
-    return messages
+        return f"**{rank}. {name} · {score(row.get('total'))}** — {roast}"
+
+    if len(net) <= TOP_ROAST_COUNT + BOTTOM_ROAST_COUNT:
+        message = "**NET RANKING**\n" + "\n".join(line(i, row) for i, row in enumerate(net, 1))
+    else:
+        top = "\n".join(line(i, row) for i, row in enumerate(net[:TOP_ROAST_COUNT], 1))
+        bottom_start = len(net) - BOTTOM_ROAST_COUNT
+        bottom = "\n".join(
+            line(i, row)
+            for i, row in enumerate(net[bottom_start:], bottom_start + 1)
+        )
+        message = f"**TOP 5 · NET**\n{top}\n\n**BOTTOM 5 · NET**\n{bottom}"
+
+    if len(message) > MAX_CHARS:
+        raise RuntimeError(
+            f"Discord top/bottom ranking post is too long ({len(message)} chars). Shorten roast taglines."
+        )
+    return message
 
 
 def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -> dict:
@@ -243,12 +255,20 @@ def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -
     if len(intro) > MAX_CHARS:
         raise RuntimeError(f"Discord intro/awards post is too long ({len(intro)} chars)")
 
-    messages = [intro, *ranking_messages(net, taglines)]
+    messages = [intro]
+    ranking = ranking_message(net, taglines)
+    if ranking:
+        messages.append(ranking)
     if len(messages) > MAX_MESSAGES:
-        # Keep the complete player list rather than silently dropping people.
-        raise RuntimeError(f"Discord payload needs {len(messages)} messages; max is {MAX_MESSAGES}. Shorten roast taglines.")
+        raise RuntimeError(f"Discord payload needs {len(messages)} messages; max is {MAX_MESSAGES}.")
 
-    return {"messages": messages, "characterCounts": [len(m) for m in messages]}
+    selected_player_count = min(len(net), TOP_ROAST_COUNT + BOTTOM_ROAST_COUNT)
+    return {
+        "messages": messages,
+        "characterCounts": [len(m) for m in messages],
+        "rankingPlayerCount": selected_player_count,
+        "rankingMode": "all" if len(net) <= TOP_ROAST_COUNT + BOTTOM_ROAST_COUNT else "top5-bottom5",
+    }
 
 
 def main() -> None:
@@ -276,7 +296,10 @@ def main() -> None:
     for i, message in enumerate(payload["messages"], 1):
         print(f"--- Discord post {i} · {len(message)} chars ---")
         print(message)
-    print(f"Discord posts: {len(payload['messages'])}")
+    print(
+        f"Discord posts: {len(payload['messages'])} | "
+        f"ranking mode={payload['rankingMode']} players={payload['rankingPlayerCount']}"
+    )
 
 
 if __name__ == "__main__":
