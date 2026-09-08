@@ -1,0 +1,51 @@
+name: Temporary Tour 1534 Bougle completion check
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  check:
+    if: github.event.issue.title == 'TEMP TOUR 1534 BOUGLE CHECK'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Inspect Bougle displayed-hole completion
+        run: |
+          python - <<'PY'
+          import collections
+          import sys
+          sys.path.insert(0, 'src')
+          import export_tournament as ex
+          from analyze_tournament import parse_scorecard
+
+          tid = 65301
+          opener = ex.build_opener()
+          tournament_url = f'{ex.BASE_URL}/tournament/{tid}'
+          with opener.open(tournament_url, timeout=30) as response:
+              response.read()
+          gross_html = ex.fetch_text(opener, f'/sgt-api/leaderboard/{tid}', tournament_url)
+          net_html = ex.fetch_text(opener, f'/sgt-api/leaderboard/{tid}/net', tournament_url)
+          players = ex.merge_orders(ex.discover_players_from_leaderboard(gross_html, tid), ex.discover_players_from_leaderboard(net_html, tid))
+          generic_completed = 0
+          shapes = collections.Counter()
+          for p in players:
+              pid = p['id']
+              html = ex.fetch_text(opener, f'/sgt-api/scorecard/{tid}/{pid}/indv', f'{ex.BASE_URL}/scorecard/{tid}/{pid}')
+              sc = parse_scorecard(html)
+              shape = tuple((len(r.get('holes', [])), sum(1 for h in r.get('holes', []) if h.get('gross') is not None)) for r in sc.get('rounds', []))
+              shapes[shape] += 1
+              rounds = sc.get('rounds', [])
+              generic = bool(rounds) and all(r.get('holes') and all(h.get('gross') is not None for h in r.get('holes', [])) for r in rounds)
+              if generic:
+                  generic_completed += 1
+          print(f'BOUGLE_RESULT raw={len(players)} generic_completed={generic_completed}')
+          for shape, count in sorted(shapes.items(), key=lambda kv: (-kv[1], str(kv[0]))):
+              print(f'BOUGLE_SHAPE count={count} shape={shape}')
+          PY
