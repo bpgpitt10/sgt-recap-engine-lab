@@ -176,7 +176,7 @@ def generate_batch(client, *, model: str, facts: dict, batch_number: int) -> tup
     raise RuntimeError(f"Gemini batch {batch_number} failed validation after 3 attempts: {last_error}")
 
 
-def generate(analysis: dict, config: dict, history: dict | None, model: str, batch_size: int) -> tuple[dict, dict, dict]:
+def generate(analysis: dict, config: dict, history: dict | None, model: str, batch_size: int, max_batches: int | None) -> tuple[dict, dict, dict]:
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError("GEMINI_API_KEY is not set")
@@ -188,9 +188,11 @@ def generate(analysis: dict, config: dict, history: dict | None, model: str, bat
     usage: dict = {}
     batches: list[dict] = []
     ordered_names = [p["name"] for p in full_facts["playersNetOrder"]]
+    selected_names = ordered_names[: batch_size * max_batches] if max_batches else ordered_names
+    selected_set = set(selected_names)
 
-    for start in range(0, len(ordered_names), batch_size):
-        names = ordered_names[start:start + batch_size]
+    for start in range(0, len(selected_names), batch_size):
+        names = selected_names[start:start + batch_size]
         facts = batch_facts(full_facts, names)
         batch_number = start // batch_size + 1
         print(f"Generating Gemini batch {batch_number}: {', '.join(names)}")
@@ -201,18 +203,18 @@ def generate(analysis: dict, config: dict, history: dict | None, model: str, bat
             carnage_by_name[item["name"]] = item
         batches.append({"batch": batch_number, "players": names, "usage": batch_usage})
 
-    merged_carnage = [carnage_by_name[c["name"]] for c in full_facts["carnageOrder"]]
+    selected_carnage_facts = [c for c in full_facts["carnageOrder"] if c["name"] in selected_set]
+    merged_carnage = [carnage_by_name[c["name"]] for c in selected_carnage_facts]
     merged = {"players": all_players, "carnage": merged_carnage}
-    expected_players = [p["name"] for p in full_facts["playersNetOrder"]]
     actual_players = [p["name"] for p in merged["players"]]
-    if actual_players != expected_players:
-        raise RuntimeError(f"Merged player order mismatch: expected {expected_players}, got {actual_players}")
-    expected_carnage = [c["name"] for c in full_facts["carnageOrder"]]
+    if actual_players != selected_names:
+        raise RuntimeError(f"Merged player order mismatch: expected {selected_names}, got {actual_players}")
+    expected_carnage = [c["name"] for c in selected_carnage_facts]
     actual_carnage = [c["name"] for c in merged["carnage"]]
     if actual_carnage != expected_carnage:
         raise RuntimeError(f"Merged Carnage order mismatch: expected {expected_carnage}, got {actual_carnage}")
 
-    return merged, full_facts, {"total": usage, "batches": batches}
+    return merged, full_facts, {"total": usage, "batches": batches, "selectedPlayers": selected_names}
 
 
 def main() -> None:
@@ -223,9 +225,12 @@ def main() -> None:
     parser.add_argument("--facts-output", type=Path)
     parser.add_argument("--model", default=os.environ.get("GEMINI_MODEL", "gemini-3.8-flash"))
     parser.add_argument("--batch-size", type=int, default=3)
+    parser.add_argument("--max-batches", type=int)
     args = parser.parse_args()
     if args.batch_size < 1:
         raise RuntimeError("--batch-size must be at least 1")
+    if args.max_batches is not None and args.max_batches < 1:
+        raise RuntimeError("--max-batches must be at least 1")
 
     ap = args.analysis if args.analysis.is_absolute() else ROOT / args.analysis
     hp = args.history if args.history.is_absolute() else ROOT / args.history
@@ -234,12 +239,13 @@ def main() -> None:
     analysis = load_json(ap)
     history = load_json(hp) if hp.exists() else None
 
-    batch_copy, facts, usage = generate(analysis, config, history, args.model, args.batch_size)
+    batch_copy, facts, usage = generate(analysis, config, history, args.model, args.batch_size, args.max_batches)
     payload = {
         "provider": "google",
         "model": args.model,
         "mode": "batched-player-carnage-benchmark",
         "batchSize": args.batch_size,
+        "maxBatches": args.max_batches,
         "minCallIntervalSeconds": MIN_CALL_INTERVAL_SECONDS,
         "tournamentId": analysis["tournament"]["id"],
         "usage": usage,
