@@ -1,0 +1,62 @@
+name: Gemini recap benchmark
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gemini-recap-benchmark.yml"
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out current engine
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install google-genai
+
+      - name: Require Gemini API key
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "GEMINI_API_KEY is missing from repository secrets."
+            exit 1
+          fi
+
+      - name: Rebuild current deterministic High Loft analysis
+        run: python src/process_tour.py
+
+      - name: Generate Gemini 3.8 Flash benchmark from Trosper facts
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.8-flash
+        run: |
+          test -f data/analysis/70248.json
+          python src/write_gemini_benchmark.py data/analysis/70248.json \
+            --output data/experiments/70248-gemini-3.8-flash.json \
+            --facts-output data/experiments/70248-facts.json
+
+      - name: Commit benchmark output only
+        run: |
+          git config user.name "sgt-recap-engine-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/experiments/70248-gemini-3.8-flash.json data/experiments/70248-facts.json
+          if git diff --cached --quiet; then
+            echo "Benchmark output unchanged."
+            exit 0
+          fi
+          git commit -m "Generate Gemini 3.8 Flash Trosper benchmark"
+          git pull --rebase origin main
+          git push origin HEAD:main
