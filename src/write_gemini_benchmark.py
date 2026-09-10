@@ -18,6 +18,8 @@ import write_recap
 from validate_recap_copy import validate as factual_validate
 
 ROOT = Path(__file__).resolve().parents[1]
+MIN_CALL_INTERVAL_SECONDS = float(os.environ.get("GEMINI_MIN_CALL_INTERVAL_SECONDS", "13"))
+_last_api_call_at = 0.0
 
 BATCH_SCHEMA = {
     "type": "object",
@@ -89,9 +91,20 @@ def merge_usage(total: dict, add: dict) -> None:
         total[key] = total.get(key, 0) + value
 
 
+def wait_for_free_tier_slot() -> None:
+    global _last_api_call_at
+    elapsed = time.monotonic() - _last_api_call_at
+    remaining = MIN_CALL_INTERVAL_SECONDS - elapsed
+    if _last_api_call_at and remaining > 0:
+        print(f"Free-tier rate governor: spacing Gemini calls by {MIN_CALL_INTERVAL_SECONDS:.0f}s")
+        time.sleep(remaining)
+    _last_api_call_at = time.monotonic()
+
+
 def gemini_call(client, *, model: str, contents: str):
     last_error: Exception | None = None
     for api_attempt in range(1, 5):
+        wait_for_free_tier_slot()
         try:
             return client.models.generate_content(
                 model=model,
@@ -110,9 +123,7 @@ def gemini_call(client, *, model: str, contents: str):
             transient = any(marker in text for marker in ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED"))
             if not transient or api_attempt == 4:
                 raise
-            delay = 4 * api_attempt
-            print(f"Gemini transient API failure on call {api_attempt}/4; retrying after {delay}s: {exc}")
-            time.sleep(delay)
+            print(f"Gemini transient API failure on call {api_attempt}/4; next retry remains rate-governed: {exc}")
     raise RuntimeError(f"Gemini call failed: {last_error}")
 
 
@@ -229,6 +240,7 @@ def main() -> None:
         "model": args.model,
         "mode": "batched-player-carnage-benchmark",
         "batchSize": args.batch_size,
+        "minCallIntervalSeconds": MIN_CALL_INTERVAL_SECONDS,
         "tournamentId": analysis["tournament"]["id"],
         "usage": usage,
         "copy": batch_copy,
