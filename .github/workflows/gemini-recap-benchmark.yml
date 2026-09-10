@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/gemini-recap-benchmark.yml"
+      - "src/write_gemini_benchmark.py"
 
 jobs:
   benchmark:
