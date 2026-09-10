@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import time
 from pathlib import Path
 
 from google import genai
@@ -19,6 +20,33 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def gemini_call(client, *, model: str, contents: str):
+    last_error: Exception | None = None
+    for api_attempt in range(1, 5):
+        try:
+            return client.models.generate_content(
+                model=model,
+                contents=contents,
+                config=types.GenerateContentConfig(
+                    system_instruction=write_recap.SYSTEM_PROMPT,
+                    response_mime_type="application/json",
+                    response_json_schema=write_recap.OUTPUT_SCHEMA,
+                    max_output_tokens=65536,
+                    thinking_config=types.ThinkingConfig(thinking_level="HIGH"),
+                ),
+            )
+        except Exception as exc:
+            last_error = exc
+            text = str(exc).upper()
+            transient = any(marker in text for marker in ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED"))
+            if not transient or api_attempt == 4:
+                raise
+            delay = 5 * api_attempt
+            print(f"Gemini transient API failure on call {api_attempt}/4; retrying after {delay}s: {exc}")
+            time.sleep(delay)
+    raise RuntimeError(f"Gemini call failed: {last_error}")
 
 
 def generate(analysis: dict, config: dict, history: dict | None, model: str) -> tuple[dict, dict, dict]:
@@ -39,17 +67,7 @@ def generate(analysis: dict, config: dict, history: dict | None, model: str) -> 
     usage: dict = {}
 
     for attempt in range(1, 4):
-        response = client.models.generate_content(
-            model=model,
-            contents=base_input + correction,
-            config=types.GenerateContentConfig(
-                system_instruction=write_recap.SYSTEM_PROMPT,
-                response_mime_type="application/json",
-                response_json_schema=write_recap.OUTPUT_SCHEMA,
-                max_output_tokens=65536,
-                thinking_config=types.ThinkingConfig(thinking_level="HIGH"),
-            ),
-        )
+        response = gemini_call(client, model=model, contents=base_input + correction)
 
         meta = getattr(response, "usage_metadata", None)
         if meta is not None:
