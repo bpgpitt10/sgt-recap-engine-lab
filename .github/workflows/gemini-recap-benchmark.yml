@@ -39,14 +39,14 @@ jobs:
       - name: Rebuild current deterministic High Loft analysis
         run: python src/process_tour.py
 
-      - name: Generate one Gemini 2.5 Flash five-player batch
+      - name: Generate one Gemini 3.6 Flash five-player batch
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-2.5-flash
+          GEMINI_MODEL: gemini-3.6-flash
         run: |
           test -f data/analysis/70248.json
           python src/write_gemini_benchmark.py data/analysis/70248.json \
-            --output data/experiments/70248-gemini-2.5-flash-batch1.json \
+            --output data/experiments/70248-gemini-3.6-flash-batch1.json \
             --facts-output data/experiments/70248-facts.json \
             --batch-size 5 \
             --max-batches 1
@@ -55,11 +55,11 @@ jobs:
         run: |
           git config user.name "sgt-recap-engine-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/experiments/70248-gemini-2.5-flash-batch1.json data/experiments/70248-facts.json
+          git add data/experiments/70248-gemini-3.6-flash-batch1.json data/experiments/70248-facts.json
           if git diff --cached --quiet; then
             echo "Benchmark output unchanged."
             exit 0
           fi
-          git commit -m "Generate Gemini 2.5 Flash five-player benchmark"
+          git commit -m "Generate Gemini 3.6 Flash five-player benchmark"
           git pull --rebase origin main
           git push origin HEAD:main
