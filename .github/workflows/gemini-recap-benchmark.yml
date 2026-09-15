@@ -1,11 +1,8 @@
 name: Gemini recap benchmark
 
+# Retained for manual comparison only. Gemini is not part of the production publisher.
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/gemini-recap-benchmark.yml"
-      - "src/write_gemini_benchmark.py"
+  workflow_dispatch:
 
 jobs:
   benchmark:
@@ -61,5 +58,6 @@ jobs:
             exit 0
           fi
           git commit -m "Generate Gemini 3.6 Flash five-player benchmark"
+          git stash --include-untracked
           git pull --rebase origin main
           git push origin HEAD:main
