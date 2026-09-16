@@ -41,7 +41,17 @@ def display_to_par(value: int | None) -> str | None:
     return f"+{value}" if value > 0 else str(value)
 
 
-def parse_scorecard(html: str | None) -> dict:
+def leaderboard_to_par(value: str | None) -> int | None:
+    if not value:
+        return None
+    normalized = value.strip().upper()
+    if normalized == "E":
+        return 0
+    match = re.search(r"[-+]?\d+", normalized.replace(",", ""))
+    return int(match.group()) if match else None
+
+
+def parse_scorecard(html: str | None, official_finished: bool | None = None) -> dict:
     if not html:
         return {"rounds": [], "complete": False}
     soup = BeautifulSoup(html, "html.parser")
@@ -90,13 +100,27 @@ def parse_scorecard(html: str | None) -> dict:
             holes.append(item)
             all_holes.append(item)
 
-        complete = len(holes) == 18 and all(hole["gross"] is not None for hole in holes)
+        scored_holes = [hole for hole in holes if hole["gross"] is not None]
+        legacy_complete = len(holes) == 18 and len(scored_holes) == 18
+        if official_finished is True:
+            complete = bool(scored_holes) and all(hole["par"] is not None for hole in scored_holes)
+        elif official_finished is False:
+            complete = False
+        else:
+            complete = legacy_complete
+
+        played_par = sum(hole["par"] for hole in scored_holes if hole["par"] is not None)
+        gross_total = sum(hole["gross"] for hole in scored_holes)
+        net_values = [hole["net"] for hole in scored_holes]
+        net_total = sum(value for value in net_values if value is not None) if net_values and all(value is not None for value in net_values) else None
         rounds.append({
             "round": round_index,
             "complete": complete,
-            "par": sum(hole["par"] for hole in holes if hole["par"] is not None),
-            "gross": sum(hole["gross"] for hole in holes if hole["gross"] is not None),
-            "net": sum(hole["net"] for hole in holes if hole["net"] is not None) if any(hole["net"] is not None for hole in holes) else None,
+            "holesPlayed": len(scored_holes),
+            "scheduledHoles": len(holes),
+            "par": played_par,
+            "gross": gross_total,
+            "net": net_total,
             "holes": holes,
         })
 
@@ -110,6 +134,9 @@ def parse_scorecard(html: str | None) -> dict:
     return {
         "rounds": rounds,
         "holes": all_holes,
+        "holesPlayed": sum(round_["holesPlayed"] for round_ in complete_rounds),
+        "scheduledHoles": sum(round_["scheduledHoles"] for round_ in rounds),
+        "completionSource": "officialLeaderboard" if official_finished is not None else "legacy18Hole",
         "complete": bool(rounds) and len(complete_rounds) == len(rounds),
         "par": par_total if complete_rounds else None,
         "gross": gross_total if complete_rounds else None,
@@ -228,7 +255,29 @@ def analyze(raw: dict) -> dict:
     analyzed_players = []
     for raw_player in raw.get("players", []):
         player_id = raw_player["id"]
-        scorecard = parse_scorecard(raw_player.get("scorecard"))
+        raw_lb = raw_player.get("leaderboard") or {}
+        gross_meta = raw_lb.get("gross") or next((item for item in gross_order if item.get("id") == player_id), {})
+        net_meta = raw_lb.get("net") or next((item for item in net_order if item.get("id") == player_id), {})
+        official_values = [meta.get("finished") for meta in (gross_meta, net_meta) if "finished" in meta]
+        official_finished = any(official_values) if official_values else None
+        scorecard = parse_scorecard(raw_player.get("scorecard"), official_finished=official_finished)
+
+        if official_finished is True:
+            if not scorecard.get("complete"):
+                raise RuntimeError(f"Official finisher {raw_player.get('name') or player_id} has no usable completed scorecard")
+            expected_gross = leaderboard_to_par(gross_meta.get("total"))
+            expected_net = leaderboard_to_par(net_meta.get("total"))
+            if expected_gross is not None and scorecard.get("grossToPar") != expected_gross:
+                raise RuntimeError(
+                    f"Official gross total mismatch for {raw_player.get('name') or player_id}: "
+                    f"leaderboard={expected_gross}, scorecard={scorecard.get('grossToPar')}"
+                )
+            if expected_net is not None and scorecard.get("netToPar") != expected_net:
+                raise RuntimeError(
+                    f"Official net total mismatch for {raw_player.get('name') or player_id}: "
+                    f"leaderboard={expected_net}, scorecard={scorecard.get('netToPar')}"
+                )
+
         stats = parse_stats(raw_player.get("stats"))
         shots = parse_shots(raw_player.get("shots"))
         for item in shots:
@@ -245,6 +294,7 @@ def analyze(raw: dict) -> dict:
             "id": player_id,
             "name": raw_player.get("name"),
             "completed": scorecard.get("complete", False),
+            "officialFinished": official_finished,
             "leaderboard": {
                 "grossPosition": gross_position.get(player_id),
                 "netPosition": net_position.get(player_id),
@@ -305,6 +355,10 @@ def analyze(raw: dict) -> dict:
             "completedPlayers": len(completed_ids),
             "playersWithStats": sum(1 for player in analyzed_players if any(value is not None for value in player["sg"].values())),
             "playersWithShots": sum(1 for player in analyzed_players if player.get("worstHole") and player["worstHole"].get("shots")),
+            "variableHoleFinishers": sum(
+                1 for player in analyzed_players
+                if player["completed"] and player["scorecard"].get("holesPlayed") not in (None, 18)
+            ),
         },
     }
 
