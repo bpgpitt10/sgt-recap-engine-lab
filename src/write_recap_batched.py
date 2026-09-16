@@ -478,7 +478,8 @@ def main() -> None:
         fp.parent.mkdir(parents=True, exist_ok=True)
         fp.write_text(json.dumps(facts, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    print(f"Wrote complete batched recap for tournament {tournament_id} with model {args.model}: {out.relative_to(ROOT)}")
+    display_out = out.relative_to(ROOT) if out.is_relative_to(ROOT) else out
+    print(f"Wrote complete batched recap for tournament {tournament_id} with model {args.model}: {display_out}")
     print(json.dumps(manifest, indent=2))
 
 
