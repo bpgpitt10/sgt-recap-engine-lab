@@ -1,4 +1,5 @@
 name: Batched recap checkpoint integration test
+# Regression: batch context is restricted to the requested player subset.
 
 on:
   push:
