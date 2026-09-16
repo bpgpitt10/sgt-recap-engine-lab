@@ -253,9 +253,9 @@ def scalable_recap_layout(html: str, analysis: dict) -> str:
 .hole-card>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;margin:6px 0 0}
 .hole-card.is-open .shot-trail{display:flex}
 .hole-card.is-open>p{display:block;-webkit-line-clamp:unset;overflow:visible;margin-top:12px}
-.recap-players{gap:10px}
-.recap-players article{padding:12px 16px;min-height:0}
-.recap-players article.is-open{padding:18px 20px}
+.recap-players{gap:10px;align-items:start}
+.recap-players.expanded article{padding:12px 16px;min-height:0}
+.recap-players.expanded article.is-open{padding:18px 20px}
 .recap-players .player-roast{margin-bottom:8px}
 .recap-players .round-details[hidden]{display:none}
 .recap-players .round-details p{margin-bottom:0}
