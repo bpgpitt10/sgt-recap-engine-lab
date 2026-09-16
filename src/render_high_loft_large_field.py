@@ -182,7 +182,6 @@ def large_field_recap(html: str) -> str:
         opener = match.group(1).replace('sectionhead marked', 'sectionhead marked recap-search-head', 1)
         search = (
             f'<label class="recap-header-search">'
-            f'<span>Search player</span>'
             f'<input type="search" {data_attr} placeholder="Search player…" autocomplete="off" aria-label="Search player">'
             f'</label>'
         )
@@ -300,9 +299,18 @@ def large_field_recap(html: str) -> str:
     }}
   }}
 
+  function syncTournamentSearch(source){{
+    const carnage=document.querySelector('[data-carnage-search]');
+    const players=document.querySelector('[data-round-player-search]');
+    const q=source.value;
+    if(carnage&&carnage!==source)carnage.value=q;
+    if(players&&players!==source)players.value=q;
+    applyCarnage();
+    applyPlayers();
+  }}
+
   document.addEventListener('input',e=>{{
-    if(e.target.matches('[data-carnage-search]'))applyCarnage();
-    if(e.target.matches('[data-round-player-search]'))applyPlayers();
+    if(e.target.matches('[data-carnage-search],[data-round-player-search]'))syncTournamentSearch(e.target);
   }});
   document.addEventListener('click',e=>{{
     if(e.target.closest('[data-carnage-more]')){{carnageExpanded=!carnageExpanded;applyCarnage();return;}}
