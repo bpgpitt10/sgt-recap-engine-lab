@@ -1,0 +1,46 @@
+name: Tour 1534 leaderboard diagnostic
+
+on:
+  push:
+    branches: [tour1534-variable-hole-active]
+    paths:
+      - ".github/workflows/tour1534-leaderboard-diagnostic.yml"
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: pip install beautifulsoup4
+      - name: Inspect leaderboard rows
+        run: |
+          python - <<'PY'
+          import re, urllib.request, http.cookiejar
+          from bs4 import BeautifulSoup
+          BASE='https://simulatorgolftour.com'
+          for tid in (65301,70248):
+              print('\n=== TOURNAMENT', tid, '===')
+              jar=http.cookiejar.CookieJar()
+              opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+              opener.addheaders=[('User-Agent','Mozilla/5.0'),('Accept-Language','en-US,en;q=0.9')]
+              page=f'{BASE}/tournament/{tid}'
+              opener.open(page, timeout=30).read()
+              for suffix in ('','/net'):
+                  req=urllib.request.Request(f'{BASE}/sgt-api/leaderboard/{tid}{suffix}',headers={'Referer':page,'X-Requested-With':'XMLHttpRequest'})
+                  html=opener.open(req,timeout=30).read().decode('utf-8','replace')
+                  soup=BeautifulSoup(html,'html.parser')
+                  print('\n--', 'NET' if suffix else 'GROSS', 'rows --')
+                  rows=[]
+                  for tr in soup.find_all('tr'):
+                      if tr.find('a',href=re.compile(rf'/scorecard/{tid}/\d+')):
+                          rows.append(tr)
+                  print('row_count=',len(rows))
+                  for tr in rows[:8]:
+                      cells=[' '.join(td.stripped_strings) for td in tr.find_all(['td','th'],recursive=False)]
+                      link=tr.find('a',href=re.compile(rf'/scorecard/{tid}/\d+'))
+                      print('cells=',cells)
+                      print('row_class=',tr.get('class'),'scorecard=',link.get('href'))
+                  if rows:
+                      print('FIRST_ROW_HTML=',str(rows[0])[:3000].replace('\n',' '))
+          PY
