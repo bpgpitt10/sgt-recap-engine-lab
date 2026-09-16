@@ -1,0 +1,42 @@
+name: One-time recap header search renderer patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/recap-header-search-patch.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out engine
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Check out current production site for smoke render
+        uses: actions/checkout@v4
+        with:
+          repository: bpgpitt10/high-loft-low-standards
+          ref: main
+          path: production
+      - name: Patch renderer
+        run: python tools/patch_recap_header_search.py
+      - name: Verify renderer
+        run: |
+          python -m py_compile src/render_high_loft_large_field.py
+          python src/render_high_loft_large_field.py --production-root production --output /tmp/high-loft-search-smoke
+          grep -R -q 'data-carnage-search' /tmp/high-loft-search-smoke/recaps
+          grep -R -q 'data-round-player-search' /tmp/high-loft-search-smoke/recaps
+          grep -R -q 'recap-search-head' /tmp/high-loft-search-smoke/recaps
+      - name: Publish renderer change
+        run: |
+          git config user.name "high-loft-ui-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/render_high_loft_large_field.py
+          git commit -m "Put tournament player search in section headers"
+          git push origin HEAD:main
