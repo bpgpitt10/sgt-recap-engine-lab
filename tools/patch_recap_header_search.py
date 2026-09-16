@@ -4,7 +4,7 @@ import re
 path = Path('src/render_high_loft_large_field.py')
 text = path.read_text()
 
-new_function = r'''def large_field_recap(html: str) -> str:
+new_function = r"""def large_field_recap(html: str) -> str:
     order_label = 'GROSS' if 'Gross order. Net context.' in html else 'NET'
 
     def add_header_search(section_class: str, data_attr: str) -> None:
@@ -154,7 +154,7 @@ new_function = r'''def large_field_recap(html: str) -> str:
     return html.replace('</body>', js + '</body>', 1)
 
 
-'''
+"""
 
 pattern = re.compile(r'def large_field_recap\(html: str\) -> str:.*?(?=def recap_page\()', flags=re.S)
 text, count = pattern.subn(new_function, text, count=1)
