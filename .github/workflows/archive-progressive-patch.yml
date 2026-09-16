@@ -1,4 +1,4 @@
-# Trigger one-time archive generator patch against current renderer
+# One-time archive generator patch against current renderer
 name: One-time archive generator patch
 
 on:
@@ -25,42 +25,23 @@ jobs:
           import re
           p = Path('src/render_high_loft_large_field.py')
           s = p.read_text()
-
           old = 'ARCHIVE_INITIAL = 24\nSEASON_BOARD_VISIBLE = 15'
           new = 'ARCHIVE_INITIAL = 6\nARCHIVE_PAGE_SIZE = 10\nSEASON_BOARD_VISIBLE = 15'
-          if old not in s:
-              raise SystemExit('Generator archive constants target not found')
+          if old not in s: raise SystemExit('Generator archive constants target not found')
           s = s.replace(old, new, 1)
-
           old = '  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveExpanded=false;'
           new = '  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const ARCHIVE_PAGE_SIZE={ARCHIVE_PAGE_SIZE};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveVisible=ARCHIVE_INITIAL;'
-          if old not in s:
-              raise SystemExit('Generator JS archive state target not found')
+          if old not in s: raise SystemExit('Generator JS archive state target not found')
           s = s.replace(old, new, 1)
-
-          old = '''    footer.hidden=!large;
-    cards.forEach((card,i)=>card.hidden=large&&!archiveExpanded&&i>=ARCHIVE_INITIAL);'''
-          new = '''    const visible=Math.min(archiveVisible,total);
-    cards.forEach((card,i)=>card.hidden=large&&i>=visible);
-    const remaining=Math.max(0,total-visible);
-    footer.hidden=!large||remaining===0;'''
-          if old not in s:
-              raise SystemExit('Generator archive visibility target not found')
+          old = '    footer.hidden=!large;\n    cards.forEach((card,i)=>card.hidden=large&&!archiveExpanded&&i>=ARCHIVE_INITIAL);'
+          new = '    const visible=Math.min(archiveVisible,total);\n    cards.forEach((card,i)=>card.hidden=large&&i>=visible);\n    const remaining=Math.max(0,total-visible);\n    footer.hidden=!large||remaining===0;'
+          if old not in s: raise SystemExit('Generator archive visibility target not found')
           s = s.replace(old, new, 1)
-
-          s, count = re.subn(
-              r"    if\(large\)button\.textContent=.*?;\n",
-              "    if(remaining>0){{\n      const step=Math.min(ARCHIVE_PAGE_SIZE,remaining);\n      button.textContent='Show '+step+' more tournament'+(step===1?'':'s')+' · '+remaining+' remaining';\n    }}\n",
-              s,
-              count=1,
-          )
-          if count != 1:
-              raise SystemExit('Generator archive button target not found')
-
+          s, count = re.subn(r"    if\(large\)button\.textContent=.*?;\n", "    if(remaining>0){{\n      const step=Math.min(ARCHIVE_PAGE_SIZE,remaining);\n      button.textContent='Show '+step+' more tournament'+(step===1?'':'s')+' · '+remaining+' remaining';\n    }}\n", s, count=1)
+          if count != 1: raise SystemExit('Generator archive button target not found')
           old = "    if(e.target.closest('[data-archive-more]')){{archiveExpanded=!archiveExpanded;applyArchive();return;}}"
           new = "    if(e.target.closest('[data-archive-more]')){{archiveVisible+=ARCHIVE_PAGE_SIZE;applyArchive();return;}}"
-          if old not in s:
-              raise SystemExit('Generator archive click target not found')
+          if old not in s: raise SystemExit('Generator archive click target not found')
           s = s.replace(old, new, 1)
           p.write_text(s)
           PY
