@@ -17,10 +17,15 @@ SEASON_BOARD_VISIBLE = 15
 
 
 def large_field_landing(html: str) -> str:
+    profile_tagline = '<p class="sectionlead">The numbers change. The tendencies linger. This is the closest thing we have to each player’s golfing DNA.</p>'
+    profile_header_search = '<label class="player-search scouting-player-search"><input type="search" data-profile-search placeholder="Search player…" autocomplete="off" aria-label="Search player"></label>'
+    if profile_tagline not in html:
+        raise RuntimeError("Could not find scouting profile tagline for header search")
+    html = html.replace(profile_tagline, profile_header_search, 1)
+
     profile_marker = '<div class="players" id="players-grid"></div>'
     profile_tools = f'''
 <div class="large-field-tools profile-directory" data-profile-tools hidden>
-  <label class="player-search"><span>Find a player</span><input type="search" data-profile-search placeholder="Type a player name…" autocomplete="off"></label>
   <div class="large-field-status" data-profile-count aria-live="polite"></div>
 </div>
 {profile_marker}
@@ -55,6 +60,9 @@ def large_field_landing(html: str) -> str:
 .player-search input{{width:100%;border:1px solid #314137;border-radius:12px;background:#0f1711;color:#f2f4ef;padding:12px 14px;font:inherit;font-size:14px;outline:none}}
 .player-search input:focus{{border-color:#6c8c46;box-shadow:0 0 0 2px rgba(182,243,74,.08)}}
 .player-search input::placeholder{{color:#6f7b72}}
+.scouting-head .scouting-meta{{max-width:none;gap:28px}}
+.scouting-head .scouting-player-search{{flex:0 1 320px;min-width:260px}}
+.profile-directory{{justify-content:flex-end}}
 .large-field-status{{color:#9ba79d;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;text-align:right}}
 .large-list-footer{{display:flex;justify-content:center;margin-top:16px}}
 .large-list-button{{border:1px solid #3e503f;border-radius:999px;background:#0f1711;color:#b6f34a;padding:11px 16px;font:inherit;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}}
