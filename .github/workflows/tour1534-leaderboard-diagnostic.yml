@@ -9,46 +9,35 @@ on:
 jobs:
   inspect:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: tour1534-variable-hole-active
       - name: Install deps
         run: pip install beautifulsoup4
-      - name: Inspect Aloha net scoring
+      - name: Inspect missing stats case
         run: |
-          python - <<'PY'
-          import re, urllib.request, http.cookiejar
+          PYTHONPATH=src python - <<'PY'
           from bs4 import BeautifulSoup
-          BASE='https://simulatorgolftour.com'
-          tid=70322
-          pid=2006
-          jar=http.cookiejar.CookieJar()
-          opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-          opener.addheaders=[('User-Agent','Mozilla/5.0'),('Accept-Language','en-US,en;q=0.9')]
-          page=f'{BASE}/tournament/{tid}'
-          opener.open(page,timeout=30).read()
-          for suffix in ('','/net'):
-              req=urllib.request.Request(f'{BASE}/sgt-api/leaderboard/{tid}{suffix}',headers={'Referer':page,'X-Requested-With':'XMLHttpRequest'})
-              html=opener.open(req,timeout=30).read().decode('utf-8','replace')
+          from export_tournament import export_tournament
+          from analyze_tournament import analyze, parse_stats
+
+          tid=66654
+          raw=export_tournament(tid)
+          result=analyze(raw)
+          missing=[p for p in result['players'] if not any(v is not None for v in p['sg'].values())]
+          print('missing_count=',len(missing))
+          for player in missing:
+              print('MISSING_PLAYER',player['id'],player['name'],player['leaderboard'])
+              rp=next(p for p in raw['players'] if p['id']==player['id'])
+              html=rp.get('stats') or ''
+              print('stats_html_bytes=',len(html),'errors=',rp.get('errors'))
               soup=BeautifulSoup(html,'html.parser')
-              row=None
-              for tr in soup.find_all('tr'):
-                  link=tr.find('a',href=re.compile(rf'/scorecard/{tid}/{pid}$'))
-                  if link:
-                      row=tr; break
-              print('\n', 'NET' if suffix else 'GROSS', 'LEADERBOARD')
-              print('class=',row.get('class') if row else None)
-              print('cells=', [' '.join(td.stripped_strings) for td in row.find_all(['td','th'],recursive=False)] if row else None)
-              print(str(row)[:5000].replace('\n',' ') if row else 'NO ROW')
-          referer=f'{BASE}/scorecard/{tid}/{pid}'
-          req=urllib.request.Request(f'{BASE}/sgt-api/scorecard/{tid}/{pid}/indv',headers={'Referer':referer,'X-Requested-With':'XMLHttpRequest'})
-          html=opener.open(req,timeout=30).read().decode('utf-8','replace')
-          soup=BeautifulSoup(html,'html.parser')
-          print('\nSCORECARD')
-          for table in soup.select('table.scorecard-table'):
-              for row in table.find_all('tr'):
-                  cells=[' '.join(td.stripped_strings) for td in row.find_all(['td','th'],recursive=False)]
-                  if cells: print(row.get('class'), cells)
-          print('\nRAW SCORE ROWS')
-          for row in soup.select('tr.score-row'):
-              print(str(row)[:5000].replace('\n',' '))
+              print('tables=',[(t.get('class'), len(t.find_all('tr'))) for t in soup.find_all('table')])
+              for row in soup.find_all('tr')[:80]:
+                  cells=[' '.join(c.stripped_strings) for c in row.find_all(['td','th'],recursive=False)]
+                  if cells: print('ROW',cells)
+              print('HTML_SNIP',html[:6000].replace('\n',' '))
+          assert len(missing)==1, [p['name'] for p in missing]
           PY
