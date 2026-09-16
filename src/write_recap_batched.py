@@ -63,8 +63,10 @@ NARRATIVE_SCHEMA = {
 BATCH_INSTRUCTIONS = r"""
 BATCHED GENERATION MODE
 - This request is ONLY for the supplied subset of players.
-- Return exactly one players entry for every player in playersNetOrder, in that exact order.
-- Return exactly one carnage entry for every player in carnageOrder, in that exact order.
+- In this mode, "every completed player" means ONLY the names supplied in playersNetOrder for this batch, not the whole tournament.
+- Return exactly one players entry for every player in playersNetOrder, in that exact order, and NEVER return a player card for any other name.
+- Return exactly one carnage entry for every player in carnageOrder, in that exact order, and NEVER return Carnage copy for any other name.
+- Winner names outside playersNetOrder are context only; do not create cards for them.
 - Do NOT write thirtySeconds, latestTournamentTeaser, or stateOfLeague in this request.
 - Treat this as final publishable player/Carnage copy, not notes for another writer.
 """.strip()
@@ -94,11 +96,15 @@ def chunks(items: list[dict], size: int) -> list[list[dict]]:
 
 def subset_facts(full_facts: dict, player_names: list[str]) -> dict:
     names = set(player_names)
+    leaderboard = full_facts.get("leaderboard") or {}
     return {
         "league": full_facts.get("league"),
         "tournament": full_facts.get("tournament"),
         "winners": full_facts.get("winners"),
-        "leaderboard": full_facts.get("leaderboard"),
+        "leaderboard": {
+            "net": [item for item in leaderboard.get("net", []) if item.get("name") in names],
+            "gross": [item for item in leaderboard.get("gross", []) if item.get("name") in names],
+        },
         "carnageOrder": [item for item in full_facts.get("carnageOrder", []) if item.get("name") in names],
         "playersNetOrder": [item for item in full_facts.get("playersNetOrder", []) if item.get("name") in names],
         "historicalContext": full_facts.get("historicalContext"),
