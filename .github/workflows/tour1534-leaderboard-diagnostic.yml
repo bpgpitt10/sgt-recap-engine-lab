@@ -13,55 +13,42 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install deps
         run: pip install beautifulsoup4
-      - name: Inspect leaderboard and scorecards
+      - name: Inspect Aloha net scoring
         run: |
           python - <<'PY'
-          import re, urllib.request, http.cookiejar, collections
+          import re, urllib.request, http.cookiejar
           from bs4 import BeautifulSoup
           BASE='https://simulatorgolftour.com'
-          samples={65301:25695,70248:41801}
-          for tid,pid in samples.items():
-              print('\n=== TOURNAMENT', tid, '===')
-              jar=http.cookiejar.CookieJar()
-              opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-              opener.addheaders=[('User-Agent','Mozilla/5.0'),('Accept-Language','en-US,en;q=0.9')]
-              page=f'{BASE}/tournament/{tid}'
-              opener.open(page, timeout=30).read()
-              req=urllib.request.Request(f'{BASE}/sgt-api/leaderboard/{tid}',headers={'Referer':page,'X-Requested-With':'XMLHttpRequest'})
+          tid=70322
+          pid=2006
+          jar=http.cookiejar.CookieJar()
+          opener=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+          opener.addheaders=[('User-Agent','Mozilla/5.0'),('Accept-Language','en-US,en;q=0.9')]
+          page=f'{BASE}/tournament/{tid}'
+          opener.open(page,timeout=30).read()
+          for suffix in ('','/net'):
+              req=urllib.request.Request(f'{BASE}/sgt-api/leaderboard/{tid}{suffix}',headers={'Referer':page,'X-Requested-With':'XMLHttpRequest'})
               html=opener.open(req,timeout=30).read().decode('utf-8','replace')
               soup=BeautifulSoup(html,'html.parser')
-              rows=[tr for tr in soup.find_all('tr') if tr.find('a',href=re.compile(rf'/scorecard/{tid}/\d+'))]
-              classes=collections.Counter(' '.join(tr.get('class') or []) or '(none)' for tr in rows)
-              print('leaderboard_rows=',len(rows),'classes=',dict(classes))
-              finished=[tr for tr in rows if 'finished-card' in (tr.get('class') or [])]
-              print('finished_rows=',len(finished))
-              if rows:
-                  for tr in rows[-5:]:
-                      cells=[' '.join(td.stripped_strings) for td in tr.find_all(['td','th'],recursive=False)]
-                      print('TAIL',tr.get('class'),cells)
-
-              referer=f'{BASE}/scorecard/{tid}/{pid}'
-              req=urllib.request.Request(f'{BASE}/sgt-api/scorecard/{tid}/{pid}/indv',headers={'Referer':referer,'X-Requested-With':'XMLHttpRequest'})
-              score_html=opener.open(req,timeout=30).read().decode('utf-8','replace')
-              ss=BeautifulSoup(score_html,'html.parser')
-              tables=ss.select('table.scorecard-table')
-              print('scorecard_tables=',len(tables))
-              for ri,table in enumerate(tables,1):
-                  hr=table.select_one('tr.hole-row')
-                  pr=table.select_one('tr.par-row')
-                  gross=None
-                  net=None
-                  labels=[] if not hr else [' '.join(td.stripped_strings) for td in hr.find_all('td',recursive=False)][1:]
-                  pars=[] if not pr else [' '.join(td.stripped_strings) for td in pr.find_all('td',recursive=False)][1:]
-                  for row in table.select('tr.score-row'):
-                      cells=row.find_all('td',recursive=False)
-                      if not cells: continue
-                      name=' '.join(cells[0].stripped_strings).upper()
-                      vals=[' '.join(td.stripped_strings) for td in cells][1:]
-                      if name=='GROSS': gross=vals
-                      elif name=='NET': net=vals
-                  print('round',ri,'labels=',labels)
-                  print('round',ri,'pars=',pars)
-                  print('round',ri,'gross=',gross)
-                  print('round',ri,'net=',net)
+              row=None
+              for tr in soup.find_all('tr'):
+                  link=tr.find('a',href=re.compile(rf'/scorecard/{tid}/{pid}$'))
+                  if link:
+                      row=tr; break
+              print('\n', 'NET' if suffix else 'GROSS', 'LEADERBOARD')
+              print('class=',row.get('class') if row else None)
+              print('cells=', [' '.join(td.stripped_strings) for td in row.find_all(['td','th'],recursive=False)] if row else None)
+              print(str(row)[:5000].replace('\n',' ') if row else 'NO ROW')
+          referer=f'{BASE}/scorecard/{tid}/{pid}'
+          req=urllib.request.Request(f'{BASE}/sgt-api/scorecard/{tid}/{pid}/indv',headers={'Referer':referer,'X-Requested-With':'XMLHttpRequest'})
+          html=opener.open(req,timeout=30).read().decode('utf-8','replace')
+          soup=BeautifulSoup(html,'html.parser')
+          print('\nSCORECARD')
+          for table in soup.select('table.scorecard-table'):
+              for row in table.find_all('tr'):
+                  cells=[' '.join(td.stripped_strings) for td in row.find_all(['td','th'],recursive=False)]
+                  if cells: print(row.get('class'), cells)
+          print('\nRAW SCORE ROWS')
+          for row in soup.select('tr.score-row'):
+              print(str(row)[:5000].replace('\n',' '))
           PY
