@@ -1,3 +1,4 @@
+# Trigger one-time archive generator patch
 name: One-time archive generator patch
 
 on:
