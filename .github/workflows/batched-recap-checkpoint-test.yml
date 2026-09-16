@@ -36,20 +36,20 @@ jobs:
           OPENAI_TRANSIENT_ATTEMPTS: "6"
           OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
         run: |
-          rm -rf /tmp/recap-checkpoints /tmp/recap-copy.json /tmp/recap-facts.json
+          rm -rf data/test-recap-checkpoints data/test-recap-copy.json data/test-recap-copy-second.json data/test-recap-facts.json
           set +e
           python src/run_batched_high_loft_recap.py data/analysis/55704.json \
-            --checkpoint-dir /tmp/recap-checkpoints \
-            --output /tmp/recap-copy.json \
-            --facts-output /tmp/recap-facts.json \
+            --checkpoint-dir data/test-recap-checkpoints \
+            --output data/test-recap-copy.json \
+            --facts-output data/test-recap-facts.json \
             --batch-size 3 \
             --max-new-batches 1
           status=$?
           set -e
           test "$status" -ne 0
-          test -f /tmp/recap-checkpoints/55704/batch-001.json
-          test ! -f /tmp/recap-checkpoints/55704/batch-002.json
-          test ! -f /tmp/recap-copy.json
+          test -f data/test-recap-checkpoints/55704/batch-001.json
+          test ! -f data/test-recap-checkpoints/55704/batch-002.json
+          test ! -f data/test-recap-copy.json
           echo "Intentional interruption left exactly one validated checkpoint."
       - name: Resume from checkpoint and finish recap
         env:
@@ -60,15 +60,15 @@ jobs:
           OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
         run: |
           python src/run_batched_high_loft_recap.py data/analysis/55704.json \
-            --checkpoint-dir /tmp/recap-checkpoints \
-            --output /tmp/recap-copy.json \
-            --facts-output /tmp/recap-facts.json \
+            --checkpoint-dir data/test-recap-checkpoints \
+            --output data/test-recap-copy.json \
+            --facts-output data/test-recap-facts.json \
             --batch-size 3
           python - <<'PY'
           import json
           from pathlib import Path
-          manifest=json.loads(Path('/tmp/recap-checkpoints/55704/manifest.json').read_text())
-          copy=json.loads(Path('/tmp/recap-copy.json').read_text())
+          manifest=json.loads(Path('data/test-recap-checkpoints/55704/manifest.json').read_text())
+          copy=json.loads(Path('data/test-recap-copy.json').read_text())
           assert manifest['complete'] is True, manifest
           assert manifest['batchCount'] == 3, manifest
           assert manifest['reusedBatches'] == 1, manifest
@@ -86,16 +86,16 @@ jobs:
           OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
         run: |
           python src/run_batched_high_loft_recap.py data/analysis/55704.json \
-            --checkpoint-dir /tmp/recap-checkpoints \
-            --output /tmp/recap-copy-second.json \
+            --checkpoint-dir data/test-recap-checkpoints \
+            --output data/test-recap-copy-second.json \
             --batch-size 3
           python - <<'PY'
           import json
           from pathlib import Path
-          manifest=json.loads(Path('/tmp/recap-checkpoints/55704/manifest.json').read_text())
+          manifest=json.loads(Path('data/test-recap-checkpoints/55704/manifest.json').read_text())
           assert manifest['reusedBatches'] == 3, manifest
           assert manifest['newBatches'] == 0, manifest
-          assert Path('/tmp/recap-checkpoints/55704/narrative.json').exists()
+          assert Path('data/test-recap-checkpoints/55704/narrative.json').exists()
           print('FULL REUSE PASS', json.dumps(manifest, indent=2))
           PY
       - name: Upload integration-test evidence
@@ -104,8 +104,8 @@ jobs:
         with:
           name: batched-recap-checkpoint-test
           path: |
-            /tmp/recap-checkpoints/
-            /tmp/recap-copy.json
-            /tmp/recap-copy-second.json
-            /tmp/recap-facts.json
+            data/test-recap-checkpoints/
+            data/test-recap-copy.json
+            data/test-recap-copy-second.json
+            data/test-recap-facts.json
           if-no-files-found: warn
