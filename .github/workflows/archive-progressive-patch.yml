@@ -1,4 +1,4 @@
-# Trigger one-time archive generator patch
+# Trigger one-time archive generator patch against current renderer
 name: One-time archive generator patch
 
 on:
@@ -24,20 +24,42 @@ jobs:
           from pathlib import Path
           p = Path('src/render_high_loft_large_field.py')
           s = p.read_text()
-          s = s.replace('ARCHIVE_INITIAL = 24\nSEASON_BOARD_VISIBLE = 15', 'ARCHIVE_INITIAL = 6\nARCHIVE_PAGE_SIZE = 10\nSEASON_BOARD_VISIBLE = 15', 1)
-          s = s.replace('  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveExpanded=false;', '  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const ARCHIVE_PAGE_SIZE={ARCHIVE_PAGE_SIZE};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveVisible=ARCHIVE_INITIAL;', 1)
-          old = '''    const total=cards.length;\n    const large=total>ARCHIVE_INITIAL;\n    footer.hidden=!large;\n    cards.forEach((card,i)=>card.hidden=large&&!archiveExpanded&&i>=ARCHIVE_INITIAL);\n    if(large)button.textContent=archiveExpanded?'Show fewer tournaments':`Show older tournaments · ${{total-ARCHIVE_INITIAL}} more`;'''
-          new = '''    const total=cards.length;\n    const large=total>ARCHIVE_INITIAL;\n    const visible=Math.min(archiveVisible,total);\n    cards.forEach((card,i)=>card.hidden=large&&i>=visible);\n    const remaining=Math.max(0,total-visible);\n    footer.hidden=!large||remaining===0;\n    if(remaining>0){{\n      const step=Math.min(ARCHIVE_PAGE_SIZE,remaining);\n      button.textContent=`Show ${{step}} more tournament${{step===1?'':'s'}} · ${{remaining}} remaining`;\n    }}'''
+          old = 'ARCHIVE_INITIAL = 24\nSEASON_BOARD_VISIBLE = 15'
+          new = 'ARCHIVE_INITIAL = 6\nARCHIVE_PAGE_SIZE = 10\nSEASON_BOARD_VISIBLE = 15'
+          if old not in s:
+              raise SystemExit('Generator archive constants target not found')
+          s = s.replace(old, new, 1)
+
+          old = '  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveExpanded=false;'
+          new = '  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const ARCHIVE_PAGE_SIZE={ARCHIVE_PAGE_SIZE};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveVisible=ARCHIVE_INITIAL;'
+          if old not in s:
+              raise SystemExit('Generator JS archive state target not found')
+          s = s.replace(old, new, 1)
+
+          old = """    const total=cards.length;
+    const large=total>ARCHIVE_INITIAL;
+    footer.hidden=!large;
+    cards.forEach((card,i)=>card.hidden=large&&!archiveExpanded&&i>=ARCHIVE_INITIAL);
+    if(large)button.textContent=archiveExpanded?'Show fewer tournaments':`Show older tournaments · ${{total-ARCHIVE_INITIAL}} more`;"""
+          new = """    const total=cards.length;
+    const large=total>ARCHIVE_INITIAL;
+    const visible=Math.min(archiveVisible,total);
+    cards.forEach((card,i)=>card.hidden=large&&i>=visible);
+    const remaining=Math.max(0,total-visible);
+    footer.hidden=!large||remaining===0;
+    if(remaining>0){{
+      const step=Math.min(ARCHIVE_PAGE_SIZE,remaining);
+      button.textContent='Show '+step+' more tournament'+(step===1?'':'s')+' · '+remaining+' remaining';
+    }}"""
           if old not in s:
               raise SystemExit('Generator archive body target not found')
           s = s.replace(old, new, 1)
+
           old = "    if(e.target.closest('[data-archive-more]')){{archiveExpanded=!archiveExpanded;applyArchive();return;}}"
           new = "    if(e.target.closest('[data-archive-more]')){{archiveVisible+=ARCHIVE_PAGE_SIZE;applyArchive();return;}}"
           if old not in s:
               raise SystemExit('Generator archive click target not found')
           s = s.replace(old, new, 1)
-          if 'ARCHIVE_INITIAL = 6' not in s or 'ARCHIVE_PAGE_SIZE = 10' not in s:
-              raise SystemExit('Generator constants patch failed')
           p.write_text(s)
           PY
       - name: Verify and publish
@@ -45,6 +67,7 @@ jobs:
           python -m py_compile src/render_high_loft_large_field.py
           grep -q 'ARCHIVE_INITIAL = 6' src/render_high_loft_large_field.py
           grep -q 'ARCHIVE_PAGE_SIZE = 10' src/render_high_loft_large_field.py
+          grep -q 'archiveVisible+=ARCHIVE_PAGE_SIZE' src/render_high_loft_large_field.py
           git config user.name "high-loft-ui-bot"
           git config user.email "actions@users.noreply.github.com"
           git add src/render_high_loft_large_field.py
