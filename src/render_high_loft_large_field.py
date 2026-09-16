@@ -11,7 +11,8 @@ _original_recap_page = renderer.recap_page
 PROFILE_PAGE_SIZE = 12
 PLAYER_PAGE_SIZE = 10
 CARNAGE_INITIAL = 10
-ARCHIVE_INITIAL = 24
+ARCHIVE_INITIAL = 6
+ARCHIVE_PAGE_SIZE = 10
 SEASON_BOARD_VISIBLE = 15
 
 
@@ -70,9 +71,10 @@ def large_field_landing(html: str) -> str:
 (() => {{
   const PROFILE_PAGE_SIZE={PROFILE_PAGE_SIZE};
   const ARCHIVE_INITIAL={ARCHIVE_INITIAL};
+  const ARCHIVE_PAGE_SIZE={ARCHIVE_PAGE_SIZE};
   const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};
   let profileVisible=PROFILE_PAGE_SIZE;
-  let archiveExpanded=false;
+  let archiveVisible=ARCHIVE_INITIAL;
 
   function profileName(card){{
     return (card.querySelector('h3')?.textContent||'').trim().toLowerCase();
@@ -134,9 +136,14 @@ def large_field_landing(html: str) -> str:
     const cards=[...grid.querySelectorAll('.event')];
     const total=cards.length;
     const large=total>ARCHIVE_INITIAL;
-    footer.hidden=!large;
-    cards.forEach((card,i)=>card.hidden=large&&!archiveExpanded&&i>=ARCHIVE_INITIAL);
-    if(large)button.textContent=archiveExpanded?'Show fewer tournaments':`Show older tournaments · ${{total-ARCHIVE_INITIAL}} more`;
+    const visible=Math.min(archiveVisible,total);
+    cards.forEach((card,i)=>card.hidden=large&&i>=visible);
+    const remaining=Math.max(0,total-visible);
+    footer.hidden=!large||remaining===0;
+    if(remaining>0){{
+      const step=Math.min(ARCHIVE_PAGE_SIZE,remaining);
+      button.textContent='Show '+step+' more tournament'+(step===1?'':'s')+' · '+remaining+' remaining';
+    }}
   }}
 
   document.addEventListener('input',e=>{{
@@ -144,7 +151,7 @@ def large_field_landing(html: str) -> str:
   }});
   document.addEventListener('click',e=>{{
     if(e.target.closest('[data-profile-more]')){{profileVisible+=PROFILE_PAGE_SIZE;applyProfileDirectory();return;}}
-    if(e.target.closest('[data-archive-more]')){{archiveExpanded=!archiveExpanded;applyArchive();return;}}
+    if(e.target.closest('[data-archive-more]')){{archiveVisible+=ARCHIVE_PAGE_SIZE;applyArchive();return;}}
     if(e.target.matches('[data-profile-scope]'))setTimeout(()=>{{resetProfileDirectory();updateSeasonBoard();}},0);
     if(e.target.matches('[data-season-board]'))setTimeout(updateSeasonBoard,0);
   }});
