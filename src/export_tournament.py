@@ -73,8 +73,21 @@ def nearest_player_name(tag) -> str | None:
     return None
 
 
+def leaderboard_row_metadata(row) -> dict:
+    classes = set(row.get("class") or []) if row else set()
+    total_node = row.select_one("td.total") if row else None
+    finished_position = row.select_one("td.finished-only-position") if row else None
+    live_position = row.select_one("td.live-position") if row else None
+    return {
+        "finished": "finished-card" in classes,
+        "statusClass": next((value for value in ("finished-card", "in-progress-card") if value in classes), None),
+        "position": clean_text(finished_position) or clean_text(live_position),
+        "total": clean_text(total_node),
+    }
+
+
 def discover_players_from_leaderboard(html: str, tournament_id: int) -> list[dict]:
-    """Return players in the exact order SGT renders the leaderboard."""
+    """Return players in the exact order SGT renders the leaderboard, with official row status."""
     soup = BeautifulSoup(html, "html.parser")
     players: dict[int, dict] = {}
     scorecard_pattern = re.compile(rf"/scorecard/{tournament_id}/(\d+)")
@@ -85,9 +98,13 @@ def discover_players_from_leaderboard(html: str, tournament_id: int) -> list[dic
             continue
         player_id = int(match.group(1))
         name = nearest_player_name(link)
-        players.setdefault(player_id, {"id": player_id, "name": name})
+        row = link.find_parent("tr")
+        metadata = leaderboard_row_metadata(row)
+        players.setdefault(player_id, {"id": player_id, "name": name, **metadata})
         if not players[player_id].get("name") and name:
             players[player_id]["name"] = name
+        if row:
+            players[player_id].update(metadata)
 
     # Keep these fallbacks for layout changes, but anchors above preserve official order.
     id_attributes = ("data-player-id", "data-playerid", "data-pid", "data-user-id", "data-userid")
@@ -116,6 +133,13 @@ def merge_orders(gross_order: list[dict], net_order: list[dict]) -> list[dict]:
         merged.setdefault(player_id, {"id": player_id, "name": item.get("name")})
         if not merged[player_id].get("name") and item.get("name"):
             merged[player_id]["name"] = item["name"]
+
+    # Completed recaps only need official finishers. If SGT row-status metadata is
+    # unavailable after a future markup change, preserve the legacy all-player fallback.
+    status_entries = [item for item in gross_order + net_order if "finished" in item]
+    finished_ids = {item["id"] for item in status_entries if item.get("finished")}
+    if status_entries and finished_ids:
+        return [item for player_id, item in merged.items() if player_id in finished_ids]
     return list(merged.values())
 
 
@@ -135,13 +159,27 @@ def export_tournament(tournament_id: int) -> dict:
     if not players:
         raise RuntimeError("Could not discover any player IDs from either leaderboard")
 
-    print(f"Discovered {len(players)} unique players | gross order={len(gross_order)} | net order={len(net_order)}")
+    finished_ids = {item["id"] for item in gross_order + net_order if item.get("finished")}
+    print(
+        f"Discovered {len(players)} players to export | gross rows={len(gross_order)} | "
+        f"net rows={len(net_order)} | official finishers={len(finished_ids)}"
+    )
+    gross_by_id = {item["id"]: item for item in gross_order}
+    net_by_id = {item["id"]: item for item in net_order}
     exported_players = []
     for index, player in enumerate(players, start=1):
         player_id = player["id"]
         print(f"Player {index}/{len(players)}: {player.get('name') or 'unknown'} ({player_id})")
         referer = f"{BASE_URL}/scorecard/{tournament_id}/{player_id}"
-        item = {"id": player_id, "name": player.get("name"), "scorecard": None, "stats": None, "shots": None, "errors": {}}
+        item = {
+            "id": player_id,
+            "name": player.get("name"),
+            "leaderboard": {"gross": gross_by_id.get(player_id), "net": net_by_id.get(player_id)},
+            "scorecard": None,
+            "stats": None,
+            "shots": None,
+            "errors": {},
+        }
         targets = {
             "scorecard": f"/sgt-api/scorecard/{tournament_id}/{player_id}/indv",
             "stats": f"/sgt-api/scorecard/{tournament_id}/{player_id}/indv/stats",
@@ -161,7 +199,7 @@ def export_tournament(tournament_id: int) -> dict:
         "export": {
             "fetchedAt": datetime.now(timezone.utc).isoformat(),
             "source": "Simulator Golf Tour",
-            "exporterVersion": "lab-0.4",
+            "exporterVersion": "lab-0.5",
         },
         "leaderboard": {
             "grossOrder": gross_order,
