@@ -69,6 +69,7 @@ def parse_scorecard(html: str | None, official_finished: bool | None = None) -> 
         pars = [as_int(text(cell)) for cell in par_row.find_all("td", recursive=False)][1:]
         gross_values = None
         net_values = None
+        net_text_values = None
         for row in score_rows:
             cells = row.find_all("td", recursive=False)
             if not cells:
@@ -79,6 +80,7 @@ def parse_scorecard(html: str | None, official_finished: bool | None = None) -> 
                 gross_values = values
             elif label == "NET":
                 net_values = values
+                net_text_values = [text(cell) for cell in cells][1:]
 
         holes = []
         for idx, label in enumerate(labels):
@@ -88,6 +90,12 @@ def parse_scorecard(html: str | None, official_finished: bool | None = None) -> 
             par = pars[idx] if idx < len(pars) else None
             gross = gross_values[idx] if gross_values and idx < len(gross_values) else None
             net = net_values[idx] if net_values and idx < len(net_values) else None
+            net_text = net_text_values[idx] if net_text_values and idx < len(net_text_values) else None
+            # SGT renders a legitimate net score of zero as "-". Only interpret
+            # that dash as zero when the gross hole was actually played; an
+            # unplayed hole has gross=None and must remain missing.
+            if gross is not None and net is None and net_text == "-":
+                net = 0
             item = {
                 "round": round_index,
                 "hole": hole,
@@ -127,7 +135,8 @@ def parse_scorecard(html: str | None, official_finished: bool | None = None) -> 
     complete_rounds = [round_ for round_ in rounds if round_["complete"]]
     par_total = sum(round_["par"] for round_ in complete_rounds)
     gross_total = sum(round_["gross"] for round_ in complete_rounds)
-    net_total = sum(round_["net"] for round_ in complete_rounds if round_["net"] is not None) if complete_rounds else None
+    net_rounds = [round_ for round_ in complete_rounds if round_["net"] is not None]
+    net_total = sum(round_["net"] for round_ in net_rounds) if complete_rounds and len(net_rounds) == len(complete_rounds) else None
     gross_to_par = gross_total - par_total if complete_rounds else None
     net_to_par = net_total - par_total if net_total is not None and complete_rounds else None
 
