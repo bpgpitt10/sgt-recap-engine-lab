@@ -1,0 +1,137 @@
+name: Batched recap 44-player scale test
+
+on:
+  push:
+    branches: [batched-ai-checkpoints-v1]
+    paths:
+      - ".github/workflows/batched-large-field-test.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: batched-ai-checkpoints-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Build live 44-player Aloha analysis
+        run: |
+          python src/export_tournament.py 70322 --output data/test-70322-raw.json
+          python src/analyze_tournament.py data/test-70322-raw.json --output data/test-70322-analysis.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('data/test-70322-analysis.json').read_text())
+          assert a['validation']['completedPlayers'] == 44, a['validation']
+          assert len(a['leaderboard']['net']) == 44
+          assert len(a['carnage']) == 44
+          print('LIVE LARGE FIELD FACTS PASS', a['validation'])
+          PY
+          cat > data/test-1534-config.json <<'JSON'
+          {
+            "tourId": 1534,
+            "tourName": "Tour 1534 scale test",
+            "history": {"defaultScope": "all", "scopes": ["all"], "excludeEventIds": []},
+            "competitionOverrides": {},
+            "site": {"recapSlugs": {}}
+          }
+          JSON
+      - name: Require OpenAI test key
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: test -n "$OPENAI_API_KEY"
+      - name: Generate two batches then intentionally stop
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.4-mini-2026-03-17
+          OPENAI_FALLBACK_MODEL: gpt-5.6-luna
+          OPENAI_TRANSIENT_ATTEMPTS: "6"
+          OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
+        run: |
+          rm -rf data/test-large-checkpoints data/test-large-copy.json data/test-large-facts.json
+          set +e
+          python src/run_batched_high_loft_recap.py data/test-70322-analysis.json \
+            --config data/test-1534-config.json \
+            --history data/no-such-history.json \
+            --checkpoint-dir data/test-large-checkpoints \
+            --output data/test-large-copy.json \
+            --facts-output data/test-large-facts.json \
+            --batch-size 6 \
+            --max-new-batches 2
+          status=$?
+          set -e
+          test "$status" -ne 0
+          test -f data/test-large-checkpoints/70322/batch-001.json
+          test -f data/test-large-checkpoints/70322/batch-002.json
+          test ! -f data/test-large-checkpoints/70322/batch-003.json
+          test ! -f data/test-large-copy.json
+          echo "Two validated large-field batches survived intentional interruption."
+      - name: Resume and finish all 44 players
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.4-mini-2026-03-17
+          OPENAI_FALLBACK_MODEL: gpt-5.6-luna
+          OPENAI_TRANSIENT_ATTEMPTS: "6"
+          OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
+        run: |
+          python src/run_batched_high_loft_recap.py data/test-70322-analysis.json \
+            --config data/test-1534-config.json \
+            --history data/no-such-history.json \
+            --checkpoint-dir data/test-large-checkpoints \
+            --output data/test-large-copy.json \
+            --facts-output data/test-large-facts.json \
+            --batch-size 6
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest=json.loads(Path('data/test-large-checkpoints/70322/manifest.json').read_text())
+          copy=json.loads(Path('data/test-large-copy.json').read_text())
+          assert manifest['complete'] is True, manifest
+          assert manifest['batchCount'] == 8, manifest
+          assert manifest['players'] == 44, manifest
+          assert manifest['reusedBatches'] == 2, manifest
+          assert manifest['newBatches'] == 6, manifest
+          assert len(copy['players']) == 44
+          assert len(copy['carnage']) == 44
+          assert len({p['name'] for p in copy['players']}) == 44
+          print('44-PLAYER RESUME PASS', json.dumps(manifest, indent=2))
+          PY
+      - name: Full checkpoint-only replay
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.4-mini-2026-03-17
+          OPENAI_FALLBACK_MODEL: gpt-5.6-luna
+          OPENAI_TRANSIENT_ATTEMPTS: "6"
+          OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
+        run: |
+          python src/run_batched_high_loft_recap.py data/test-70322-analysis.json \
+            --config data/test-1534-config.json \
+            --history data/no-such-history.json \
+            --checkpoint-dir data/test-large-checkpoints \
+            --output data/test-large-copy-replay.json \
+            --batch-size 6
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest=json.loads(Path('data/test-large-checkpoints/70322/manifest.json').read_text())
+          assert manifest['reusedBatches'] == 8, manifest
+          assert manifest['newBatches'] == 0, manifest
+          print('44-PLAYER FULL REUSE PASS')
+          PY
+      - name: Upload scale-test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: batched-recap-44-player-scale-test
+          path: |
+            data/test-large-checkpoints/
+            data/test-large-copy.json
+            data/test-large-copy-replay.json
+            data/test-large-facts.json
+            data/test-70322-analysis.json
+          if-no-files-found: warn
