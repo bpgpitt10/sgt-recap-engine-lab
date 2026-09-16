@@ -1,0 +1,51 @@
+name: One-time archive generator patch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/archive-progressive-patch.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Patch scalable archive generator
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/render_high_loft_large_field.py')
+          s = p.read_text()
+          s = s.replace('ARCHIVE_INITIAL = 24\nSEASON_BOARD_VISIBLE = 15', 'ARCHIVE_INITIAL = 6\nARCHIVE_PAGE_SIZE = 10\nSEASON_BOARD_VISIBLE = 15', 1)
+          s = s.replace('  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveExpanded=false;', '  const ARCHIVE_INITIAL={ARCHIVE_INITIAL};\n  const ARCHIVE_PAGE_SIZE={ARCHIVE_PAGE_SIZE};\n  const SEASON_BOARD_VISIBLE={SEASON_BOARD_VISIBLE};\n  let profileVisible=PROFILE_PAGE_SIZE;\n  let archiveVisible=ARCHIVE_INITIAL;', 1)
+          old = '''    const total=cards.length;\n    const large=total>ARCHIVE_INITIAL;\n    footer.hidden=!large;\n    cards.forEach((card,i)=>card.hidden=large&&!archiveExpanded&&i>=ARCHIVE_INITIAL);\n    if(large)button.textContent=archiveExpanded?'Show fewer tournaments':`Show older tournaments · ${{total-ARCHIVE_INITIAL}} more`;'''
+          new = '''    const total=cards.length;\n    const large=total>ARCHIVE_INITIAL;\n    const visible=Math.min(archiveVisible,total);\n    cards.forEach((card,i)=>card.hidden=large&&i>=visible);\n    const remaining=Math.max(0,total-visible);\n    footer.hidden=!large||remaining===0;\n    if(remaining>0){{\n      const step=Math.min(ARCHIVE_PAGE_SIZE,remaining);\n      button.textContent=`Show ${{step}} more tournament${{step===1?'':'s'}} · ${{remaining}} remaining`;\n    }}'''
+          if old not in s:
+              raise SystemExit('Generator archive body target not found')
+          s = s.replace(old, new, 1)
+          old = "    if(e.target.closest('[data-archive-more]')){{archiveExpanded=!archiveExpanded;applyArchive();return;}}"
+          new = "    if(e.target.closest('[data-archive-more]')){{archiveVisible+=ARCHIVE_PAGE_SIZE;applyArchive();return;}}"
+          if old not in s:
+              raise SystemExit('Generator archive click target not found')
+          s = s.replace(old, new, 1)
+          if 'ARCHIVE_INITIAL = 6' not in s or 'ARCHIVE_PAGE_SIZE = 10' not in s:
+              raise SystemExit('Generator constants patch failed')
+          p.write_text(s)
+          PY
+      - name: Verify and publish
+        run: |
+          python -m py_compile src/render_high_loft_large_field.py
+          grep -q 'ARCHIVE_INITIAL = 6' src/render_high_loft_large_field.py
+          grep -q 'ARCHIVE_PAGE_SIZE = 10' src/render_high_loft_large_field.py
+          git config user.name "high-loft-ui-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/render_high_loft_large_field.py
+          git commit -m "Show six archive events then ten more at a time"
+          git push origin HEAD:main
