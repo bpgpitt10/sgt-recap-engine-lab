@@ -69,6 +69,7 @@ def large_field_landing(html: str) -> str:
 .large-list-button:hover{{border-color:#6c8c46}}
 .season-ranks.is-scrollable{{max-height:560px;overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding-right:4px}}
 .season-scroll-note{{padding-top:10px;color:#7f8b82;font-size:9px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;text-align:center}}
+@media(max-width:820px){{.scouting-head .scouting-player-search{{flex:0 0 auto;min-width:0;width:100%;max-width:none;align-self:stretch}}}}
 @media(max-width:700px){{.large-field-tools{{align-items:stretch;flex-direction:column}}.large-field-status{{text-align:left}}.player-search{{min-width:100%}}}}
 </style>
 '''
