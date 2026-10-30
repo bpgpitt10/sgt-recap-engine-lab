@@ -11,6 +11,10 @@ on:
       - "src/process_tour.py"
       - "src/event_queue.py"
       - "src/analyze_tournament.py"
+      - "src/render_site.py"
+      - "src/render_high_loft.py"
+      - "src/write_recap.py"
+      - "src/run_batched_recap.py"
       - "configs/tour-1534.json"
 
 permissions:
@@ -29,7 +33,10 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install -r requirements.txt
       - name: Compile generic pipeline
-        run: python -m py_compile src/discover.py src/build_history.py src/process_tour.py src/event_queue.py
+        run: |
+          python -m py_compile \
+            src/discover.py src/build_history.py src/process_tour.py src/event_queue.py \
+            src/render_site.py src/render_high_loft.py src/write_recap.py src/run_batched_recap.py
       - name: Process Tour 1534 in isolated data root
         run: python src/process_tour.py --config configs/tour-1534.json --data-root data/leagues/tour-1534
       - name: Audit deterministic result and queue semantics
@@ -76,4 +83,4 @@ jobs:
           sg_players=[p for p in h['scopes']['5']['players'] if any((p.get('sg') or {}).get(k) is not None for k in ('tee','approach','shortGame','putting'))]
           print('LAST5 players with SG=',len(sg_players),'of',len(h['scopes']['5']['players']))
           PY
-# trigger
+# trigger latest renderer
