@@ -180,20 +180,26 @@ def parse_stats(html: str | None) -> dict:
             continue
         stats[label.upper()] = player_stat_value(cells[1])
 
-    def sg_value(*needles: str) -> float | None:
+    def sg_value(exact_label: str, *legacy_needles: str) -> float | None:
+        # Current SGT stats pages label the SG rows simply as TEE, APPROACH,
+        # SHORT GAME, PUTTING, TEE TO GREEN, and TOTAL. Older pages included
+        # "STROKES GAINED" in the label. Prefer the exact current label, but
+        # keep the legacy match so historical exports continue to parse.
+        if exact_label in stats:
+            return as_float(stats[exact_label])
         for label, value in stats.items():
             normalized = label.replace("-", " ")
-            if all(needle in normalized for needle in needles):
+            if all(needle in normalized for needle in legacy_needles):
                 return as_float(value)
         return None
 
     sg = {
-        "tee": sg_value("TEE", "STROKES GAINED"),
-        "approach": sg_value("APPROACH", "STROKES GAINED"),
-        "shortGame": sg_value("SHORT", "STROKES GAINED"),
-        "putting": sg_value("PUTTING", "STROKES GAINED"),
-        "teeToGreen": sg_value("TEE TO GREEN", "STROKES GAINED"),
-        "total": sg_value("TOTAL", "STROKES GAINED"),
+        "tee": sg_value("TEE", "TEE", "STROKES GAINED"),
+        "approach": sg_value("APPROACH", "APPROACH", "STROKES GAINED"),
+        "shortGame": sg_value("SHORT GAME", "SHORT", "STROKES GAINED"),
+        "putting": sg_value("PUTTING", "PUTTING", "STROKES GAINED"),
+        "teeToGreen": sg_value("TEE TO GREEN", "TEE TO GREEN", "STROKES GAINED"),
+        "total": sg_value("TOTAL", "TOTAL", "STROKES GAINED"),
     }
     return {"all": stats, "sg": sg}
 
