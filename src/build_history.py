@@ -195,9 +195,9 @@ def aggregate_scope(events: list[dict], analyses: dict[int, dict]) -> dict:
     }
 
 
-def build_history(discovery: dict, analyses_dir: Path) -> dict:
+def build_history(discovery: dict, analyses_dir: Path, history_cfg: dict | None = None) -> dict:
     completed = discovery.get("completed", [])
-    config = history_config()
+    config = history_cfg if history_cfg is not None else history_config()
     excluded_ids = {int(x) for x in config.get("excludeEventIds", [])}
     configured_scopes = tuple(str(x) for x in config.get("scopes", SCOPES))
     default_scope = str(config.get("defaultScope", "10"))
