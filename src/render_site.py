@@ -29,10 +29,10 @@ let profileVisible=PROFILE_PAGE_SIZE, archiveVisible=ARCHIVE_INITIAL;
 const fmt=n=>n==null?'—':Number(n).toFixed(1).replace(/\.0$/,'');
 const escHtml=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 function scopeLabel(s){return s==='all'?'All Data':`Last ${s}`}
-function profileCard(p,c){
+function sgScale(players){let m=0;for(const p of players||[]){const sg=p.sg||{};for(const v of [sg.tee,sg.approach,sg.shortGame,sg.putting]){if(v!=null&&Number.isFinite(Number(v)))m=Math.max(m,Math.abs(Number(v)))}}return Math.max(3,Math.ceil(m))}
+function profileCard(p,c,scale){
   const sg=p.sg||{}, vals=[['TEE',sg.tee],['APP',sg.approach],['SHORT',sg.shortGame],['PUTT',sg.putting]];
-  let scale=3; for(const [,v] of vals){if(v!=null&&Number.isFinite(Number(v)))scale=Math.max(scale,Math.ceil(Math.abs(Number(v))))}
-  const bars=vals.map(([k,v])=>{const n=Number(v||0),w=Math.min(50,Math.abs(n)/scale*50);return `<span>${k}</span><div class="bar"><i class="${n>=0?'pos':'neg'}" style="width:${w}%"></i></div><b>${n>=0?'+':''}${fmt(v)}</b>`}).join('');
+  const bars=vals.map(([k,v])=>{if(v==null||!Number.isFinite(Number(v)))return `<span>${k}</span><div class="bar"></div><b>—</b>`;const n=Number(v),w=Math.min(50,Math.abs(n)/scale*50);return `<span>${k}</span><div class="bar"><i class="${n>=0?'pos':'neg'}" style="width:${w}%"></i></div><b>${n>=0?'+':''}${fmt(n)}</b>`}).join('');
   return `<article class="player scouting-card" data-profile-card><div class="ghost">${fmt(p.avgNet)}</div><h3>${escHtml(p.name)}</h3><div class="tag">${escHtml(c?.tagline||'')}</div><div class="chips"><div class="chip"><b>${p.starts}</b><small>Starts</small></div><div class="chip"><b>${fmt(p.avgNet)}</b><small>Avg Net</small></div><div class="chip"><b>${p.grossWins}</b><small>Gross Wins</small></div><div class="chip"><b>${p.netWins}</b><small>Net Wins</small></div></div><div class="fingerprint">${bars}</div><div class="scouting-details" hidden><p>${escHtml(c?.profile||'')}</p></div><button type="button" class="expand-control" data-profile-expand aria-expanded="false">Read scouting file <span>+</span></button></article>`;
 }
 function renderBoard(scope,kind){
@@ -49,7 +49,8 @@ function renderScope(scope){
   document.querySelector('#league-summary').textContent=c.leagueSummary;
   document.querySelector('#league-bullets').innerHTML=c.leagueBullets.map(x=>`<li>${escHtml(x)}</li>`).join('');
   const profileByName=Object.fromEntries(c.profiles.map(x=>[x.name,x]));
-  document.querySelector('#players-grid').innerHTML=h.players.map(p=>profileCard(p,profileByName[p.name])).join('');
+  const scale=sgScale(h.players);
+  document.querySelector('#players-grid').innerHTML=h.players.map(p=>profileCard(p,profileByName[p.name],scale)).join('');
   profileVisible=PROFILE_PAGE_SIZE;
   const input=document.querySelector('[data-profile-search]'); if(input)input.value='';
   applyProfiles();
