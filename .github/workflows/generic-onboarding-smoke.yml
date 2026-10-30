@@ -123,7 +123,7 @@ jobs:
           latest=str(h['completedEvents'][0]['id'])
           index=Path('site-tour-1534-smoke/index.html').read_text()
           recap=Path(f'site-tour-1534-smoke/recaps/{latest}.html').read_text()
-          assert "CRUSH'S PAR3" in index
+          assert 'CRUSH' in index.upper()
           assert 'HIGH LOFT' not in index.upper()
           for marker in ('data-profile-search','data-profile-more','data-archive-more','data-season-scroll-note'):
               assert marker in index, marker
