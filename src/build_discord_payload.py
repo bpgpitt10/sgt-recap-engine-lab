@@ -228,15 +228,23 @@ def ranking_message(net: list[dict], taglines: dict[str, str]) -> str | None:
     return message
 
 
-def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -> dict:
+def build(
+    analysis: dict,
+    copy: dict,
+    recap_url: str,
+    raw: dict | None = None,
+    *,
+    league_name: str = "High Loft",
+    awards_heading: str = "THE HECKLER'S HARDWARE",
+) -> dict:
     net = analysis.get("leaderboard", {}).get("net", [])
     gross = analysis.get("leaderboard", {}).get("gross", [])
     taglines = {p["name"]: p.get("tagline", "") for p in copy.get("players", [])}
-    title = (analysis.get("tournament") or {}).get("name") or "High Loft tournament"
+    title = (analysis.get("tournament") or {}).get("name") or f"{league_name} tournament"
     teaser = (copy.get("latestTournamentTeaser") or "").strip()
 
     intro_lines = [
-        "🏆 **New High Loft recap is live**",
+        f"🏆 **New {league_name} recap is live**",
         f"**{title}**",
     ]
     if teaser:
@@ -248,7 +256,7 @@ def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -
 
     awards = verified_awards(analysis, raw)
     if awards:
-        intro_lines.extend(["", "**THE HECKLER'S HARDWARE**", *awards])
+        intro_lines.extend(["", f"**{awards_heading}**", *awards])
 
     intro_lines.extend(["", f"**Read the full recap →** {recap_url}"])
     intro = "\n".join(intro_lines)
@@ -272,11 +280,13 @@ def build(analysis: dict, copy: dict, recap_url: str, raw: dict | None = None) -
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build High Loft Discord webhook messages from validated recap data.")
+    parser = argparse.ArgumentParser(description="Build Discord webhook messages from validated SGT recap data.")
     parser.add_argument("analysis", type=Path)
     parser.add_argument("copy", type=Path)
     parser.add_argument("--raw", type=Path)
     parser.add_argument("--recap-url", required=True)
+    parser.add_argument("--league-name", default="High Loft")
+    parser.add_argument("--awards-heading", default="THE HECKLER'S HARDWARE")
     parser.add_argument("--output", type=Path, default=Path("data/discord-payload.json"))
     args = parser.parse_args()
 
@@ -290,6 +300,8 @@ def main() -> None:
         load(copy_path),
         args.recap_url,
         load(raw_path) if raw_path and raw_path.exists() else None,
+        league_name=args.league_name,
+        awards_heading=args.awards_heading,
     )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
