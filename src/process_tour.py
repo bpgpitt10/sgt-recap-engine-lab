@@ -43,8 +43,7 @@ def enrich_metadata(analysis: dict, event: dict) -> dict:
     return analysis
 
 
-def load_valid_existing_history() -> dict | None:
-    history_path = ROOT / "data" / "history.json"
+def load_valid_existing_history(history_path: Path) -> dict | None:
     if not history_path.exists():
         return None
     try:
@@ -138,12 +137,21 @@ def validate_history_did_not_shrink(previous: dict | None, current: dict, ignore
         )
 
 
-def process_tour(*, refresh_all: bool = False) -> dict:
-    config = load_config()
+def process_tour(
+    *,
+    refresh_all: bool = False,
+    config_path: Path | None = None,
+    data_root: Path | None = None,
+) -> dict:
+    config = load_config(config_path)
     tour_id = int(config["tourId"])
     tour_name = config.get("tourName")
     ignored_event_ids = {int(x) for x in config.get("ignoreEventIds", [])}
-    existing_history = load_valid_existing_history()
+    data_root = data_root or (ROOT / "data")
+    if not data_root.is_absolute():
+        data_root = ROOT / data_root
+    history_path = data_root / "history.json"
+    existing_history = load_valid_existing_history(history_path)
 
     print(f"Discovering Tour {tour_id} ({tour_name})")
     discovery = parse_events(fetch_events_html(tour_id), tour_id, tour_name)
@@ -194,11 +202,11 @@ def process_tour(*, refresh_all: bool = False) -> dict:
             + ", ".join(str(event["id"]) for event in ignored_completed)
         )
 
-    discovery_path = ROOT / "data" / "discovery" / f"{tour_id}.json"
+    discovery_path = data_root / "discovery" / f"{tour_id}.json"
     write_json(discovery_path, discovery)
 
-    analyses_dir = ROOT / "data" / "analysis"
-    raw_dir = ROOT / "data" / "work" / "tournaments"
+    analyses_dir = data_root / "analysis"
+    raw_dir = data_root / "work" / "tournaments"
     analyses_dir.mkdir(parents=True, exist_ok=True)
     raw_dir.mkdir(parents=True, exist_ok=True)
 
@@ -225,7 +233,7 @@ def process_tour(*, refresh_all: bool = False) -> dict:
         write_json(analysis_path, analysis)
         processed.append(event_id)
 
-    history = build_history(discovery, analyses_dir)
+    history = build_history(discovery, analyses_dir, history_cfg=(config.get("history") or {}))
     validate_history(history)
     validate_history_did_not_shrink(existing_history, history, ignored_event_ids)
     if history["missingAnalysisEventIds"]:
@@ -239,7 +247,6 @@ def process_tour(*, refresh_all: bool = False) -> dict:
         "pinnedEventIdsAddedToDiscovery": pinned_added,
         "carriedForwardValidatedEventIds": carried_forward,
     }
-    history_path = ROOT / "data" / "history.json"
     write_json(history_path, history)
 
     print(
@@ -253,8 +260,10 @@ def process_tour(*, refresh_all: bool = False) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Incrementally discover, export, analyze, and aggregate an SGT tour.")
     parser.add_argument("--refresh-all", action="store_true", help="Re-export and re-analyze every completed event.")
+    parser.add_argument("--config", type=Path, default=Path("config.json"), help="League config JSON, relative to the engine root by default.")
+    parser.add_argument("--data-root", type=Path, default=Path("data"), help="Isolated data directory for this league.")
     args = parser.parse_args()
-    process_tour(refresh_all=args.refresh_all)
+    process_tour(refresh_all=args.refresh_all, config_path=args.config, data_root=args.data_root)
 
 
 if __name__ == "__main__":
