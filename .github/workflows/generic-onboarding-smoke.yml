@@ -1,0 +1,78 @@
+name: Generic onboarding smoke
+
+on:
+  push:
+    branches:
+      - generic-onboarding-v1
+    paths:
+      - ".github/workflows/generic-onboarding-smoke.yml"
+      - "src/discover.py"
+      - "src/build_history.py"
+      - "src/process_tour.py"
+      - "src/event_queue.py"
+      - "src/analyze_tournament.py"
+      - "configs/tour-1534.json"
+
+permissions:
+  contents: read
+
+jobs:
+  tour-1534:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: generic-onboarding-v1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Compile generic pipeline
+        run: python -m py_compile src/discover.py src/build_history.py src/process_tour.py src/event_queue.py
+      - name: Process Tour 1534 in isolated data root
+        run: python src/process_tour.py --config configs/tour-1534.json --data-root data/leagues/tour-1534
+      - name: Audit deterministic result and queue semantics
+        run: |
+          python - <<'PY'
+          import json, subprocess, tempfile
+          from pathlib import Path
+          hpath=Path('data/leagues/tour-1534/history.json')
+          h=json.loads(hpath.read_text())
+          completed=h['completedEvents']
+          assert completed, 'No completed events discovered'
+          assert h['tour']['id']==1534
+          assert h['missingAnalysisEventIds']==[]
+          assert h['scopes']['all']['players'], 'No players in all-data scope'
+          latest=int(completed[0]['id'])
+          print('TOUR1534 completed=',len(completed),'latest=',latest,'players=',len(h['scopes']['all']['players']))
+          print('event IDs newest-first=',[int(e['id']) for e in completed])
+          with tempfile.TemporaryDirectory() as td:
+              td=Path(td); state=td/'published-events.json'
+              out=subprocess.check_output([
+                  'python','src/event_queue.py','plan',str(hpath),
+                  '--state',str(state),'--write-state'
+              ],text=True)
+              p=json.loads(out)
+              assert p['queueLength']==len(completed)
+              oldest=p['missingEventIdsOldestFirst'][0]
+              subprocess.check_call([
+                  'python','src/event_queue.py','mark',str(hpath),
+                  '--state',str(state),'--event',str(oldest)
+              ])
+              p2=json.loads(subprocess.check_output([
+                  'python','src/event_queue.py','plan',str(hpath),'--state',str(state)
+              ],text=True))
+              assert p2['queueLength']==len(completed)-1
+              assert oldest not in p2['missingEventIdsOldestFirst']
+              marker=td/'legacy.txt'; marker.write_text(str(latest)+'\n')
+              migrated=td/'migrated.json'
+              p3=json.loads(subprocess.check_output([
+                  'python','src/event_queue.py','plan',str(hpath),
+                  '--state',str(migrated),'--legacy-marker',str(marker),'--write-state'
+              ],text=True))
+              assert p3['queueLength']==0, p3
+              print('QUEUE TEST PASSED: all missing -> mark oldest -> legacy latest migrates all published')
+          sg_players=[p for p in h['scopes']['5']['players'] if any((p.get('sg') or {}).get(k) is not None for k in ('tee','approach','shortGame','putting'))]
+          print('LAST5 players with SG=',len(sg_players),'of',len(h['scopes']['5']['players']))
+          PY
