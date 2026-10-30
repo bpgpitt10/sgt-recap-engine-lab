@@ -41,6 +41,19 @@ def display_total(value: object) -> str:
     return e(value if value is not None else "—")
 
 
+def site_settings(config: dict) -> dict:
+    site = config.get("site") or {}
+    title = site.get("title") or config.get("tourName") or "SGT League"
+    brand = site.get("brand") or title
+    footer = site.get("footer") or f"{title} · simulator golf with documentation."
+    return {"title": title, "brand": brand, "footer": footer}
+
+
+def brand_markup(config: dict) -> str:
+    brand = e(site_settings(config)["brand"])
+    return brand.replace(" / ", " <span>/</span> ")
+
+
 def standings_cards(analysis: dict) -> tuple[str, str, str, str]:
     net = analysis.get("leaderboard", {}).get("net", [])
     gross = analysis.get("leaderboard", {}).get("gross", [])
@@ -56,7 +69,7 @@ def standings_cards(analysis: dict) -> tuple[str, str, str, str]:
     )
 
 
-def landing(history: dict, league_copy: dict, analyses: dict[int, dict], copies: dict[int, dict]) -> str:
+def landing(history: dict, league_copy: dict, analyses: dict[int, dict], copies: dict[int, dict], config: dict) -> str:
     latest = history["completedEvents"][0]
     latest_id = int(latest["id"])
     if latest_id not in analyses or latest_id not in copies:
@@ -71,10 +84,11 @@ def landing(history: dict, league_copy: dict, analyses: dict[int, dict], copies:
         special = '<span class="special">Excluded from player DNA</span>' if event_id in excluded else ''
         archive.append(f'''<a class="event" href="{link}">{special}<div class="eyebrow">{e(event.get('displayDate'))}</div><h3>{e(event.get('tourName'))}</h3><div class="course">{e(event.get('course'))}</div><div class="winners"><div class="winner"><small>Net winner</small><b>{e(event.get('netWinner'))}</b></div><div class="winner"><small>Gross winner</small><b>{e(event.get('grossWinner'))}</b></div></div></a>''')
     scope_buttons = ''.join(f'<button data-scope="{s}">{"All" if s=="all" else "Last "+s}</button>' for s in history["availableScopes"])
-    return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(history['tour']['name'])}</title><style>{CSS}</style></head><body><nav class="nav"><div class="wrap navin"><a class="brand" href="#latest">HIGH LOFT <span>/</span> LOW STANDARDS</a><div class="links"><a href="#latest">Latest</a><a href="#league">League Snapshot</a><a href="#players">Scouting Files</a><a href="#events">Tournaments</a></div></div></nav><main><section class="section" id="latest"><div class="wrap"><div class="latest-intro"><div><div class="eyebrow">Latest tournament</div><h1>{e(latest.get('tourName'))}</h1></div><p class="sectionlead">{e(copy['latestTournamentTeaser'])}</p></div><a class="latest-card" href="recaps/{latest_id}.html"><div><div class="eyebrow">{e(latest.get('displayDate'))} · {e(latest.get('course'))}</div><h3>{e(copy['thirtySeconds'].split('.')[0])}.</h3><p>{e(copy['thirtySeconds'])}</p><span class="cta">Read full recap →</span></div><div class="latest-score"><div><small>🏆 Net champion</small><b>{net_champ}</b></div><div><small>Net challenger</small><b>{net_challenger}</b></div><div><small>Gross winner</small><b>{gross_winner}</b></div><div><small>Gross runner-up</small><b>{gross_runner}</b></div></div></a></div></section><section class="section" id="league"><div class="wrap"><div class="sectionhead"><div><div class="scope-label">Rolling league snapshot</div><h2>The golf right now.</h2></div><p class="sectionlead">Rolling windows follow the league's latest eligible events. Skips are neutral; team/special events can stay in the archive without contaminating individual player DNA.</p></div><div class="stories"><div class="storybox"><h3>What the numbers say</h3><p id="league-summary"></p><ul id="league-bullets"></ul></div><aside class="asidebox"><div class="board-head"><h3>Average finish</h3><div class="toggle"><button class="active" data-board="net">Net</button><button data-board="gross">Gross</button></div></div><div id="ranks"></div></aside></div></div></section><section class="section" id="players"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Scouting files</div><h2>Player profiles</h2></div><div class="scouting-meta"><div><div class="toggle">{scope_buttons}</div><div id="scope-status" class="sectionlead"></div></div><p class="sectionlead">The numbers change. The tendencies linger. This is the closest thing we have to each player’s golfing DNA.</p></div></div><div class="players" id="players-grid"></div></div></section><section class="section" id="events"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Tournament archive</div><h2>Every completed event.</h2></div></div><div class="events">{''.join(archive)}</div></div></section></main><footer class="footer"><div class="wrap">High Loft / Low Standards · automated lab build</div></footer><script>window.HISTORY={json.dumps(history, separators=(',',':'))};window.LEAGUE_COPY={json.dumps(league_copy, separators=(',',':'))};{JS}</script></body></html>'''
+    site = site_settings(config)
+    return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(site['title'])}</title><style>{CSS}</style></head><body><nav class="nav"><div class="wrap navin"><a class="brand" href="#latest">{brand_markup(config)}</a><div class="links"><a href="#latest">Latest</a><a href="#league">League Snapshot</a><a href="#players">Scouting Files</a><a href="#events">Tournaments</a></div></div></nav><main><section class="section" id="latest"><div class="wrap"><div class="latest-intro"><div><div class="eyebrow">Latest tournament</div><h1>{e(latest.get('tourName'))}</h1></div><p class="sectionlead">{e(copy['latestTournamentTeaser'])}</p></div><a class="latest-card" href="recaps/{latest_id}.html"><div><div class="eyebrow">{e(latest.get('displayDate'))} · {e(latest.get('course'))}</div><h3>{e(copy['thirtySeconds'].split('.')[0])}.</h3><p>{e(copy['thirtySeconds'])}</p><span class="cta">Read full recap →</span></div><div class="latest-score"><div><small>🏆 Net champion</small><b>{net_champ}</b></div><div><small>Net challenger</small><b>{net_challenger}</b></div><div><small>Gross winner</small><b>{gross_winner}</b></div><div><small>Gross runner-up</small><b>{gross_runner}</b></div></div></a></div></section><section class="section" id="league"><div class="wrap"><div class="sectionhead"><div><div class="scope-label">Rolling league snapshot</div><h2>The golf right now.</h2></div><p class="sectionlead">Rolling windows follow the league's latest eligible events. Skips are neutral; team/special events can stay in the archive without contaminating individual player DNA.</p></div><div class="stories"><div class="storybox"><h3>What the numbers say</h3><p id="league-summary"></p><ul id="league-bullets"></ul></div><aside class="asidebox"><div class="board-head"><h3>Average finish</h3><div class="toggle"><button class="active" data-board="net">Net</button><button data-board="gross">Gross</button></div></div><div id="ranks"></div></aside></div></div></section><section class="section" id="players"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Scouting files</div><h2>Player profiles</h2></div><div class="scouting-meta"><div><div class="toggle">{scope_buttons}</div><div id="scope-status" class="sectionlead"></div></div><p class="sectionlead">The numbers change. The tendencies linger. This is the closest thing we have to each player’s golfing DNA.</p></div></div><div class="players" id="players-grid"></div></div></section><section class="section" id="events"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Tournament archive</div><h2>Every completed event.</h2></div></div><div class="events">{''.join(archive)}</div></div></section></main><footer class="footer"><div class="wrap">{e(site['footer'])}</div></footer><script>window.HISTORY={json.dumps(history, separators=(',',':'))};window.LEAGUE_COPY={json.dumps(league_copy, separators=(',',':'))};{JS}</script></body></html>'''
 
 
-def recap(event: dict, analysis: dict, copy: dict) -> str:
+def recap(event: dict, analysis: dict, copy: dict, config: dict) -> str:
     net_champ, net_challenger, gross_winner, gross_runner = standings_cards(analysis)
     carnage = []
     carnage_copy = {x["name"]: x["commentary"] for x in copy.get("carnage", [])}
@@ -88,30 +102,49 @@ def recap(event: dict, analysis: dict, copy: dict) -> str:
         c = by_copy.get(p.get("name"), {})
         lb = p.get("leaderboard", {})
         players.append(f'''<article class="recap-player"><div class="eyebrow">Net {e(lb.get('netPosition'))} · Gross {e(lb.get('grossPosition'))}</div><h3>{e(p.get('name'))}</h3><div class="roast">{e(c.get('tagline'))}</div><p>{e(c.get('body'))}</p></article>''')
-    return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(event.get('tourName'))} recap</title><style>{CSS}</style></head><body><nav class="nav"><div class="wrap navin"><a class="brand" href="../index.html">HIGH LOFT <span>/</span> LOW STANDARDS</a><div class="links"><a href="../index.html">League home</a></div></div></nav><header class="recap-hero"><div class="wrap"><div class="eyebrow">Tournament recap · {e(event.get('displayDate'))}</div><h1>{e(event.get('tourName'))}</h1><p class="recap-dek">{e(copy.get('latestTournamentTeaser'))}</p><div class="winner-grid"><div class="winner-card primary"><small>🏆 Net champion</small><b>{net_champ}</b></div><div class="winner-card"><small>Net challenger</small><b>{net_challenger}</b></div><div class="winner-card"><small>Gross winner</small><b>{gross_winner}</b></div><div class="winner-card"><small>Gross runner-up</small><b>{gross_runner}</b></div></div></div></header><main><section class="section"><div class="wrap recap-grid"><div class="storybox"><div class="eyebrow">Tournament in 30 seconds</div><p class="big-copy">{e(copy.get('thirtySeconds'))}</p></div><aside class="asidebox"><h3>Tournament leaderboard</h3><div>{''.join(f'<div class="rank"><b>{r.get("position")} · {e(r.get("name"))}</b><span>{e(r.get("total"))}</span></div>' for r in analysis.get('leaderboard',{}).get('net',[]))}</div></aside></div></section><section class="section"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Carnage Board</div><h2>Everybody’s worst hole.</h2></div></div><div class="hole-grid">{''.join(carnage)}</div></div></section><section class="section"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Player by player</div><h2>The individual damage report.</h2></div></div><div class="recap-players">{''.join(players)}</div></div></section><section class="section state"><div class="wrap"><div class="eyebrow">State of the league</div><h2>What changed?</h2><p>{e(copy.get('stateOfLeague'))}</p></div></section></main><footer class="footer"><div class="wrap"><a class="cta" href="../index.html">← Back to league home</a></div></footer></body></html>'''
+    site = site_settings(config)
+    return f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(event.get('tourName'))} recap — {e(site['title'])}</title><style>{CSS}</style></head><body><nav class="nav"><div class="wrap navin"><a class="brand" href="../index.html">{brand_markup(config)}</a><div class="links"><a href="../index.html">League home</a></div></div></nav><header class="recap-hero"><div class="wrap"><div class="eyebrow">Tournament recap · {e(event.get('displayDate'))}</div><h1>{e(event.get('tourName'))}</h1><p class="recap-dek">{e(copy.get('latestTournamentTeaser'))}</p><div class="winner-grid"><div class="winner-card primary"><small>🏆 Net champion</small><b>{net_champ}</b></div><div class="winner-card"><small>Net challenger</small><b>{net_challenger}</b></div><div class="winner-card"><small>Gross winner</small><b>{gross_winner}</b></div><div class="winner-card"><small>Gross runner-up</small><b>{gross_runner}</b></div></div></div></header><main><section class="section"><div class="wrap recap-grid"><div class="storybox"><div class="eyebrow">Tournament in 30 seconds</div><p class="big-copy">{e(copy.get('thirtySeconds'))}</p></div><aside class="asidebox"><h3>Tournament leaderboard</h3><div>{''.join(f'<div class="rank"><b>{r.get("position")} · {e(r.get("name"))}</b><span>{e(r.get("total"))}</span></div>' for r in analysis.get('leaderboard',{}).get('net',[]))}</div></aside></div></section><section class="section"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Carnage Board</div><h2>Everybody’s worst hole.</h2></div></div><div class="hole-grid">{''.join(carnage)}</div></div></section><section class="section"><div class="wrap"><div class="sectionhead"><div><div class="eyebrow">Player by player</div><h2>The individual damage report.</h2></div></div><div class="recap-players">{''.join(players)}</div></div></section><section class="section state"><div class="wrap"><div class="eyebrow">State of the league</div><h2>What changed?</h2><p>{e(copy.get('stateOfLeague'))}</p></div></section></main><footer class="footer"><div class="wrap"><a class="cta" href="../index.html">← Back to league home</a></div></footer></body></html>'''
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Render a configured SGT league site.")
+    parser.add_argument("--config", type=Path, default=Path("config.json"))
+    parser.add_argument("--data-root", type=Path, default=Path("data"))
     parser.add_argument("--output", type=Path, default=Path("site"))
     args = parser.parse_args()
+
+    config_path = args.config if args.config.is_absolute() else ROOT / args.config
+    data_root = args.data_root if args.data_root.is_absolute() else ROOT / args.data_root
     output = args.output if args.output.is_absolute() else ROOT / args.output
-    history = load(ROOT / "data/history.json")
-    league_copy = load(ROOT / "data/league-copy.json")
+
+    config = load(config_path)
+    history = load(data_root / "history.json")
+    league_copy = load(data_root / "league-copy.json")
     analyses, copies = {}, {}
     for event in history["completedEvents"]:
         event_id = int(event["id"])
-        ap = ROOT / "data/analysis" / f"{event_id}.json"
-        cp = ROOT / "data/copy" / f"{event_id}.json"
-        if ap.exists(): analyses[event_id] = load(ap)
-        if cp.exists(): copies[event_id] = load(cp)
+        ap = data_root / "analysis" / f"{event_id}.json"
+        cp = data_root / "copy" / f"{event_id}.json"
+        if ap.exists():
+            analyses[event_id] = load(ap)
+        if cp.exists():
+            copies[event_id] = load(cp)
+
     output.mkdir(parents=True, exist_ok=True)
     (output / "recaps").mkdir(exist_ok=True)
-    (output / "index.html").write_text(landing(history, league_copy, analyses, copies), encoding="utf-8")
+    (output / "index.html").write_text(
+        landing(history, league_copy, analyses, copies, config),
+        encoding="utf-8",
+    )
     for event in history["completedEvents"]:
         event_id = int(event["id"])
         if event_id in analyses and event_id in copies:
-            (output / "recaps" / f"{event_id}.html").write_text(recap(event, analyses[event_id], copies[event_id]), encoding="utf-8")
-    print(f"Rendered {output.relative_to(ROOT)} with {len(copies)} recap pages")
+            (output / "recaps" / f"{event_id}.html").write_text(
+                recap(event, analyses[event_id], copies[event_id], config),
+                encoding="utf-8",
+            )
+    display = output.relative_to(ROOT) if output.is_relative_to(ROOT) else output
+    print(f"Rendered {display} with {len(copies)} recap pages for {site_settings(config)['title']}")
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()
