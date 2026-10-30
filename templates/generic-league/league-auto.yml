@@ -1,0 +1,249 @@
+name: SGT league automated publisher
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_rebuild:
+        description: "Rebuild even when the publication queue is empty"
+        required: true
+        type: boolean
+        default: false
+  schedule:
+    - cron: "17 */6 * * *"
+
+concurrency:
+  group: sgt-league-automated-publisher
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out league site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: league
+          fetch-depth: 0
+
+      - name: Check out shared recap engine
+        uses: actions/checkout@v4
+        with:
+          repository: bpgpitt10/sgt-recap-engine-lab
+          ref: main
+          path: engine
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install engine
+        run: python -m pip install -r engine/requirements.txt
+
+      - name: Discover league and rebuild deterministic history
+        env:
+          CONFIG: ${{ github.workspace }}/league/league.json
+          DATA_ROOT: ${{ github.workspace }}/league/.automation/data
+        run: |
+          python engine/src/process_tour.py --config "$CONFIG" --data-root "$DATA_ROOT"
+
+      - name: Plan publication queue
+        id: queue
+        env:
+          FORCE_REBUILD: ${{ github.event_name == 'workflow_dispatch' && inputs.force_rebuild || false }}
+        run: |
+          mkdir -p league/.automation
+          python engine/src/event_queue.py plan league/.automation/data/history.json \
+            --state league/.automation/published-events.json \
+            --write-state --output /tmp/publish-plan.json
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          p=json.load(open('/tmp/publish-plan.json'))
+          missing=[int(x) for x in p['missingEventIdsOldestFirst']]
+          latest=int(p['latestCompletedEventId'])
+          force=os.environ.get('FORCE_REBUILD','false').lower()=='true'
+          targets=missing[:] if missing else ([latest] if force else [])
+          print(f"latest={latest}")
+          print("missing="+" ".join(map(str,missing)))
+          print("targets="+" ".join(map(str,targets)))
+          print("rebuild="+("true" if targets else "false"))
+          PY
+          cat /tmp/publish-plan.json
+
+      - name: Require OpenAI key when rebuilding
+        if: steps.queue.outputs.rebuild == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: test -n "$OPENAI_API_KEY" || (echo "Add OPENAI_API_KEY as a repository secret." && exit 1)
+
+      - name: Generate rolling league copy
+        if: steps.queue.outputs.rebuild == 'true'
+        working-directory: engine
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.4-mini-2026-03-17
+          OPENAI_FALLBACK_MODEL: gpt-5.6-luna
+          OPENAI_TRANSIENT_ATTEMPTS: "6"
+          OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
+          DATA_ROOT: ${{ github.workspace }}/league/.automation/data
+          CHECKPOINTS: ${{ github.workspace }}/league/.automation/ai-checkpoints/league
+        run: |
+          python src/run_batched_league_copy.py "$DATA_ROOT/history.json" \
+            --output "$DATA_ROOT/league-copy.json" \
+            --facts-output "$DATA_ROOT/league-facts.json" \
+            --checkpoint-dir "$CHECKPOINTS" --batch-size 6
+
+      - name: Generate queued tournament recaps
+        if: steps.queue.outputs.rebuild == 'true'
+        working-directory: engine
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.4-mini-2026-03-17
+          OPENAI_FALLBACK_MODEL: gpt-5.6-luna
+          OPENAI_TRANSIENT_ATTEMPTS: "6"
+          OPENAI_REQUEST_TIMEOUT_SECONDS: "120"
+          TARGETS: ${{ steps.queue.outputs.targets }}
+          CONFIG: ${{ github.workspace }}/league/league.json
+          DATA_ROOT: ${{ github.workspace }}/league/.automation/data
+          CHECKPOINTS: ${{ github.workspace }}/league/.automation/ai-checkpoints/recap
+        run: |
+          set -euo pipefail
+          mkdir -p "$DATA_ROOT/copy" "$DATA_ROOT/facts"
+          for EVENT_ID in $TARGETS; do
+            python src/run_batched_recap.py "$DATA_ROOT/analysis/$EVENT_ID.json" \
+              --history "$DATA_ROOT/history.json" --config "$CONFIG" \
+              --output "$DATA_ROOT/copy/$EVENT_ID.json" \
+              --facts-output "$DATA_ROOT/facts/$EVENT_ID.json" \
+              --checkpoint-dir "$CHECKPOINTS" --batch-size 6
+          done
+
+      - name: Persist recoverable deterministic data and AI checkpoints
+        if: always() && steps.queue.outputs.rebuild == 'true'
+        working-directory: league
+        run: |
+          rm -rf .automation/data/work
+          git config user.name "sgt-recap-auto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add .automation/data .automation/ai-checkpoints .automation/published-events.json
+          if git diff --cached --quiet; then
+            echo "No recovery state to persist."
+            exit 0
+          fi
+          git commit -m "Checkpoint SGT recap generation"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Render configured league site
+        if: steps.queue.outputs.rebuild == 'true'
+        working-directory: engine
+        env:
+          CONFIG: ${{ github.workspace }}/league/league.json
+          DATA_ROOT: ${{ github.workspace }}/league/.automation/data
+        run: python src/render_site.py --config "$CONFIG" --data-root "$DATA_ROOT" --output site-generic
+
+      - name: Validate generated site
+        if: steps.queue.outputs.rebuild == 'true'
+        env:
+          TARGETS: ${{ steps.queue.outputs.targets }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          site=Path('engine/site-generic')
+          config=json.loads(Path('league/league.json').read_text())
+          history=json.loads(Path('league/.automation/data/history.json').read_text())
+          index=(site/'index.html').read_text()
+          assert site.joinpath('index.html').exists()
+          assert 'data-profile-search' in index
+          assert 'data-profile-more' in index
+          assert 'data-archive-more' in index
+          assert (config.get('site') or {}).get('brand','').split(' / ')[0].upper() in index.upper()
+          targets=[int(x) for x in os.environ['TARGETS'].split()]
+          for event_id in targets:
+              recap=site/'recaps'/f'{event_id}.html'
+              assert recap.exists(),f'missing recap {event_id}'
+              text=recap.read_text()
+              for marker in ('Carnage Board','Player by player','data-carnage-search','data-round-player-search','data-player-more'):
+                  assert marker.lower() in text.lower(),f'{event_id}: {marker}'
+          print('GENERIC LEAGUE SITE VALIDATION PASSED')
+          PY
+
+      - name: Apply validated site and advance published-event state
+        if: steps.queue.outputs.rebuild == 'true'
+        env:
+          MISSING: ${{ steps.queue.outputs.missing }}
+        run: |
+          set -euo pipefail
+          cp engine/site-generic/index.html league/index.html
+          rm -rf league/recaps
+          cp -R engine/site-generic/recaps league/recaps
+          for EVENT_ID in $MISSING; do
+            python engine/src/event_queue.py mark league/.automation/data/history.json \
+              --state league/.automation/published-events.json --event "$EVENT_ID" >/dev/null
+          done
+          rm -rf league/.automation/ai-checkpoints
+          rm -rf league/.automation/data/work
+
+      - name: Publish validated site
+        id: publish
+        if: steps.queue.outputs.rebuild == 'true'
+        working-directory: league
+        env:
+          TARGETS: ${{ steps.queue.outputs.targets }}
+        run: |
+          git config user.name "sgt-recap-auto-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html recaps/ .automation/
+          if git diff --cached --quiet; then
+            echo "published=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Publish queued SGT events: $TARGETS"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "published=true" >> "$GITHUB_OUTPUT"
+
+      - name: Optional Discord post for newly published events
+        if: steps.publish.outputs.published == 'true' && steps.queue.outputs.missing != ''
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          NEW_EVENTS: ${{ steps.queue.outputs.missing }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "No Discord webhook configured; site publication is complete."
+            exit 0
+          fi
+          python - <<'PY'
+          import json, os, urllib.request
+          from pathlib import Path
+          import subprocess
+
+          cfg=json.loads(Path('league/league.json').read_text())
+          data=Path('league/.automation/data')
+          base=(cfg.get('site') or {}).get('baseUrl','').rstrip('/')
+          if not base:
+              print('site.baseUrl is blank; skipping Discord.')
+              raise SystemExit(0)
+          league_name=cfg.get('tourName') or (cfg.get('site') or {}).get('title') or 'SGT League'
+          awards=((cfg.get('discord') or {}).get('awardsHeading') or 'LEAGUE HARDWARE')
+          for event_id in [int(x) for x in os.environ['NEW_EVENTS'].split()]:
+              out=Path('/tmp/discord-payload.json')
+              cmd=['python','engine/src/build_discord_payload.py',
+                   str(data/'analysis'/f'{event_id}.json'),
+                   str(data/'copy'/f'{event_id}.json'),
+                   '--recap-url',f'{base}/recaps/{event_id}.html',
+                   '--league-name',league_name,'--awards-heading',awards,
+                   '--output',str(out)]
+              subprocess.run(cmd,check=True)
+              payload=json.loads(out.read_text())
+              for message in payload['messages']:
+                  body=json.dumps({'content':message}).encode()
+                  req=urllib.request.Request(os.environ['DISCORD_WEBHOOK_URL'],data=body,headers={'Content-Type':'application/json','User-Agent':'sgt-recap-auto-bot'})
+                  with urllib.request.urlopen(req,timeout=20) as response:
+                      if response.status not in (200,204):
+                          raise RuntimeError(f'Discord HTTP {response.status}')
+          PY
