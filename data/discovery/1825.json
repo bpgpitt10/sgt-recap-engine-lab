@@ -1,19 +1,85 @@
 {
   "tourId": 1825,
   "tourName": "High Loft / Low Standards",
-  "fetchedAt": "2026-08-29T17:12:59.474118+00:00",
+  "fetchedAt": "2026-10-30T20:27:39.922046+00:00",
   "active": [
     {
-      "id": 70248,
+      "id": 80644,
       "status": "active",
+      "tourName": "Week 7 Valhalla",
+      "course": "Valhalla",
+      "date": "2026-11-08",
+      "displayDate": "Nov 8, 2026",
+      "url": "https://simulatorgolftour.com/tournament/80644"
+    }
+  ],
+  "completed": [
+    {
+      "id": 79136,
+      "status": "completed",
+      "tourName": "Week 6 The Old Game",
+      "course": "The Old Game",
+      "date": "2026-10-27",
+      "displayDate": "Oct 27, 2026",
+      "url": "https://simulatorgolftour.com/tournament/79136",
+      "grossWinner": "Dan94",
+      "netWinner": "MashedBROtato"
+    },
+    {
+      "id": 77745,
+      "status": "completed",
+      "tourName": "Week 5 Shaftesbury Glen",
+      "course": "Shaftesbury Glen Golf and Fish Club",
+      "date": "2026-10-18",
+      "displayDate": "Oct 18, 2026",
+      "url": "https://simulatorgolftour.com/tournament/77745",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
+    {
+      "id": 76248,
+      "status": "completed",
+      "tourName": "Week 4 Arcadia Bluffs",
+      "course": "Arcadia Bluffs",
+      "date": "2026-10-10",
+      "displayDate": "Oct 10, 2026",
+      "url": "https://simulatorgolftour.com/tournament/76248",
+      "grossWinner": "Dan94",
+      "netWinner": "Dan94"
+    },
+    {
+      "id": 74009,
+      "status": "completed",
+      "tourName": "Tobacco Road Week 3",
+      "course": "Tobacco Road",
+      "date": "2026-09-30",
+      "displayDate": "Sep 30, 2026",
+      "url": "https://simulatorgolftour.com/tournament/74009",
+      "grossWinner": "KeithK75",
+      "netWinner": "MattF"
+    },
+    {
+      "id": 71903,
+      "status": "completed",
+      "tourName": "Week 2 Greywolf",
+      "course": "Greywolf Golf Course",
+      "date": "2026-09-19",
+      "displayDate": "Sep 19, 2026",
+      "url": "https://simulatorgolftour.com/tournament/71903",
+      "grossWinner": "Dan94",
+      "netWinner": "tnboles77"
+    },
+    {
+      "id": 70248,
+      "status": "completed",
       "tourName": "Week 1 Trosper Golf Club",
       "course": "Trosper Golf Club",
       "date": "2026-09-05",
       "displayDate": "Sep 5, 2026",
-      "url": "https://simulatorgolftour.com/tournament/70248"
-    }
-  ],
-  "completed": [
+      "url": "https://simulatorgolftour.com/tournament/70248",
+      "grossWinner": "KeithK75",
+      "netWinner": "KeithK75"
+    },
     {
       "id": 66943,
       "status": "completed",
