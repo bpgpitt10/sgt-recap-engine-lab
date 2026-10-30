@@ -150,8 +150,10 @@ def validate_copy(copy: dict, facts: dict) -> None:
     if actual_c != expected_c:
         raise RuntimeError(f"Carnage comments must preserve supplied order. Expected {expected_c}, got {actual_c}")
     finishing = re.compile(
-        r"\b(?:winner|runner[- ]?up|finished|finishing|finish(?:ed|es|ing)?\s+(?:first|second|third|\d{1,2}(?:st|nd|rd|th))|"
-        r"(?:first|second|third|\d{1,2}(?:st|nd|rd|th))\s+(?:place|position)|place|position)\b",
+        r"\b(?:winner|runner[- ]?up|finished|finishing|"
+        r"finish(?:ed|es|ing)?\s+(?:first|second|third|\d{1,2}(?:st|nd|rd|th))|"
+        r"(?:first|second|third|\d{1,2}(?:st|nd|rd|th))\s+(?:place|position)|"
+        r"(?:place|position)\s+(?:first|second|third|\d{1,2}(?:st|nd|rd|th)))\b",
         re.I,
     )
     all_text = [copy.get("thirtySeconds", ""), copy.get("latestTournamentTeaser", ""), copy.get("stateOfLeague", "")]
