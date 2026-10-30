@@ -148,9 +148,8 @@ def recap(event: dict, analysis: dict, copy: dict, config: dict) -> str:
     carnage_copy = {x["name"]: x["commentary"] for x in copy.get("carnage", [])}
     for i, item in enumerate(analysis.get("carnage", [])):
         classes = "hole-card champ" if i == 0 else "hole-card"
-        hole = item.get("hole") or {}
-        damage = int(hole.get("grossToPar") or 0)
-        carnage.append(f'''<article class="{classes}" data-carnage-card><div class="hole-top"><div><div class="eyebrow">{'🏆 Carnage Champion' if i==0 else 'Worst hole'}</div><span class="player-name">{e(item.get('name'))}</span><div>Hole {e(hole.get('hole'))} · Par {e(hole.get('par'))}</div></div><div class="hole-score">{e(hole.get('gross'))} <small>({damage:+d})</small></div></div><p>{e(carnage_copy.get(item.get('name'),'') )}</p></article>''')
+        damage = int(item.get("grossToPar") or 0)
+        carnage.append(f'''<article class="{classes}" data-carnage-card><div class="hole-top"><div><div class="eyebrow">{'🏆 Carnage Champion' if i==0 else 'Worst hole'}</div><span class="player-name">{e(item.get('name'))}</span><div>Hole {e(item.get('hole'))} · Par {e(item.get('par'))}</div></div><div class="hole-score">{e(item.get('gross'))} <small>({damage:+d})</small></div></div><p>{e(carnage_copy.get(item.get('name'),'') )}</p></article>''')
     by_copy = {x["name"]: x for x in copy.get("players", [])}
     players = []
     for p in analysis.get("players", []):
