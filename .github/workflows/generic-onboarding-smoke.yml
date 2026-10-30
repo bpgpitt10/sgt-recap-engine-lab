@@ -83,4 +83,52 @@ jobs:
           sg_players=[p for p in h['scopes']['5']['players'] if any((p.get('sg') or {}).get(k) is not None for k in ('tee','approach','shortGame','putting'))]
           print('LAST5 players with SG=',len(sg_players),'of',len(h['scopes']['5']['players']))
           PY
+      - name: Runtime-render generic large-field HTML with deterministic placeholder copy
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path('data/leagues/tour-1534')
+          h=json.loads((root/'history.json').read_text())
+          scopes={}
+          for name,scope in h['scopes'].items():
+              scopes[name]={
+                  'leagueSummary':'Placeholder summary.',
+                  'leagueBullets':['One','Two','Three'],
+                  'profiles':[{'name':p['name'],'tagline':'TEST GOLF IDENTITY','profile':'Placeholder profile copy.'} for p in scope['players']],
+              }
+          (root/'league-copy.json').write_text(json.dumps({
+              'schemaVersion':3,'defaultScope':h['defaultScope'],'availableScopes':h['availableScopes'],'scopes':scopes
+          }))
+          latest=int(h['completedEvents'][0]['id'])
+          a=json.loads((root/'analysis'/f'{latest}.json').read_text())
+          completed=[p for p in a['players'] if p.get('completed')]
+          copy={
+              'thirtySeconds':'Placeholder tournament summary.',
+              'latestTournamentTeaser':'Placeholder tournament teaser.',
+              'stateOfLeague':'Placeholder state of league.',
+              'carnage':[{'name':x['name'],'commentary':'Placeholder carnage.'} for x in a['carnage']],
+              'players':[{'name':p['name'],'tagline':'TEST ROUND IDENTITY','body':'Placeholder round breakdown.'} for p in completed],
+          }
+          (root/'copy').mkdir(exist_ok=True)
+          (root/'copy'/f'{latest}.json').write_text(json.dumps(copy))
+          print('Prepared placeholder copy for runtime renderer test')
+          PY
+          python src/render_site.py --config configs/tour-1534.json --data-root data/leagues/tour-1534 --output site-tour-1534-smoke
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          h=json.loads(Path('data/leagues/tour-1534/history.json').read_text())
+          latest=str(h['completedEvents'][0]['id'])
+          index=Path('site-tour-1534-smoke/index.html').read_text()
+          recap=Path(f'site-tour-1534-smoke/recaps/{latest}.html').read_text()
+          assert "CRUSH'S PAR3" in index
+          assert 'HIGH LOFT' not in index.upper()
+          for marker in ('data-profile-search','data-profile-more','data-archive-more','data-season-scroll-note'):
+              assert marker in index, marker
+          for marker in ('data-carnage-search','data-round-player-search','data-carnage-more','data-player-more','data-round-expand'):
+              assert marker in recap, marker
+          print('GENERIC RENDER RUNTIME PASSED')
+          PY
 # trigger latest renderer
