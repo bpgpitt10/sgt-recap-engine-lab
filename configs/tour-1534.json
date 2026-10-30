@@ -1,0 +1,29 @@
+{
+  "leagueId": "crush-par3-exec",
+  "tourId": 1534,
+  "tourName": "crush's par3 and exec league",
+  "primaryCompetition": "net",
+  "ignoreEventIds": [],
+  "pinnedCompletedEvents": [],
+  "history": {
+    "defaultScope": "10",
+    "scopes": ["all", "5", "10", "20"],
+    "excludeEventIds": []
+  },
+  "competitionOverrides": {},
+  "site": {
+    "title": "crush's par3 and exec league",
+    "brand": "CRUSH'S PAR3 / EXEC LEAGUE",
+    "footer": "crush's par3 and exec league · simulator golf with documentation.",
+    "baseUrl": "",
+    "recapSlugs": {}
+  },
+  "publishing": {
+    "batchSize": 6,
+    "profilePageSize": 12,
+    "playerRecapPageSize": 10,
+    "carnageInitial": 10,
+    "archiveInitial": 6,
+    "archivePageSize": 10
+  }
+}

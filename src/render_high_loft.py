@@ -200,6 +200,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Render the production High Loft site without rewriting historical recaps.")
     parser.add_argument("--production-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=Path("site-high-loft"))
+    parser.add_argument(
+        "--recap-event-id",
+        type=int,
+        action="append",
+        default=[],
+        help="Generate a recap page for this event ID. Repeat for multiple newly queued events. Defaults to latest only.",
+    )
     args = parser.parse_args()
 
     production_root = args.production_root.resolve()
@@ -213,22 +220,35 @@ def main() -> None:
     analyses = analysis_map()
     latest_event = history["completedEvents"][0]
     latest_id = int(latest_event["id"])
-    latest_analysis = analyses[latest_id]
     latest_copy = copy_for(latest_id)
-    latest_slug = recap_slug(latest_event, cfg)
-    excluded = latest_id in {int(x["id"]) for x in history.get("excludedProfileEvents", [])}
 
     (output / "index.html").write_text(
         landing(history, league_copy, analyses, latest_copy, cfg, production_root),
         encoding="utf-8",
     )
-    (output / "recaps" / f"{latest_slug}.html").write_text(
-        recap_page(latest_event, latest_analysis, latest_copy, cfg, excluded),
-        encoding="utf-8",
-    )
 
-    print(f"Rendered High Loft landing page and latest recap {latest_id} -> {latest_slug}.html")
-    print("Historical recap files were intentionally not generated or rewritten.")
+    requested_ids = args.recap_event_id or [latest_id]
+    events_by_id = {int(event["id"]): event for event in history["completedEvents"]}
+    excluded_ids = {int(x["id"]) for x in history.get("excludedProfileEvents", [])}
+    rendered = []
+    for event_id in requested_ids:
+        event = events_by_id.get(int(event_id))
+        if event is None:
+            raise RuntimeError(f"Requested recap event {event_id} is not in completed history")
+        analysis = analyses.get(int(event_id))
+        if analysis is None:
+            raise RuntimeError(f"Requested recap event {event_id} is missing deterministic analysis")
+        event_copy = copy_for(int(event_id))
+        event_slug = recap_slug(event, cfg)
+        (output / "recaps" / f"{event_slug}.html").write_text(
+            recap_page(event, analysis, event_copy, cfg, int(event_id) in excluded_ids),
+            encoding="utf-8",
+        )
+        rendered.append((int(event_id), event_slug))
+
+    print(f"Rendered High Loft landing page for latest completed event {latest_id}")
+    print("Generated queued recap pages: " + ", ".join(f"{event_id}->{slug}.html" for event_id, slug in rendered))
+    print("Already-published historical recap files were intentionally not generated or rewritten.")
 
 
 if __name__ == "__main__":

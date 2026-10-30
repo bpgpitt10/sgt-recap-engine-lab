@@ -1,0 +1,32 @@
+{
+  "leagueId": "your-league-slug",
+  "tourId": 1234,
+  "tourName": "Your SGT League",
+  "primaryCompetition": "net",
+  "ignoreEventIds": [],
+  "pinnedCompletedEvents": [],
+  "history": {
+    "defaultScope": "10",
+    "scopes": ["all", "5", "10", "20"],
+    "excludeEventIds": []
+  },
+  "competitionOverrides": {},
+  "site": {
+    "title": "Your SGT League",
+    "brand": "YOUR LEAGUE",
+    "footer": "Your SGT League · simulator golf with documentation.",
+    "baseUrl": "",
+    "recapSlugs": {}
+  },
+  "publishing": {
+    "batchSize": 6,
+    "profilePageSize": 12,
+    "playerRecapPageSize": 10,
+    "carnageInitial": 10,
+    "archiveInitial": 6,
+    "archivePageSize": 10
+  },
+  "discord": {
+    "awardsHeading": "LEAGUE HARDWARE"
+  }
+}

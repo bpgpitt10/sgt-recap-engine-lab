@@ -123,8 +123,14 @@ def build_fact_package(analysis: dict, config: dict, history: dict | None) -> di
         "priorHistory": historical.get("players", {}).get(p.get("name")),
     } for p in completed]
     leaderboard, winners = analysis.get("leaderboard") or {}, analysis.get("winners") or {}
+    tournament_id = str((analysis.get("tournament") or {}).get("id") or "")
+    primary = (
+        (config.get("competitionOverrides") or {}).get(tournament_id)
+        or config.get("primaryCompetition")
+        or "net"
+    )
     return {
-        "league": {"name": config.get("tourName"), "tourId": config.get("tourId"), "primaryCompetition": "net"},
+        "league": {"name": config.get("tourName"), "tourId": config.get("tourId"), "primaryCompetition": primary},
         "tournament": analysis.get("tournament"),
         "winners": {"net": compact_standing(winners.get("net")), "gross": compact_standing(winners.get("gross"))},
         "leaderboard": {"net": [compact_standing(x) for x in leaderboard.get("net", [])], "gross": [compact_standing(x) for x in leaderboard.get("gross", [])]},

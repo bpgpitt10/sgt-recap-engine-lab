@@ -17,9 +17,14 @@ BASE_URL = "https://simulatorgolftour.com"
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_config() -> dict:
-    with (ROOT / "config.json").open("r", encoding="utf-8") as fh:
-        return json.load(fh)
+def load_config(path: Path | str | None = None) -> dict:
+    config_path = Path(path) if path is not None else (ROOT / "config.json")
+    if not config_path.is_absolute():
+        config_path = ROOT / config_path
+    with config_path.open("r", encoding="utf-8") as fh:
+        config = json.load(fh)
+    config["_configPath"] = str(config_path)
+    return config
 
 
 def browser_headers(tour_id: int, *, ajax: bool = False) -> dict[str, str]:
