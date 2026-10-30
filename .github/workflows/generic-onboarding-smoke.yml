@@ -76,3 +76,4 @@ jobs:
           sg_players=[p for p in h['scopes']['5']['players'] if any((p.get('sg') or {}).get(k) is not None for k in ('tee','approach','shortGame','putting'))]
           print('LAST5 players with SG=',len(sg_players),'of',len(h['scopes']['5']['players']))
           PY
+# trigger
