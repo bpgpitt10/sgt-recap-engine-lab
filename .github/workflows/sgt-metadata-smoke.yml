@@ -18,7 +18,14 @@ jobs:
           from discover import fetch_events_html, parse_events
           raw=fetch_events_html(1825)
           parsed=parse_events(raw,1825,"High Loft")
-          print('PARSED RECENT EVENTS',[(x['id'],x['tourName'],x['course'],x['date']) for x in parsed['completed'][:5]])
+          print('PARSED RECENT EVENTS',[(x['id'],x['tourName'],x['course'],x['date'],x.get('netWinner'),x.get('grossWinner')) for x in parsed['completed'][:5]])
+          by_id={x['id']:x for x in parsed['completed']}
+          assert by_id[82812]['tourName']=='Week 8 Muirfield Village',by_id[82812]
+          assert by_id[82812]['date']=='2026-11-16',by_id[82812]
+          assert by_id[82812]['netWinner']=='KeithK75',by_id[82812]
+          assert by_id[80644]['tourName'].strip()=='Week 7 Valhalla',by_id[80644]
+          assert by_id[80644]['date']=='2026-11-08',by_id[80644]
+          print('NEW CARD PARSER VALIDATION PASSED')
           soup=BeautifulSoup(raw,'html.parser')
           for eid in (82812,80644):
               link=soup.find('a',href=f'/tournament/{eid}')
