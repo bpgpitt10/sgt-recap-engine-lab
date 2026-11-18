@@ -115,7 +115,17 @@ def parse_date(value: str | None) -> str | None:
 
 
 def winner_from_card(card, label: str) -> str | None:
+    # Current SGT cards use GROSS / NET labels inside .event-winner;
+    # older cards used GROSS WINNER / NET WINNER.
     wanted = label.upper()
+    short_label = wanted.split()[0]
+    for winner in card.select(".event-winner"):
+        label_node = winner.select_one(".event-winner-label")
+        if label_node and text(label_node).upper() == short_label:
+            link = winner.find("a", href=re.compile(r"^/profile/"))
+            if link:
+                return text(link)
+
     for node in card.find_all("div"):
         if text(node) and text(node).upper() == wanted:
             parent = node.parent
@@ -136,9 +146,12 @@ def parse_event_card(card, status: str) -> dict | None:
     info = card.find("div", class_=lambda value: value and "flex-fill" in value)
     direct = info.find_all("div", recursive=False) if info else []
 
-    tour_name = text(direct[0]) if len(direct) > 0 else None
-    course = text(direct[1]) if len(direct) > 1 else None
-    display_date = text(direct[2]) if len(direct) > 2 else None
+    # SGT switched to .sgt-event-card markup in November 2026.
+    # The .event-date badge is the tournament's completion/end date.
+    # Keep the legacy selectors for historical cards and older instances.
+    tour_name = text(card.select_one(".event-card-name")) or (text(direct[0]) if len(direct) > 0 else None)
+    course = text(card.select_one(".event-card-course")) or (text(direct[1]) if len(direct) > 1 else None)
+    display_date = text(card.select_one(".event-date")) or (text(direct[2]) if len(direct) > 2 else None)
 
     event = {
         "id": int(match.group(1)),
